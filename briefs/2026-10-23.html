@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Blockchain Brief, 23 Oct 2026</title>
+<meta name="description" content="Aztec dates its post-quantum migration to 2030, ships V6 and relaunches zk.money, and OP Stack Upgrade 20 rebuilds fault proofs for interop.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-title-en="Blockchain Brief, 23 Oct 2026" data-title-ja="ブロックチェーン・ブリーフ 2026年10月23日">
+<div class="bar"><div class="bar-in">
+  <a class="home" href="../">Blockchain Brief</a>
+  <div class="controls">
+    <div class="seg" role="group" aria-label="Language"><button type="button" data-set-lang="en" aria-pressed="true">EN</button><button type="button" data-set-lang="ja" aria-pressed="false">日本語</button></div>
+  </div>
+</div></div>
+
+<main class="wrap">
+
+<!-- Read-aloud panel (shared; labels follow the language toggle) -->
+<section class="audio" id="audio" aria-label="Read aloud" data-noread>
+  <div class="audio-row">
+    <button type="button" class="btn primary" data-a="play">▶ Listen</button>
+    <button type="button" class="btn" data-a="stop" disabled>■ Stop</button>
+    <select class="btn" data-a="scope" aria-label="What to read"><option value="all">Whole brief</option><option value="dev">Dev only</option><option value="nondev">Non-dev only</option></select>
+  </div>
+  <div class="audio-row">
+    <label class="status"><span data-a="speedlbl">Speed</span>
+      <select class="btn" data-a="rate"><option value="0.8">0.8×</option><option value="0.9">0.9×</option><option value="1" selected>1×</option><option value="1.15">1.15×</option><option value="1.3">1.3×</option><option value="1.5">1.5×</option></select></label>
+    <label class="status"><span data-a="voicelbl">Voice</span>
+      <select class="btn" data-a="voice"></select></label>
+  </div>
+  <p class="status" data-a="status" aria-live="polite"></p>
+</section>
+
+<!-- ===================== ENGLISH ===================== -->
+<article data-lang="en" class="wrap" style="padding:0">
+  <header class="brief">
+    <span class="mono meta">Daily brief · 23 Oct 2026 · about 4 min read</span>
+    <h1>Blockchain Brief, 23 Oct 2026</h1>
+    <p class="lede">A privacy rollup publishes a dated plan for surviving quantum computers, ships an upgrade and relaunches a private wallet, while the OP Stack rebuilds its fault proofs so its chains can talk to each other.</p>
+    <p class="note">Two items are from the past week and one is a slightly older change developers now need to account for. Claims I could not confirm from a primary or second independent source are flagged as unverified.</p>
+    <nav class="jump" data-noread aria-label="Sections"><a class="dev" href="#dev-en">Dev ↓</a><a class="nondev" href="#nondev-en">Non-dev ↓</a></nav>
+  </header>
+
+  <section class="track dev" id="dev-en">
+    <div class="track-head"><h2>Dev</h2><p>Protocol changes, contract risks, security details and tooling.</p></div>
+    <div class="item">
+      <span class="tag mono" data-noread>Aztec · roadmap · target end of 2030</span>
+      <h3>Aztec sets a post-quantum timetable</h3>
+      <p>On 15 October, Aztec published a technical paper by Zac Williamson and Mike Connor setting the end of 2030 as its deadline for a full move to post-quantum cryptography (<a href='https://www.cryptotimes.io/2026/10/16/aztec-sets-2030-target-for-full-post-quantum-blockchain-migration/'>The Crypto Times</a>, <a href='https://aztec.network/blog/post-quantum-aztec'>Aztec</a>). It builds on the Quantum Alliance covered on 20 October, but it is the first plan with dated milestones.</p>
+      <p>The milestones are hardened libraries against "harvest now, decrypt later" attacks by February 2027, then a choice of signature scheme (March 2027), public-key encryption (July 2027) and proving system (November 2027). Migration of accounts, key derivation, validator signatures, proofs and Ethereum settlement follows through 2030. Hash-based and lattice-based proof systems are both under evaluation, and the Poseidon2 hash may be replaced.</p>
+      <p class="unverified"><b>Unverified</b>Aztec says the timeline partly depends on Ethereum's own cryptographic upgrades, and it gives no estimate of when quantum computers could break today's keys.</p>
+    </div>
+    <div class="item">
+      <span class="tag mono" data-noread>Aztec · V6 executes 26 Oct</span>
+      <h3>Aztec V6 upgrade</h3>
+      <p>Aztec's V6 upgrade is scheduled to execute on 26 October. It brings faster message passing between Ethereum and Aztec, and it funds the old V5 network for 30 days during the migration (<a href='https://www.kucoin.com/news/flash/aztec-announces-v6-upgrade-approval-voting-still-open'>KuCoin, citing ChainCatcher</a>). V6 is also where patches land for critical bugs that AI-assisted audits found. Private apps on Aztec prove on the user's device, and deposit and withdrawal edges stay public.</p>
+      <p class="unverified"><b>Unverified</b>Aztec announced V6 as approved while its governance dashboard still showed the vote as open. I found no vote tally.</p>
+    </div>
+    <div class="item">
+      <span class="tag mono" data-noread>OP Stack · Upgrade 20</span>
+      <h3>Optimism rebuilds fault proofs for interop</h3>
+      <p>Optimism governance approved Upgrade 20 on 16 September, with mainnet execution targeted for 24 September after a week on testnets (<a href='https://cryptoslate.com/optimism-just-approved-the-upgrade-its-superchain-needs-before-interoperability-can-go-live/'>CryptoSlate</a>, <a href='https://gov.optimism.io/t/upgrade-20-super-root-dispute-games-opcm-v8-0-0/10856'>Optimism forum</a>). It switches fault proofs from Output Root games, which anchor a claim to one chain's block number, to Super Root games, which anchor it to a timestamp. A shared time reference is what lets several OP Stack chains later prove messages to each other.</p>
+      <p>This is a prerequisite, not the launch of interoperability itself. Operators have work to do: op-challenger and op-dispute-mon need Super Root support, op-proposer moves to a new game type, and viem users need version 2.51.0 or later.</p>
+      <p class="unverified"><b>Unverified</b>I could not confirm that mainnet execution happened on 24 September, and no date for interop going live has been published.</p>
+    </div>
+    <div class="item">
+      <h3>What to do this week</h3>
+      <ul class="points"><li>Treat signature and hash choices as replaceable. Aztec's plan expects to swap signatures, encryption, proofs and possibly Poseidon2.</li><li>For private apps, keep proving on the client and assume deposit and withdrawal edges are public.</li><li>OP Stack operators should upgrade op-challenger, op-dispute-mon and op-proposer for Super Root games.</li><li>Bump viem to 2.51.0 or later if you build withdrawals or proofs against OP Stack chains.</li></ul>
+    </div>
+  </section>
+
+  <section class="track nondev" id="nondev-en">
+    <div class="track-head"><h2>Non-dev</h2><p>Market, business and regulation, and what the news means in plain language.</p></div>
+    <div class="item">
+      <span class="tag mono" data-noread>Privacy wallet · Plain summary</span>
+      <h3>zk.money is back for private stablecoin payments</h3>
+      <p>Aztec relaunched zk.money on 29 September, a self-custodial privacy wallet it shut down three years ago. Users claim a name such as bob.zk.money, then send USDC, USDT or DAI. Payments inside the wallet are private, while deposits from Ethereum stay public. Early limits are $2,500 per transaction and a $50,000 daily deposit cap shared by all users (<a href='https://cryptonews.net/news/security/33516274/'>Decrypt via Cryptonews</a>). Aztec also upgrades its network on 26 October, so expect a short migration window.</p>
+    </div>
+    <div class="item">
+      <span class="tag mono" data-noread>Quantum risk · Plain summary</span>
+      <h3>A blockchain puts a date on quantum safety</h3>
+      <p>Future quantum computers could break the cryptography that protects today's wallets. Aztec is one of the first projects to publish dated steps for switching to quantum-resistant methods, with the full move due by the end of 2030 (<a href='https://www.cryptotimes.io/2026/10/16/aztec-sets-2030-target-for-full-post-quantum-blockchain-migration/'>The Crypto Times</a>). Separately, Optimism made a behind-the-scenes change so its family of networks, including Base, can later pass messages to each other. Nothing changes for users, and pending withdrawals stay valid.</p>
+    </div>
+    <div class="item">
+      <h3>As a user</h3>
+      <ul class="points"><li>zk.money hides payments inside the wallet, but your deposit from Ethereum is public, so the link between your address and the deposit is visible.</li><li>Keep amounts small while the $2,500 and $50,000 caps signal an early rollout.</li><li>If you use Aztec, expect a short migration window after 26 October and follow official channels only.</li><li>Nothing changes for OP Mainnet or Base users from Upgrade 20. Pending withdrawals stay valid.</li></ul>
+      <p>Coming up: Aztec V6 executing on 26 October, the first chosen post-quantum signature scheme, and an OP Stack interop launch date.</p>
+    </div>
+  </section>
+
+  <section class="sources">
+    <h2>Sources</h2>
+    <p>Search-based reporting as of 23 October 2026. The Aztec blog and the Optimism forum are primary but I read them through the reporting. The rest are secondary.</p>
+    <ul>
+      <li><a href="https://aztec.network/blog/post-quantum-aztec">Aztec: Post-quantum Aztec</a> <span class="kind">primary</span></li>
+      <li><a href="https://www.cryptotimes.io/2026/10/16/aztec-sets-2030-target-for-full-post-quantum-blockchain-migration/">The Crypto Times: Aztec sets 2030 post-quantum target</a> <span class="kind">secondary</span></li>
+      <li><a href="https://www.kucoin.com/news/flash/aztec-announces-v6-upgrade-approval-voting-still-open">KuCoin: Aztec V6 upgrade approval</a> <span class="kind">aggregator</span></li>
+      <li><a href="https://cryptonews.net/news/security/33516274/">Cryptonews: Aztec brings back zk.money</a> <span class="kind">secondary</span></li>
+      <li><a href="https://gov.optimism.io/t/upgrade-20-super-root-dispute-games-opcm-v8-0-0/10856">Optimism forum: Upgrade 20 proposal</a> <span class="kind">primary</span></li>
+      <li><a href="https://cryptoslate.com/optimism-just-approved-the-upgrade-its-superchain-needs-before-interoperability-can-go-live/">CryptoSlate: Optimism approves Upgrade 20</a> <span class="kind">secondary</span></li>
+    </ul>
+  </section>
+</article>
+
+<!-- ===================== 日本語 ===================== -->
+<article data-lang="ja" class="wrap" style="padding:0" hidden>
+  <header class="brief">
+    <span class="mono meta">デイリーブリーフ · 2026年10月23日 · 約4分</span>
+    <h1>ブロックチェーン・ブリーフ 2026年10月23日</h1>
+    <p class="lede">プライバシー重視のロールアップが量子コンピュータに備える日付入りの計画を公開し、アップグレードとプライベートウォレットの再開を進めています。一方 OP Stack は、チェーン同士がやり取りできるよう不正証明を作り直しています。</p>
+    <p class="note">2件は今週のニュース、1件は少し前の変更ですが開発者が今対応すべきものです。一次情報または独立した2つ目の情報源で確認できなかった内容は「未確認」と明記しています。</p>
+    <nav class="jump" data-noread aria-label="セクション"><a class="dev" href="#dev-ja">Dev ↓</a><a class="nondev" href="#nondev-ja">Non-dev ↓</a></nav>
+  </header>
+
+  <section class="track dev" id="dev-ja">
+    <div class="track-head"><h2>Dev</h2><p>プロトコル変更、コントラクトのリスク、セキュリティの詳細、開発ツール。</p></div>
+    <div class="item">
+      <span class="tag mono" data-noread>Aztec · ロードマップ · 目標は2030年末</span>
+      <h3>Aztec が耐量子暗号への移行日程を設定</h3>
+      <p>10月15日、Aztec は Zac Williamson 氏と Mike Connor 氏による技術文書を公開し、耐量子暗号への完全移行の期限を2030年末と定めました（<a href='https://www.cryptotimes.io/2026/10/16/aztec-sets-2030-target-for-full-post-quantum-blockchain-migration/'>The Crypto Times</a>、<a href='https://aztec.network/blog/post-quantum-aztec'>Aztec</a>）。10月20日に取り上げた Quantum Alliance を土台にしたものですが、日付入りのマイルストーンを持つ計画はこれが初めてです。</p>
+      <p>マイルストーンは、2027年2月までに「今収集して後で解読する」攻撃に備えたライブラリの強化、続いて署名方式（2027年3月）、公開鍵暗号（2027年7月）、証明システム（2027年11月）の選定です。その後2030年にかけて、アカウント、鍵導出、バリデータ署名、証明、イーサリアムへの決済を移行します。ハッシュベースと格子ベースの証明システムの両方を検討中で、ハッシュ関数 Poseidon2 も置き換えられる可能性があります。</p>
+      <p class="unverified"><b>未確認</b>Aztec は日程の一部がイーサリアム自体の暗号アップグレードに左右されるとしており、量子コンピュータが現在の鍵を破れる時期の見積もりは示していません。</p>
+    </div>
+    <div class="item">
+      <span class="tag mono" data-noread>Aztec · V6 は10月26日に実行</span>
+      <h3>Aztec V6 アップグレード</h3>
+      <p>Aztec の V6 アップグレードは10月26日に実行予定です。イーサリアムと Aztec の間のメッセージ受け渡しが速くなり、移行期間中は旧 V5 ネットワークを30日間維持する資金も用意されます（<a href='https://www.kucoin.com/news/flash/aztec-announces-v6-upgrade-approval-voting-still-open'>KuCoin、ChainCatcher を引用</a>）。AI を使った監査で見つかった重大なバグの修正も V6 で入ります。Aztec 上のプライベートアプリは利用者の端末で証明を作り、入金と出金の境界は公開のままです。</p>
+      <p class="unverified"><b>未確認</b>Aztec はガバナンスのダッシュボードで投票がまだ受付中と表示されている時点で V6 の承認を発表しました。得票数は確認できませんでした。</p>
+    </div>
+    <div class="item">
+      <span class="tag mono" data-noread>OP Stack · Upgrade 20</span>
+      <h3>Optimism が相互運用に向けて不正証明を再構築</h3>
+      <p>Optimism のガバナンスは9月16日に Upgrade 20 を承認し、テストネットで1週間動かした後、9月24日のメインネット実行を目指しました（<a href='https://cryptoslate.com/optimism-just-approved-the-upgrade-its-superchain-needs-before-interoperability-can-go-live/'>CryptoSlate</a>、<a href='https://gov.optimism.io/t/upgrade-20-super-root-dispute-games-opcm-v8-0-0/10856'>Optimism フォーラム</a>）。不正証明を、主張を1つのチェーンのブロック番号に結びつける Output Root ゲームから、タイムスタンプに結びつける Super Root ゲームに切り替えます。共通の時刻基準があることで、のちに複数の OP Stack チェーンが互いのメッセージを証明できるようになります。</p>
+      <p>これは相互運用そのものの開始ではなく、その前提条件です。運用者には作業があります。op-challenger と op-dispute-mon は Super Root に対応する必要があり、op-proposer は新しいゲームタイプに移り、viem はバージョン2.51.0以降が必要です。</p>
+      <p class="unverified"><b>未確認</b>9月24日にメインネットで実行されたかは確認できず、相互運用の開始日も公表されていません。</p>
+    </div>
+    <div class="item">
+      <h3>今週やること</h3>
+      <ul class="points"><li>署名やハッシュの選択は差し替え可能なものとして扱う。Aztec の計画では署名、暗号、証明、場合によっては Poseidon2 も入れ替える前提です。</li><li>プライベートアプリでは証明をクライアント側で作り、入金と出金の境界は公開されると考える。</li><li>OP Stack の運用者は、Super Root ゲームに向けて op-challenger、op-dispute-mon、op-proposer を更新する。</li><li>OP Stack チェーン向けに出金や証明を実装しているなら、viem を2.51.0以降に上げる。</li></ul>
+    </div>
+  </section>
+
+  <section class="track nondev" id="nondev-ja">
+    <div class="track-head"><h2>Non-dev</h2><p>市場・ビジネス・規制と、ニュースが何を意味するかのやさしい解説。</p></div>
+    <div class="item">
+      <span class="tag mono" data-noread>プライバシーウォレット · やさしい解説</span>
+      <h3>非公開のステーブルコイン送金ができる zk.money が復活</h3>
+      <p>Aztec は9月29日、3年前に終了した自己管理型のプライバシーウォレット zk.money を再開しました。利用者は bob.zk.money のような名前を取得し、USDC、USDT、DAI を送れます。ウォレット内の送金は非公開ですが、イーサリアムからの入金は公開されたままです。当初の上限は1回2,500ドル、全利用者合計で1日5万ドルの入金枠です（<a href='https://cryptonews.net/news/security/33516274/'>Decrypt（Cryptonews 経由）</a>）。Aztec は10月26日にネットワークを更新するため、短い移行期間があります。</p>
+    </div>
+    <div class="item">
+      <span class="tag mono" data-noread>量子リスク · やさしい解説</span>
+      <h3>量子コンピュータ対策に期限を設けたブロックチェーン</h3>
+      <p>将来の量子コンピュータは、今のウォレットを守る暗号を破れるかもしれません。Aztec は量子耐性のある方式に切り替える手順を日付付きで公開した最初のプロジェクトの1つで、完全移行の期限は2030年末です（<a href='https://www.cryptotimes.io/2026/10/16/aztec-sets-2030-target-for-full-post-quantum-blockchain-migration/'>The Crypto Times</a>）。別の話として、Optimism は Base を含む関連ネットワーク同士がのちにメッセージをやり取りできるよう、裏側の仕組みを変えました。利用者への影響はなく、処理中の出金もそのまま有効です。</p>
+    </div>
+    <div class="item">
+      <h3>利用者として</h3>
+      <ul class="points"><li>zk.money はウォレット内の送金を隠しますが、イーサリアムからの入金は公開されるため、自分のアドレスと入金の結びつきは見えます。</li><li>2,500ドルと5万ドルの上限は初期段階のしるしなので、金額は小さく抑える。</li><li>Aztec を使っているなら、10月26日以降の短い移行期間に備え、公式の案内だけに従う。</li><li>Upgrade 20 で OP Mainnet や Base の利用者に変わることはありません。処理中の出金も有効です。</li></ul>
+      <p>今後の予定：10月26日の Aztec V6 の実行、最初に選ばれる耐量子署名方式、OP Stack の相互運用の開始日。</p>
+    </div>
+  </section>
+
+  <section class="sources">
+    <h2>出典</h2>
+    <p>2026年10月23日時点の検索に基づく報道です。Aztec ブログと Optimism フォーラムは一次情報ですが、報道を通じて読みました。ほかは二次情報です。</p>
+    <ul>
+      <li><a href="https://aztec.network/blog/post-quantum-aztec">Aztec: Post-quantum Aztec</a> <span class="kind">一次情報</span></li>
+      <li><a href="https://www.cryptotimes.io/2026/10/16/aztec-sets-2030-target-for-full-post-quantum-blockchain-migration/">The Crypto Times: Aztec sets 2030 post-quantum target</a> <span class="kind">二次情報</span></li>
+      <li><a href="https://www.kucoin.com/news/flash/aztec-announces-v6-upgrade-approval-voting-still-open">KuCoin: Aztec V6 upgrade approval</a> <span class="kind">まとめサイト</span></li>
+      <li><a href="https://cryptonews.net/news/security/33516274/">Cryptonews: Aztec brings back zk.money</a> <span class="kind">二次情報</span></li>
+      <li><a href="https://gov.optimism.io/t/upgrade-20-super-root-dispute-games-opcm-v8-0-0/10856">Optimism forum: Upgrade 20 proposal</a> <span class="kind">一次情報</span></li>
+      <li><a href="https://cryptoslate.com/optimism-just-approved-the-upgrade-its-superchain-needs-before-interoperability-can-go-live/">CryptoSlate: Optimism approves Upgrade 20</a> <span class="kind">二次情報</span></li>
+    </ul>
+  </section>
+</article>
+
+<section class="comments" id="comments" data-noread>
+  <h2><span data-lang="en">Reader feedback</span><span data-lang="ja" hidden>読者のコメント</span></h2>
+  <p class="note"><span data-lang="en">Comments use GitHub sign-in, so every commenter is a real GitHub account. Be kind and stay on topic.</span><span data-lang="ja" hidden>コメントには GitHub へのログインが必要です。思いやりを持って、話題に沿って書き込んでください。</span></p>
+  <div class="giscus"></div>
+</section>
+
+<nav class="pager" data-noread>
+  <a href="../"><span data-lang="en">← All briefs</span><span data-lang="ja" hidden>← バックナンバー</span></a>
+  <span></span>
+</nav>
+</main>
+<script src="../assets/brief.js"></script>
+</body>
+</html>

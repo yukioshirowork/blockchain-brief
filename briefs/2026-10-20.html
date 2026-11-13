@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Blockchain Brief, 20 Oct 2026</title>
+<meta name="description" content="Glamsterdam heads to its final testnet, blockchains form a Quantum Alliance, this week&#x27;s exploits were logic bugs, and GENIUS Act rules run late.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-title-en="Blockchain Brief, 20 Oct 2026" data-title-ja="ブロックチェーン・ブリーフ 2026年10月20日">
+<div class="bar"><div class="bar-in">
+  <a class="home" href="../">Blockchain Brief</a>
+  <div class="controls">
+    <div class="seg" role="group" aria-label="Language"><button type="button" data-set-lang="en" aria-pressed="true">EN</button><button type="button" data-set-lang="ja" aria-pressed="false">日本語</button></div>
+  </div>
+</div></div>
+
+<main class="wrap">
+
+<!-- Read-aloud panel (shared; labels follow the language toggle) -->
+<section class="audio" id="audio" aria-label="Read aloud" data-noread>
+  <div class="audio-row">
+    <button type="button" class="btn primary" data-a="play">▶ Listen</button>
+    <button type="button" class="btn" data-a="stop" disabled>■ Stop</button>
+    <select class="btn" data-a="scope" aria-label="What to read"><option value="all">Whole brief</option><option value="dev">Dev only</option><option value="nondev">Non-dev only</option></select>
+  </div>
+  <div class="audio-row">
+    <label class="status"><span data-a="speedlbl">Speed</span>
+      <select class="btn" data-a="rate"><option value="0.8">0.8×</option><option value="0.9">0.9×</option><option value="1" selected>1×</option><option value="1.15">1.15×</option><option value="1.3">1.3×</option><option value="1.5">1.5×</option></select></label>
+    <label class="status"><span data-a="voicelbl">Voice</span>
+      <select class="btn" data-a="voice"></select></label>
+  </div>
+  <p class="status" data-a="status" aria-live="polite"></p>
+</section>
+
+<!-- ===================== ENGLISH ===================== -->
+<article data-lang="en" class="wrap" style="padding:0">
+  <header class="brief">
+    <span class="mono meta">Daily brief · 20 Oct 2026 · about 4 min read</span>
+    <h1>Blockchain Brief, 20 Oct 2026</h1>
+    <p class="lede">Glamsterdam is on its last testnet, the industry starts planning for quantum computers, and this week's exploits came from logic and launch mistakes rather than exotic cryptography.</p>
+    <p class="note">Four items from the past week. Claims I could not confirm from a primary or second independent source are flagged as unverified.</p>
+    <nav class="jump" data-noread aria-label="Sections"><a class="dev" href="#dev-en">Dev ↓</a><a class="nondev" href="#nondev-en">Non-dev ↓</a></nav>
+  </header>
+
+  <section class="track dev" id="dev-en">
+    <div class="track-head"><h2>Dev</h2><p>Protocol changes, contract risks, security details and tooling.</p></div>
+    <div class="item">
+      <span class="tag mono" data-noread>Hoodi testnet · 26 Oct, 17:42 UTC</span>
+      <h3>Glamsterdam reaches its final testnet</h3>
+      <p>The Ethereum Foundation announced on 16 October that Glamsterdam will activate on the Hoodi testnet at epoch 132,352, which is 26 October at 17:42 UTC (<a href='https://blog.ethereum.org/2026/10/16/glamsterdam-hoodi-announcement'>EF blog</a>). It follows the Sepolia activation on 6 October. Hoodi is usually the last rehearsal before mainnet.</p>
+      <p>The upgrade bundles enshrined proposer-builder separation (ePBS), which moves block-building auctions into the protocol, and block-level access lists, which declare up front which state a block touches so clients can execute transactions in parallel. It also revises gas pricing. Hoodi's gas limit will rise to 200M at the same epoch. That is a stress test, and it does not promise the same limit on mainnet (<a href='https://yellow.com/news/ethereum-glamsterdam-200m-gas-hoodi-mainnet'>Yellow</a>).</p>
+      <p class="unverified"><b>Unverified</b>There is still no mainnet date. Reports place it anywhere from late 2026 into next year.</p>
+    </div>
+    <div class="item">
+      <span class="tag mono" data-noread>Security · 10–19 Oct</span>
+      <h3>Exploits came from logic and parameters</h3>
+      <p>September was reported as the worst month of 2026 for hacks, at about $766M (<a href='https://shattered.io/september-2026-crypto-hacks-766-million-worst-month/'>Shattered</a>). October's incidents so far are smaller but instructive:</p>
+      <ul class="points"><li><b>Cysic bridge.</b> An attacker minted 10M unauthorized CYS tokens on BNB Chain and bridged about $727K in ETH out before the team paused the bridge (<a href='https://coincentral.com/cysic-hack-attacker-moves-727000-in-ether-to-ethereum-after-bridge-exploit'>CoinCentral</a>).</li><li><b>Papertrade.</b> A Hyperliquid-based perps venue lost about $1.28M eight hours after launch. The team blamed open-interest limits that were too loose at launch.</li><li><b>Smart-wallet recovery bug (19 Oct).</b> An attacker chained a recovery-period setter that could push the deadline into the past with a signature-replay flaw, taking over accounts in one transaction (<a href='https://fairyproof.substack.com/p/weekly-blockchain-security-watch-f93'>Fairyproof</a>).</li><li><b>Drift exploiter.</b> The attacker behind the $270M Drift theft moved about 25,700 ETH into Tornado Cash after two months of inactivity (<a href='https://coinfomania.com/post-exploitation-drift-protocol-hacker-shifts-61m/'>Coinfomania</a>).</li></ul>
+      <p class="unverified"><b>Unverified</b>Loss figures come from secondary trackers and differ between outlets. The affected smart-wallet vendor is not confirmed.</p>
+    </div>
+    <div class="item">
+      <span class="tag mono" data-noread>Standards group · 15 Oct</span>
+      <h3>A Quantum Alliance for blockchains</h3>
+      <p>Nine blockchain organizations launched an open standards group to define and test post-quantum readiness (<a href='https://thequantuminsider.com/2026/10/15/quantum-alliance-post-quantum-standards-blockchains/'>The Quantum Insider</a>). Its first work covers four areas: how chains migrate signature schemes, post-quantum zero-knowledge systems, wallet security, and cross-chain compatibility. Members include Intmax, which runs a ZK rollup on Ethereum.</p>
+      <p class="unverified"><b>Unverified</b>The full member list and any concrete deliverables were not in the sources I could read.</p>
+    </div>
+    <div class="item">
+      <h3>What to do this week</h3>
+      <ul class="points"><li>Test against Hoodi after 26 October, especially anything that depends on MEV, block-builder relays or gas costs.</li><li>Bound every time-based setter and bind signatures to a nonce, chain ID and contract so payloads cannot be replayed.</li><li>Launch with conservative open-interest, mint and bridge limits, and raise them once the system behaves under real load.</li><li>Keep signature schemes swappable in account and proof designs so a post-quantum migration is an upgrade, not a rewrite.</li></ul>
+    </div>
+  </section>
+
+  <section class="track nondev" id="nondev-en">
+    <div class="track-head"><h2>Non-dev</h2><p>Market, business and regulation, and what the news means in plain language.</p></div>
+    <div class="item">
+      <span class="tag mono" data-noread>US rulemaking · comments closed</span>
+      <h3>GENIUS Act rules are late</h3>
+      <p>Regulators were meant to finalize most stablecoin rules under the GENIUS Act by 18 July 2026. None are final yet. Treasury's comment window on its proposed rules has now closed (<a href='https://cryptonews.net/news/legal/33617621/'>Cryptonews</a>), and the OCC has said it aims to publish its final rule by November. The law takes effect on 18 January 2027 or 120 days after final rules, whichever comes first, so the date that actually applies is still unsettled.</p>
+      <p class="unverified"><b>Unverified</b>One outlet reports a Treasury interim final rule dated 30 September. I could not confirm it elsewhere.</p>
+    </div>
+    <div class="item">
+      <span class="tag mono" data-noread>Ethereum, quantum and hacks · Plain summary</span>
+      <h3>An upgrade rehearsal, quantum planning, and avoidable losses</h3>
+      <p>Ethereum's next big upgrade, Glamsterdam, gets its final test run on 26 October. You don't need to do anything, and your wallet and funds carry over. Nine blockchain groups also began joint work on protecting chains from future quantum computers, which can't break today's wallets yet but will take years to prepare for. This week's hacks mostly hit brand-new services and bridges, and came from ordinary mistakes.</p>
+    </div>
+    <div class="item">
+      <h3>As a user</h3>
+      <ul class="points"><li>You do not need to do anything for Glamsterdam. It is a protocol upgrade, and your wallet and funds carry over.</li><li>Be cautious with brand-new venues and bridges. Two of this week's losses happened within hours of a launch or through a bridge.</li><li>If your smart wallet uses guardians or social recovery, check for any security notice from the vendor this week.</li><li>Treat "regulated stablecoin" claims carefully until the US rules are final.</li></ul>
+      <p>Coming up: A Glamsterdam mainnet date, the OCC's final stablecoin rule, and the Quantum Alliance's first published draft.</p>
+    </div>
+  </section>
+
+  <section class="sources">
+    <h2>Sources</h2>
+    <p>Search-based reporting as of 20 October 2026. Only the EF blog is a primary source. The others are secondary reporting or trackers.</p>
+    <ul>
+      <li><a href="https://blog.ethereum.org/2026/10/16/glamsterdam-hoodi-announcement">Ethereum Foundation: Glamsterdam Hoodi testnet announcement</a> <span class="kind">primary</span></li>
+      <li><a href="https://yellow.com/news/ethereum-glamsterdam-200m-gas-hoodi-mainnet">Yellow: Glamsterdam, 200M gas on Hoodi, mainnet date open</a> <span class="kind">secondary</span></li>
+      <li><a href="https://thequantuminsider.com/2026/10/15/quantum-alliance-post-quantum-standards-blockchains/">The Quantum Insider: Quantum Alliance launches</a> <span class="kind">secondary</span></li>
+      <li><a href="https://shattered.io/september-2026-crypto-hacks-766-million-worst-month/">Shattered: September 2026 crypto hacks</a> <span class="kind">data</span></li>
+      <li><a href="https://coincentral.com/cysic-hack-attacker-moves-727000-in-ether-to-ethereum-after-bridge-exploit">CoinCentral: Cysic bridge exploit</a> <span class="kind">secondary</span></li>
+      <li><a href="https://fairyproof.substack.com/p/weekly-blockchain-security-watch-f93">Fairyproof: Weekly blockchain security watch</a> <span class="kind">newsletter</span></li>
+      <li><a href="https://coinfomania.com/post-exploitation-drift-protocol-hacker-shifts-61m/">Coinfomania: Drift exploiter moves $61M</a> <span class="kind">secondary</span></li>
+      <li><a href="https://cryptonews.net/news/legal/33617621/">Cryptonews: GENIUS Act comment window closes</a> <span class="kind">secondary</span></li>
+    </ul>
+  </section>
+</article>
+
+<!-- ===================== 日本語 ===================== -->
+<article data-lang="ja" class="wrap" style="padding:0" hidden>
+  <header class="brief">
+    <span class="mono meta">デイリーブリーフ · 2026年10月20日 · 約4分</span>
+    <h1>ブロックチェーン・ブリーフ 2026年10月20日</h1>
+    <p class="lede">Glamsterdam は最後のテストネットに進み、業界は量子コンピュータへの備えを始めました。今週の攻撃は高度な暗号の破りではなく、ロジックや立ち上げ時のミスによるものでした。</p>
+    <p class="note">今週の4件です。一次情報または独立した2つ目の情報源で確認できなかった内容は「未確認」と明記しています。</p>
+    <nav class="jump" data-noread aria-label="セクション"><a class="dev" href="#dev-ja">Dev ↓</a><a class="nondev" href="#nondev-ja">Non-dev ↓</a></nav>
+  </header>
+
+  <section class="track dev" id="dev-ja">
+    <div class="track-head"><h2>Dev</h2><p>プロトコル変更、コントラクトのリスク、セキュリティの詳細、開発ツール。</p></div>
+    <div class="item">
+      <span class="tag mono" data-noread>Hoodi テストネット · 10月26日 17:42 UTC</span>
+      <h3>Glamsterdam が最後のテストネットへ</h3>
+      <p>イーサリアム財団は10月16日、Glamsterdam を Hoodi テストネットのエポック132,352、つまり10月26日 17:42 UTC に有効化すると発表しました（<a href='https://blog.ethereum.org/2026/10/16/glamsterdam-hoodi-announcement'>EF ブログ</a>）。10月6日の Sepolia での有効化に続くもので、Hoodi は通常メインネット前の最後のリハーサルです。</p>
+      <p>このアップグレードには、ブロック構築のオークションをプロトコルに組み込む ePBS（enshrined proposer-builder separation）と、ブロックが触れる状態を事前に宣言してクライアントがトランザクションを並列実行できるようにするブロックレベルのアクセスリストが含まれます。ガス料金の見直しもあります。同じエポックで Hoodi のガスリミットは2億に上がりますが、これは負荷試験で、メインネットで同じ上限になる約束ではありません（<a href='https://yellow.com/news/ethereum-glamsterdam-200m-gas-hoodi-mainnet'>Yellow</a>）。</p>
+      <p class="unverified"><b>未確認</b>メインネットの日程はまだありません。報道では2026年末から来年までと幅があります。</p>
+    </div>
+    <div class="item">
+      <span class="tag mono" data-noread>セキュリティ · 10月10〜19日</span>
+      <h3>攻撃の原因はロジックとパラメータ</h3>
+      <p>9月は約7億6,600万ドルと、2026年で最悪のハッキング被害の月だったと報じられています（<a href='https://shattered.io/september-2026-crypto-hacks-766-million-worst-month/'>Shattered</a>）。10月の事件はここまで小規模ですが、教訓があります。</p>
+      <ul class="points"><li><b>Cysic のブリッジ。</b>攻撃者が BNB Chain 上で無許可の CYS トークンを1,000万枚発行し、チームがブリッジを止める前に約72万7,000ドル分の ETH を持ち出しました（<a href='https://coincentral.com/cysic-hack-attacker-moves-727000-in-ether-to-ethereum-after-bridge-exploit'>CoinCentral</a>）。</li><li><b>Papertrade。</b>Hyperliquid ベースの無期限先物の取引所が、開始から8時間で約128万ドルを失いました。チームは開始時の建玉上限が緩すぎたと説明しています。</li><li><b>スマートウォレットの復旧機能のバグ（10月19日）。</b>攻撃者は、期限を過去に設定できてしまう復旧期間の設定関数と署名の再利用の欠陥を組み合わせ、1回のトランザクションでアカウントを乗っ取りました（<a href='https://fairyproof.substack.com/p/weekly-blockchain-security-watch-f93'>Fairyproof</a>）。</li><li><b>Drift の攻撃者。</b>2億7,000万ドルの Drift 盗難の犯人が、2か月の沈黙の後に約25,700 ETH を Tornado Cash に移しました（<a href='https://coinfomania.com/post-exploitation-drift-protocol-hacker-shifts-61m/'>Coinfomania</a>）。</li></ul>
+      <p class="unverified"><b>未確認</b>損失額は二次的な追跡サイトによるもので、媒体によって異なります。影響を受けたスマートウォレットの提供元は確認されていません。</p>
+    </div>
+    <div class="item">
+      <span class="tag mono" data-noread>標準化団体 · 10月15日</span>
+      <h3>ブロックチェーン向けの Quantum Alliance</h3>
+      <p>ブロックチェーン関連の9団体が、耐量子対応を定義し検証するためのオープンな標準化団体を立ち上げました（<a href='https://thequantuminsider.com/2026/10/15/quantum-alliance-post-quantum-standards-blockchains/'>The Quantum Insider</a>）。最初の取り組みは4分野で、チェーンの署名方式の移行、耐量子のゼロ知識証明、ウォレットのセキュリティ、チェーン間の互換性です。メンバーにはイーサリアム上で ZK ロールアップを運営する Intmax が含まれます。</p>
+      <p class="unverified"><b>未確認</b>メンバーの全リストや具体的な成果物は、読めた情報源には載っていませんでした。</p>
+    </div>
+    <div class="item">
+      <h3>今週やること</h3>
+      <ul class="points"><li>10月26日以降に Hoodi で試験する。特に MEV、ブロックビルダーのリレー、ガス代に依存する部分。</li><li>時間に関わる設定関数にはすべて範囲制限を設け、署名はノンス、チェーン ID、コントラクトに紐づけて再利用できないようにする。</li><li>建玉、発行、ブリッジの上限は控えめに始め、実際の負荷で問題なく動くのを確認してから引き上げる。</li><li>アカウントや証明の設計で署名方式を差し替え可能にし、耐量子への移行を作り直しではなくアップグレードで済むようにする。</li></ul>
+    </div>
+  </section>
+
+  <section class="track nondev" id="nondev-ja">
+    <div class="track-head"><h2>Non-dev</h2><p>市場・ビジネス・規制と、ニュースが何を意味するかのやさしい解説。</p></div>
+    <div class="item">
+      <span class="tag mono" data-noread>米国の規則制定 · 意見募集は終了</span>
+      <h3>GENIUS 法の規則づくりが遅れる</h3>
+      <p>規制当局は GENIUS 法に基づくステーブルコイン規則の大半を2026年7月18日までに確定させるはずでしたが、まだ1つも確定していません。財務省の規則案への意見募集は終了し（<a href='https://cryptonews.net/news/legal/33617621/'>Cryptonews</a>）、OCC は11月までに最終規則を出す方針です。法律は2027年1月18日か最終規則の120日後のどちらか早いほうで施行されるため、実際の施行日はまだ決まっていません。</p>
+      <p class="unverified"><b>未確認</b>ある媒体は9月30日付の財務省の暫定最終規則を報じていますが、ほかでは確認できませんでした。</p>
+    </div>
+    <div class="item">
+      <span class="tag mono" data-noread>イーサリアム、量子、ハッキング · やさしい解説</span>
+      <h3>アップグレードのリハーサル、量子への備え、防げた損失</h3>
+      <p>イーサリアムの次の大型アップグレード Glamsterdam は、10月26日に最後のテスト運用を迎えます。利用者は何もする必要がなく、ウォレットと資金はそのまま引き継がれます。また、9つのブロックチェーン団体が、将来の量子コンピュータからチェーンを守る共同作業を始めました。量子コンピュータはまだ今のウォレットを破れませんが、備えには何年もかかります。今週のハッキングは主に始まったばかりのサービスやブリッジを狙ったもので、原因はありふれたミスでした。</p>
+    </div>
+    <div class="item">
+      <h3>利用者として</h3>
+      <ul class="points"><li>Glamsterdam のために何かする必要はありません。プロトコルのアップグレードで、ウォレットと資金はそのまま引き継がれます。</li><li>始まったばかりの取引所やブリッジには注意する。今週の損失のうち2件は、開始から数時間以内またはブリッジ経由で起きました。</li><li>スマートウォレットでガーディアンやソーシャルリカバリーを使っているなら、今週の提供元からのセキュリティ告知を確認する。</li><li>米国の規則が確定するまで、「規制済みステーブルコイン」という宣伝は慎重に受け止める。</li></ul>
+      <p>今後の予定：Glamsterdam のメインネット日程、OCC のステーブルコイン最終規則、Quantum Alliance の最初の草案。</p>
+    </div>
+  </section>
+
+  <section class="sources">
+    <h2>出典</h2>
+    <p>2026年10月20日時点の検索に基づく報道です。一次情報は EF ブログのみで、ほかは二次報道や追跡サイトです。</p>
+    <ul>
+      <li><a href="https://blog.ethereum.org/2026/10/16/glamsterdam-hoodi-announcement">Ethereum Foundation: Glamsterdam Hoodi testnet announcement</a> <span class="kind">一次情報</span></li>
+      <li><a href="https://yellow.com/news/ethereum-glamsterdam-200m-gas-hoodi-mainnet">Yellow: Glamsterdam, 200M gas on Hoodi, mainnet date open</a> <span class="kind">二次情報</span></li>
+      <li><a href="https://thequantuminsider.com/2026/10/15/quantum-alliance-post-quantum-standards-blockchains/">The Quantum Insider: Quantum Alliance launches</a> <span class="kind">二次情報</span></li>
+      <li><a href="https://shattered.io/september-2026-crypto-hacks-766-million-worst-month/">Shattered: September 2026 crypto hacks</a> <span class="kind">データ</span></li>
+      <li><a href="https://coincentral.com/cysic-hack-attacker-moves-727000-in-ether-to-ethereum-after-bridge-exploit">CoinCentral: Cysic bridge exploit</a> <span class="kind">二次情報</span></li>
+      <li><a href="https://fairyproof.substack.com/p/weekly-blockchain-security-watch-f93">Fairyproof: Weekly blockchain security watch</a> <span class="kind">ニュースレター</span></li>
+      <li><a href="https://coinfomania.com/post-exploitation-drift-protocol-hacker-shifts-61m/">Coinfomania: Drift exploiter moves $61M</a> <span class="kind">二次情報</span></li>
+      <li><a href="https://cryptonews.net/news/legal/33617621/">Cryptonews: GENIUS Act comment window closes</a> <span class="kind">二次情報</span></li>
+    </ul>
+  </section>
+</article>
+
+<section class="comments" id="comments" data-noread>
+  <h2><span data-lang="en">Reader feedback</span><span data-lang="ja" hidden>読者のコメント</span></h2>
+  <p class="note"><span data-lang="en">Comments use GitHub sign-in, so every commenter is a real GitHub account. Be kind and stay on topic.</span><span data-lang="ja" hidden>コメントには GitHub へのログインが必要です。思いやりを持って、話題に沿って書き込んでください。</span></p>
+  <div class="giscus"></div>
+</section>
+
+<nav class="pager" data-noread>
+  <a href="../"><span data-lang="en">← All briefs</span><span data-lang="ja" hidden>← バックナンバー</span></a>
+  <span></span>
+</nav>
+</main>
+<script src="../assets/brief.js"></script>
+</body>
+</html>

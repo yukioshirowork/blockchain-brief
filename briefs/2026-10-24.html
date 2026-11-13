@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Blockchain Brief, 24 Oct 2026</title>
+<meta name="description" content="Bitcoin Core 32 ships with a faster disclosure policy, the EU tells exchanges to drop unlicensed stablecoins, and AI agents pass 138M payments.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-title-en="Blockchain Brief, 24 Oct 2026" data-title-ja="ブロックチェーン・ブリーフ 2026年10月24日">
+<div class="bar"><div class="bar-in">
+  <a class="home" href="../">Blockchain Brief</a>
+  <div class="controls">
+    <div class="seg" role="group" aria-label="Language"><button type="button" data-set-lang="en" aria-pressed="true">EN</button><button type="button" data-set-lang="ja" aria-pressed="false">日本語</button></div>
+  </div>
+</div></div>
+
+<main class="wrap">
+
+<!-- Read-aloud panel (shared; labels follow the language toggle) -->
+<section class="audio" id="audio" aria-label="Read aloud" data-noread>
+  <div class="audio-row">
+    <button type="button" class="btn primary" data-a="play">▶ Listen</button>
+    <button type="button" class="btn" data-a="stop" disabled>■ Stop</button>
+    <select class="btn" data-a="scope" aria-label="What to read"><option value="all">Whole brief</option><option value="dev">Dev only</option><option value="nondev">Non-dev only</option></select>
+  </div>
+  <div class="audio-row">
+    <label class="status"><span data-a="speedlbl">Speed</span>
+      <select class="btn" data-a="rate"><option value="0.8">0.8×</option><option value="0.9">0.9×</option><option value="1" selected>1×</option><option value="1.15">1.15×</option><option value="1.3">1.3×</option><option value="1.5">1.5×</option></select></label>
+    <label class="status"><span data-a="voicelbl">Voice</span>
+      <select class="btn" data-a="voice"></select></label>
+  </div>
+  <p class="status" data-a="status" aria-live="polite"></p>
+</section>
+
+<!-- ===================== ENGLISH ===================== -->
+<article data-lang="en" class="wrap" style="padding:0">
+  <header class="brief">
+    <span class="mono meta">Daily brief · 24 Oct 2026 · about 4 min read</span>
+    <h1>Blockchain Brief, 24 Oct 2026</h1>
+    <p class="lede">Bitcoin Core ships a new major version and stops keeping AI-findable bugs secret, the EU tells exchanges to stop serving unlicensed stablecoins, and AI agents are now a measurable source of on-chain payments.</p>
+    <p class="note">Claims I could not confirm from a primary or second independent source are flagged as unverified.</p>
+    <nav class="jump" data-noread aria-label="Sections"><a class="dev" href="#dev-en">Dev ↓</a><a class="nondev" href="#nondev-en">Non-dev ↓</a></nav>
+  </header>
+
+  <section class="track dev" id="dev-en">
+    <div class="track-head"><h2>Dev</h2><p>Protocol changes, contract risks, security details and tooling.</p></div>
+    <div class="item">
+      <span class="tag mono" data-noread>Bitcoin · v32.0 · policy merged 22 Oct</span>
+      <h3>Bitcoin Core 32 and faster bug disclosure</h3>
+      <p>Bitcoin Core reportedly tagged version 32.0 on 21 October, after a 10 October target (<a href='https://github.com/bitcoin/bitcoin/issues/35122'>GitHub release schedule</a>). Consensus rules are unchanged. The draft notes describe a second fee estimator that looks at the waiting mempool rather than only recent blocks, and block validation that reads the database on eight threads by default. Four wallet commands now produce PSBT version 2 by default, so services that build on them must support it. Fixes for a wallet-name command-execution flaw and a memory-exhaustion bug in the new web server landed before the stable release (<a href='https://www.coindesk.com/tech/2026/09/16/bitcoin-core-32-enters-final-testing-with-faster-validation-fee-changes-and-security-fixes'>CoinDesk</a>).</p>
+      <p>On 22 October maintainers also merged a new disclosure policy. Bugs that are easy to rediscover, for example with a simple AI prompt, now get a point release for all three maintained versions (30.x, 31.x, 32.x) as soon as possible, with a public advisory at the same time. Other bugs keep their embargoes (<a href='https://crypto.news/bitcoin-core-will-disclose-some-bugs-sooner-can-node-operators-update-in-time/'>crypto.news</a>). Critics worry public alerts will cause rushed upgrades.</p>
+      <p class="unverified"><b>Unverified</b>I did not see a published 32.0 release page or binaries, and sources give different dates.</p>
+    </div>
+    <div class="item">
+      <span class="tag mono" data-noread>Base · x402 · Chainalysis data</span>
+      <h3>x402 passes 138 million agent payments</h3>
+      <p>x402 is a protocol incubated by Coinbase that lets software agents pay for data, compute or AI model calls with stablecoins, using the long-unused HTTP 402 "Payment Required" status. Chainalysis counts more than 138 million x402 transactions, mostly on Base (<a href='https://www.coindesk.com/business/2026/10/14/ai-agents-make-138-million-crypto-payments-as-u-s-dominates-spending-on-ai-models'>CoinDesk</a>, <a href='https://www.chainalysis.com/blog/north-america-crypto-adoption-2026/'>Chainalysis</a>). More than 87% of analyzed payments were 10 cents or less. The average time from funding a wallet to its first payment fell from 73 days in late 2025 to 18 minutes in Q3 2026, which suggests wallets created by software for immediate use.</p>
+      <p class="unverified"><b>Unverified</b>Transaction counts do not prove real demand. Earlier research questioned how much x402 activity is artificial, and this report does not quantify it.</p>
+    </div>
+    <div class="item">
+      <h3>What to do this week</h3>
+      <ul class="points"><li>Check that your wallet or exchange integration handles PSBT v2 before upgrading to Bitcoin Core 32.</li><li>Subscribe to Bitcoin Core security advisories and automate node updates where you can.</li><li>EU-facing apps should gate non-MiCA stablecoins by region and offer a convert or withdraw path.</li><li>If you sell an API, try x402 for per-call pricing in cents, and build in rate limits and abuse checks.</li></ul>
+    </div>
+  </section>
+
+  <section class="track nondev" id="nondev-en">
+    <div class="track-head"><h2>Non-dev</h2><p>Market, business and regulation, and what the news means in plain language.</p></div>
+    <div class="item">
+      <span class="tag mono" data-noread>EU · ESMA opinion · deadline 8 Jan 2027</span>
+      <h3>EU exchanges told to drop unlicensed stablecoins</h3>
+      <p>On 8 October, the EU securities regulator ESMA told national authorities that MiCA-licensed crypto firms should stop offering services for stablecoins that are not authorized under MiCA (<a href='https://www.coindesk.com/policy/2026/10/08/eu-securities-regulator-gives-crypto-platforms-3-months-to-remove-unauthorized-stablecoins'>CoinDesk</a>). That covers trading, swaps, transfers, custody and advice. Customers' remaining holdings must be resolved within three months, by 8 January 2027.</p>
+      <p>Until then, customers may still sell, convert, withdraw or keep existing tokens, but not buy more. The opinion names no tokens, but reporting points to Tether's USDT as the main one affected, and CoinDesk notes PayPal's PYUSD is not authorized either (<a href='https://en.cryptonomist.ch/2026/10/11/esma-regulation-stablecoins-rules/'>Cryptonomist</a>). This applies to licensed providers. It does not ban holding tokens in a private wallet.</p>
+      <p class="unverified"><b>Unverified</b>This is an opinion, not a binding rule. National regulators decide how each platform handles it, so timing may vary by country.</p>
+    </div>
+    <div class="item">
+      <span class="tag mono" data-noread>AI payments · Plain summary</span>
+      <h3>AI agents are paying each other in stablecoins</h3>
+      <p>Software agents now make tiny stablecoin payments for things like data and AI model calls, more than 138 million so far according to Chainalysis (<a href='https://www.coindesk.com/business/2026/10/14/ai-agents-make-138-million-crypto-payments-as-u-s-dominates-spending-on-ai-models'>CoinDesk</a>). Most payments are 10 cents or less, an amount card networks can't handle cheaply. US-linked wallets made 88% of identified payments for AI models.</p>
+      <p class="unverified"><b>Unverified</b>Some of this activity may be artificial. The report does not say how much.</p>
+    </div>
+    <div class="item">
+      <h3>As a user</h3>
+      <ul class="points"><li>If you run a Bitcoin node, plan to install point releases quickly. Fixes for AI-findable bugs will now be public on day one.</li><li>If you hold USDT or PYUSD on an EU exchange, check its notices and decide before 8 January whether to convert or withdraw.</li><li>Licensed euro and dollar stablecoins such as EURC or USDC stay available on EU platforms.</li><li>Be skeptical of headline "AI agent" volume numbers. Most payments are tiny and some may be artificial.</li></ul>
+      <p>Coming up: The first fast-route Bitcoin Core advisory, how EU exchanges implement the ESMA opinion, and independent analysis of x402 volume.</p>
+    </div>
+  </section>
+
+  <section class="sources">
+    <h2>Sources</h2>
+    <p>Search-based reporting as of 24 October 2026. The GitHub schedule and Chainalysis report are primary. The rest are secondary.</p>
+    <ul>
+      <li><a href="https://github.com/bitcoin/bitcoin/issues/35122">GitHub: Bitcoin Core 32.0 release schedule</a> <span class="kind">primary</span></li>
+      <li><a href="https://www.coindesk.com/tech/2026/09/16/bitcoin-core-32-enters-final-testing-with-faster-validation-fee-changes-and-security-fixes">CoinDesk: Bitcoin Core 32 enters final testing</a> <span class="kind">secondary</span></li>
+      <li><a href="https://crypto.news/bitcoin-core-will-disclose-some-bugs-sooner-can-node-operators-update-in-time/">crypto.news: Bitcoin Core will disclose some bugs sooner</a> <span class="kind">secondary</span></li>
+      <li><a href="https://www.coindesk.com/policy/2026/10/08/eu-securities-regulator-gives-crypto-platforms-3-months-to-remove-unauthorized-stablecoins">CoinDesk: ESMA gives platforms 3 months</a> <span class="kind">secondary</span></li>
+      <li><a href="https://en.cryptonomist.ch/2026/10/11/esma-regulation-stablecoins-rules/">Cryptonomist: ESMA stablecoin rules</a> <span class="kind">secondary</span></li>
+      <li><a href="https://www.coindesk.com/business/2026/10/14/ai-agents-make-138-million-crypto-payments-as-u-s-dominates-spending-on-ai-models">CoinDesk: AI agents make 138M crypto payments</a> <span class="kind">secondary</span></li>
+      <li><a href="https://www.chainalysis.com/blog/north-america-crypto-adoption-2026/">Chainalysis: Agentic commerce accelerates</a> <span class="kind">vendor</span></li>
+    </ul>
+  </section>
+</article>
+
+<!-- ===================== 日本語 ===================== -->
+<article data-lang="ja" class="wrap" style="padding:0" hidden>
+  <header class="brief">
+    <span class="mono meta">デイリーブリーフ · 2026年10月24日 · 約4分</span>
+    <h1>ブロックチェーン・ブリーフ 2026年10月24日</h1>
+    <p class="lede">Bitcoin Core が新しいメジャー版を出し、AI で見つけられるバグを秘密にしない方針に変えました。EU は取引所に未認可ステーブルコインの取り扱いをやめるよう求め、AI エージェントはオンチェーン決済の目に見える担い手になっています。</p>
+    <p class="note">一次情報または独立した2つ目の情報源で確認できなかった内容は「未確認」と明記しています。</p>
+    <nav class="jump" data-noread aria-label="セクション"><a class="dev" href="#dev-ja">Dev ↓</a><a class="nondev" href="#nondev-ja">Non-dev ↓</a></nav>
+  </header>
+
+  <section class="track dev" id="dev-ja">
+    <div class="track-head"><h2>Dev</h2><p>プロトコル変更、コントラクトのリスク、セキュリティの詳細、開発ツール。</p></div>
+    <div class="item">
+      <span class="tag mono" data-noread>Bitcoin · v32.0 · 方針は10月22日にマージ</span>
+      <h3>Bitcoin Core 32 と脆弱性の早期公開</h3>
+      <p>Bitcoin Core は、10月10日の目標から遅れて10月21日にバージョン32.0のタグを付けたと報じられています（<a href='https://github.com/bitcoin/bitcoin/issues/35122'>GitHub のリリース日程</a>）。コンセンサスルールに変更はありません。リリースノート草案によると、直近のブロックだけでなく待機中のメモリプールも見る2つ目の手数料推定器が加わり、ブロック検証はデフォルトで8スレッドでデータベースを読みます。ウォレットの4つのコマンドがデフォルトで PSBT バージョン2を出力するようになったため、これを使うサービスは対応が必要です。ウォレット名によるコマンド実行の欠陥と、新しい Web サーバーのメモリ枯渇バグの修正は、安定版の前に入りました（<a href='https://www.coindesk.com/tech/2026/09/16/bitcoin-core-32-enters-final-testing-with-faster-validation-fee-changes-and-security-fixes'>CoinDesk</a>）。</p>
+      <p>10月22日にはメンテナが新しい公開方針もマージしました。簡単な AI プロンプトなどで再発見しやすいバグは、保守中の3系統（30.x、31.x、32.x）すべてにできるだけ早くポイントリリースを出し、同時に公開アドバイザリを出します。それ以外のバグは従来どおり公開を伏せます（<a href='https://crypto.news/bitcoin-core-will-disclose-some-bugs-sooner-can-node-operators-update-in-time/'>crypto.news</a>）。公開アラートが慌ただしいアップグレードを招くという懸念もあります。</p>
+      <p class="unverified"><b>未確認</b>32.0 のリリースページやバイナリは確認できず、情報源によって日付も異なります。</p>
+    </div>
+    <div class="item">
+      <span class="tag mono" data-noread>Base · x402 · Chainalysis のデータ</span>
+      <h3>x402 のエージェント決済が1億3,800万件を突破</h3>
+      <p>x402 は Coinbase が育てたプロトコルで、長く使われていなかった HTTP 402「Payment Required」ステータスを使い、ソフトウェアのエージェントがデータや計算資源、AI モデルの呼び出しにステーブルコインで支払えるようにします。Chainalysis は x402 の取引を1億3,800万件超と数えており、大半は Base 上です（<a href='https://www.coindesk.com/business/2026/10/14/ai-agents-make-138-million-crypto-payments-as-u-s-dominates-spending-on-ai-models'>CoinDesk</a>、<a href='https://www.chainalysis.com/blog/north-america-crypto-adoption-2026/'>Chainalysis</a>）。分析した支払いの87%超が10セント以下でした。ウォレットへの入金から最初の支払いまでの平均時間は、2025年末の73日から2026年第3四半期には18分に縮まり、ソフトウェアが即時利用のためにウォレットを作っていることがうかがえます。</p>
+      <p class="unverified"><b>未確認</b>取引件数は実需の証明にはなりません。以前の調査では x402 の活動のどれだけが人為的なものか疑問視されており、このレポートはそれを数値化していません。</p>
+    </div>
+    <div class="item">
+      <h3>今週やること</h3>
+      <ul class="points"><li>Bitcoin Core 32 に上げる前に、ウォレットや取引所の連携が PSBT v2 を扱えるか確認する。</li><li>Bitcoin Core のセキュリティアドバイザリを購読し、可能ならノードの更新を自動化する。</li><li>EU 向けアプリは MiCA 未認可のステーブルコインを地域で制限し、換金や出金の手段を用意する。</li><li>API を販売しているなら、1回数セントの従量課金に x402 を試し、レート制限と不正利用チェックを組み込む。</li></ul>
+    </div>
+  </section>
+
+  <section class="track nondev" id="nondev-ja">
+    <div class="track-head"><h2>Non-dev</h2><p>市場・ビジネス・規制と、ニュースが何を意味するかのやさしい解説。</p></div>
+    <div class="item">
+      <span class="tag mono" data-noread>EU · ESMA の意見書 · 期限は2027年1月8日</span>
+      <h3>EU の取引所に未認可ステーブルコインの取り扱い停止を要請</h3>
+      <p>10月8日、EU の証券規制当局 ESMA は各国当局に対し、MiCA ライセンスを持つ暗号資産事業者は MiCA で認可されていないステーブルコインのサービス提供をやめるべきだと伝えました（<a href='https://www.coindesk.com/policy/2026/10/08/eu-securities-regulator-gives-crypto-platforms-3-months-to-remove-unauthorized-stablecoins'>CoinDesk</a>）。対象は売買、交換、送金、保管、助言です。顧客の残高は3か月以内、2027年1月8日までに整理する必要があります。</p>
+      <p>それまでは、既存のトークンを売る、換える、出金する、持ち続けることはできますが、買い増しはできません。意見書はトークン名を挙げていませんが、報道では主に影響を受けるのは Tether の USDT とされ、CoinDesk は PayPal の PYUSD も未認可だと指摘しています（<a href='https://en.cryptonomist.ch/2026/10/11/esma-regulation-stablecoins-rules/'>Cryptonomist</a>）。これはライセンス事業者向けの話で、個人のウォレットでの保有を禁じるものではありません。</p>
+      <p class="unverified"><b>未確認</b>これは拘束力のある規則ではなく意見書です。各プラットフォームの対応は各国の規制当局が決めるため、時期は国によって異なる可能性があります。</p>
+    </div>
+    <div class="item">
+      <span class="tag mono" data-noread>AI 決済 · やさしい解説</span>
+      <h3>AI エージェントがステーブルコインで支払い合う時代に</h3>
+      <p>ソフトウェアのエージェントが、データや AI モデルの呼び出しなどにステーブルコインで少額を支払うようになり、Chainalysis によるとその数はすでに1億3,800万件を超えました（<a href='https://www.coindesk.com/business/2026/10/14/ai-agents-make-138-million-crypto-payments-as-u-s-dominates-spending-on-ai-models'>CoinDesk</a>）。大半は10セント以下で、カード決済では安く扱えない金額です。AI モデルへの支払いと特定されたものの88%は米国関連のウォレットからでした。</p>
+      <p class="unverified"><b>未確認</b>この活動の一部は人為的なものかもしれません。レポートはその割合を示していません。</p>
+    </div>
+    <div class="item">
+      <h3>利用者として</h3>
+      <ul class="points"><li>Bitcoin ノードを運用しているなら、ポイントリリースをすぐ入れられるようにしておく。AI で見つかるバグの修正は初日から公開されます。</li><li>EU の取引所で USDT や PYUSD を持っているなら、告知を確認し、1月8日までに換えるか出金するか決める。</li><li>EURC や USDC などの認可済みユーロ・ドル建てステーブルコインは EU のプラットフォームで引き続き使えます。</li><li>「AI エージェント」の取引量の見出しは鵜呑みにしない。大半はごく少額で、一部は人為的な可能性があります。</li></ul>
+      <p>今後の予定：早期公開ルートでの最初の Bitcoin Core アドバイザリ、EU の取引所による ESMA 意見書への対応、x402 の取引量の独立した分析。</p>
+    </div>
+  </section>
+
+  <section class="sources">
+    <h2>出典</h2>
+    <p>2026年10月24日時点の検索に基づく報道です。GitHub の日程と Chainalysis のレポートは一次情報で、ほかは二次情報です。</p>
+    <ul>
+      <li><a href="https://github.com/bitcoin/bitcoin/issues/35122">GitHub: Bitcoin Core 32.0 release schedule</a> <span class="kind">一次情報</span></li>
+      <li><a href="https://www.coindesk.com/tech/2026/09/16/bitcoin-core-32-enters-final-testing-with-faster-validation-fee-changes-and-security-fixes">CoinDesk: Bitcoin Core 32 enters final testing</a> <span class="kind">二次情報</span></li>
+      <li><a href="https://crypto.news/bitcoin-core-will-disclose-some-bugs-sooner-can-node-operators-update-in-time/">crypto.news: Bitcoin Core will disclose some bugs sooner</a> <span class="kind">二次情報</span></li>
+      <li><a href="https://www.coindesk.com/policy/2026/10/08/eu-securities-regulator-gives-crypto-platforms-3-months-to-remove-unauthorized-stablecoins">CoinDesk: ESMA gives platforms 3 months</a> <span class="kind">二次情報</span></li>
+      <li><a href="https://en.cryptonomist.ch/2026/10/11/esma-regulation-stablecoins-rules/">Cryptonomist: ESMA stablecoin rules</a> <span class="kind">二次情報</span></li>
+      <li><a href="https://www.coindesk.com/business/2026/10/14/ai-agents-make-138-million-crypto-payments-as-u-s-dominates-spending-on-ai-models">CoinDesk: AI agents make 138M crypto payments</a> <span class="kind">二次情報</span></li>
+      <li><a href="https://www.chainalysis.com/blog/north-america-crypto-adoption-2026/">Chainalysis: Agentic commerce accelerates</a> <span class="kind">ベンダー</span></li>
+    </ul>
+  </section>
+</article>
+
+<section class="comments" id="comments" data-noread>
+  <h2><span data-lang="en">Reader feedback</span><span data-lang="ja" hidden>読者のコメント</span></h2>
+  <p class="note"><span data-lang="en">Comments use GitHub sign-in, so every commenter is a real GitHub account. Be kind and stay on topic.</span><span data-lang="ja" hidden>コメントには GitHub へのログインが必要です。思いやりを持って、話題に沿って書き込んでください。</span></p>
+  <div class="giscus"></div>
+</section>
+
+<nav class="pager" data-noread>
+  <a href="../"><span data-lang="en">← All briefs</span><span data-lang="ja" hidden>← バックナンバー</span></a>
+  <span></span>
+</nav>
+</main>
+<script src="../assets/brief.js"></script>
+</body>
+</html>

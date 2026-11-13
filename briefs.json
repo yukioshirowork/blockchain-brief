@@ -226,5 +226,65 @@
       "en": "Spy chips in resold Ledger wallets cost users over $90M, and FOCIL makes transaction inclusion an Ethereum protocol rule.",
       "ja": "転売された Ledger ウォレットのスパイチップで9,000万ドル超の被害、FOCIL でトランザクションの取り込みがイーサリアムのプロトコル規則に。"
     }
+  },
+  {
+    "date": "2026-10-24",
+    "file": "briefs/2026-10-24.html",
+    "title": {
+      "en": "Blockchain Brief, 24 Oct 2026",
+      "ja": "ブロックチェーン・ブリーフ 2026年10月24日"
+    },
+    "summary": {
+      "en": "Bitcoin Core 32 ships with a faster disclosure policy, the EU tells exchanges to drop unlicensed stablecoins, and AI agents pass 138M payments.",
+      "ja": "Bitcoin Core 32 と脆弱性の早期公開方針、EU が取引所に未認可ステーブルコインの取り扱い停止を要請、AI エージェントの決済が1億3,800万件を突破。"
+    }
+  },
+  {
+    "date": "2026-10-23",
+    "file": "briefs/2026-10-23.html",
+    "title": {
+      "en": "Blockchain Brief, 23 Oct 2026",
+      "ja": "ブロックチェーン・ブリーフ 2026年10月23日"
+    },
+    "summary": {
+      "en": "Aztec dates its post-quantum migration to 2030, ships V6 and relaunches zk.money, and OP Stack Upgrade 20 rebuilds fault proofs for interop.",
+      "ja": "Aztec が耐量子移行の期限を2030年に設定し V6 と zk.money 再開へ、OP Stack の Upgrade 20 は相互運用に向けて不正証明を再構築。"
+    }
+  },
+  {
+    "date": "2026-10-22",
+    "file": "briefs/2026-10-22.html",
+    "title": {
+      "en": "Blockchain Brief, 22 Oct 2026",
+      "ja": "ブロックチェーン・ブリーフ 2026年10月22日"
+    },
+    "summary": {
+      "en": "Solana's Alpenglow consensus goes live, DTCC brings tokenized securities into production, and ether.fi walks away from EigenLayer restaking.",
+      "ja": "Solana の新しいコンセンサス Alpenglow が稼働、DTCC がトークン化証券を本番へ、ether.fi が EigenLayer のリステーキングから撤退。"
+    }
+  },
+  {
+    "date": "2026-10-21",
+    "file": "briefs/2026-10-21.html",
+    "title": {
+      "en": "Blockchain Brief, 21 Oct 2026",
+      "ja": "ブロックチェーン・ブリーフ 2026年10月21日"
+    },
+    "summary": {
+      "en": "Solana swaps in Alpenglow today, EIP-7702 delegation phishing keeps draining wallets, and Bitcoin covenants edge toward an activation plan.",
+      "ja": "Solana が本日 Alpenglow に切り替え、EIP-7702 の委任フィッシングでウォレット流出が続き、Bitcoin のコベナンツは有効化計画に一歩近づく。"
+    }
+  },
+  {
+    "date": "2026-10-20",
+    "file": "briefs/2026-10-20.html",
+    "title": {
+      "en": "Blockchain Brief, 20 Oct 2026",
+      "ja": "ブロックチェーン・ブリーフ 2026年10月20日"
+    },
+    "summary": {
+      "en": "Glamsterdam heads to its final testnet, blockchains form a Quantum Alliance, this week's exploits were logic bugs, and GENIUS Act rules run late.",
+      "ja": "Glamsterdam が最後のテストネットへ、ブロックチェーン各社が Quantum Alliance を結成、今週の攻撃はロジックの欠陥、GENIUS 法の規則は遅れ。"
+    }
   }
 ]

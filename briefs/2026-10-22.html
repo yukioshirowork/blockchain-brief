@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Blockchain Brief, 22 Oct 2026</title>
+<meta name="description" content="Solana&#x27;s Alpenglow consensus goes live, DTCC brings tokenized securities into production, and ether.fi walks away from EigenLayer restaking.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-title-en="Blockchain Brief, 22 Oct 2026" data-title-ja="ブロックチェーン・ブリーフ 2026年10月22日">
+<div class="bar"><div class="bar-in">
+  <a class="home" href="../">Blockchain Brief</a>
+  <div class="controls">
+    <div class="seg" role="group" aria-label="Language"><button type="button" data-set-lang="en" aria-pressed="true">EN</button><button type="button" data-set-lang="ja" aria-pressed="false">日本語</button></div>
+  </div>
+</div></div>
+
+<main class="wrap">
+
+<!-- Read-aloud panel (shared; labels follow the language toggle) -->
+<section class="audio" id="audio" aria-label="Read aloud" data-noread>
+  <div class="audio-row">
+    <button type="button" class="btn primary" data-a="play">▶ Listen</button>
+    <button type="button" class="btn" data-a="stop" disabled>■ Stop</button>
+    <select class="btn" data-a="scope" aria-label="What to read"><option value="all">Whole brief</option><option value="dev">Dev only</option><option value="nondev">Non-dev only</option></select>
+  </div>
+  <div class="audio-row">
+    <label class="status"><span data-a="speedlbl">Speed</span>
+      <select class="btn" data-a="rate"><option value="0.8">0.8×</option><option value="0.9">0.9×</option><option value="1" selected>1×</option><option value="1.15">1.15×</option><option value="1.3">1.3×</option><option value="1.5">1.5×</option></select></label>
+    <label class="status"><span data-a="voicelbl">Voice</span>
+      <select class="btn" data-a="voice"></select></label>
+  </div>
+  <p class="status" data-a="status" aria-live="polite"></p>
+</section>
+
+<!-- ===================== ENGLISH ===================== -->
+<article data-lang="en" class="wrap" style="padding:0">
+  <header class="brief">
+    <span class="mono meta">Daily brief · 22 Oct 2026 · about 4 min read</span>
+    <h1>Blockchain Brief, 22 Oct 2026</h1>
+    <p class="lede">Solana's new consensus is live, Wall Street's settlement utility is bringing tokenized securities into production, and the biggest restaking user is walking away from restaking.</p>
+    <p class="note">One follow-up from yesterday and two new stories. Claims I could not confirm from a primary or second independent source are flagged as unverified.</p>
+    <nav class="jump" data-noread aria-label="Sections"><a class="dev" href="#dev-en">Dev ↓</a><a class="nondev" href="#nondev-en">Non-dev ↓</a></nav>
+  </header>
+
+  <section class="track dev" id="dev-en">
+    <div class="track-head"><h2>Dev</h2><p>Protocol changes, contract risks, security details and tooling.</p></div>
+    <div class="item">
+      <span class="tag mono" data-noread>Solana · follow-up · live since 21 Oct</span>
+      <h3>Alpenglow is live on Solana</h3>
+      <p>Anza, the team behind Solana's main validator client, announced that Alpenglow went live on mainnet-beta on 21 October, replacing TowerBFT. The new chain began at slot 459,653,000 in epoch 1064. According to reporting based on Anza's posts, 654 validators took part and the handoff took about 900 milliseconds (<a href='https://www.cryptotimes.io/2026/10/21/solanas-alpenglow-goes-live-as-developers-target-150ms-finality/'>The Crypto Times</a>, <a href='https://solana.com/upgrades/alpenglow'>Solana</a>).</p>
+      <p>The design runs two voting paths at once. A block is final after one round if 80% of stake votes for it, or after two rounds with 60%. That is how it aims for about 150 ms finality while staying live with up to 40% of stake offline. No outages were reported on day one.</p>
+      <p class="unverified"><b>Unverified</b>The 150 ms figure is a target. I found no independent measurement of finality since activation.</p>
+    </div>
+    <div class="item">
+      <span class="tag mono" data-noread>Restaking · exit due Q4</span>
+      <h3>ether.fi leaves EigenLayer</h3>
+      <p>ether.fi, long the largest liquid restaking protocol, has removed restaking from its weETH token, which is now a plain liquid staking token. It is pulling its remaining stake out of EigenLayer and plans to remove its EigenPod withdrawal credentials by the fourth quarter. CEO Mike Silagadze said there were "no meaningful yield opportunities in restaking" (<a href='https://www.blockhead.co/2026/09/29/ether-fi-to-fully-exit-eigenlayer-restaking-as-sector-profits-collapse/'>Blockhead</a>).</p>
+      <p>Citing DefiLlama, reports say restaking held about $10B in early September but earned around $100K in fees that week, while liquid staking held $52B and earned $27M. EigenLayer's holdings are reported at about $5.1B, down from $22B a year earlier, and it has rebranded as EigenCloud. A separate opt-in token, weETHs, keeps restaking via Symbiotic (<a href='https://cryptoticker.io/en/etherfi-weeth-eigenlayer-exit-restaking/'>CryptoTicker</a>).</p>
+      <p class="unverified"><b>Unverified</b>Fee and TVL figures come from secondary reports citing DefiLlama. Sources also disagree on whether EigenLayer slashing began in April 2025 or April 2026.</p>
+    </div>
+    <div class="item">
+      <h3>What to do this week</h3>
+      <ul class="points"><li>Retune Solana confirmation logic and timeouts for sub-second finality, and test RPC providers that have upgraded.</li><li>For tokenized real-world assets, learn Canton and permissioned Besu deployments. That is where institutional settlement is going.</li><li>If you built on liquid restaking tokens, check whether their restaking is being removed and update your risk and yield assumptions.</li><li>Design for conversion between tokenized and traditional forms instead of assuming an asset lives only on-chain.</li></ul>
+    </div>
+  </section>
+
+  <section class="track nondev" id="nondev-en">
+    <div class="track-head"><h2>Non-dev</h2><p>Market, business and regulation, and what the news means in plain language.</p></div>
+    <div class="item">
+      <span class="tag mono" data-noread>Market infrastructure · launch due Oct</span>
+      <h3>DTCC brings tokenized securities into production</h3>
+      <p>The DTCC is the utility that settles most US securities trades. Its new Tokenization Service issues tokenized "digital twins" of securities held at its depository, the DTC, and delivers them to participants' wallets. Holders can convert between the traditional and tokenized forms (<a href='https://www.dtcc.com/press-releases/2026/dtcc-turns-tokenization-into-reality'>DTCC</a>).</p>
+      <p>In a 15 July production test, DTC-held assets were converted to tokens and used in real trades, including collateral pledges, securities lending, Treasury repo and equity delivery-versus-payment. The service runs on Besu, an enterprise Ethereum client, as a private network, and on Canton, a network built for regulated finance. More than 30 firms took part, including BlackRock, Goldman Sachs, J.P. Morgan, Nasdaq, Circle and Chainlink. An SEC no-action letter allows a three-year controlled pilot. DTCC said it would launch the service in October.</p>
+      <p class="unverified"><b>Unverified</b>I found no confirmation that the October launch has happened yet. Claims that Chainlink's CCIP carries cross-chain transfers come only from secondary reporting (<a href='https://wisevoter.com/world/us/2026/10/14/dtcc-launch-tokenization-service-october-2026'>Wisevoter</a>).</p>
+    </div>
+    <div class="item">
+      <span class="tag mono" data-noread>Solana and staking · Plain summary</span>
+      <h3>Faster Solana, and restaking loses its shine</h3>
+      <p>Solana switched to a new way of agreeing on blocks on 21 October. Transfers should now be final in a fraction of a second instead of several seconds. Separately, ether.fi, the biggest user of "restaking" (reusing staked ETH to earn extra rewards), is quitting because the extra rewards dried up. If you hold its weETH token, you now earn normal staking rewards with less risk.</p>
+    </div>
+    <div class="item">
+      <h3>As a user</h3>
+      <ul class="points"><li>Solana transfers should confirm almost instantly now. If an app still makes you wait many seconds, it has not updated yet.</li><li>If you hold weETH, you now earn ordinary staking rewards with no EigenLayer slashing risk. Switch to weETHs only if you want restaking back.</li><li>Tokenized stocks and Treasuries from regulated custodians are becoming real, but early access is through institutions and brokers, not wallets.</li><li>Treat any remaining "restaking yield" offer with suspicion. The sector's own fees no longer support high returns.</li></ul>
+      <p>Coming up: Independent Alpenglow finality measurements, DTCC's launch announcement, and whether other restaking protocols follow ether.fi.</p>
+    </div>
+  </section>
+
+  <section class="sources">
+    <h2>Sources</h2>
+    <p>Search-based reporting as of 22 October 2026. DTCC and Solana pages are primary. The rest are secondary reporting.</p>
+    <ul>
+      <li><a href="https://solana.com/upgrades/alpenglow">Solana: Alpenglow upgrade page</a> <span class="kind">primary</span></li>
+      <li><a href="https://www.cryptotimes.io/2026/10/21/solanas-alpenglow-goes-live-as-developers-target-150ms-finality/">The Crypto Times: Alpenglow goes live</a> <span class="kind">secondary</span></li>
+      <li><a href="https://www.dtcc.com/press-releases/2026/dtcc-turns-tokenization-into-reality">DTCC: DTC-tokenized assets power successful US trades</a> <span class="kind">primary</span></li>
+      <li><a href="https://wisevoter.com/world/us/2026/10/14/dtcc-launch-tokenization-service-october-2026">Wisevoter: DTCC to launch tokenization service in October</a> <span class="kind">secondary</span></li>
+      <li><a href="https://www.blockhead.co/2026/09/29/ether-fi-to-fully-exit-eigenlayer-restaking-as-sector-profits-collapse/">Blockhead: ether.fi to fully exit EigenLayer</a> <span class="kind">secondary</span></li>
+      <li><a href="https://cryptoticker.io/en/etherfi-weeth-eigenlayer-exit-restaking/">CryptoTicker: ether.fi strips restaking from weETH</a> <span class="kind">secondary</span></li>
+    </ul>
+  </section>
+</article>
+
+<!-- ===================== 日本語 ===================== -->
+<article data-lang="ja" class="wrap" style="padding:0" hidden>
+  <header class="brief">
+    <span class="mono meta">デイリーブリーフ · 2026年10月22日 · 約4分</span>
+    <h1>ブロックチェーン・ブリーフ 2026年10月22日</h1>
+    <p class="lede">Solana の新しいコンセンサスが稼働し、ウォール街の決済インフラがトークン化証券を本番に持ち込み、最大のリステーキング利用者がリステーキングから手を引きます。</p>
+    <p class="note">前日の続報1件と新しいニュース2件です。一次情報または独立した2つ目の情報源で確認できなかった内容は「未確認」と明記しています。</p>
+    <nav class="jump" data-noread aria-label="セクション"><a class="dev" href="#dev-ja">Dev ↓</a><a class="nondev" href="#nondev-ja">Non-dev ↓</a></nav>
+  </header>
+
+  <section class="track dev" id="dev-ja">
+    <div class="track-head"><h2>Dev</h2><p>プロトコル変更、コントラクトのリスク、セキュリティの詳細、開発ツール。</p></div>
+    <div class="item">
+      <span class="tag mono" data-noread>Solana · 続報 · 10月21日から稼働</span>
+      <h3>Solana で Alpenglow が稼働</h3>
+      <p>Solana の主要なバリデータクライアントを開発する Anza は、10月21日に Alpenglow が mainnet-beta で稼働し、TowerBFT を置き換えたと発表しました。新しいチェーンはエポック1064のスロット459,653,000から始まりました。Anza の投稿に基づく報道によると、654のバリデータが参加し、切り替えは約900ミリ秒で終わりました（<a href='https://www.cryptotimes.io/2026/10/21/solanas-alpenglow-goes-live-as-developers-target-150ms-finality/'>The Crypto Times</a>、<a href='https://solana.com/upgrades/alpenglow'>Solana</a>）。</p>
+      <p>この設計では2つの投票経路を同時に動かします。ステークの80%が賛成すれば1ラウンドで、60%なら2ラウンドでブロックが確定します。これにより約150ミリ秒のファイナリティを目指しつつ、ステークの最大40%がオフラインでも動き続けます。初日に障害は報告されていません。</p>
+      <p class="unverified"><b>未確認</b>150ミリ秒は目標値です。稼働後のファイナリティを独立に測定したデータは見つかりませんでした。</p>
+    </div>
+    <div class="item">
+      <span class="tag mono" data-noread>リステーキング · 第4四半期に撤退</span>
+      <h3>ether.fi が EigenLayer から撤退</h3>
+      <p>長く最大のリキッドリステーキングプロトコルだった ether.fi は、weETH トークンからリステーキングを外し、普通のリキッドステーキングトークンにしました。EigenLayer に残るステークを引き揚げ、第4四半期までに EigenPod の出金クレデンシャルを外す予定です。CEO の Mike Silagadze 氏は「リステーキングに意味のある利回りの機会はない」と述べています（<a href='https://www.blockhead.co/2026/09/29/ether-fi-to-fully-exit-eigenlayer-restaking-as-sector-profits-collapse/'>Blockhead</a>）。</p>
+      <p>DefiLlama を引用した報道によると、9月初めにリステーキングには約100億ドルが預けられていましたが、その週の手数料収入は約10万ドルでした。一方リキッドステーキングは520億ドルで2,700万ドルを稼いでいます。EigenLayer の預かり資産は1年前の220億ドルから約51億ドルに減ったとされ、EigenCloud に名称を変えました。リステーキングを続けたい人向けに、Symbiotic を使う別トークン weETHs が任意で用意されています（<a href='https://cryptoticker.io/en/etherfi-weeth-eigenlayer-exit-restaking/'>CryptoTicker</a>）。</p>
+      <p class="unverified"><b>未確認</b>手数料と TVL の数字は DefiLlama を引用した二次報道によるものです。EigenLayer のスラッシングが2025年4月と2026年4月のどちらに始まったかについても情報源で食い違いがあります。</p>
+    </div>
+    <div class="item">
+      <h3>今週やること</h3>
+      <ul class="points"><li>1秒未満のファイナリティに合わせて Solana の確認ロジックとタイムアウトを調整し、更新済みの RPC プロバイダで試す。</li><li>トークン化された現実資産を扱うなら、Canton と許可型の Besu 構成を学ぶ。機関投資家の決済はそちらに向かっています。</li><li>リキッドリステーキングトークンの上に作っているなら、リステーキングが外されるか確認し、リスクと利回りの前提を見直す。</li><li>資産がオンチェーンだけにあると考えず、トークン化された形と従来の形の相互変換を前提に設計する。</li></ul>
+    </div>
+  </section>
+
+  <section class="track nondev" id="nondev-ja">
+    <div class="track-head"><h2>Non-dev</h2><p>市場・ビジネス・規制と、ニュースが何を意味するかのやさしい解説。</p></div>
+    <div class="item">
+      <span class="tag mono" data-noread>市場インフラ · 10月に開始予定</span>
+      <h3>DTCC がトークン化証券を本番運用へ</h3>
+      <p>DTCC は米国の証券取引の大半を決済するインフラ機関です。新しい Tokenization Service は、傘下の保管機関 DTC にある証券のトークン化された「デジタルツイン」を発行し、参加者のウォレットに届けます。保有者は従来の形とトークンの形を相互に変換できます（<a href='https://www.dtcc.com/press-releases/2026/dtcc-turns-tokenization-into-reality'>DTCC</a>）。</p>
+      <p>7月15日の本番環境テストでは、DTC が保管する資産をトークンに変え、担保差し入れ、証券貸借、米国債レポ、株式の DVP 決済など実際の取引に使いました。サービスは企業向けイーサリアムクライアント Besu のプライベートネットワークと、規制下の金融向けに作られた Canton 上で動きます。BlackRock、Goldman Sachs、J.P. Morgan、Nasdaq、Circle、Chainlink など30社超が参加しました。SEC のノーアクションレターにより3年間の管理された試験運用が認められています。DTCC は10月にサービスを始めるとしていました。</p>
+      <p class="unverified"><b>未確認</b>10月の開始がすでに行われたかは確認できていません。Chainlink の CCIP がチェーン間送金を担うという話は二次報道のみです（<a href='https://wisevoter.com/world/us/2026/10/14/dtcc-launch-tokenization-service-october-2026'>Wisevoter</a>）。</p>
+    </div>
+    <div class="item">
+      <span class="tag mono" data-noread>Solana とステーキング · やさしい解説</span>
+      <h3>Solana が高速化、リステーキングは魅力を失う</h3>
+      <p>Solana は10月21日、ブロックの合意方法を新しい仕組みに切り替えました。送金は数秒ではなく1秒未満で確定するはずです。別の話として、「リステーキング」（ステーク済みの ETH を再利用して追加報酬を得る仕組み）の最大の利用者 ether.fi が、追加報酬がほぼなくなったため撤退します。同社の weETH を持っているなら、今後はリスクの低い通常のステーキング報酬を受け取ります。</p>
+    </div>
+    <div class="item">
+      <h3>利用者として</h3>
+      <ul class="points"><li>Solana の送金はほぼ即時に確定するはずです。まだ何秒も待たされるアプリは未対応です。</li><li>weETH を持っているなら、EigenLayer のスラッシングリスクなしで通常のステーキング報酬を得られます。リステーキングを続けたい場合だけ weETHs に切り替える。</li><li>規制下の保管機関によるトークン化株式や国債は現実になりつつありますが、初期の利用はウォレットではなく機関や証券会社経由です。</li><li>残っている「リステーキング利回り」の勧誘は疑ってかかる。業界の手数料収入はもう高い利回りを支えられません。</li></ul>
+      <p>今後の予定：Alpenglow のファイナリティの独立した測定、DTCC の開始発表、ほかのリステーキングプロトコルが ether.fi に続くかどうか。</p>
+    </div>
+  </section>
+
+  <section class="sources">
+    <h2>出典</h2>
+    <p>2026年10月22日時点の検索に基づく報道です。DTCC と Solana のページは一次情報で、ほかは二次報道です。</p>
+    <ul>
+      <li><a href="https://solana.com/upgrades/alpenglow">Solana: Alpenglow upgrade page</a> <span class="kind">一次情報</span></li>
+      <li><a href="https://www.cryptotimes.io/2026/10/21/solanas-alpenglow-goes-live-as-developers-target-150ms-finality/">The Crypto Times: Alpenglow goes live</a> <span class="kind">二次情報</span></li>
+      <li><a href="https://www.dtcc.com/press-releases/2026/dtcc-turns-tokenization-into-reality">DTCC: DTC-tokenized assets power successful US trades</a> <span class="kind">一次情報</span></li>
+      <li><a href="https://wisevoter.com/world/us/2026/10/14/dtcc-launch-tokenization-service-october-2026">Wisevoter: DTCC to launch tokenization service in October</a> <span class="kind">二次情報</span></li>
+      <li><a href="https://www.blockhead.co/2026/09/29/ether-fi-to-fully-exit-eigenlayer-restaking-as-sector-profits-collapse/">Blockhead: ether.fi to fully exit EigenLayer</a> <span class="kind">二次情報</span></li>
+      <li><a href="https://cryptoticker.io/en/etherfi-weeth-eigenlayer-exit-restaking/">CryptoTicker: ether.fi strips restaking from weETH</a> <span class="kind">二次情報</span></li>
+    </ul>
+  </section>
+</article>
+
+<section class="comments" id="comments" data-noread>
+  <h2><span data-lang="en">Reader feedback</span><span data-lang="ja" hidden>読者のコメント</span></h2>
+  <p class="note"><span data-lang="en">Comments use GitHub sign-in, so every commenter is a real GitHub account. Be kind and stay on topic.</span><span data-lang="ja" hidden>コメントには GitHub へのログインが必要です。思いやりを持って、話題に沿って書き込んでください。</span></p>
+  <div class="giscus"></div>
+</section>
+
+<nav class="pager" data-noread>
+  <a href="../"><span data-lang="en">← All briefs</span><span data-lang="ja" hidden>← バックナンバー</span></a>
+  <span></span>
+</nav>
+</main>
+<script src="../assets/brief.js"></script>
+</body>
+</html>

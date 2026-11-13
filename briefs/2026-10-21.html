@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Blockchain Brief, 21 Oct 2026</title>
+<meta name="description" content="Solana swaps in Alpenglow today, EIP-7702 delegation phishing keeps draining wallets, and Bitcoin covenants edge toward an activation plan.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-title-en="Blockchain Brief, 21 Oct 2026" data-title-ja="ブロックチェーン・ブリーフ 2026年10月21日">
+<div class="bar"><div class="bar-in">
+  <a class="home" href="../">Blockchain Brief</a>
+  <div class="controls">
+    <div class="seg" role="group" aria-label="Language"><button type="button" data-set-lang="en" aria-pressed="true">EN</button><button type="button" data-set-lang="ja" aria-pressed="false">日本語</button></div>
+  </div>
+</div></div>
+
+<main class="wrap">
+
+<!-- Read-aloud panel (shared; labels follow the language toggle) -->
+<section class="audio" id="audio" aria-label="Read aloud" data-noread>
+  <div class="audio-row">
+    <button type="button" class="btn primary" data-a="play">▶ Listen</button>
+    <button type="button" class="btn" data-a="stop" disabled>■ Stop</button>
+    <select class="btn" data-a="scope" aria-label="What to read"><option value="all">Whole brief</option><option value="dev">Dev only</option><option value="nondev">Non-dev only</option></select>
+  </div>
+  <div class="audio-row">
+    <label class="status"><span data-a="speedlbl">Speed</span>
+      <select class="btn" data-a="rate"><option value="0.8">0.8×</option><option value="0.9">0.9×</option><option value="1" selected>1×</option><option value="1.15">1.15×</option><option value="1.3">1.3×</option><option value="1.5">1.5×</option></select></label>
+    <label class="status"><span data-a="voicelbl">Voice</span>
+      <select class="btn" data-a="voice"></select></label>
+  </div>
+  <p class="status" data-a="status" aria-live="polite"></p>
+</section>
+
+<!-- ===================== ENGLISH ===================== -->
+<article data-lang="en" class="wrap" style="padding:0">
+  <header class="brief">
+    <span class="mono meta">Daily brief · 21 Oct 2026 · about 4 min read</span>
+    <h1>Blockchain Brief, 21 Oct 2026</h1>
+    <p class="lede">Solana swaps out its consensus engine today, wallet delegation keeps getting abused on Ethereum, and Bitcoin's covenant debate inches toward an activation plan.</p>
+    <p class="note">Three items from the past week. Claims I could not confirm from a primary or second independent source are flagged as unverified.</p>
+    <nav class="jump" data-noread aria-label="Sections"><a class="dev" href="#dev-en">Dev ↓</a><a class="nondev" href="#nondev-en">Non-dev ↓</a></nav>
+  </header>
+
+  <section class="track dev" id="dev-en">
+    <div class="track-head"><h2>Dev</h2><p>Protocol changes, contract risks, security details and tooling.</p></div>
+    <div class="item">
+      <span class="tag mono" data-noread>Solana · mainnet · epoch 1064 · today</span>
+      <h3>Solana activates Alpenglow</h3>
+      <p>Alpenglow, Solana's largest consensus change since launch, is scheduled to activate on mainnet today at epoch 1064 (<a href='https://www.coindesk.com/tech/2026/10/14/solana-sets-oct-21-for-alpenglow-upgrade-targeting-150-millisecond-finality'>CoinDesk</a>, <a href='https://solana.com/news/solana-changelog-october-1-2026'>Solana changelog</a>). It replaces TowerBFT, the voting system Solana has used since 2020, and targets finality in about 150 milliseconds instead of roughly 12.8 seconds. That matters most for exchanges, bridges and payments that currently wait several seconds to be safe.</p>
+      <p>The rollout has a cost for client diversity. Firedancer clients are not supported during the transition, so validators must run an Agave-based client at version 4.3.0 or later, and Jump has ended support for its hybrid Frankendancer client (<a href='https://cryptobriefing.com/jump-firedancer-ends-frankendancer-support/'>Crypto Briefing</a>). Jump also opened a bug bounty that pays triple rewards for Alpenglow findings until 20 November (<a href='https://solanacompass.com/news/firedancer-bug-bounty-platform-goes-live-with-3x-rewards-for-alpenglow-findings-after-jumps-1m-audit-contest'>Solana Compass</a>).</p>
+      <p class="unverified"><b>Unverified</b>Reported activation times range from 14:00 to 15:00 UTC. One tracker flagged 45% of stake as not ready a week ago. Whether activation went smoothly was not known when this was written.</p>
+    </div>
+    <div class="item">
+      <span class="tag mono" data-noread>Ethereum · EIP-7702 · 10–14 Oct</span>
+      <h3>Delegation phishing keeps draining wallets</h3>
+      <p>EIP-7702, live since the Pectra upgrade, lets an ordinary Ethereum address point at contract code and behave like a smart wallet. It also means one signature can hand an attacker's contract control of everything in the account.</p>
+      <p>On 14 October, security firm ExVul reported that a user lost about 9.12 ETH (around $22,800). The victim had earlier signed a delegation to malicious code, and the attacker later sponsored a transaction that triggered it (<a href='https://crypto.news/ethereum-user-loses-22k-in-eip-7702-wallet-attack/'>crypto.news</a>). A larger case on 10 October reportedly cost one victim about $1.54M through a phishing batch transaction covering several staked assets (<a href='https://shattered.io/eip-7702-wallet-drainer-1-54-million-2026/'>Shattered</a>). A delegated account can look normal on a block explorer while its code is someone else's (<a href='https://dev.to/kaminariresearch/the-wallet-looked-normal-on-the-explorer-six-eip-7702-signatures-said-otherwise-2lg1'>Kaminari Research</a>).</p>
+      <p class="unverified"><b>Unverified</b>The $1.54M figure and a claim that 97% of losses trace to one sweeper contract come from secondary trackers only.</p>
+    </div>
+    <div class="item">
+      <span class="tag mono" data-noread>Bitcoin · draft and signaling</span>
+      <h3>Covenants edge toward an activation plan</h3>
+      <p>Covenants are rules that limit how a coin can be spent in the future. They would enable vaults with withdrawal delays, cheaper channel designs for Lightning, and better batching. The leading proposal, OP_CHECKTEMPLATEVERIFY (CTV, <a href='https://hashrateindex.com/blog/op-ctv-bip-119-guide/'>BIP 119</a>), is often paired with OP_CHECKSIGFROMSTACK. Neither is on mainnet, and as of early October both remain at draft or signaling stage.</p>
+      <p>An AMINA Bank research note says an activation client now specifies a Speedy Trial with a 90% miner threshold and a minimum activation height around May 2027 (<a href='https://aminagroup.com/research/bitcoin-fork-august-2026-bip-110-ecash-covenants-and-the-quantum-clock/'>AMINA</a>). Adam Back has publicly backed covenant opcodes as a possible "last soft fork" (<a href='https://cryptobriefing.com/adam-back-covenant-opcodes-last-soft-fork/'>Crypto Briefing</a>). Competing designs such as LNHANCE could still split support and push timing out.</p>
+      <p class="unverified"><b>Unverified</b>The activation parameters come from one source, and its own table gives a different timeout. I did not check them against the client code.</p>
+    </div>
+    <div class="item">
+      <h3>What to do this week</h3>
+      <ul class="points"><li>On Solana, revisit confirmation logic. With sub-second finality you can drop long confirmation waits, but test on the upgraded network first.</li><li>Wallets should decode and clearly warn on EIP-7702 authorizations, and explorers should show delegated code on the account page.</li><li>Delegation targets should check who is calling and refuse calls the owner did not sign for.</li><li>Bitcoin builders can prototype CTV vaults on signet now, so designs are ready if activation happens.</li></ul>
+    </div>
+  </section>
+
+  <section class="track nondev" id="nondev-en">
+    <div class="track-head"><h2>Non-dev</h2><p>Market, business and regulation, and what the news means in plain language.</p></div>
+    <div class="item">
+      <span class="tag mono" data-noread>Wallet safety · Plain summary</span>
+      <h3>One signature can hand over your whole wallet</h3>
+      <p>A newer Ethereum feature lets a normal wallet "upgrade" itself to run extra code. Scammers are abusing it: they trick people into signing an upgrade that points to their own code, then empty the wallet later, sometimes days afterwards. One user lost about $22,800 this week and another reportedly about $1.54 million (<a href='https://crypto.news/ethereum-user-loses-22k-in-eip-7702-wallet-attack/'>crypto.news</a>). The wallet can look completely normal until the money is gone.</p>
+    </div>
+    <div class="item">
+      <span class="tag mono" data-noread>Solana and Bitcoin · Plain summary</span>
+      <h3>Solana gets much faster, Bitcoin debates its next upgrade</h3>
+      <p>Solana switches today to a new system for agreeing on transactions. The goal is for payments to become final in about 0.15 seconds instead of about 13 (<a href='https://www.coindesk.com/tech/2026/10/14/solana-sets-oct-21-for-alpenglow-upgrade-targeting-150-millisecond-finality'>CoinDesk</a>). Apps and exchanges may be briefly bumpy during the switch. On Bitcoin, developers are still debating "covenants", which would allow things like savings vaults with a withdrawal delay. Any change is unlikely before 2027.</p>
+    </div>
+    <div class="item">
+      <h3>As a user</h3>
+      <ul class="points"><li>Expect brief hiccups on Solana apps and exchanges around today's switch, and avoid large transfers while it settles.</li><li>Never sign a request to "upgrade", "delegate" or "authorize" your wallet from a link or a site you did not seek out.</li><li>If you once signed an unknown EIP-7702 delegation, check your address with a revoke tool and move funds to a fresh wallet if in doubt.</li><li>Nothing changes for Bitcoin holders yet. Covenant vaults are a future option, not something to act on today.</li></ul>
+      <p>Coming up: Alpenglow's first days of mainnet performance, wallet vendors' 7702 warnings, and miner signaling on covenants.</p>
+    </div>
+  </section>
+
+  <section class="sources">
+    <h2>Sources</h2>
+    <p>Search-based reporting as of 21 October 2026. The Solana changelog is primary. The rest are news, trackers, research notes or explainers.</p>
+    <ul>
+      <li><a href="https://solana.com/news/solana-changelog-october-1-2026">Solana: Changelog, 1 Oct 2026</a> <span class="kind">primary</span></li>
+      <li><a href="https://www.coindesk.com/tech/2026/10/14/solana-sets-oct-21-for-alpenglow-upgrade-targeting-150-millisecond-finality">CoinDesk: Solana sets 21 Oct for Alpenglow</a> <span class="kind">secondary</span></li>
+      <li><a href="https://cryptobriefing.com/jump-firedancer-ends-frankendancer-support/">Crypto Briefing: Jump ends Frankendancer support</a> <span class="kind">secondary</span></li>
+      <li><a href="https://solanacompass.com/news/firedancer-bug-bounty-platform-goes-live-with-3x-rewards-for-alpenglow-findings-after-jumps-1m-audit-contest">Solana Compass: Firedancer bug bounty</a> <span class="kind">secondary</span></li>
+      <li><a href="https://crypto.news/ethereum-user-loses-22k-in-eip-7702-wallet-attack/">crypto.news: User loses $22K in EIP-7702 attack</a> <span class="kind">secondary</span></li>
+      <li><a href="https://shattered.io/eip-7702-wallet-drainer-1-54-million-2026/">Shattered: EIP-7702 drainers steal $1.54M</a> <span class="kind">data</span></li>
+      <li><a href="https://dev.to/kaminariresearch/the-wallet-looked-normal-on-the-explorer-six-eip-7702-signatures-said-otherwise-2lg1">Kaminari Research: Six EIP-7702 signatures</a> <span class="kind">research</span></li>
+      <li><a href="https://hashrateindex.com/blog/op-ctv-bip-119-guide/">Hashrate Index: What is OP_CTV and BIP 119</a> <span class="kind">secondary</span></li>
+      <li><a href="https://aminagroup.com/research/bitcoin-fork-august-2026-bip-110-ecash-covenants-and-the-quantum-clock/">AMINA Bank: Bitcoin forks, covenants and the quantum clock</a> <span class="kind">research</span></li>
+      <li><a href="https://cryptobriefing.com/adam-back-covenant-opcodes-last-soft-fork/">Crypto Briefing: Adam Back backs covenant opcodes</a> <span class="kind">secondary</span></li>
+    </ul>
+  </section>
+</article>
+
+<!-- ===================== 日本語 ===================== -->
+<article data-lang="ja" class="wrap" style="padding:0" hidden>
+  <header class="brief">
+    <span class="mono meta">デイリーブリーフ · 2026年10月21日 · 約4分</span>
+    <h1>ブロックチェーン・ブリーフ 2026年10月21日</h1>
+    <p class="lede">Solana は本日コンセンサスエンジンを入れ替え、イーサリアムではウォレットの委任機能の悪用が続き、Bitcoin のコベナンツをめぐる議論は有効化計画に少しずつ近づいています。</p>
+    <p class="note">今週の3件です。一次情報または独立した2つ目の情報源で確認できなかった内容は「未確認」と明記しています。</p>
+    <nav class="jump" data-noread aria-label="セクション"><a class="dev" href="#dev-ja">Dev ↓</a><a class="nondev" href="#nondev-ja">Non-dev ↓</a></nav>
+  </header>
+
+  <section class="track dev" id="dev-ja">
+    <div class="track-head"><h2>Dev</h2><p>プロトコル変更、コントラクトのリスク、セキュリティの詳細、開発ツール。</p></div>
+    <div class="item">
+      <span class="tag mono" data-noread>Solana · メインネット · エポック1064 · 本日</span>
+      <h3>Solana が Alpenglow を有効化</h3>
+      <p>Solana の立ち上げ以来最大のコンセンサス変更である Alpenglow は、本日エポック1064でメインネットで有効化される予定です（<a href='https://www.coindesk.com/tech/2026/10/14/solana-sets-oct-21-for-alpenglow-upgrade-targeting-150-millisecond-finality'>CoinDesk</a>、<a href='https://solana.com/news/solana-changelog-october-1-2026'>Solana の変更履歴</a>）。2020年から使われてきた投票方式 TowerBFT を置き換え、ファイナリティを約12.8秒から約150ミリ秒に縮めることを目指します。安全のために数秒待っている取引所、ブリッジ、決済にとって特に大きな変化です。</p>
+      <p>一方でクライアントの多様性には代償があります。移行期間中は Firedancer クライアントに対応しないため、バリデータは Agave ベースのクライアント4.3.0以降を動かす必要があり、Jump はハイブリッド版 Frankendancer のサポートを終了しました（<a href='https://cryptobriefing.com/jump-firedancer-ends-frankendancer-support/'>Crypto Briefing</a>）。Jump は11月20日まで、Alpenglow の不具合報告に3倍の報酬を払うバグバウンティも始めています（<a href='https://solanacompass.com/news/firedancer-bug-bounty-platform-goes-live-with-3x-rewards-for-alpenglow-findings-after-jumps-1m-audit-contest'>Solana Compass</a>）。</p>
+      <p class="unverified"><b>未確認</b>報じられた有効化時刻は UTC 14時から15時まで幅があります。1週間前にはある追跡サイトがステークの45%を未準備としていました。執筆時点では有効化が順調に進んだかは不明です。</p>
+    </div>
+    <div class="item">
+      <span class="tag mono" data-noread>Ethereum · EIP-7702 · 10月10〜14日</span>
+      <h3>委任を悪用したフィッシングでウォレット流出が続く</h3>
+      <p>Pectra アップグレードで導入された EIP-7702 は、普通のイーサリアムアドレスがコントラクトのコードを指し、スマートウォレットのように振る舞えるようにします。裏を返せば、1回の署名で攻撃者のコントラクトにアカウント内のすべての管理を渡してしまうことがあります。</p>
+      <p>10月14日、セキュリティ企業 ExVul は、ある利用者が約9.12 ETH（約2万2,800ドル）を失ったと報告しました。被害者は以前に悪意あるコードへの委任に署名しており、攻撃者が後からそれを発動させるトランザクションを代行送信しました（<a href='https://crypto.news/ethereum-user-loses-22k-in-eip-7702-wallet-attack/'>crypto.news</a>）。10月10日のより大きな事例では、複数のステーク資産をまとめたフィッシングのバッチ取引で1人が約154万ドルを失ったと報じられています（<a href='https://shattered.io/eip-7702-wallet-drainer-1-54-million-2026/'>Shattered</a>）。委任済みのアカウントは、コードが他人のものでもブロックエクスプローラー上では普通に見えることがあります（<a href='https://dev.to/kaminariresearch/the-wallet-looked-normal-on-the-explorer-six-eip-7702-signatures-said-otherwise-2lg1'>Kaminari Research</a>）。</p>
+      <p class="unverified"><b>未確認</b>154万ドルという数字と、損失の97%が1つのスイーパーコントラクトにつながるという主張は、二次的な追跡サイトのみによるものです。</p>
+    </div>
+    <div class="item">
+      <span class="tag mono" data-noread>Bitcoin · 草案とシグナリング段階</span>
+      <h3>コベナンツが有効化計画に近づく</h3>
+      <p>コベナンツは、コインの将来の使い方を制限するルールです。出金に待ち時間を設けるボールト、Lightning の安価なチャネル設計、より良いバッチ処理が可能になります。有力な提案 OP_CHECKTEMPLATEVERIFY（CTV、<a href='https://hashrateindex.com/blog/op-ctv-bip-119-guide/'>BIP 119</a>）は、OP_CHECKSIGFROMSTACK と組み合わせて語られることが多いです。どちらもメインネットには入っておらず、10月初め時点で草案またはシグナリングの段階です。</p>
+      <p>AMINA Bank の調査レポートによると、ある有効化クライアントが、マイナーの90%を閾値とする Speedy Trial と、2027年5月ごろの最低有効化高を定めています（<a href='https://aminagroup.com/research/bitcoin-fork-august-2026-bip-110-ecash-covenants-and-the-quantum-clock/'>AMINA</a>）。Adam Back 氏はコベナンツのオペコードを「最後のソフトフォーク」の候補として公に支持しています（<a href='https://cryptobriefing.com/adam-back-covenant-opcodes-last-soft-fork/'>Crypto Briefing</a>）。LNHANCE などの競合案が支持を割り、時期が遅れる可能性もあります。</p>
+      <p class="unverified"><b>未確認</b>有効化のパラメータは1つの情報源によるもので、その資料内の表では別のタイムアウトが示されています。クライアントのコードとは照合していません。</p>
+    </div>
+    <div class="item">
+      <h3>今週やること</h3>
+      <ul class="points"><li>Solana の確認ロジックを見直す。1秒未満のファイナリティなら長い確認待ちは不要ですが、まず更新後のネットワークで試す。</li><li>ウォレットは EIP-7702 の承認内容を解読して明確に警告し、エクスプローラーはアカウントページに委任先のコードを表示する。</li><li>委任先のコントラクトは呼び出し元を確認し、所有者が署名していない呼び出しを拒否する。</li><li>Bitcoin の開発者は今のうちに signet で CTV ボールトを試作し、有効化に備えて設計を用意しておける。</li></ul>
+    </div>
+  </section>
+
+  <section class="track nondev" id="nondev-ja">
+    <div class="track-head"><h2>Non-dev</h2><p>市場・ビジネス・規制と、ニュースが何を意味するかのやさしい解説。</p></div>
+    <div class="item">
+      <span class="tag mono" data-noread>ウォレットの安全 · やさしい解説</span>
+      <h3>1回の署名でウォレット全体を渡してしまうことも</h3>
+      <p>イーサリアムの比較的新しい機能で、普通のウォレットが追加のコードを動かせるよう「アップグレード」できるようになりました。詐欺師はこれを悪用し、自分たちのコードを指すアップグレードに署名させ、数日後などにウォレットを空にします。今週は1人が約2万2,800ドル、別の1人が約154万ドルを失ったと報じられています（<a href='https://crypto.news/ethereum-user-loses-22k-in-eip-7702-wallet-attack/'>crypto.news</a>）。お金がなくなるまで、ウォレットはまったく普通に見えることがあります。</p>
+    </div>
+    <div class="item">
+      <span class="tag mono" data-noread>Solana と Bitcoin · やさしい解説</span>
+      <h3>Solana が大幅に高速化、Bitcoin は次の改良を議論</h3>
+      <p>Solana は本日、取引の合意方法を新しい仕組みに切り替えます。決済が約13秒ではなく約0.15秒で確定することを目指しています（<a href='https://www.coindesk.com/tech/2026/10/14/solana-sets-oct-21-for-alpenglow-upgrade-targeting-150-millisecond-finality'>CoinDesk</a>）。切り替え中はアプリや取引所が一時的に不安定になるかもしれません。Bitcoin では、出金に待ち時間を設ける貯蓄用ボールトなどを可能にする「コベナンツ」をめぐる議論が続いています。変更が入るのは早くても2027年以降の見込みです。</p>
+    </div>
+    <div class="item">
+      <h3>利用者として</h3>
+      <ul class="points"><li>本日の切り替え前後は Solana のアプリや取引所で一時的な不具合を想定し、落ち着くまで大きな送金は避ける。</li><li>自分から探したのではないリンクやサイトからの、ウォレットの「アップグレード」「委任」「承認」の要求には絶対に署名しない。</li><li>心当たりのない EIP-7702 の委任に署名したことがあるなら、取り消しツールでアドレスを確認し、不安なら新しいウォレットに資金を移す。</li><li>Bitcoin の保有者にはまだ変化はありません。コベナンツのボールトは将来の選択肢で、今すぐ何かする必要はありません。</li></ul>
+      <p>今後の予定：Alpenglow のメインネットでの最初の数日の性能、ウォレット各社の 7702 警告、コベナンツに対するマイナーのシグナリング。</p>
+    </div>
+  </section>
+
+  <section class="sources">
+    <h2>出典</h2>
+    <p>2026年10月21日時点の検索に基づく報道です。Solana の変更履歴は一次情報で、ほかはニュース、追跡サイト、調査レポート、解説記事です。</p>
+    <ul>
+      <li><a href="https://solana.com/news/solana-changelog-october-1-2026">Solana: Changelog, 1 Oct 2026</a> <span class="kind">一次情報</span></li>
+      <li><a href="https://www.coindesk.com/tech/2026/10/14/solana-sets-oct-21-for-alpenglow-upgrade-targeting-150-millisecond-finality">CoinDesk: Solana sets 21 Oct for Alpenglow</a> <span class="kind">二次情報</span></li>
+      <li><a href="https://cryptobriefing.com/jump-firedancer-ends-frankendancer-support/">Crypto Briefing: Jump ends Frankendancer support</a> <span class="kind">二次情報</span></li>
+      <li><a href="https://solanacompass.com/news/firedancer-bug-bounty-platform-goes-live-with-3x-rewards-for-alpenglow-findings-after-jumps-1m-audit-contest">Solana Compass: Firedancer bug bounty</a> <span class="kind">二次情報</span></li>
+      <li><a href="https://crypto.news/ethereum-user-loses-22k-in-eip-7702-wallet-attack/">crypto.news: User loses $22K in EIP-7702 attack</a> <span class="kind">二次情報</span></li>
+      <li><a href="https://shattered.io/eip-7702-wallet-drainer-1-54-million-2026/">Shattered: EIP-7702 drainers steal $1.54M</a> <span class="kind">データ</span></li>
+      <li><a href="https://dev.to/kaminariresearch/the-wallet-looked-normal-on-the-explorer-six-eip-7702-signatures-said-otherwise-2lg1">Kaminari Research: Six EIP-7702 signatures</a> <span class="kind">研究</span></li>
+      <li><a href="https://hashrateindex.com/blog/op-ctv-bip-119-guide/">Hashrate Index: What is OP_CTV and BIP 119</a> <span class="kind">二次情報</span></li>
+      <li><a href="https://aminagroup.com/research/bitcoin-fork-august-2026-bip-110-ecash-covenants-and-the-quantum-clock/">AMINA Bank: Bitcoin forks, covenants and the quantum clock</a> <span class="kind">研究</span></li>
+      <li><a href="https://cryptobriefing.com/adam-back-covenant-opcodes-last-soft-fork/">Crypto Briefing: Adam Back backs covenant opcodes</a> <span class="kind">二次情報</span></li>
+    </ul>
+  </section>
+</article>
+
+<section class="comments" id="comments" data-noread>
+  <h2><span data-lang="en">Reader feedback</span><span data-lang="ja" hidden>読者のコメント</span></h2>
+  <p class="note"><span data-lang="en">Comments use GitHub sign-in, so every commenter is a real GitHub account. Be kind and stay on topic.</span><span data-lang="ja" hidden>コメントには GitHub へのログインが必要です。思いやりを持って、話題に沿って書き込んでください。</span></p>
+  <div class="giscus"></div>
+</section>
+
+<nav class="pager" data-noread>
+  <a href="../"><span data-lang="en">← All briefs</span><span data-lang="ja" hidden>← バックナンバー</span></a>
+  <span></span>
+</nav>
+</main>
+<script src="../assets/brief.js"></script>
+</body>
+</html>
