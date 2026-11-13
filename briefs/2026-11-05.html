@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Blockchain Brief, 5 Nov 2026</title>
+<meta name="description" content="Zcash NU7&#x27;s 25-second blocks, ML-DSA in Stellar&#x27;s Soroban, a reorg-driven double refund at THORChain, and same-transaction mainnet-rollup calls.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-title-en="Blockchain Brief, 5 Nov 2026" data-title-ja="ブロックチェーン・ブリーフ 2026年11月5日">
+<div class="bar"><div class="bar-in">
+  <a class="home" href="../">Blockchain Brief</a>
+  <div class="controls">
+    <div class="seg" role="group" aria-label="Language"><button type="button" data-set-lang="en" aria-pressed="true">EN</button><button type="button" data-set-lang="ja" aria-pressed="false">日本語</button></div>
+  </div>
+</div></div>
+
+<main class="wrap">
+
+<!-- Read-aloud panel (shared; labels follow the language toggle) -->
+<section class="audio" id="audio" aria-label="Read aloud" data-noread>
+  <div class="audio-row">
+    <button type="button" class="btn primary" data-a="play">▶ Listen</button>
+    <button type="button" class="btn" data-a="stop" disabled>■ Stop</button>
+    <select class="btn" data-a="scope" aria-label="What to read"><option value="all">Whole brief</option><option value="dev">Dev only</option><option value="nondev">Non-dev only</option></select>
+  </div>
+  <div class="audio-row">
+    <label class="status"><span data-a="speedlbl">Speed</span>
+      <select class="btn" data-a="rate"><option value="0.8">0.8×</option><option value="0.9">0.9×</option><option value="1" selected>1×</option><option value="1.15">1.15×</option><option value="1.3">1.3×</option><option value="1.5">1.5×</option></select></label>
+    <label class="status"><span data-a="voicelbl">Voice</span>
+      <select class="btn" data-a="voice"></select></label>
+  </div>
+  <p class="status" data-a="status" aria-live="polite"></p>
+</section>
+
+<!-- ===================== ENGLISH ===================== -->
+<article data-lang="en" class="wrap" style="padding:0">
+  <header class="brief">
+    <span class="mono meta">Daily brief · 5 Nov 2026 · about 5 min read</span>
+    <h1>Blockchain Brief, 5 Nov 2026</h1>
+    <p class="lede">Zcash's NU7 cuts block times to 25 seconds, Stellar adds post-quantum signature checks to Soroban, a one-block Ethereum reorg pauses THORChain, and the Ethereum Economic Zone demos same-transaction calls between mainnet and a rollup.</p>
+    <p class="note">Claims I could not confirm from a primary or second independent source are marked Unverified.</p>
+    <nav class="jump" data-noread aria-label="Sections"><a class="dev" href="#dev-en">Dev ↓</a><a class="nondev" href="#nondev-en">Non-dev ↓</a></nav>
+  </header>
+
+  <section class="track dev" id="dev-en">
+    <div class="track-head"><h2>Dev</h2><p>Protocol changes, contract risks, security details and tooling.</p></div>
+    <div class="item">
+      <span class="tag mono" data-noread>Upgrade · Zcash · ~5 Nov</span>
+      <h3>NU7 makes Zcash three times faster</h3>
+      <p>NU7 activates at mainnet block 3,543,405, expected around 5 November. Under ZIP 218 the target block time drops from 75 to 25 seconds, and the reward per block is cut by a factor of three, so the supply cap and four-year halving schedule are unchanged. A new Network Sustainability Mechanism sends 60% of transaction fees to a reserve, with miners keeping 40%. Version 4 transactions become invalid at activation, and any ZEC still in the old Sprout pool becomes unspendable. Node operators need Zebra 7.0.0 (<a href='https://zips.z.cash/zip-0218'>ZIP 218</a>, <a href='https://zfnd.org/zebra-7-0-0-release/'>Zcash Foundation</a>, <a href='https://crypto.news/zcash-price-rebounds-nu7-upgrade-1370-breakout/'>crypto.news</a>).</p>
+      <p class="unverified"><b>Unverified</b>The calendar date is an estimate from block height, and I have not confirmed activation.</p>
+    </div>
+    <div class="item">
+      <span class="tag mono" data-noread>Upgrade · Stellar · 3–23 Nov</span>
+      <h3>Stellar Bell brings ML-DSA to smart contracts</h3>
+      <p>Protocol 30, called Bell, is live on Stellar's testnet, and the mainnet validator vote is set for 23 November at 17:00 UTC. CAP-87 lets Soroban contracts verify ML-DSA signatures, the NIST post-quantum standard, at three security levels, while network transaction signatures stay Ed25519. CAP-84 adds muxed contract addresses with a 64-bit sub-identifier and a W prefix. CAP-88 records ledger close times in milliseconds with a new header format, but does not make ledgers close faster yet. Validators must run Stellar Core v30.0.0 (<a href='https://stellar.org/blog/developers/bell-protocol-30-upgrade-guide'>Stellar upgrade guide</a>, <a href='https://crypto.news/stellar-protocol-30-bell-upgrade-goes-live-on-testnet-ahead-of-mainnet-vote/'>crypto.news</a>).</p>
+    </div>
+    <div class="item">
+      <span class="tag mono" data-noread>Incident · THORChain · 31 Oct–2 Nov</span>
+      <h3>A one-block reorg causes a double refund</h3>
+      <p>On 31 October a one-block Ethereum reorg removed a 10 ETH deposit that THORChain had already credited. When the swap missed its price limit, THORChain refunded funds its vault never received, and the sender's real deposit was refunded too. The extra 10 ETH payout triggered an automatic pause of swaps on ten networks, including Bitcoin, Ethereum, Solana and Tron. Chainalysis noted the halt delayed laundering of funds stolen from Binance (<a href='https://cointelegraph.com/news/thorchain-halts-swaps-after-block-reorg-bug-slowing-binance-hackers'>Cointelegraph</a>).</p>
+      <p class="unverified"><b>Unverified</b>How many confirmations THORChain waited for, and when all chains will restart.</p>
+    </div>
+    <div class="item">
+      <span class="tag mono" data-noread>Research · Ethereum · Devcon</span>
+      <h3>Mainnet and rollup in one transaction</h3>
+      <p>The Ethereum Economic Zone, started by Gnosis, Zisk and the Ethereum Foundation, showed three demos of synchronous composability at Devcon. A CoW Swap order signed on a rollup was filled from mainnet liquidity, with tokens delivered back in the same transaction and no bridge step. A rollup verified ownership changes on a mainnet Safe within one transaction. A Falcon post-quantum signature was verified on the rollup to authorize a mainnet transfer, at a reported 91% less gas than on mainnet (<a href='https://crypto.news/ethereum-economic-zone-unveils-three-cross-chain-breakthroughs-at-devcon/'>crypto.news</a>).</p>
+      <p class="unverified"><b>Unverified</b>These are demos. No EIP or spec is named, and the gas figure is the project's own.</p>
+    </div>
+    <div class="item">
+      <h3>What to do this week</h3>
+      <ul class="points"><li>Zcash wallets and services must stop building v4 transactions and upgrade to Zebra 7.0.0.</li><li>Recheck any code that assumes 75-second Zcash blocks, such as timeouts, fee estimates and confirmation targets.</li><li>Credit cross-chain deposits only after finality, not after one block. Refunds should use the same rule.</li><li>Stellar developers can prototype ML-DSA authorization in Soroban on testnet, and should handle W-prefixed addresses.</li></ul>
+    </div>
+  </section>
+
+  <section class="track nondev" id="nondev-en">
+    <div class="track-head"><h2>Non-dev</h2><p>Market, business and regulation, and what the news means in plain language.</p></div>
+    <div class="item">
+      <span class="tag mono" data-noread>Plain summary</span>
+      <h3>Faster Zcash, quantum-safe checks on Stellar, and a costly glitch</h3>
+      <p>Zcash, a privacy-focused coin, is switching to blocks three times as often, so payments confirm faster; the total supply doesn't change. Stellar is adding the ability for apps to check new signatures designed to resist future quantum computers. And THORChain, a service for swapping coins between blockchains, paused trading after a brief Ethereum hiccup made it refund the same 10 ETH twice.</p>
+    </div>
+    <div class="item">
+      <h3>As a user</h3>
+      <ul class="points"><li>If you hold ZEC in the old Sprout pool, it becomes unspendable at NU7. Move it beforehand if it is not too late.</li><li>Expect Zcash confirmations about three times as often after NU7.</li><li>If a THORChain swap is pending, wait for your chain to be re-enabled rather than resending.</li><li>Treat same-transaction mainnet-to-rollup swaps as experimental for now.</li></ul>
+      <p>Coming up: NU7 activation, the 23 November Stellar vote, the THORChain restart, and the XRP Ledger cleanup amendment (fixCleanup3_4_0).</p>
+    </div>
+  </section>
+
+  <section class="sources">
+    <h2>Sources</h2>
+    <p>Reporting as of 5 November 2026. ZIP 218, the Zcash Foundation and Stellar pages are primary sources.</p>
+    <ul>
+      <li><a href="https://zips.z.cash/zip-0218">ZIP 218</a> <span class="kind">primary</span></li>
+      <li><a href="https://zfnd.org/zebra-7-0-0-release/">Zcash Foundation: Zebra 7.0.0 release</a> <span class="kind">primary</span></li>
+      <li><a href="https://crypto.news/zcash-price-rebounds-nu7-upgrade-1370-breakout/">crypto.news: Zcash ahead of NU7</a> <span class="kind">secondary</span></li>
+      <li><a href="https://stellar.org/blog/developers/bell-protocol-30-upgrade-guide">Stellar: Bell (Protocol 30) upgrade guide</a> <span class="kind">primary</span></li>
+      <li><a href="https://crypto.news/stellar-protocol-30-bell-upgrade-goes-live-on-testnet-ahead-of-mainnet-vote/">crypto.news: Stellar Bell on testnet</a> <span class="kind">secondary</span></li>
+      <li><a href="https://cointelegraph.com/news/thorchain-halts-swaps-after-block-reorg-bug-slowing-binance-hackers">Cointelegraph: THORChain halts swaps after reorg</a> <span class="kind">secondary</span></li>
+      <li><a href="https://crypto.news/ethereum-economic-zone-unveils-three-cross-chain-breakthroughs-at-devcon/">crypto.news: Ethereum Economic Zone at Devcon</a> <span class="kind">secondary</span></li>
+    </ul>
+  </section>
+</article>
+
+<!-- ===================== 日本語 ===================== -->
+<article data-lang="ja" class="wrap" style="padding:0" hidden>
+  <header class="brief">
+    <span class="mono meta">デイリーブリーフ · 2026年11月5日 · 約5分</span>
+    <h1>ブロックチェーン・ブリーフ 2026年11月5日</h1>
+    <p class="lede">Zcash の NU7 でブロック時間が25秒に、Stellar は Soroban に耐量子署名の検証を追加、イーサリアムの1ブロック再編成で THORChain が停止し、Ethereum Economic Zone はメインネットとロールアップをまたぐ同一トランザクションでの呼び出しを実演しました。</p>
+    <p class="note">一次情報または独立した2つ目の情報源で確認できなかった内容には「未確認」と表示しています。</p>
+    <nav class="jump" data-noread aria-label="セクション"><a class="dev" href="#dev-ja">Dev ↓</a><a class="nondev" href="#nondev-ja">Non-dev ↓</a></nav>
+  </header>
+
+  <section class="track dev" id="dev-ja">
+    <div class="track-head"><h2>Dev</h2><p>プロトコル変更、コントラクトのリスク、セキュリティの詳細、開発ツール。</p></div>
+    <div class="item">
+      <span class="tag mono" data-noread>アップグレード · Zcash · 11月5日頃</span>
+      <h3>NU7 で Zcash が3倍速く</h3>
+      <p>NU7 はメインネットのブロック 3,543,405 で有効化され、11月5日ごろと見込まれています。ZIP 218 によりブロック時間の目標は75秒から25秒に短縮され、1ブロックあたりの報酬も3分の1になるため、供給上限と4年ごとの半減期の予定は変わりません。新しい Network Sustainability Mechanism により、手数料の60%は準備金に、40%はマイナーに入ります。有効化と同時にバージョン4のトランザクションは無効となり、古い Sprout プールに残る ZEC は使えなくなります。ノード運用者には Zebra 7.0.0 が必要です（<a href='https://zips.z.cash/zip-0218'>ZIP 218</a>、<a href='https://zfnd.org/zebra-7-0-0-release/'>Zcash Foundation</a>、<a href='https://crypto.news/zcash-price-rebounds-nu7-upgrade-1370-breakout/'>crypto.news</a>）。</p>
+      <p class="unverified"><b>未確認</b>日付はブロック高からの推定で、有効化はまだ確認できていません。</p>
+    </div>
+    <div class="item">
+      <span class="tag mono" data-noread>アップグレード · Stellar · 11月3〜23日</span>
+      <h3>Stellar Bell でスマートコントラクトに ML-DSA</h3>
+      <p>Protocol 30「Bell」が Stellar のテストネットで稼働し、メインネットのバリデータ投票は11月23日 17:00 UTC に予定されています。CAP-87 により、Soroban のコントラクトは NIST の耐量子標準 ML-DSA の署名を3つのセキュリティレベルで検証できるようになります（ネットワークのトランザクション署名は Ed25519 のまま）。CAP-84 は64ビットのサブ識別子と W 接頭辞を持つ多重化コントラクトアドレスを追加します。CAP-88 は新しいヘッダー形式でレジャーのクローズ時刻をミリ秒単位で記録しますが、まだクローズが速くなるわけではありません。バリデータは Stellar Core v30.0.0 が必要です（<a href='https://stellar.org/blog/developers/bell-protocol-30-upgrade-guide'>Stellar アップグレードガイド</a>、<a href='https://crypto.news/stellar-protocol-30-bell-upgrade-goes-live-on-testnet-ahead-of-mainnet-vote/'>crypto.news</a>）。</p>
+    </div>
+    <div class="item">
+      <span class="tag mono" data-noread>インシデント · THORChain · 10月31日〜11月2日</span>
+      <h3>1ブロックの再編成で二重返金</h3>
+      <p>10月31日、イーサリアムで1ブロックの再編成が起き、THORChain がすでに入金済みとして扱っていた 10 ETH の入金が消えました。スワップが価格制限に届かなかったため、THORChain は金庫に届いていない資金を返金し、送金者の本当の入金も返金されました。この余分な 10 ETH の支払いで、Bitcoin、Ethereum、Solana、Tron など10のネットワークでスワップが自動停止しました。Chainalysis は、この停止で Binance から盗まれた資金の洗浄が遅れたと指摘しています（<a href='https://cointelegraph.com/news/thorchain-halts-swaps-after-block-reorg-bug-slowing-binance-hackers'>Cointelegraph</a>）。</p>
+      <p class="unverified"><b>未確認</b>THORChain が何承認待っていたか、全チェーンがいつ再開するか。</p>
+    </div>
+    <div class="item">
+      <span class="tag mono" data-noread>研究 · Ethereum · Devcon</span>
+      <h3>メインネットとロールアップを1つのトランザクションで</h3>
+      <p>Gnosis、Zisk、イーサリアム財団が始めた Ethereum Economic Zone は、Devcon で同期的コンポーザビリティのデモを3つ披露しました。ロールアップで署名した CoW Swap の注文をメインネットの流動性で約定させ、ブリッジを介さず同じトランザクション内でトークンを戻すもの、ロールアップがメインネットの Safe の所有者変更を1トランザクション内で検証するもの、そしてロールアップ上で Falcon 耐量子署名を検証してメインネットの送金を承認するもので、メインネットで行うより91%少ないガスで済むとされています（<a href='https://crypto.news/ethereum-economic-zone-unveils-three-cross-chain-breakthroughs-at-devcon/'>crypto.news</a>）。</p>
+      <p class="unverified"><b>未確認</b>デモの段階で、EIP や仕様の名前は挙がっておらず、ガスの数字はプロジェクト自身のものです。</p>
+    </div>
+    <div class="item">
+      <h3>今週やること</h3>
+      <ul class="points"><li>Zcash のウォレットやサービスは v4 トランザクションの作成をやめ、Zebra 7.0.0 にアップグレードする。</li><li>タイムアウト、手数料見積もり、承認数の目標など、75秒ブロックを前提にしたコードを見直す。</li><li>クロスチェーンの入金は1ブロックではなくファイナリティ後に反映する。返金も同じルールで。</li><li>Stellar の開発者はテストネットで Soroban の ML-DSA 認証を試作し、W 接頭辞のアドレスに対応する。</li></ul>
+    </div>
+  </section>
+
+  <section class="track nondev" id="nondev-ja">
+    <div class="track-head"><h2>Non-dev</h2><p>市場・ビジネス・規制と、ニュースが何を意味するかのやさしい解説。</p></div>
+    <div class="item">
+      <span class="tag mono" data-noread>やさしい解説</span>
+      <h3>速くなる Zcash、Stellar の耐量子チェック、高くついた不具合</h3>
+      <p>プライバシー重視の暗号資産 Zcash は、ブロックの頻度を3倍にして支払いの承認を速くします。総供給量は変わりません。Stellar は、将来の量子コンピュータに耐えるよう設計された新しい署名をアプリが確認できるようにします。また、異なるブロックチェーン間でコインを交換するサービス THORChain は、イーサリアムの一時的な乱れで同じ 10 ETH を二重に返金してしまい、取引を止めました。</p>
+    </div>
+    <div class="item">
+      <h3>利用者として</h3>
+      <ul class="points"><li>古い Sprout プールに ZEC があるなら NU7 で使えなくなります。間に合うなら事前に移す。</li><li>NU7 の後、Zcash の承認は約3倍の頻度になります。</li><li>THORChain のスワップが保留中なら、送り直さずにチェーンの再開を待つ。</li><li>メインネットとロールアップをまたぐ同一トランザクションのスワップは、当面は実験的なものと考える。</li></ul>
+      <p>今後の予定：NU7 の有効化、11月23日の Stellar 投票、THORChain の再開、XRP Ledger の整理用アメンドメント（fixCleanup3_4_0）。</p>
+    </div>
+  </section>
+
+  <section class="sources">
+    <h2>出典</h2>
+    <p>2026年11月5日時点の報道に基づきます。ZIP 218、Zcash Foundation、Stellar のページは一次情報です。</p>
+    <ul>
+      <li><a href="https://zips.z.cash/zip-0218">ZIP 218</a> <span class="kind">一次情報</span></li>
+      <li><a href="https://zfnd.org/zebra-7-0-0-release/">Zcash Foundation: Zebra 7.0.0 release</a> <span class="kind">一次情報</span></li>
+      <li><a href="https://crypto.news/zcash-price-rebounds-nu7-upgrade-1370-breakout/">crypto.news: Zcash ahead of NU7</a> <span class="kind">二次情報</span></li>
+      <li><a href="https://stellar.org/blog/developers/bell-protocol-30-upgrade-guide">Stellar: Bell (Protocol 30) upgrade guide</a> <span class="kind">一次情報</span></li>
+      <li><a href="https://crypto.news/stellar-protocol-30-bell-upgrade-goes-live-on-testnet-ahead-of-mainnet-vote/">crypto.news: Stellar Bell on testnet</a> <span class="kind">二次情報</span></li>
+      <li><a href="https://cointelegraph.com/news/thorchain-halts-swaps-after-block-reorg-bug-slowing-binance-hackers">Cointelegraph: THORChain halts swaps after reorg</a> <span class="kind">二次情報</span></li>
+      <li><a href="https://crypto.news/ethereum-economic-zone-unveils-three-cross-chain-breakthroughs-at-devcon/">crypto.news: Ethereum Economic Zone at Devcon</a> <span class="kind">二次情報</span></li>
+    </ul>
+  </section>
+</article>
+
+<section class="comments" id="comments" data-noread>
+  <h2><span data-lang="en">Reader feedback</span><span data-lang="ja" hidden>読者のコメント</span></h2>
+  <p class="note"><span data-lang="en">Comments use GitHub sign-in, so every commenter is a real GitHub account. Be kind and stay on topic.</span><span data-lang="ja" hidden>コメントには GitHub へのログインが必要です。思いやりを持って、話題に沿って書き込んでください。</span></p>
+  <div class="giscus"></div>
+</section>
+
+<nav class="pager" data-noread>
+  <a href="../"><span data-lang="en">← All briefs</span><span data-lang="ja" hidden>← バックナンバー</span></a>
+  <span></span>
+</nav>
+</main>
+<script src="../assets/brief.js"></script>
+</body>
+</html>

@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Blockchain Brief, 1 Nov 2026</title>
+<meta name="description" content="Binance reopens withdrawals network by network as the FBI names North Korea, and Coinbase converts non-MiCA stablecoins in the EEA.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-title-en="Blockchain Brief, 1 Nov 2026" data-title-ja="ブロックチェーン・ブリーフ 2026年11月1日">
+<div class="bar"><div class="bar-in">
+  <a class="home" href="../">Blockchain Brief</a>
+  <div class="controls">
+    <div class="seg" role="group" aria-label="Language"><button type="button" data-set-lang="en" aria-pressed="true">EN</button><button type="button" data-set-lang="ja" aria-pressed="false">日本語</button></div>
+  </div>
+</div></div>
+
+<main class="wrap">
+
+<!-- Read-aloud panel (shared; labels follow the language toggle) -->
+<section class="audio" id="audio" aria-label="Read aloud" data-noread>
+  <div class="audio-row">
+    <button type="button" class="btn primary" data-a="play">▶ Listen</button>
+    <button type="button" class="btn" data-a="stop" disabled>■ Stop</button>
+    <select class="btn" data-a="scope" aria-label="What to read"><option value="all">Whole brief</option><option value="dev">Dev only</option><option value="nondev">Non-dev only</option></select>
+  </div>
+  <div class="audio-row">
+    <label class="status"><span data-a="speedlbl">Speed</span>
+      <select class="btn" data-a="rate"><option value="0.8">0.8×</option><option value="0.9">0.9×</option><option value="1" selected>1×</option><option value="1.15">1.15×</option><option value="1.3">1.3×</option><option value="1.5">1.5×</option></select></label>
+    <label class="status"><span data-a="voicelbl">Voice</span>
+      <select class="btn" data-a="voice"></select></label>
+  </div>
+  <p class="status" data-a="status" aria-live="polite"></p>
+</section>
+
+<!-- ===================== ENGLISH ===================== -->
+<article data-lang="en" class="wrap" style="padding:0">
+  <header class="brief">
+    <span class="mono meta">Daily brief · 1 Nov 2026 · about 4 min read</span>
+    <h1>Blockchain Brief, 1 Nov 2026</h1>
+    <p class="lede">Binance reopens withdrawals network by network as the FBI names North Korea, Coinbase converts leftover non-MiCA stablecoins for European users, and a few big regulatory headlines remain unconfirmed.</p>
+    <p class="note">Claims I could not confirm from a primary or second independent source are marked Unverified.</p>
+    <nav class="jump" data-noread aria-label="Sections"><a class="dev" href="#dev-en">Dev ↓</a><a class="nondev" href="#nondev-en">Non-dev ↓</a></nav>
+  </header>
+
+  <section class="track dev" id="dev-en">
+    <div class="track-head"><h2>Dev</h2><p>Protocol changes, contract risks, security details and tooling.</p></div>
+    <div class="item">
+      <span class="tag mono" data-noread>Follow-up · Binance · 31 Oct–1 Nov</span>
+      <h3>Recovery one network at a time</h3>
+      <p>Binance's Recovery Update #4 said phase one would open on 1 November between 06:00 and 09:00 UTC, with each network checked separately before going live. The first list covers 15 networks chosen by user demand, including Bitcoin, Ethereum, BNB Smart Chain, Tron, Solana, XRP Ledger, Dogecoin, Polygon, Arbitrum, Base, Optimism and Sui (<a href='https://cryptoticker.io/en/binance-withdrawals-reopen-phase-one/'>CryptoTicker</a>). Assets reopen “in phases as security checks are completed” (<a href='https://www.cbsnews.com/news/binance-crypto-heist-withdrawals/'>CBS News</a>). Per-network health checks and kill switches are what make this kind of staged restart possible.</p>
+    </div>
+    <div class="item">
+      <h3>What to do this week</h3>
+      <ul class="points"><li>Design incident recovery to reopen one network at a time, with a separate health check and kill switch for each.</li><li>Publish machine-readable per-network status so wallets and integrators can stop guessing.</li><li>Apps serving EEA users should handle a stablecoin becoming unavailable, including automatic conversion and blocked deposits.</li><li>Screen inbound transfers linked to the Binance theft as a sanctions and compliance risk.</li></ul>
+    </div>
+  </section>
+
+  <section class="track nondev" id="nondev-en">
+    <div class="track-head"><h2>Non-dev</h2><p>Market, business and regulation, and what the news means in plain language.</p></div>
+    <div class="item">
+      <span class="tag mono" data-noread>Follow-up · Binance · 31 Oct</span>
+      <h3>The FBI names North Korea, and withdrawals restart</h3>
+      <p>On 31 October the FBI said North Korea was responsible for the theft of more than $6 billion from Binance on or about 29 October, naming the TraderTraitor group. Binance says it has replenished 95% of losses and that balances in its ten largest assets are fully backed. By the morning of 1 November, withdrawals were back for Bitcoin, Ethereum, BNB, XRP, Base, Dogecoin and Optimism, with other coins to follow (<a href='https://www.cbsnews.com/news/binance-crypto-heist-withdrawals/'>CBS News</a>).</p>
+      <p class="unverified"><b>Unverified</b>CBS reports Binance covering 90% of losses, against 95% elsewhere.</p>
+    </div>
+    <div class="item">
+      <span class="tag mono" data-noread>Follow-up · MiCA · 28–30 Oct</span>
+      <h3>Coinbase converts non-MiCA stablecoins in the EEA</h3>
+      <p>Following the EU securities regulator ESMA's 8 October opinion, Coinbase told retail users in the European Economic Area to withdraw non-MiCA-compliant stablecoins by 30 October, including USDT, DAI, PYUSD, PAX, GUSD, USDS and USD1. Balances left after the deadline are converted into USDC where possible, at the market rate, which may not equal face value. Deposits of affected tokens after the deadline won't be credited, and recovery isn't guaranteed (<a href='https://www.tradingview.com/news/newsbtc:0a19fe5a8094b:0-coinbase-sets-october-30-deadline-for-restricted-stablecoins-in-eea/'>NewsBTC via TradingView</a>).</p>
+      <p class="unverified"><b>Unverified</b>I have not read Coinbase's own notice.</p>
+    </div>
+    <div class="item">
+      <span class="tag mono" data-noread>Not confirmed · Regulation · late Oct</span>
+      <h3>Headlines I could not check</h3>
+      <p>Weekly round-ups report a final OCC rule implementing the GENIUS Act, an HSBC Hong Kong dollar stablecoin, and a Franklin Templeton tokenized fund on the XRP Ledger. I found no primary source for any of them, so they stay out of the takeaways until confirmed.</p>
+      <p class="unverified"><b>Unverified</b>All three claims, including any dates.</p>
+    </div>
+    <div class="item">
+      <h3>As a user</h3>
+      <ul class="points"><li>If you hold funds on Binance, check the in-app status for your specific coin and network before sending a withdrawal.</li><li>Read the proof of reserves when it lands, and look at whether it covers liabilities as well as assets.</li><li>EEA Coinbase users should check whether a stablecoin balance was converted, and at what rate.</li><li>Don't send USDT or other affected tokens to a Coinbase EEA account now.</li></ul>
+      <p>Coming up: Binance's proof of reserves, the phase-two network list and its post-mortem, and primary confirmation of the OCC GENIUS rule.</p>
+    </div>
+  </section>
+
+  <section class="sources">
+    <h2>Sources</h2>
+    <p>Reporting as of 1 November 2026. The FBI statement is quoted through CBS. All sources are secondary.</p>
+    <ul>
+      <li><a href="https://www.cbsnews.com/news/binance-crypto-heist-withdrawals/">CBS News: Binance resumes some withdrawals, FBI names North Korea</a> <span class="kind">secondary</span></li>
+      <li><a href="https://cryptoticker.io/en/binance-withdrawals-reopen-phase-one/">CryptoTicker: Binance phase-one withdrawal list</a> <span class="kind">secondary</span></li>
+      <li><a href="https://www.tradingview.com/news/newsbtc:0a19fe5a8094b:0-coinbase-sets-october-30-deadline-for-restricted-stablecoins-in-eea/">NewsBTC via TradingView: Coinbase EEA stablecoin deadline</a> <span class="kind">secondary</span></li>
+    </ul>
+  </section>
+</article>
+
+<!-- ===================== 日本語 ===================== -->
+<article data-lang="ja" class="wrap" style="padding:0" hidden>
+  <header class="brief">
+    <span class="mono meta">デイリーブリーフ · 2026年11月1日 · 約4分</span>
+    <h1>ブロックチェーン・ブリーフ 2026年11月1日</h1>
+    <p class="lede">FBI が北朝鮮を名指しするなか、Binance はネットワークごとに出金を再開。Coinbase は欧州の利用者に残っていた MiCA 非準拠のステーブルコインを変換し、いくつかの大きな規制ニュースはまだ確認できていません。</p>
+    <p class="note">一次情報または独立した2つ目の情報源で確認できなかった内容には「未確認」と表示しています。</p>
+    <nav class="jump" data-noread aria-label="セクション"><a class="dev" href="#dev-ja">Dev ↓</a><a class="nondev" href="#nondev-ja">Non-dev ↓</a></nav>
+  </header>
+
+  <section class="track dev" id="dev-ja">
+    <div class="track-head"><h2>Dev</h2><p>プロトコル変更、コントラクトのリスク、セキュリティの詳細、開発ツール。</p></div>
+    <div class="item">
+      <span class="tag mono" data-noread>続報 · Binance · 10月31日〜11月1日</span>
+      <h3>ネットワークごとの段階的な復旧</h3>
+      <p>Binance の Recovery Update #4 によると、第1段階は11月1日 06:00〜09:00 UTC に始まり、各ネットワークを個別に確認してから再開します。最初のリストは利用者の需要で選んだ15のネットワークで、Bitcoin、Ethereum、BNB Smart Chain、Tron、Solana、XRP Ledger、Dogecoin、Polygon、Arbitrum、Base、Optimism、Sui などが含まれます（<a href='https://cryptoticker.io/en/binance-withdrawals-reopen-phase-one/'>CryptoTicker</a>）。資産は「セキュリティ確認が終わったものから段階的に」再開されます（<a href='https://www.cbsnews.com/news/binance-crypto-heist-withdrawals/'>CBS News</a>）。こうした段階的な再開を可能にするのは、ネットワークごとのヘルスチェックと停止スイッチです。</p>
+    </div>
+    <div class="item">
+      <h3>今週やること</h3>
+      <ul class="points"><li>インシデントからの復旧は、ネットワークごとにヘルスチェックと停止スイッチを持ち、1つずつ再開できるよう設計する。</li><li>ネットワークごとの状況を機械可読な形で公開し、ウォレットや連携先が推測しなくて済むようにする。</li><li>EEA の利用者向けアプリは、ステーブルコインが使えなくなる場合（自動変換や入金の拒否）に対応する。</li><li>Binance の盗難に関わる入金を、制裁とコンプライアンスのリスクとしてスクリーニングする。</li></ul>
+    </div>
+  </section>
+
+  <section class="track nondev" id="nondev-ja">
+    <div class="track-head"><h2>Non-dev</h2><p>市場・ビジネス・規制と、ニュースが何を意味するかのやさしい解説。</p></div>
+    <div class="item">
+      <span class="tag mono" data-noread>続報 · Binance · 10月31日</span>
+      <h3>FBI が北朝鮮を名指し、出金が再開</h3>
+      <p>FBI は10月31日、10月29日ごろの Binance からの60億ドル超の盗難は北朝鮮によるものだとし、TraderTraitor グループを名指ししました。Binance は損失の95%を補填し、上位10銘柄の残高は完全に裏付けられているとしています。11月1日朝までに、Bitcoin、Ethereum、BNB、XRP、Base、Dogecoin、Optimism の出金が再開し、ほかのコインも続く予定です（<a href='https://www.cbsnews.com/news/binance-crypto-heist-withdrawals/'>CBS News</a>）。</p>
+      <p class="unverified"><b>未確認</b>CBS は損失の90%を補填と報じており、他の報道の95%と食い違っています。</p>
+    </div>
+    <div class="item">
+      <span class="tag mono" data-noread>続報 · MiCA · 10月28〜30日</span>
+      <h3>Coinbase が EEA で MiCA 非準拠ステーブルコインを変換</h3>
+      <p>EU の証券規制当局 ESMA の10月8日の意見を受け、Coinbase は EEA の個人利用者に対し、USDT、DAI、PYUSD、PAX、GUSD、USDS、USD1 など MiCA 非準拠のステーブルコインを10月30日までに出庫するよう求めました。期限後に残った残高は可能な限り市場レートで USDC に変換され、額面と一致しない場合があります。期限後に対象トークンを入金しても反映されず、回収も保証されません（<a href='https://www.tradingview.com/news/newsbtc:0a19fe5a8094b:0-coinbase-sets-october-30-deadline-for-restricted-stablecoins-in-eea/'>NewsBTC（TradingView 経由）</a>）。</p>
+      <p class="unverified"><b>未確認</b>Coinbase 自身の告知は読めていません。</p>
+    </div>
+    <div class="item">
+      <span class="tag mono" data-noread>未確認 · 規制 · 10月下旬</span>
+      <h3>確認できなかったニュース</h3>
+      <p>週刊のまとめでは、GENIUS 法を実施する OCC の最終規則、HSBC の香港ドル建てステーブルコイン、XRP Ledger 上の Franklin Templeton のトークン化ファンドが報じられています。いずれも一次情報が見つからないため、確認できるまでまとめには含めていません。</p>
+      <p class="unverified"><b>未確認</b>3件とも、日付を含めて未確認です。</p>
+    </div>
+    <div class="item">
+      <h3>利用者として</h3>
+      <ul class="points"><li>Binance に資金があるなら、出金前にアプリでそのコインとネットワークの状況を確認する。</li><li>準備金証明が出たら、資産だけでなく負債もカバーしているかを見る。</li><li>EEA の Coinbase 利用者は、ステーブルコインの残高が変換されたか、どのレートだったかを確認する。</li><li>今は USDT など対象のトークンを Coinbase の EEA アカウントに送らない。</li></ul>
+      <p>今後の予定：Binance の準備金証明、第2段階のネットワークリストと事後報告、OCC の GENIUS 規則の一次情報での確認。</p>
+    </div>
+  </section>
+
+  <section class="sources">
+    <h2>出典</h2>
+    <p>2026年11月1日時点の報道に基づきます。FBI の声明は CBS 経由の引用で、いずれも二次情報です。</p>
+    <ul>
+      <li><a href="https://www.cbsnews.com/news/binance-crypto-heist-withdrawals/">CBS News: Binance resumes some withdrawals, FBI names North Korea</a> <span class="kind">二次情報</span></li>
+      <li><a href="https://cryptoticker.io/en/binance-withdrawals-reopen-phase-one/">CryptoTicker: Binance phase-one withdrawal list</a> <span class="kind">二次情報</span></li>
+      <li><a href="https://www.tradingview.com/news/newsbtc:0a19fe5a8094b:0-coinbase-sets-october-30-deadline-for-restricted-stablecoins-in-eea/">NewsBTC via TradingView: Coinbase EEA stablecoin deadline</a> <span class="kind">二次情報</span></li>
+    </ul>
+  </section>
+</article>
+
+<section class="comments" id="comments" data-noread>
+  <h2><span data-lang="en">Reader feedback</span><span data-lang="ja" hidden>読者のコメント</span></h2>
+  <p class="note"><span data-lang="en">Comments use GitHub sign-in, so every commenter is a real GitHub account. Be kind and stay on topic.</span><span data-lang="ja" hidden>コメントには GitHub へのログインが必要です。思いやりを持って、話題に沿って書き込んでください。</span></p>
+  <div class="giscus"></div>
+</section>
+
+<nav class="pager" data-noread>
+  <a href="../"><span data-lang="en">← All briefs</span><span data-lang="ja" hidden>← バックナンバー</span></a>
+  <span></span>
+</nav>
+</main>
+<script src="../assets/brief.js"></script>
+</body>
+</html>

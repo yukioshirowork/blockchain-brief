@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Blockchain Brief, 31 Oct 2026</title>
+<meta name="description" content="The Binance drain ran through an EIP-7702 delegation, Bitcoin Core ships its first fast-track security fixes, and more Lightning patches.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-title-en="Blockchain Brief, 31 Oct 2026" data-title-ja="ブロックチェーン・ブリーフ 2026年10月31日">
+<div class="bar"><div class="bar-in">
+  <a class="home" href="../">Blockchain Brief</a>
+  <div class="controls">
+    <div class="seg" role="group" aria-label="Language"><button type="button" data-set-lang="en" aria-pressed="true">EN</button><button type="button" data-set-lang="ja" aria-pressed="false">日本語</button></div>
+  </div>
+</div></div>
+
+<main class="wrap">
+
+<!-- Read-aloud panel (shared; labels follow the language toggle) -->
+<section class="audio" id="audio" aria-label="Read aloud" data-noread>
+  <div class="audio-row">
+    <button type="button" class="btn primary" data-a="play">▶ Listen</button>
+    <button type="button" class="btn" data-a="stop" disabled>■ Stop</button>
+    <select class="btn" data-a="scope" aria-label="What to read"><option value="all">Whole brief</option><option value="dev">Dev only</option><option value="nondev">Non-dev only</option></select>
+  </div>
+  <div class="audio-row">
+    <label class="status"><span data-a="speedlbl">Speed</span>
+      <select class="btn" data-a="rate"><option value="0.8">0.8×</option><option value="0.9">0.9×</option><option value="1" selected>1×</option><option value="1.15">1.15×</option><option value="1.3">1.3×</option><option value="1.5">1.5×</option></select></label>
+    <label class="status"><span data-a="voicelbl">Voice</span>
+      <select class="btn" data-a="voice"></select></label>
+  </div>
+  <p class="status" data-a="status" aria-live="polite"></p>
+</section>
+
+<!-- ===================== ENGLISH ===================== -->
+<article data-lang="en" class="wrap" style="padding:0">
+  <header class="brief">
+    <span class="mono meta">Daily brief · 31 Oct 2026 · about 5 min read</span>
+    <h1>Blockchain Brief, 31 Oct 2026</h1>
+    <p class="lede">The Binance theft turns out to have run through EIP-7702 delegation, Bitcoin Core ships its first fast-track security fixes, and Lightning gets another round of patches.</p>
+    <p class="note">Claims I could not confirm from a primary or second independent source are marked Unverified.</p>
+    <nav class="jump" data-noread aria-label="Sections"><a class="dev" href="#dev-en">Dev ↓</a><a class="nondev" href="#nondev-en">Non-dev ↓</a></nav>
+  </header>
+
+  <section class="track dev" id="dev-en">
+    <div class="track-head"><h2>Dev</h2><p>Protocol changes, contract risks, security details and tooling.</p></div>
+    <div class="item">
+      <span class="tag mono" data-noread>Follow-up · Binance · 30–31 Oct</span>
+      <h3>How the Binance drain worked</h3>
+      <p>On-chain analysis shows that one of Binance's Ethereum hot wallets was placed under an EIP-7702 delegation pointing at attacker code with a sweep function. At about 20:24 UTC on 29 October it moved roughly 167,000 ETH and over 1.6 billion USDT in one go (<a href='https://threatlandscape.io/blog/binance-hot-wallet-compromise-eip-7702-delegation'>Threat Landscape</a>). Binance co-CEO Richard Teng said the delegation “did not pass through our normal approval controls,” that investigators found further breach points beyond the engineer's laptop, and that the attacker used a self-destruct mechanism to wipe tools (<a href='https://cointelegraph.com/news/live-updates-binance-63b-hack-linked-to-north-koreas-tradertraitor'>Cointelegraph</a>).</p>
+      <p>EIP-7702 did not cause the hack, since the attacker still needed Binance's signing access, but it let one signature hand over a whole wallet. The attacker also borrowed about $44.6M of WETH from Aave against stolen USDT before Aave froze markets (<a href='https://blockchainreporter.net/binance-sets-aside-6-34b-to-cover-hack/'>Blockchain Reporter</a>).</p>
+      <p class="unverified"><b>Unverified</b>Sources disagree on whether the authorizations were phished or signed with a stolen key.</p>
+    </div>
+    <div class="item">
+      <span class="tag mono" data-noread>Follow-up · Bitcoin Core 32.1 · 28–30 Oct</span>
+      <h3>Bitcoin Core's first fast-track fixes</h3>
+      <p>Bitcoin Core's new policy of publishing fixes for easily rediscovered bugs immediately has now been used. Bitcoin Core 32.1, 31.2, 30.4 and 29.5 shipped with fixes for memory exhaustion via TCP urgent data, a send-buffer timeout issue, and a 4 GiB overflow in undo files, with advisories published at the same time (<a href='https://bitcoinops.org/en/newsletters/2026/10/30/'>Bitcoin Optech #429</a>). Version 32.0 was tagged but never released, so 32.1 is the first release of the new major version, with PSBT v2 by default and mempool-based fee estimation.</p>
+    </div>
+    <div class="item">
+      <span class="tag mono" data-noread>Follow-up · Lightning · Optech #429</span>
+      <h3>More Lightning patches</h3>
+      <p>Core Lightning disclosed a crash bug in versions 25.02 to 26.04: a channel announcement naming the same node at both ends crashed the node, and because the message was stored, it crashed again on every restart. It is fixed in 26.04.1. Eclair shipped security release 0.14.6 for splicing and on-the-fly funding, and LND's v0.21.5 and v0.20.6 are now final (<a href='https://bitcoinops.org/en/newsletters/2026/10/30/'>Bitcoin Optech #429</a>).</p>
+    </div>
+    <div class="item">
+      <h3>What to do this week</h3>
+      <ul class="points"><li>Treat an EIP-7702 authorization like a transfer of the whole account. Route it through the same approvals and alerts as large withdrawals.</li><li>Monitor custody addresses for delegation changes and alert on any code being set on an EOA.</li><li>Lending protocols should prepare for stolen collateral and have a fast freeze process, as Aave did.</li><li>Bitcoin services should test PSBT v2 handling before moving to Core 32.1.</li></ul>
+    </div>
+  </section>
+
+  <section class="track nondev" id="nondev-en">
+    <div class="track-head"><h2>Non-dev</h2><p>Market, business and regulation, and what the news means in plain language.</p></div>
+    <div class="item">
+      <span class="tag mono" data-noread>Binance · Plain summary</span>
+      <h3>One signature handed over a whole wallet</h3>
+      <p>The Binance thieves used a newer Ethereum feature that lets a wallet hand control to a piece of code. Once that permission was set on one of Binance's wallets, the attacker could empty it in a single step. The same feature is behind many phishing losses for ordinary users. Binance has set aside more than $6.34 billion to cover customers and says about $3 billion is frozen. Withdrawals were set to restart in phases around 1 November.</p>
+      <p class="unverified"><b>Unverified</b>The restart time has shifted several times. No funds have been reported recovered.</p>
+    </div>
+    <div class="item">
+      <span class="tag mono" data-noread>Bitcoin · Plain summary</span>
+      <h3>Bitcoin and Lightning software updates</h3>
+      <p>Bitcoin's main software got security fixes that were published right away, under a new policy. Several Lightning wallets' underlying software was patched too. If you run your own node, update. If you use an app, keep it updated.</p>
+    </div>
+    <div class="item">
+      <h3>As a user</h3>
+      <ul class="points"><li>If you have funds on Binance, wait for withdrawals to reopen in the app and check the proof of reserves when it is published.</li><li>Check whether your own Ethereum address has an active EIP-7702 delegation, and revoke any you did not set up.</li><li>Bitcoin node runners should upgrade to 32.1 or the matching point release now.</li><li>Lightning node operators should update CLN, Eclair and LND.</li></ul>
+      <p>Coming up: Binance's withdrawal restart, proof of reserves and post-mortem, and where the remaining stolen funds go.</p>
+    </div>
+  </section>
+
+  <section class="sources">
+    <h2>Sources</h2>
+    <p>Reporting as of 31 October 2026. Bitcoin Optech is a primary technical source.</p>
+    <ul>
+      <li><a href="https://threatlandscape.io/blog/binance-hot-wallet-compromise-eip-7702-delegation">Threat Landscape: Binance hot wallet compromise and EIP-7702</a> <span class="kind">research</span></li>
+      <li><a href="https://cointelegraph.com/news/live-updates-binance-63b-hack-linked-to-north-koreas-tradertraitor">Cointelegraph: Binance hack live updates</a> <span class="kind">secondary</span></li>
+      <li><a href="https://blockchainreporter.net/binance-sets-aside-6-34b-to-cover-hack/">Blockchain Reporter: Binance sets aside $6.34B</a> <span class="kind">secondary</span></li>
+      <li><a href="https://bitcoinops.org/en/newsletters/2026/10/30/">Bitcoin Optech Newsletter #429</a> <span class="kind">primary</span></li>
+    </ul>
+  </section>
+</article>
+
+<!-- ===================== 日本語 ===================== -->
+<article data-lang="ja" class="wrap" style="padding:0" hidden>
+  <header class="brief">
+    <span class="mono meta">デイリーブリーフ · 2026年10月31日 · 約5分</span>
+    <h1>ブロックチェーン・ブリーフ 2026年10月31日</h1>
+    <p class="lede">Binance の盗難は EIP-7702 の委任を通じて行われたことが判明。Bitcoin Core は初の即時公開のセキュリティ修正を出し、Lightning でもまたパッチが出ました。</p>
+    <p class="note">一次情報または独立した2つ目の情報源で確認できなかった内容には「未確認」と表示しています。</p>
+    <nav class="jump" data-noread aria-label="セクション"><a class="dev" href="#dev-ja">Dev ↓</a><a class="nondev" href="#nondev-ja">Non-dev ↓</a></nav>
+  </header>
+
+  <section class="track dev" id="dev-ja">
+    <div class="track-head"><h2>Dev</h2><p>プロトコル変更、コントラクトのリスク、セキュリティの詳細、開発ツール。</p></div>
+    <div class="item">
+      <span class="tag mono" data-noread>続報 · Binance · 10月30〜31日</span>
+      <h3>Binance の流出の仕組み</h3>
+      <p>オンチェーン分析によると、Binance のイーサリアムのホットウォレットの1つが、スイープ関数を持つ攻撃者のコードを指す EIP-7702 の委任下に置かれました。10月29日 20:24 UTC ごろ、約16万7,000 ETH と16億 USDT 超が一度に移されました（<a href='https://threatlandscape.io/blog/binance-hot-wallet-compromise-eip-7702-delegation'>Threat Landscape</a>）。Binance の共同 CEO Richard Teng は、委任が「通常の承認管理を通っていなかった」こと、調査でエンジニアのノート PC 以外にも侵入箇所が見つかったこと、攻撃者が自己破壊の仕組みでツールを消したことを明らかにしました（<a href='https://cointelegraph.com/news/live-updates-binance-63b-hack-linked-to-north-koreas-tradertraitor'>Cointelegraph</a>）。</p>
+      <p>攻撃者は Binance の署名権限を必要としたため、EIP-7702 がハッキングの原因ではありませんが、1つの署名でウォレット全体を渡せてしまいました。攻撃者は Aave が市場を凍結する前に、盗んだ USDT を担保に約4,460万ドル分の WETH も借りています（<a href='https://blockchainreporter.net/binance-sets-aside-6-34b-to-cover-hack/'>Blockchain Reporter</a>）。</p>
+      <p class="unverified"><b>未確認</b>承認がフィッシングによるものか、盗まれた鍵で署名されたものかで情報が分かれています。</p>
+    </div>
+    <div class="item">
+      <span class="tag mono" data-noread>続報 · Bitcoin Core 32.1 · 10月28〜30日</span>
+      <h3>Bitcoin Core 初の即時公開修正</h3>
+      <p>再発見されやすいバグの修正をすぐに公開するという Bitcoin Core の新方針が、初めて使われました。Bitcoin Core 32.1、31.2、30.4、29.5 は、TCP 緊急データによるメモリ枯渇、送信バッファのタイムアウト問題、undo ファイルの 4 GiB オーバーフローの修正を含み、勧告も同時に公開されました（<a href='https://bitcoinops.org/en/newsletters/2026/10/30/'>Bitcoin Optech #429</a>）。32.0 はタグ付けされたもののリリースされなかったため、32.1 が新しいメジャーバージョンの最初のリリースで、PSBT v2 が既定になり、mempool に基づく手数料見積もりが入りました。</p>
+    </div>
+    <div class="item">
+      <span class="tag mono" data-noread>続報 · Lightning · Optech #429</span>
+      <h3>Lightning の追加パッチ</h3>
+      <p>Core Lightning は、バージョン 25.02〜26.04 のクラッシュバグを公表しました。両端に同じノードを指定したチャネル告知を受け取るとノードがクラッシュし、そのメッセージが保存されるため再起動のたびにクラッシュしました。26.04.1 で修正されています。Eclair はスプライシングとオンザフライ資金調達に関するセキュリティリリース 0.14.6 を出し、LND の v0.21.5 と v0.20.6 も正式版になりました（<a href='https://bitcoinops.org/en/newsletters/2026/10/30/'>Bitcoin Optech #429</a>）。</p>
+    </div>
+    <div class="item">
+      <h3>今週やること</h3>
+      <ul class="points"><li>EIP-7702 の承認はアカウント全体の譲渡として扱い、大口出金と同じ承認と通知を通す。</li><li>カストディのアドレスで委任の変更を監視し、EOA にコードが設定されたら通知する。</li><li>レンディングプロトコルは盗難資産の担保に備え、Aave のように素早く凍結できる手順を持つ。</li><li>ビットコインのサービスは、Core 32.1 に移る前に PSBT v2 の処理をテストする。</li></ul>
+    </div>
+  </section>
+
+  <section class="track nondev" id="nondev-ja">
+    <div class="track-head"><h2>Non-dev</h2><p>市場・ビジネス・規制と、ニュースが何を意味するかのやさしい解説。</p></div>
+    <div class="item">
+      <span class="tag mono" data-noread>Binance · やさしい解説</span>
+      <h3>1つの署名でウォレット全体が渡ってしまった</h3>
+      <p>Binance の窃盗犯は、ウォレットの操作権限をプログラムに委ねられるイーサリアムの新しい機能を使いました。Binance のウォレットの1つにその権限が設定されると、攻撃者は一度で中身を空にできました。同じ機能は、一般の利用者のフィッシング被害の多くにも使われています。Binance は顧客補償のために63.4億ドル超を確保し、約30億ドルが凍結されているとしています。出金は11月1日ごろから段階的に再開される予定でした。</p>
+      <p class="unverified"><b>未確認</b>再開時刻は何度も変わっています。資金の回収はまだ報告されていません。</p>
+    </div>
+    <div class="item">
+      <span class="tag mono" data-noread>Bitcoin · やさしい解説</span>
+      <h3>ビットコインと Lightning のソフト更新</h3>
+      <p>ビットコインの主要ソフトに、新しい方針のもとですぐ公開されたセキュリティ修正が入りました。複数の Lightning ウォレットの基盤ソフトも修正されています。自分でノードを動かしているなら更新を、アプリを使っているならアプリを最新に保ちましょう。</p>
+    </div>
+    <div class="item">
+      <h3>利用者として</h3>
+      <ul class="points"><li>Binance に資金があるなら、アプリで出金の再開を待ち、準備金証明が出たら確認する。</li><li>自分のイーサリアムアドレスに有効な EIP-7702 の委任がないか確認し、心当たりのないものは取り消す。</li><li>ビットコインのノード運用者は今すぐ 32.1 か対応するポイントリリースにアップグレードする。</li><li>Lightning ノードの運用者は CLN、Eclair、LND を更新する。</li></ul>
+      <p>今後の予定：Binance の出金再開、準備金証明と事後報告、残る盗難資金の行方。</p>
+    </div>
+  </section>
+
+  <section class="sources">
+    <h2>出典</h2>
+    <p>2026年10月31日時点の報道に基づきます。Bitcoin Optech は技術的な一次情報です。</p>
+    <ul>
+      <li><a href="https://threatlandscape.io/blog/binance-hot-wallet-compromise-eip-7702-delegation">Threat Landscape: Binance hot wallet compromise and EIP-7702</a> <span class="kind">研究</span></li>
+      <li><a href="https://cointelegraph.com/news/live-updates-binance-63b-hack-linked-to-north-koreas-tradertraitor">Cointelegraph: Binance hack live updates</a> <span class="kind">二次情報</span></li>
+      <li><a href="https://blockchainreporter.net/binance-sets-aside-6-34b-to-cover-hack/">Blockchain Reporter: Binance sets aside $6.34B</a> <span class="kind">二次情報</span></li>
+      <li><a href="https://bitcoinops.org/en/newsletters/2026/10/30/">Bitcoin Optech Newsletter #429</a> <span class="kind">一次情報</span></li>
+    </ul>
+  </section>
+</article>
+
+<section class="comments" id="comments" data-noread>
+  <h2><span data-lang="en">Reader feedback</span><span data-lang="ja" hidden>読者のコメント</span></h2>
+  <p class="note"><span data-lang="en">Comments use GitHub sign-in, so every commenter is a real GitHub account. Be kind and stay on topic.</span><span data-lang="ja" hidden>コメントには GitHub へのログインが必要です。思いやりを持って、話題に沿って書き込んでください。</span></p>
+  <div class="giscus"></div>
+</section>
+
+<nav class="pager" data-noread>
+  <a href="../"><span data-lang="en">← All briefs</span><span data-lang="ja" hidden>← バックナンバー</span></a>
+  <span></span>
+</nav>
+</main>
+<script src="../assets/brief.js"></script>
+</body>
+</html>

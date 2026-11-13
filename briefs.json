@@ -82,5 +82,77 @@
       "en": "Zcash NU7 goes live and strands Sprout funds, XRPL's cleanup amendment stops signature replay, and US and French policy shifts.",
       "ja": "Zcash NU7 が稼働し Sprout の資金が動かせなく、XRPL の整理アップデートで署名の使い回しを防止、米仏の政策の動き。"
     }
+  },
+  {
+    "date": "2026-11-05",
+    "file": "briefs/2026-11-05.html",
+    "title": {
+      "en": "Blockchain Brief, 5 Nov 2026",
+      "ja": "ブロックチェーン・ブリーフ 2026年11月5日"
+    },
+    "summary": {
+      "en": "Zcash NU7's 25-second blocks, ML-DSA in Stellar's Soroban, a reorg-driven double refund at THORChain, and same-transaction mainnet-rollup calls.",
+      "ja": "Zcash NU7 の25秒ブロック、Stellar Soroban の ML-DSA、THORChain の再編成による二重返金、メインネットとロールアップの同一トランザクション呼び出し。"
+    }
+  },
+  {
+    "date": "2026-11-04",
+    "file": "briefs/2026-11-04.html",
+    "title": {
+      "en": "Blockchain Brief, 4 Nov 2026",
+      "ja": "ブロックチェーン・ブリーフ 2026年11月4日"
+    },
+    "summary": {
+      "en": "Binance's zero-knowledge proof of reserves, fake job interviews behind the breach, and Asian regulators' cold-wallet and tokenized-settlement moves.",
+      "ja": "Binance のゼロ知識準備金証明、侵害の発端となった偽の採用面接、アジアの規制当局によるコールドウォレットとトークン化決済の動き。"
+    }
+  },
+  {
+    "date": "2026-11-03",
+    "file": "briefs/2026-11-03.html",
+    "title": {
+      "en": "Blockchain Brief, 3 Nov 2026",
+      "ja": "ブロックチェーン・ブリーフ 2026年11月3日"
+    },
+    "summary": {
+      "en": "Arbitrum's Security Council moves hacked funds without the key, issuers freeze billions, THORChain can't block a swap, and Binance's reserves report is late.",
+      "ja": "Arbitrum のセキュリティ評議会が鍵なしでハッキング資金を移動、発行体が数十億ドルを凍結、THORChain は個別スワップを止められず、Binance の準備金報告は遅延。"
+    }
+  },
+  {
+    "date": "2026-11-02",
+    "file": "briefs/2026-11-02.html",
+    "title": {
+      "en": "Blockchain Brief, 2 Nov 2026",
+      "ja": "ブロックチェーン・ブリーフ 2026年11月2日"
+    },
+    "summary": {
+      "en": "The OCC's final GENIUS Act rule, Binance's pending proof of reserves, and Glamsterdam's two-dimensional gas model.",
+      "ja": "OCC の GENIUS 法最終規則、Binance の準備金証明の遅れ、Glamsterdam の二次元ガスモデル。"
+    }
+  },
+  {
+    "date": "2026-11-01",
+    "file": "briefs/2026-11-01.html",
+    "title": {
+      "en": "Blockchain Brief, 1 Nov 2026",
+      "ja": "ブロックチェーン・ブリーフ 2026年11月1日"
+    },
+    "summary": {
+      "en": "Binance reopens withdrawals network by network as the FBI names North Korea, and Coinbase converts non-MiCA stablecoins in the EEA.",
+      "ja": "FBI が北朝鮮を名指しするなか Binance がネットワークごとに出金を再開、Coinbase は EEA で MiCA 非準拠のステーブルコインを変換。"
+    }
+  },
+  {
+    "date": "2026-10-31",
+    "file": "briefs/2026-10-31.html",
+    "title": {
+      "en": "Blockchain Brief, 31 Oct 2026",
+      "ja": "ブロックチェーン・ブリーフ 2026年10月31日"
+    },
+    "summary": {
+      "en": "The Binance drain ran through an EIP-7702 delegation, Bitcoin Core ships its first fast-track security fixes, and more Lightning patches.",
+      "ja": "Binance の流出は EIP-7702 の委任経由、Bitcoin Core が初の即時公開セキュリティ修正、Lightning の追加パッチ。"
+    }
   }
 ]

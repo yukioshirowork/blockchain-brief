@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Blockchain Brief, 3 Nov 2026</title>
+<meta name="description" content="Arbitrum&#x27;s Security Council moves hacked funds without the key, issuers freeze billions, THORChain can&#x27;t block a swap, and Binance&#x27;s reserves report is late.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-title-en="Blockchain Brief, 3 Nov 2026" data-title-ja="ブロックチェーン・ブリーフ 2026年11月3日">
+<div class="bar"><div class="bar-in">
+  <a class="home" href="../">Blockchain Brief</a>
+  <div class="controls">
+    <div class="seg" role="group" aria-label="Language"><button type="button" data-set-lang="en" aria-pressed="true">EN</button><button type="button" data-set-lang="ja" aria-pressed="false">日本語</button></div>
+  </div>
+</div></div>
+
+<main class="wrap">
+
+<!-- Read-aloud panel (shared; labels follow the language toggle) -->
+<section class="audio" id="audio" aria-label="Read aloud" data-noread>
+  <div class="audio-row">
+    <button type="button" class="btn primary" data-a="play">▶ Listen</button>
+    <button type="button" class="btn" data-a="stop" disabled>■ Stop</button>
+    <select class="btn" data-a="scope" aria-label="What to read"><option value="all">Whole brief</option><option value="dev">Dev only</option><option value="nondev">Non-dev only</option></select>
+  </div>
+  <div class="audio-row">
+    <label class="status"><span data-a="speedlbl">Speed</span>
+      <select class="btn" data-a="rate"><option value="0.8">0.8×</option><option value="0.9">0.9×</option><option value="1" selected>1×</option><option value="1.15">1.15×</option><option value="1.3">1.3×</option><option value="1.5">1.5×</option></select></label>
+    <label class="status"><span data-a="voicelbl">Voice</span>
+      <select class="btn" data-a="voice"></select></label>
+  </div>
+  <p class="status" data-a="status" aria-live="polite"></p>
+</section>
+
+<!-- ===================== ENGLISH ===================== -->
+<article data-lang="en" class="wrap" style="padding:0">
+  <header class="brief">
+    <span class="mono meta">Daily brief · 3 Nov 2026 · about 5 min read</span>
+    <h1>Blockchain Brief, 3 Nov 2026</h1>
+    <p class="lede">The Binance theft is now a test of who can stop stolen funds: Arbitrum's Security Council moved coins without the holder's key, stablecoin issuers froze billions, and THORChain still can't block a single swap.</p>
+    <p class="note">Claims I could not confirm from a primary or second independent source are marked Unverified.</p>
+    <nav class="jump" data-noread aria-label="Sections"><a class="dev" href="#dev-en">Dev ↓</a><a class="nondev" href="#nondev-en">Non-dev ↓</a></nav>
+  </header>
+
+  <section class="track dev" id="dev-en">
+    <div class="track-head"><h2>Dev</h2><p>Protocol changes, contract risks, security details and tooling.</p></div>
+    <div class="item">
+      <span class="tag mono" data-noread>Technique · Arbitrum · 30 Oct</span>
+      <h3>An L2 council moves funds without the key</h3>
+      <p>Arbitrum's Security Council moved 74.6 million ARB and 8,425 ETH, about $30.5 million, from an address tied to the Binance exploit into a frozen intermediary wallet the original address can no longer reach (<a href='https://www.coingabbar.com/en/arbitrum-security-council-rescues-binance-exploit-funds'>CoinGabbar</a>). The Council is a 12-member multisig, and nine members must sign an emergency action. According to a forum statement quoted by CoinAlertNews, the Council temporarily changed Arbitrum's inbox contract on Ethereum to add <code>sendUnsignedTransactionOverride</code>, used it to send a transaction on the hacker's behalf, then restored the contract. The funds can only move again after an ArbitrumDAO vote (<a href='https://coinalertnews.com/news/2026/10/30/arbitrum-freezes-binance-hack-assets'>CoinAlertNews</a>).</p>
+      <p>The same mechanism and frozen address were used in April to lock about 30,766 ETH from the KelpDAO exploit (<a href='https://forum.arbitrum.foundation/t/security-council-emergency-action-21-04-2026/30803'>Arbitrum forum</a>). It shows plainly what “Stage 1” rollup security means: a small council can override any account on the chain in an emergency.</p>
+      <p class="unverified"><b>Unverified</b>I have not read the October forum statement myself. The Council's required transparency report had not appeared at the time of reporting.</p>
+    </div>
+    <div class="item">
+      <span class="tag mono" data-noread>Follow-up · Binance · 30 Oct–2 Nov</span>
+      <h3>How the funds were taken and where they are going</h3>
+      <p>TRM Labs puts the theft at about $6.36 billion across ten chains, most of it taken in roughly 20 minutes. On Ethereum the attacker used 50 pre-signed EIP-7702 authorizations; on the other nine chains, ordinary signed transfers. The attacker still holds more than 420,000 ETH and 18,270 BTC. Chainalysis says it saw Binance funds being mixed in real time with proceeds of September's Bitget exploit (<a href='https://decrypt.co/382224/trm-and-chainalysis-tie-6-4b-binance-hack-to-north-koreas-tradertraitor'>Decrypt</a>). ZachXBT traced funds from both hacks through THORChain, which has no way to block an individual swap; node operators can only pause a whole chain (<a href='https://cointelegraph.com/news/rune-token-surges-binance-hack'>Cointelegraph</a>).</p>
+    </div>
+    <div class="item">
+      <h3>What to do this week</h3>
+      <ul class="points"><li>Document your chain's or protocol's emergency powers, who holds them and how they are audited, before an incident.</li><li>Treat an override like sendUnsignedTransactionOverride as a rehearsed, time-boxed procedure with a published report.</li><li>Screen deposits and swaps against addresses linked to the Binance and Bitget thefts.</li><li>If you run a cross-chain swap venue, decide now whether you want per-swap blocking, and what governance would approve it.</li></ul>
+    </div>
+  </section>
+
+  <section class="track nondev" id="nondev-en">
+    <div class="track-head"><h2>Non-dev</h2><p>Market, business and regulation, and what the news means in plain language.</p></div>
+    <div class="item">
+      <span class="tag mono" data-noread>Plain summary · Freezing powers</span>
+      <h3>Who can freeze crypto, and why it matters to everyone</h3>
+      <p>After the Binance theft, several parties stepped in. Stablecoin issuers Tether, Circle, Ripple and World Liberty froze about $2.67 billion of stolen coins. Arbitrum's 12-person security council moved about $30.5 million away from the thief without needing the thief's key. That helps victims, but it also means these groups can freeze or move ordinary users' funds too. Meanwhile THORChain, a swap service the thief used, can only stop everything or nothing.</p>
+    </div>
+    <div class="item">
+      <span class="tag mono" data-noread>Follow-up · Binance · 3 Nov</span>
+      <h3>The reserves report is still missing</h3>
+      <p>Binance promised a full proof of reserves for 2 November, and later reports said 3 November. As of this issue I found no published report or per-asset ratios; the latest figures are still Binance's own claim that its top ten assets were fully backed in a 31 October snapshot (<a href='https://cryptoticker.io/en/binance-withdrawals-reopen-phase-one/'>CryptoTicker</a>). Phase two of withdrawals has no date.</p>
+      <p class="unverified"><b>Unverified</b>Reports that insurance will cover little of the loss.</p>
+    </div>
+    <div class="item">
+      <h3>As a user</h3>
+      <ul class="points"><li>On Arbitrum and similar Stage 1 rollups, a security council can move your funds in an emergency.</li><li>Check a rollup's stage and upgrade powers on L2BEAT before keeping large balances there.</li><li>Stablecoins like USDT and USDC can be frozen by their issuer, which helps victims but is a real power over every holder.</li><li>Keep waiting on Binance's proof of reserves before moving large amounts back.</li></ul>
+      <p>Coming up: The Arbitrum transparency report, Binance's proof of reserves, and whether THORChain node operators act.</p>
+    </div>
+  </section>
+
+  <section class="sources">
+    <h2>Sources</h2>
+    <p>Reporting as of 3 November 2026. The Arbitrum forum post (April) is primary; the rest are secondary, some quoting TRM Labs and Chainalysis.</p>
+    <ul>
+      <li><a href="https://www.coingabbar.com/en/arbitrum-security-council-rescues-binance-exploit-funds">CoinGabbar: Arbitrum Security Council rescues Binance exploit funds</a> <span class="kind">secondary</span></li>
+      <li><a href="https://coinalertnews.com/news/2026/10/30/arbitrum-freezes-binance-hack-assets">CoinAlertNews: Arbitrum freezes $30.5M</a> <span class="kind">secondary</span></li>
+      <li><a href="https://forum.arbitrum.foundation/t/security-council-emergency-action-21-04-2026/30803">Arbitrum forum: Security Council emergency action, April 2026</a> <span class="kind">primary</span></li>
+      <li><a href="https://decrypt.co/382224/trm-and-chainalysis-tie-6-4b-binance-hack-to-north-koreas-tradertraitor">Decrypt: TRM and Chainalysis tie the hack to TraderTraitor</a> <span class="kind">secondary</span></li>
+      <li><a href="https://cointelegraph.com/news/rune-token-surges-binance-hack">Cointelegraph: THORChain and the Binance hack</a> <span class="kind">secondary</span></li>
+      <li><a href="https://cryptoticker.io/en/binance-withdrawals-reopen-phase-one/">CryptoTicker: Binance phase-one withdrawals</a> <span class="kind">secondary</span></li>
+    </ul>
+  </section>
+</article>
+
+<!-- ===================== 日本語 ===================== -->
+<article data-lang="ja" class="wrap" style="padding:0" hidden>
+  <header class="brief">
+    <span class="mono meta">デイリーブリーフ · 2026年11月3日 · 約5分</span>
+    <h1>ブロックチェーン・ブリーフ 2026年11月3日</h1>
+    <p class="lede">Binance の盗難は、誰が盗まれた資金を止められるのかを試す場になっています。Arbitrum のセキュリティ評議会は保有者の鍵なしでコインを動かし、ステーブルコイン発行体は数十億ドルを凍結、一方 THORChain は1件のスワップすら止められません。</p>
+    <p class="note">一次情報または独立した2つ目の情報源で確認できなかった内容には「未確認」と表示しています。</p>
+    <nav class="jump" data-noread aria-label="セクション"><a class="dev" href="#dev-ja">Dev ↓</a><a class="nondev" href="#nondev-ja">Non-dev ↓</a></nav>
+  </header>
+
+  <section class="track dev" id="dev-ja">
+    <div class="track-head"><h2>Dev</h2><p>プロトコル変更、コントラクトのリスク、セキュリティの詳細、開発ツール。</p></div>
+    <div class="item">
+      <span class="tag mono" data-noread>手法 · Arbitrum · 10月30日</span>
+      <h3>L2 の評議会が鍵なしで資金を移動</h3>
+      <p>Arbitrum のセキュリティ評議会は、Binance の攻撃に関わるアドレスから 7,460万 ARB と 8,425 ETH（約3,050万ドル）を、元のアドレスからは触れられない凍結用の中間ウォレットに移しました（<a href='https://www.coingabbar.com/en/arbitrum-security-council-rescues-binance-exploit-funds'>CoinGabbar</a>）。評議会は12人のマルチシグで、緊急措置には9人の署名が必要です。CoinAlertNews が引用したフォーラムの声明によると、評議会はイーサリアム上の Arbitrum の inbox コントラクトを一時的に変更して <code>sendUnsignedTransactionOverride</code> を追加し、ハッカーの代わりにトランザクションを送ってから、コントラクトを元に戻しました。資金は ArbitrumDAO の投票を経なければ再び動かせません（<a href='https://coinalertnews.com/news/2026/10/30/arbitrum-freezes-binance-hack-assets'>CoinAlertNews</a>）。</p>
+      <p>同じ仕組みと凍結アドレスは、4月にも KelpDAO の攻撃で奪われた約30,766 ETH をロックするのに使われました（<a href='https://forum.arbitrum.foundation/t/security-council-emergency-action-21-04-2026/30803'>Arbitrum フォーラム</a>）。「Stage 1」ロールアップのセキュリティが何を意味するか、つまり緊急時には少人数の評議会がチェーン上のどのアカウントでも上書きできることを、はっきり示しています。</p>
+      <p class="unverified"><b>未確認</b>10月のフォーラム声明は自分では読めていません。評議会に義務づけられた透明性報告は、報道時点ではまだ出ていませんでした。</p>
+    </div>
+    <div class="item">
+      <span class="tag mono" data-noread>続報 · Binance · 10月30日〜11月2日</span>
+      <h3>資金の奪われ方と行き先</h3>
+      <p>TRM Labs によると、盗難額は10チェーンで約63.6億ドル、その大半が約20分で奪われました。イーサリアムでは事前署名された EIP-7702 の承認50件が、他の9チェーンでは通常の署名済み送金が使われました。攻撃者はまだ42万 ETH 以上と18,270 BTC を保有しています。Chainalysis は、Binance の資金が9月の Bitget 攻撃の資金とリアルタイムで混ぜられているのを確認したとしています（<a href='https://decrypt.co/382224/trm-and-chainalysis-tie-6-4b-binance-hack-to-north-koreas-tradertraitor'>Decrypt</a>）。ZachXBT は両事件の資金が THORChain を通ったことを追跡しましたが、THORChain には個別のスワップを止める手段がなく、ノード運用者はチェーン全体を止めることしかできません（<a href='https://cointelegraph.com/news/rune-token-surges-binance-hack'>Cointelegraph</a>）。</p>
+    </div>
+    <div class="item">
+      <h3>今週やること</h3>
+      <ul class="points"><li>インシデントの前に、チェーンやプロトコルの緊急権限、その保有者、監査方法を文書化しておく。</li><li>sendUnsignedTransactionOverride のような上書きは、訓練済みで時間を区切った手続きとして扱い、報告を公開する。</li><li>入金やスワップを、Binance と Bitget の盗難に関わるアドレスと照合する。</li><li>クロスチェーンのスワップ場を運営しているなら、スワップ単位のブロックを持つか、どんなガバナンスで承認するかを今決めておく。</li></ul>
+    </div>
+  </section>
+
+  <section class="track nondev" id="nondev-ja">
+    <div class="track-head"><h2>Non-dev</h2><p>市場・ビジネス・規制と、ニュースが何を意味するかのやさしい解説。</p></div>
+    <div class="item">
+      <span class="tag mono" data-noread>やさしい解説 · 凍結の権限</span>
+      <h3>誰が暗号資産を凍結できるのか、なぜ全員に関係するのか</h3>
+      <p>Binance の盗難の後、いくつもの当事者が動きました。ステーブルコイン発行体の Tether、Circle、Ripple、World Liberty は盗まれたコイン約26.7億ドルを凍結しました。Arbitrum の12人のセキュリティ評議会は、盗んだ側の鍵なしで約3,050万ドルを移しました。被害者には助かる話ですが、これらの組織は一般の利用者の資金も凍結したり動かしたりできるということでもあります。一方、盗んだ側が使ったスワップサービス THORChain は、全部止めるか何も止めないかしか選べません。</p>
+    </div>
+    <div class="item">
+      <span class="tag mono" data-noread>続報 · Binance · 11月3日</span>
+      <h3>準備金報告はまだ出ていない</h3>
+      <p>Binance は完全な準備金証明を11月2日に出すと約束し、その後の報道では11月3日とされました。この号の時点で、公開された報告も銘柄ごとの比率も見つかっていません。最新の数字は、10月31日のスナップショットで上位10銘柄は完全に裏付けられているという Binance 自身の主張のままです（<a href='https://cryptoticker.io/en/binance-withdrawals-reopen-phase-one/'>CryptoTicker</a>）。出金の第2段階の日程は未定です。</p>
+      <p class="unverified"><b>未確認</b>保険で損失のごく一部しかカバーされないという報道。</p>
+    </div>
+    <div class="item">
+      <h3>利用者として</h3>
+      <ul class="points"><li>Arbitrum など Stage 1 のロールアップでは、緊急時にセキュリティ評議会があなたの資金を動かせます。</li><li>多額を置く前に、L2BEAT でロールアップの Stage とアップグレード権限を確認する。</li><li>USDT や USDC などのステーブルコインは発行体が凍結できます。被害者には助けになりますが、すべての保有者に及ぶ強い権限です。</li><li>多額を戻す前に、Binance の準備金証明を待つ。</li></ul>
+      <p>今後の予定：Arbitrum の透明性報告、Binance の準備金証明、THORChain のノード運用者が動くかどうか。</p>
+    </div>
+  </section>
+
+  <section class="sources">
+    <h2>出典</h2>
+    <p>2026年11月3日時点の報道に基づきます。Arbitrum フォーラムの投稿（4月）は一次情報で、ほかは TRM Labs や Chainalysis を引用した二次情報です。</p>
+    <ul>
+      <li><a href="https://www.coingabbar.com/en/arbitrum-security-council-rescues-binance-exploit-funds">CoinGabbar: Arbitrum Security Council rescues Binance exploit funds</a> <span class="kind">二次情報</span></li>
+      <li><a href="https://coinalertnews.com/news/2026/10/30/arbitrum-freezes-binance-hack-assets">CoinAlertNews: Arbitrum freezes $30.5M</a> <span class="kind">二次情報</span></li>
+      <li><a href="https://forum.arbitrum.foundation/t/security-council-emergency-action-21-04-2026/30803">Arbitrum forum: Security Council emergency action, April 2026</a> <span class="kind">一次情報</span></li>
+      <li><a href="https://decrypt.co/382224/trm-and-chainalysis-tie-6-4b-binance-hack-to-north-koreas-tradertraitor">Decrypt: TRM and Chainalysis tie the hack to TraderTraitor</a> <span class="kind">二次情報</span></li>
+      <li><a href="https://cointelegraph.com/news/rune-token-surges-binance-hack">Cointelegraph: THORChain and the Binance hack</a> <span class="kind">二次情報</span></li>
+      <li><a href="https://cryptoticker.io/en/binance-withdrawals-reopen-phase-one/">CryptoTicker: Binance phase-one withdrawals</a> <span class="kind">二次情報</span></li>
+    </ul>
+  </section>
+</article>
+
+<section class="comments" id="comments" data-noread>
+  <h2><span data-lang="en">Reader feedback</span><span data-lang="ja" hidden>読者のコメント</span></h2>
+  <p class="note"><span data-lang="en">Comments use GitHub sign-in, so every commenter is a real GitHub account. Be kind and stay on topic.</span><span data-lang="ja" hidden>コメントには GitHub へのログインが必要です。思いやりを持って、話題に沿って書き込んでください。</span></p>
+  <div class="giscus"></div>
+</section>
+
+<nav class="pager" data-noread>
+  <a href="../"><span data-lang="en">← All briefs</span><span data-lang="ja" hidden>← バックナンバー</span></a>
+  <span></span>
+</nav>
+</main>
+<script src="../assets/brief.js"></script>
+</body>
+</html>

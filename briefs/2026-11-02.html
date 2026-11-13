@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Blockchain Brief, 2 Nov 2026</title>
+<meta name="description" content="The OCC&#x27;s final GENIUS Act rule, Binance&#x27;s pending proof of reserves, and Glamsterdam&#x27;s two-dimensional gas model.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-title-en="Blockchain Brief, 2 Nov 2026" data-title-ja="ブロックチェーン・ブリーフ 2026年11月2日">
+<div class="bar"><div class="bar-in">
+  <a class="home" href="../">Blockchain Brief</a>
+  <div class="controls">
+    <div class="seg" role="group" aria-label="Language"><button type="button" data-set-lang="en" aria-pressed="true">EN</button><button type="button" data-set-lang="ja" aria-pressed="false">日本語</button></div>
+  </div>
+</div></div>
+
+<main class="wrap">
+
+<!-- Read-aloud panel (shared; labels follow the language toggle) -->
+<section class="audio" id="audio" aria-label="Read aloud" data-noread>
+  <div class="audio-row">
+    <button type="button" class="btn primary" data-a="play">▶ Listen</button>
+    <button type="button" class="btn" data-a="stop" disabled>■ Stop</button>
+    <select class="btn" data-a="scope" aria-label="What to read"><option value="all">Whole brief</option><option value="dev">Dev only</option><option value="nondev">Non-dev only</option></select>
+  </div>
+  <div class="audio-row">
+    <label class="status"><span data-a="speedlbl">Speed</span>
+      <select class="btn" data-a="rate"><option value="0.8">0.8×</option><option value="0.9">0.9×</option><option value="1" selected>1×</option><option value="1.15">1.15×</option><option value="1.3">1.3×</option><option value="1.5">1.5×</option></select></label>
+    <label class="status"><span data-a="voicelbl">Voice</span>
+      <select class="btn" data-a="voice"></select></label>
+  </div>
+  <p class="status" data-a="status" aria-live="polite"></p>
+</section>
+
+<!-- ===================== ENGLISH ===================== -->
+<article data-lang="en" class="wrap" style="padding:0">
+  <header class="brief">
+    <span class="mono meta">Daily brief · 2 Nov 2026 · about 5 min read</span>
+    <h1>Blockchain Brief, 2 Nov 2026</h1>
+    <p class="lede">The OCC's final GENIUS Act rule is now confirmed, Binance's proof of reserves is still pending, and Glamsterdam's new gas model is the change wallet and tooling teams should prepare for while the upgrade waits.</p>
+    <p class="note">Claims I could not confirm from a primary or second independent source are marked Unverified.</p>
+    <nav class="jump" data-noread aria-label="Sections"><a class="dev" href="#dev-en">Dev ↓</a><a class="nondev" href="#nondev-en">Non-dev ↓</a></nav>
+  </header>
+
+  <section class="track dev" id="dev-en">
+    <div class="track-head"><h2>Dev</h2><p>Protocol changes, contract risks, security details and tooling.</p></div>
+    <div class="item">
+      <span class="tag mono" data-noread>Technique · Ethereum · Glamsterdam</span>
+      <h3>Get ready for two-dimensional gas</h3>
+      <p>Glamsterdam's Hoodi activation was postponed on 22 October (<a href='https://blog.ethereum.org/2026/10/22/glamsterdam-hoodi-delay'>EF blog</a>), but the engineering change is fixed. EIP-8037 adds a separate state-gas charge for operations that create new state. A plain ETH transfer to an existing account still costs 21,000 gas, while sending to a new account adds a state-gas charge. The EF warned that tools relying on a hardcoded maximum gas limit, on 21,000 covering every transfer, or on a single gas dimension “will break,” naming wallets, indexers and gas estimators (<a href='https://cointelegraph.com/news/ethereum-foundation-warns-some-tools-may-break-with-glamsterdam-upgrade'>Cointelegraph</a>). Developers have also agreed to raise the block gas limit to 200 million shortly after mainnet activation (<a href='https://christinedkim.substack.com/p/acde-243'>Christine Kim</a>).</p>
+      <p class="unverified"><b>Unverified</b>No new Hoodi or mainnet dates have been announced since the postponement. The sources above are from August.</p>
+    </div>
+    <div class="item">
+      <h3>What to do this week</h3>
+      <ul class="points"><li>Stablecoin issuers and banks should map their reserves, redemption and custody against the OCC rule now, and watch for the application window.</li><li>Remove hardcoded gas limits and the 21,000 assumption, and use node estimates instead.</li><li>Model gas as more than one number in estimators, indexers and fee UIs.</li><li>Test against the Glamsterdam devnets before Hoodi reschedules.</li></ul>
+    </div>
+  </section>
+
+  <section class="track nondev" id="nondev-en">
+    <div class="track-head"><h2>Non-dev</h2><p>Market, business and regulation, and what the news means in plain language.</p></div>
+    <div class="item">
+      <span class="tag mono" data-noread>Follow-up · Stablecoins · 21 Oct</span>
+      <h3>The OCC finalizes its GENIUS Act rule</h3>
+      <p>The Office of the Comptroller of the Currency, a US bank regulator, issued its final rule implementing the GENIUS Act on 21 October, ahead of the Act taking effect on 18 January 2027 (<a href='https://decrypt.co/381502/occ-finalizes-genius-act-stablecoin-rules-ahead-of-january-deadline'>Decrypt</a>, <a href='https://occ.gov/news-issuances/news-releases/2026/nr-occ-2026-92.html'>OCC release</a>). It covers stablecoin issuers under OCC supervision, such as subsidiaries of national banks and federally approved nonbank issuers.</p>
+      <p>The rule sets standards for reserve assets, redemption, risk management, audits and reporting, custody, and a capital backstop. Anti-money-laundering and sanctions rules are left to a separate Treasury rulemaking. The OCC will announce separately when it starts accepting applications.</p>
+      <p class="unverified"><b>Unverified</b>I read the rule's details through Decrypt, not the OCC text itself.</p>
+    </div>
+    <div class="item">
+      <span class="tag mono" data-noread>Follow-up · Binance · 1–2 Nov</span>
+      <h3>Proof of reserves still due</h3>
+      <p>Phase one of Binance's withdrawal restart opened on 1 November across 15 networks, and phase two has no date yet. Binance said balances in its ten largest assets were fully backed in a 31 October snapshot (<a href='https://cryptoticker.io/en/binance-withdrawals-reopen-phase-one/'>CryptoTicker</a>). The full proof-of-reserves report had been promised for 2 November; one outlet now says 3 November.</p>
+      <p class="unverified"><b>Unverified</b>The report's publication date and method.</p>
+    </div>
+    <div class="item">
+      <span class="tag mono" data-noread>Ethereum · Plain summary</span>
+      <h3>Sending ETH to a brand-new address may cost a bit more</h3>
+      <p>Ethereum's next upgrade will charge extra for actions that permanently add data to the network, such as sending to an address that has never been used. Normal sends to existing addresses cost the same. Keep your wallet updated so its fee estimates are right.</p>
+    </div>
+    <div class="item">
+      <h3>As a user</h3>
+      <ul class="points"><li>Expect US-regulated stablecoins to publish clearer reserve and redemption terms ahead of 18 January 2027.</li><li>Before relying on Binance, read the proof of reserves when it lands and check that it covers liabilities as well as assets.</li><li>After Glamsterdam, first-time sends to a new address may cost more. That is expected, not a fault.</li></ul>
+      <p>Coming up: Binance's proof of reserves and phase-two list, the OCC application date, and a new Glamsterdam testnet schedule.</p>
+    </div>
+  </section>
+
+  <section class="sources">
+    <h2>Sources</h2>
+    <p>Reporting as of 2 November 2026. The OCC release and the EF blog are primary sources.</p>
+    <ul>
+      <li><a href="https://occ.gov/news-issuances/news-releases/2026/nr-occ-2026-92.html">OCC news release 2026-92</a> <span class="kind">primary</span></li>
+      <li><a href="https://decrypt.co/381502/occ-finalizes-genius-act-stablecoin-rules-ahead-of-january-deadline">Decrypt: OCC finalizes GENIUS Act stablecoin rules</a> <span class="kind">secondary</span></li>
+      <li><a href="https://cryptoticker.io/en/binance-withdrawals-reopen-phase-one/">CryptoTicker: Binance phase-one withdrawals</a> <span class="kind">secondary</span></li>
+      <li><a href="https://blog.ethereum.org/2026/10/22/glamsterdam-hoodi-delay">Ethereum Foundation: Glamsterdam Hoodi delay</a> <span class="kind">primary</span></li>
+      <li><a href="https://cointelegraph.com/news/ethereum-foundation-warns-some-tools-may-break-with-glamsterdam-upgrade">Cointelegraph: tools may break with Glamsterdam</a> <span class="kind">secondary</span></li>
+      <li><a href="https://christinedkim.substack.com/p/acde-243">Christine Kim: ACDE #243 notes</a> <span class="kind">research</span></li>
+    </ul>
+  </section>
+</article>
+
+<!-- ===================== 日本語 ===================== -->
+<article data-lang="ja" class="wrap" style="padding:0" hidden>
+  <header class="brief">
+    <span class="mono meta">デイリーブリーフ · 2026年11月2日 · 約5分</span>
+    <h1>ブロックチェーン・ブリーフ 2026年11月2日</h1>
+    <p class="lede">OCC による GENIUS 法の最終規則が確認され、Binance の準備金証明はまだ出ていません。アップグレードを待つあいだ、ウォレットやツールのチームが備えるべきなのは Glamsterdam の新しいガスモデルです。</p>
+    <p class="note">一次情報または独立した2つ目の情報源で確認できなかった内容には「未確認」と表示しています。</p>
+    <nav class="jump" data-noread aria-label="セクション"><a class="dev" href="#dev-ja">Dev ↓</a><a class="nondev" href="#nondev-ja">Non-dev ↓</a></nav>
+  </header>
+
+  <section class="track dev" id="dev-ja">
+    <div class="track-head"><h2>Dev</h2><p>プロトコル変更、コントラクトのリスク、セキュリティの詳細、開発ツール。</p></div>
+    <div class="item">
+      <span class="tag mono" data-noread>手法 · Ethereum · Glamsterdam</span>
+      <h3>二次元ガスに備える</h3>
+      <p>Glamsterdam の Hoodi での有効化は10月22日に延期されましたが（<a href='https://blog.ethereum.org/2026/10/22/glamsterdam-hoodi-delay'>EF ブログ</a>）、技術的な変更内容は固まっています。EIP-8037 は、新しいステートを作る操作に別建ての「ステートガス」を課します。既存アカウントへの単純な ETH 送金は今後も21,000ガスですが、新しいアカウントへの送金にはステートガスが加わります。EF は、ガス上限をハードコードしたもの、21,000で全送金をまかなえると想定したもの、ガスを1次元で扱うものは「壊れる」と警告し、ウォレット、インデクサー、ガス見積もりツールを名指ししました（<a href='https://cointelegraph.com/news/ethereum-foundation-warns-some-tools-may-break-with-glamsterdam-upgrade'>Cointelegraph</a>）。開発者はメインネットでの有効化直後にブロックガス上限を2億に引き上げることでも合意しています（<a href='https://christinedkim.substack.com/p/acde-243'>Christine Kim</a>）。</p>
+      <p class="unverified"><b>未確認</b>延期後、Hoodi やメインネットの新しい日程は発表されていません。上の情報源は8月のものです。</p>
+    </div>
+    <div class="item">
+      <h3>今週やること</h3>
+      <ul class="points"><li>ステーブルコイン発行体や銀行は、準備金、償還、カストディを今のうちに OCC の規則と照らし合わせ、申請受付の開始に注目する。</li><li>ハードコードされたガス上限と21,000の前提を取り除き、ノードの見積もりを使う。</li><li>見積もりツール、インデクサー、手数料 UI でガスを複数の数値として扱う。</li><li>Hoodi の日程が決まる前に、Glamsterdam の devnet でテストする。</li></ul>
+    </div>
+  </section>
+
+  <section class="track nondev" id="nondev-ja">
+    <div class="track-head"><h2>Non-dev</h2><p>市場・ビジネス・規制と、ニュースが何を意味するかのやさしい解説。</p></div>
+    <div class="item">
+      <span class="tag mono" data-noread>続報 · ステーブルコイン · 10月21日</span>
+      <h3>OCC が GENIUS 法の規則を最終決定</h3>
+      <p>米国の銀行規制当局である通貨監督庁（OCC）は10月21日、GENIUS 法を実施する最終規則を出しました。同法は2027年1月18日に施行されます（<a href='https://decrypt.co/381502/occ-finalizes-genius-act-stablecoin-rules-ahead-of-january-deadline'>Decrypt</a>、<a href='https://occ.gov/news-issuances/news-releases/2026/nr-occ-2026-92.html'>OCC 発表</a>）。対象は、国法銀行の子会社や連邦の承認を受けたノンバンクなど、OCC が監督するステーブルコイン発行体です。</p>
+      <p>規則は、準備資産、償還、リスク管理、監査と報告、カストディ、資本の下支えについて基準を定めています。マネーロンダリング対策と制裁の規則は、財務省の別の規則に委ねられています。OCC は申請の受付開始を別途発表するとしています。</p>
+      <p class="unverified"><b>未確認</b>規則の詳細は OCC の本文ではなく Decrypt 経由で読んでいます。</p>
+    </div>
+    <div class="item">
+      <span class="tag mono" data-noread>続報 · Binance · 11月1〜2日</span>
+      <h3>準備金証明はまだ</h3>
+      <p>Binance の出金再開の第1段階は11月1日に15のネットワークで始まり、第2段階の日程はまだありません。Binance は10月31日のスナップショットで上位10銘柄の残高は完全に裏付けられているとしています（<a href='https://cryptoticker.io/en/binance-withdrawals-reopen-phase-one/'>CryptoTicker</a>）。完全な準備金証明は11月2日に約束されていましたが、11月3日とする報道も出ています。</p>
+      <p class="unverified"><b>未確認</b>報告の公開日と手法。</p>
+    </div>
+    <div class="item">
+      <span class="tag mono" data-noread>Ethereum · やさしい解説</span>
+      <h3>新しいアドレスへの ETH 送金は少し高くなるかも</h3>
+      <p>イーサリアムの次のアップグレードでは、一度も使われていないアドレスへの送金など、ネットワークにデータを永続的に追加する操作に追加料金がかかります。既存アドレスへの通常の送金は同じ料金です。手数料の見積もりが正しくなるよう、ウォレットは最新にしておきましょう。</p>
+    </div>
+    <div class="item">
+      <h3>利用者として</h3>
+      <ul class="points"><li>2027年1月18日に向けて、米国で規制されるステーブルコインは準備金や償還の条件をより明確に公開するはずです。</li><li>Binance を頼る前に、準備金証明が出たら資産だけでなく負債もカバーしているか確認する。</li><li>Glamsterdam の後、新しいアドレスへの初めての送金は高くなることがありますが、不具合ではありません。</li></ul>
+      <p>今後の予定：Binance の準備金証明と第2段階のリスト、OCC の申請受付日、Glamsterdam の新しいテストネット日程。</p>
+    </div>
+  </section>
+
+  <section class="sources">
+    <h2>出典</h2>
+    <p>2026年11月2日時点の報道に基づきます。OCC の発表と EF ブログは一次情報です。</p>
+    <ul>
+      <li><a href="https://occ.gov/news-issuances/news-releases/2026/nr-occ-2026-92.html">OCC news release 2026-92</a> <span class="kind">一次情報</span></li>
+      <li><a href="https://decrypt.co/381502/occ-finalizes-genius-act-stablecoin-rules-ahead-of-january-deadline">Decrypt: OCC finalizes GENIUS Act stablecoin rules</a> <span class="kind">二次情報</span></li>
+      <li><a href="https://cryptoticker.io/en/binance-withdrawals-reopen-phase-one/">CryptoTicker: Binance phase-one withdrawals</a> <span class="kind">二次情報</span></li>
+      <li><a href="https://blog.ethereum.org/2026/10/22/glamsterdam-hoodi-delay">Ethereum Foundation: Glamsterdam Hoodi delay</a> <span class="kind">一次情報</span></li>
+      <li><a href="https://cointelegraph.com/news/ethereum-foundation-warns-some-tools-may-break-with-glamsterdam-upgrade">Cointelegraph: tools may break with Glamsterdam</a> <span class="kind">二次情報</span></li>
+      <li><a href="https://christinedkim.substack.com/p/acde-243">Christine Kim: ACDE #243 notes</a> <span class="kind">研究</span></li>
+    </ul>
+  </section>
+</article>
+
+<section class="comments" id="comments" data-noread>
+  <h2><span data-lang="en">Reader feedback</span><span data-lang="ja" hidden>読者のコメント</span></h2>
+  <p class="note"><span data-lang="en">Comments use GitHub sign-in, so every commenter is a real GitHub account. Be kind and stay on topic.</span><span data-lang="ja" hidden>コメントには GitHub へのログインが必要です。思いやりを持って、話題に沿って書き込んでください。</span></p>
+  <div class="giscus"></div>
+</section>
+
+<nav class="pager" data-noread>
+  <a href="../"><span data-lang="en">← All briefs</span><span data-lang="ja" hidden>← バックナンバー</span></a>
+  <span></span>
+</nav>
+</main>
+<script src="../assets/brief.js"></script>
+</body>
+</html>

@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Blockchain Brief, 4 Nov 2026</title>
+<meta name="description" content="Binance&#x27;s zero-knowledge proof of reserves, fake job interviews behind the breach, and Asian regulators&#x27; cold-wallet and tokenized-settlement moves.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-title-en="Blockchain Brief, 4 Nov 2026" data-title-ja="ブロックチェーン・ブリーフ 2026年11月4日">
+<div class="bar"><div class="bar-in">
+  <a class="home" href="../">Blockchain Brief</a>
+  <div class="controls">
+    <div class="seg" role="group" aria-label="Language"><button type="button" data-set-lang="en" aria-pressed="true">EN</button><button type="button" data-set-lang="ja" aria-pressed="false">日本語</button></div>
+  </div>
+</div></div>
+
+<main class="wrap">
+
+<!-- Read-aloud panel (shared; labels follow the language toggle) -->
+<section class="audio" id="audio" aria-label="Read aloud" data-noread>
+  <div class="audio-row">
+    <button type="button" class="btn primary" data-a="play">▶ Listen</button>
+    <button type="button" class="btn" data-a="stop" disabled>■ Stop</button>
+    <select class="btn" data-a="scope" aria-label="What to read"><option value="all">Whole brief</option><option value="dev">Dev only</option><option value="nondev">Non-dev only</option></select>
+  </div>
+  <div class="audio-row">
+    <label class="status"><span data-a="speedlbl">Speed</span>
+      <select class="btn" data-a="rate"><option value="0.8">0.8×</option><option value="0.9">0.9×</option><option value="1" selected>1×</option><option value="1.15">1.15×</option><option value="1.3">1.3×</option><option value="1.5">1.5×</option></select></label>
+    <label class="status"><span data-a="voicelbl">Voice</span>
+      <select class="btn" data-a="voice"></select></label>
+  </div>
+  <p class="status" data-a="status" aria-live="polite"></p>
+</section>
+
+<!-- ===================== ENGLISH ===================== -->
+<article data-lang="en" class="wrap" style="padding:0">
+  <header class="brief">
+    <span class="mono meta">Daily brief · 4 Nov 2026 · about 5 min read</span>
+    <h1>Blockchain Brief, 4 Nov 2026</h1>
+    <p class="lede">Binance publishes a zero-knowledge proof of reserves and reopens more withdrawals, its own account of the breach points to fake job interviews, and Asian regulators respond with cold-wallet and tokenized-settlement moves.</p>
+    <p class="note">Claims I could not confirm from a primary or second independent source are marked Unverified.</p>
+    <nav class="jump" data-noread aria-label="Sections"><a class="dev" href="#dev-en">Dev ↓</a><a class="nondev" href="#nondev-en">Non-dev ↓</a></nav>
+  </header>
+
+  <section class="track dev" id="dev-en">
+    <div class="track-head"><h2>Dev</h2><p>Protocol changes, contract risks, security details and tooling.</p></div>
+    <div class="item">
+      <span class="tag mono" data-noread>Follow-up · Binance · 2–4 Nov</span>
+      <h3>A zero-knowledge proof of reserves</h3>
+      <p>Binance's proof covers a snapshot taken at 00:00 UTC on 31 October. It puts every customer balance in a Merkle tree, then wraps the tree in a zk-SNARK that proves the total of all balances is no more than the reserves, without revealing any single account. Holders of ten tokens (BTC, ETH, USDT, BNB, SOL, USDC, XRP, USD1, RLUSD and ZEC) can check that their balance is included and backed at least 1:1. On 3 November Binance also reopened withdrawals for more than 100 asset-network pairs on nine more networks (<a href='https://blockchainreporter.net/binance-reopens-withdrawals-zk-proof-reserves/'>Blockchain Reporter</a>, <a href='https://www.binance.com/en/support/announcement/detail/2d83c325ab6e49c6bd6c5de8803b11a6'>Binance update #6</a>).</p>
+      <p>About 5% of the affected amount, in less-liquid tokens outside the top ten, is not yet covered. A full proof takes about 40 to 50 hours to generate.</p>
+      <p class="unverified"><b>Unverified</b>No auditor is named, and no per-asset ratios beyond the 1:1 minimum were reported.</p>
+    </div>
+    <div class="item">
+      <span class="tag mono" data-noread>Follow-up · Binance · 3 Nov</span>
+      <h3>Four months inside, starting with a job interview</h3>
+      <p>According to Binance's account as reported by Crypto Economy, attackers compromised two engineers. The first breach came in June through a malicious package an employee downloaded while researching AI tools; Binance says it caught that one. The second came in September through fake recruiter video calls and a coding test containing malicious code that got past device controls. Around 20 October the attackers used that workstation, and an internal AI tool, to contact other engineers, obtained deployment credentials, and injected unauthorized software into wallet infrastructure before the 29 October drain (<a href='https://crypto-economy.com/binance-hack-fake-interviews-and-months-of-hidden-access/'>Crypto Economy</a>). Fake job interviews are a known TraderTraitor tactic.</p>
+      <p class="unverified"><b>Unverified</b>Only one secondary article plus a Binance post on X support this account.</p>
+    </div>
+    <div class="item">
+      <h3>What to do this week</h3>
+      <ul class="points"><li>Look at Merkle-sum trees with a SNARK as the standard for proving liabilities without leaking account data.</li><li>Run interview coding tests and new packages only in disposable sandboxes, never on work machines.</li><li>Give internal AI tools the same access limits and logging as a human account.</li><li>Keep deployment credentials for wallet infrastructure separate, short-lived and behind multi-party approval.</li></ul>
+    </div>
+  </section>
+
+  <section class="track nondev" id="nondev-en">
+    <div class="track-head"><h2>Non-dev</h2><p>Market, business and regulation, and what the news means in plain language.</p></div>
+    <div class="item">
+      <span class="tag mono" data-noread>Binance · Plain summary</span>
+      <h3>Binance shows it can cover customer balances, with limits</h3>
+      <p>Binance used a cryptographic technique to show that, for its ten biggest coins, it holds at least as much as customers are owed, without revealing anyone's account. You can check your own balance is included. It's a snapshot of one moment, and smaller coins aren't covered yet. Binance also says the hack began with a fake job interview that tricked an engineer into running malicious code.</p>
+    </div>
+    <div class="item">
+      <span class="tag mono" data-noread>Regulation · Asia · 2–3 Nov</span>
+      <h3>Cold wallets and tokenized settlement</h3>
+      <p>After the hack, South Korea's Financial Services Commission reportedly held an emergency meeting with exchanges and pushed for more assets in cold storage. In Hong Kong, the HKMA is reported to be moving toward round-the-clock tokenized settlement, with stablecoins in trials of Exchange Fund Bills, and Standard Chartered has launched tokenized deposits for corporate clients. The Lisk chain also shut down on 2 November as the project pivots to an enterprise finance platform (<a href='https://www.kucoin.com/news/articles/crypto-daily-market-report-november-3-2026'>KuCoin daily report</a>).</p>
+      <p class="unverified"><b>Unverified</b>Every item here comes from one exchange's news round-up with no primary links.</p>
+    </div>
+    <div class="item">
+      <h3>As a user</h3>
+      <ul class="points"><li>If you hold one of the ten covered tokens on Binance, use its verification page to check your balance is in the proof.</li><li>Remember that a proof of reserves is a snapshot, not ongoing solvency.</li><li>If you hold smaller tokens on Binance, expect them to reopen last.</li><li>Treat unsolicited job offers with coding tests as a security risk, especially if you work in crypto.</li></ul>
+      <p>Coming up: Binance's full technical report, the next reserve snapshot, and primary confirmation of the Korean and Hong Kong moves.</p>
+    </div>
+  </section>
+
+  <section class="sources">
+    <h2>Sources</h2>
+    <p>Reporting as of 4 November 2026. Binance's announcement is a primary but interested source.</p>
+    <ul>
+      <li><a href="https://www.binance.com/en/support/announcement/detail/2d83c325ab6e49c6bd6c5de8803b11a6">Binance: recovery update #6</a> <span class="kind">primary</span></li>
+      <li><a href="https://blockchainreporter.net/binance-reopens-withdrawals-zk-proof-reserves/">Blockchain Reporter: withdrawals reopen, ZK proof of reserves</a> <span class="kind">secondary</span></li>
+      <li><a href="https://crypto-economy.com/binance-hack-fake-interviews-and-months-of-hidden-access/">Crypto Economy: fake interviews and months of hidden access</a> <span class="kind">secondary</span></li>
+      <li><a href="https://www.kucoin.com/news/articles/crypto-daily-market-report-november-3-2026">KuCoin: crypto daily report, 3 Nov</a> <span class="kind">aggregator</span></li>
+    </ul>
+  </section>
+</article>
+
+<!-- ===================== 日本語 ===================== -->
+<article data-lang="ja" class="wrap" style="padding:0" hidden>
+  <header class="brief">
+    <span class="mono meta">デイリーブリーフ · 2026年11月4日 · 約5分</span>
+    <h1>ブロックチェーン・ブリーフ 2026年11月4日</h1>
+    <p class="lede">Binance がゼロ知識証明による準備金証明を公開して出金をさらに再開、同社の説明では侵害の発端は偽の採用面接でした。アジアの規制当局はコールドウォレットやトークン化決済の動きで応じています。</p>
+    <p class="note">一次情報または独立した2つ目の情報源で確認できなかった内容には「未確認」と表示しています。</p>
+    <nav class="jump" data-noread aria-label="セクション"><a class="dev" href="#dev-ja">Dev ↓</a><a class="nondev" href="#nondev-ja">Non-dev ↓</a></nav>
+  </header>
+
+  <section class="track dev" id="dev-ja">
+    <div class="track-head"><h2>Dev</h2><p>プロトコル変更、コントラクトのリスク、セキュリティの詳細、開発ツール。</p></div>
+    <div class="item">
+      <span class="tag mono" data-noread>続報 · Binance · 11月2〜4日</span>
+      <h3>ゼロ知識証明による準備金証明</h3>
+      <p>Binance の証明は10月31日 00:00 UTC のスナップショットが対象です。全顧客の残高をマークルツリーに入れ、そのツリーを zk-SNARK で包み、個々の口座を明かさずに残高の合計が準備金以下であることを証明します。BTC、ETH、USDT、BNB、SOL、USDC、XRP、USD1、RLUSD、ZEC の10銘柄の保有者は、自分の残高が含まれ、少なくとも1:1で裏付けられているかを確認できます。11月3日には、さらに9つのネットワークで100以上の資産とネットワークの組み合わせの出金も再開しました（<a href='https://blockchainreporter.net/binance-reopens-withdrawals-zk-proof-reserves/'>Blockchain Reporter</a>、<a href='https://www.binance.com/en/support/announcement/detail/2d83c325ab6e49c6bd6c5de8803b11a6'>Binance アップデート #6</a>）。</p>
+      <p>上位10銘柄以外の流動性の低いトークンにあたる被害額の約5%は、まだカバーされていません。完全な証明の生成には約40〜50時間かかります。</p>
+      <p class="unverified"><b>未確認</b>監査人の名前はなく、1:1 の最低ライン以外の銘柄ごとの比率も報告されていません。</p>
+    </div>
+    <div class="item">
+      <span class="tag mono" data-noread>続報 · Binance · 11月3日</span>
+      <h3>採用面接から始まった4か月の潜伏</h3>
+      <p>Crypto Economy が伝えた Binance の説明によると、攻撃者は2人のエンジニアを侵害しました。1回目は6月、社員が AI ツールを調べていてダウンロードした悪意あるパッケージ経由で、Binance はこれを検知したとしています。2回目は9月、偽のリクルーターとのビデオ通話と、端末の制御をすり抜ける悪意あるコードを含むコーディングテスト経由でした。10月20日ごろ、攻撃者はその端末と社内の AI ツールを使って他のエンジニアに接触し、デプロイ用の認証情報を入手して、10月29日の流出前にウォレット基盤へ不正なソフトを仕込みました（<a href='https://crypto-economy.com/binance-hack-fake-interviews-and-months-of-hidden-access/'>Crypto Economy</a>）。偽の採用面接は TraderTraitor の既知の手口です。</p>
+      <p class="unverified"><b>未確認</b>この説明を裏付けるのは二次記事1本と Binance の X 投稿だけです。</p>
+    </div>
+    <div class="item">
+      <h3>今週やること</h3>
+      <ul class="points"><li>口座データを漏らさずに負債を証明する標準として、SNARK 付きのマークル和ツリーを検討する。</li><li>面接のコーディングテストや新しいパッケージは、業務用端末ではなく使い捨てのサンドボックスで動かす。</li><li>社内の AI ツールにも、人間のアカウントと同じアクセス制限とログを適用する。</li><li>ウォレット基盤のデプロイ用認証情報は分離し、短命にし、複数人の承認を必須にする。</li></ul>
+    </div>
+  </section>
+
+  <section class="track nondev" id="nondev-ja">
+    <div class="track-head"><h2>Non-dev</h2><p>市場・ビジネス・規制と、ニュースが何を意味するかのやさしい解説。</p></div>
+    <div class="item">
+      <span class="tag mono" data-noread>Binance · やさしい解説</span>
+      <h3>Binance が顧客残高をまかなえると証明、ただし限定つき</h3>
+      <p>Binance は暗号技術を使い、上位10銘柄について、誰の口座も明かさずに顧客への支払い分以上を保有していることを示しました。自分の残高が含まれているかは自分で確認できます。ただしある時点のスナップショットで、小さな銘柄はまだ対象外です。また Binance は、ハッキングは偽の採用面接でエンジニアに悪意あるコードを実行させたことから始まったとしています。</p>
+    </div>
+    <div class="item">
+      <span class="tag mono" data-noread>規制 · アジア · 11月2〜3日</span>
+      <h3>コールドウォレットとトークン化決済</h3>
+      <p>ハッキングを受け、韓国の金融委員会は取引所と緊急会合を開き、コールドウォレットでの保管を増やすよう求めたと報じられています。香港では HKMA が24時間のトークン化決済に向けて動いており、外貨基金債券の試験でステーブルコインが使われ、Standard Chartered は法人向けにトークン化預金を始めました。また Lisk チェーンは、企業向け金融プラットフォームへの転換に伴い11月2日に停止しました（<a href='https://www.kucoin.com/news/articles/crypto-daily-market-report-november-3-2026'>KuCoin デイリーレポート</a>）。</p>
+      <p class="unverified"><b>未確認</b>このセクションの内容はすべて、一次情報へのリンクのない取引所のまとめ1件によるものです。</p>
+    </div>
+    <div class="item">
+      <h3>利用者として</h3>
+      <ul class="points"><li>Binance で対象10銘柄を持っているなら、検証ページで自分の残高が証明に含まれているか確認する。</li><li>準備金証明はスナップショットで、継続的な支払い能力を示すものではないと覚えておく。</li><li>Binance で小さな銘柄を持っているなら、再開は最後になると考えておく。</li><li>特に暗号資産業界で働いているなら、コーディングテスト付きの突然の求人はセキュリティリスクとして扱う。</li></ul>
+      <p>今後の予定：Binance の完全な技術報告、次の準備金スナップショット、韓国と香港の動きの一次情報での確認。</p>
+    </div>
+  </section>
+
+  <section class="sources">
+    <h2>出典</h2>
+    <p>2026年11月4日時点の報道に基づきます。Binance の告知は一次情報ですが、当事者の発表です。</p>
+    <ul>
+      <li><a href="https://www.binance.com/en/support/announcement/detail/2d83c325ab6e49c6bd6c5de8803b11a6">Binance: recovery update #6</a> <span class="kind">一次情報</span></li>
+      <li><a href="https://blockchainreporter.net/binance-reopens-withdrawals-zk-proof-reserves/">Blockchain Reporter: withdrawals reopen, ZK proof of reserves</a> <span class="kind">二次情報</span></li>
+      <li><a href="https://crypto-economy.com/binance-hack-fake-interviews-and-months-of-hidden-access/">Crypto Economy: fake interviews and months of hidden access</a> <span class="kind">二次情報</span></li>
+      <li><a href="https://www.kucoin.com/news/articles/crypto-daily-market-report-november-3-2026">KuCoin: crypto daily report, 3 Nov</a> <span class="kind">まとめサイト</span></li>
+    </ul>
+  </section>
+</article>
+
+<section class="comments" id="comments" data-noread>
+  <h2><span data-lang="en">Reader feedback</span><span data-lang="ja" hidden>読者のコメント</span></h2>
+  <p class="note"><span data-lang="en">Comments use GitHub sign-in, so every commenter is a real GitHub account. Be kind and stay on topic.</span><span data-lang="ja" hidden>コメントには GitHub へのログインが必要です。思いやりを持って、話題に沿って書き込んでください。</span></p>
+  <div class="giscus"></div>
+</section>
+
+<nav class="pager" data-noread>
+  <a href="../"><span data-lang="en">← All briefs</span><span data-lang="ja" hidden>← バックナンバー</span></a>
+  <span></span>
+</nav>
+</main>
+<script src="../assets/brief.js"></script>
+</body>
+</html>
