@@ -43,6 +43,7 @@ p { margin: 0; }
 .seg { display: inline-flex; border: 1px solid var(--rule); border-radius: 999px; overflow: hidden; background: var(--surface); }
 .seg button { border: 0; background: transparent; color: var(--ink); font: 600 0.85rem var(--display); padding: 0.35rem 0.8rem; cursor: pointer; }
 .seg button[aria-pressed="true"] { background: var(--accent); color: #fff; }
+a.btn { text-decoration: none; }
 .btn { border: 1px solid var(--rule); background: var(--surface); color: var(--ink); border-radius: 999px; font: 600 0.85rem var(--display); padding: 0.35rem 0.85rem; cursor: pointer; display: inline-flex; gap: 0.35rem; align-items: center; }
 .btn.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
 .btn:disabled { opacity: 0.5; cursor: not-allowed; }
@@ -104,7 +105,7 @@ ul.points li::marker { color: var(--accent); }
 .archive .d { font-family: var(--mono); font-size: 0.8rem; color: var(--muted); padding-top: 0.2rem; }
 .archive .t { font-family: var(--display); font-weight: 600; }
 .archive .s { color: var(--muted); font-size: 0.93rem; display: block; font-family: var(--body); font-weight: 400; }
-footer { color: var(--muted); font-size: 0.85rem; font-family: var(--display); }
+footer { display: flex; flex-direction: column; gap: 0.3rem; color: var(--muted); font-size: 0.85rem; font-family: var(--display); }
 @media (max-width: 520px) { .archive a.row { grid-template-columns: 1fr; gap: 0.2rem; } }
 @media print { .bar, .audio { display: none; } }
 .wrap > .audio:first-child { margin-top: 1.2rem; }
