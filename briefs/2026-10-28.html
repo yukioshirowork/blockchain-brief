@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Blockchain Brief, 28 Oct 2026</title>
+<meta name="description" content="Ripple gets a federal trust bank charter, revenue-sharing Open USD goes live across zerohash, and Initia&#x27;s repayment plan.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-title-en="Blockchain Brief, 28 Oct 2026" data-title-ja="ブロックチェーン・ブリーフ 2026年10月28日">
+<div class="bar"><div class="bar-in">
+  <a class="home" href="../">Blockchain Brief</a>
+  <div class="controls">
+    <div class="seg" role="group" aria-label="Language"><button type="button" data-set-lang="en" aria-pressed="true">EN</button><button type="button" data-set-lang="ja" aria-pressed="false">日本語</button></div>
+  </div>
+</div></div>
+
+<main class="wrap">
+
+<!-- Read-aloud panel (shared; labels follow the language toggle) -->
+<section class="audio" id="audio" aria-label="Read aloud" data-noread>
+  <div class="audio-row">
+    <button type="button" class="btn primary" data-a="play">▶ Listen</button>
+    <button type="button" class="btn" data-a="stop" disabled>■ Stop</button>
+    <select class="btn" data-a="scope" aria-label="What to read"><option value="all">Whole brief</option><option value="dev">Dev only</option><option value="nondev">Non-dev only</option></select>
+  </div>
+  <div class="audio-row">
+    <label class="status"><span data-a="speedlbl">Speed</span>
+      <select class="btn" data-a="rate"><option value="0.8">0.8×</option><option value="0.9">0.9×</option><option value="1" selected>1×</option><option value="1.15">1.15×</option><option value="1.3">1.3×</option><option value="1.5">1.5×</option></select></label>
+    <label class="status"><span data-a="voicelbl">Voice</span>
+      <select class="btn" data-a="voice"></select></label>
+  </div>
+  <p class="status" data-a="status" aria-live="polite"></p>
+</section>
+
+<!-- ===================== ENGLISH ===================== -->
+<article data-lang="en" class="wrap" style="padding:0">
+  <header class="brief">
+    <span class="mono meta">Daily brief · 28 Oct 2026 · about 4 min read</span>
+    <h1>Blockchain Brief, 28 Oct 2026</h1>
+    <p class="lede">Ripple gets a federal trust bank, a new stablecoin built to share revenue with the apps that distribute it reaches card and payout networks, and Initia sets out how it will make users whole.</p>
+    <p class="note">Claims I could not confirm from a primary or second independent source are marked Unverified.</p>
+    <nav class="jump" data-noread aria-label="Sections"><a class="dev" href="#dev-en">Dev ↓</a><a class="nondev" href="#nondev-en">Non-dev ↓</a></nav>
+  </header>
+
+  <section class="track dev" id="dev-en">
+    <div class="track-head"><h2>Dev</h2><p>Protocol changes, contract risks, security details and tooling.</p></div>
+    <div class="item">
+      <span class="tag mono" data-noread>Follow-up · Initia · 27–28 Oct</span>
+      <h3>Initia's fix and repayment plan</h3>
+      <p>Initia, halted since the 23 October MoveVM exploit, said on 27 October that a patch removing the script-cache attack surface is with external auditors, and that the chain will restart in phases only after a clean audit report. On 28 October its foundation approved funds to restore the iUSD stablecoin to full backing, capped at 1.08M USDC, 105 ETH and 1.4M AUSD, paid only after on-chain audits confirm the actual shortfall (<a href='https://www.techflowpost.com/en-US/article/34937'>TechFlow</a>, <a href='https://www.techflowpost.com/en-US/article/34905'>TechFlow</a>). Some receiving addresses on Ethereum were frozen, and recovered funds will reduce the payout.</p>
+      <p class="unverified"><b>Unverified</b>These are secondary reports of Initia's own posts. There is still no restart date.</p>
+    </div>
+    <div class="item">
+      <h3>What to do this week</h3>
+      <ul class="points"><li>If you build payments, compare stablecoin revenue-sharing terms. They may now be part of your business model.</li><li>Support several stablecoins behind one interface. Conversion layers make that cheaper than picking one.</li><li>Verify token contract addresses from the issuer's own pages before integrating, never from blog posts.</li><li>Write your halt and repayment process before you need it, including caps and audit gates like Initia's.</li></ul>
+    </div>
+  </section>
+
+  <section class="track nondev" id="nondev-en">
+    <div class="track-head"><h2>Non-dev</h2><p>Market, business and regulation, and what the news means in plain language.</p></div>
+    <div class="item">
+      <span class="tag mono" data-noread>US banking · OCC · 27 Oct</span>
+      <h3>Ripple gets a national trust bank charter</h3>
+      <p>The US bank regulator, the OCC, gave Ripple final approval on 27 October to open Ripple National Trust Bank in New York (<a href='https://www.ledgerinsights.com/ripple-gets-final-occ-trust-bank-charter-expands-rlusd-partnerships-with-bny-robinhood/'>Ledger Insights</a>). The bank will not issue Ripple's RLUSD stablecoin; it will hold and manage the reserves behind RLUSD, act as trustee for RLUSD holders, and offer crypto custody to institutions. Ripple also announced wider RLUSD partnerships with BNY and Robinhood.</p>
+      <p>The OCC has now approved or conditionally approved 21 trust bank charters, at least 13 for digital-asset firms. Community banks are fighting this: their trade group ICBA sued the OCC on 2 October to overturn the rule behind these charters.</p>
+      <p class="unverified"><b>Unverified</b>Details of the BNY and Robinhood deals were behind a paywall.</p>
+    </div>
+    <div class="item">
+      <span class="tag mono" data-noread>Stablecoins · zerohash · 27 Oct</span>
+      <h3>Open USD goes live across zerohash</h3>
+      <p>Open USD (OUSD) is a dollar stablecoin launched on 30 September by Open Standard, with Bridge as the issuer. Apps and fintechs that distribute it can share in the reserve income, instead of the issuer keeping it all (<a href='https://wavect.io/blog/open-usd-stablecoin-explained-2026/'>Wavect</a>). Reserves are held with BlackRock, Lead Bank and BNY. On 27 October zerohash, which runs the crypto features of many fintech apps, made OUSD available to all its partners on Base, Ethereum, Solana and Tempo. Named partners include Marqeta and Visa Direct (<a href='https://www.globenewswire.com/news-release/2026/10/27/3389097/0/en/zerohash-brings-open-usd-ousd-stablecoin-live-across-its-network.html'>zerohash press release</a>).</p>
+      <p class="unverified"><b>Unverified</b>OUSD is not MiCA-authorized as far as I can tell, and partners may not promote it in the EU.</p>
+    </div>
+    <div class="item">
+      <h3>As a user</h3>
+      <ul class="points"><li>A stablecoin whose reserves sit with a federally supervised trustee is a stronger claim than a promise on a website.</li><li>OUSD may appear inside apps you already use without its name being prominent. Check which stablecoin you actually hold.</li><li>In the EU, expect OUSD to be unavailable on licensed platforms.</li><li>If you held iUSD on Initia, wait for the official restart notice and ignore anyone offering early “claims.”</li></ul>
+      <p>Coming up: The ICBA lawsuit, Initia's restart date, and a new Glamsterdam Hoodi date.</p>
+    </div>
+  </section>
+
+  <section class="sources">
+    <h2>Sources</h2>
+    <p>Reporting as of 28 October 2026. The zerohash release is a primary company statement.</p>
+    <ul>
+      <li><a href="https://www.ledgerinsights.com/ripple-gets-final-occ-trust-bank-charter-expands-rlusd-partnerships-with-bny-robinhood/">Ledger Insights: Ripple gets final OCC trust bank charter</a> <span class="kind">secondary</span></li>
+      <li><a href="https://www.globenewswire.com/news-release/2026/10/27/3389097/0/en/zerohash-brings-open-usd-ousd-stablecoin-live-across-its-network.html">zerohash: OUSD live across its network</a> <span class="kind">primary</span></li>
+      <li><a href="https://wavect.io/blog/open-usd-stablecoin-explained-2026/">Wavect: Open USD explained</a> <span class="kind">vendor</span></li>
+      <li><a href="https://www.techflowpost.com/en-US/article/34905">TechFlow: Initia fix under audit</a> <span class="kind">secondary</span></li>
+      <li><a href="https://www.techflowpost.com/en-US/article/34937">TechFlow: Initia loss coverage plan</a> <span class="kind">secondary</span></li>
+    </ul>
+  </section>
+</article>
+
+<!-- ===================== 日本語 ===================== -->
+<article data-lang="ja" class="wrap" style="padding:0" hidden>
+  <header class="brief">
+    <span class="mono meta">デイリーブリーフ · 2026年10月28日 · 約4分</span>
+    <h1>ブロックチェーン・ブリーフ 2026年10月28日</h1>
+    <p class="lede">Ripple が連邦の信託銀行を取得、配布するアプリと収益を分け合う新しいステーブルコインがカードや送金のネットワークに広がり、Initia は利用者への補償方法を示しました。</p>
+    <p class="note">一次情報または独立した2つ目の情報源で確認できなかった内容には「未確認」と表示しています。</p>
+    <nav class="jump" data-noread aria-label="セクション"><a class="dev" href="#dev-ja">Dev ↓</a><a class="nondev" href="#nondev-ja">Non-dev ↓</a></nav>
+  </header>
+
+  <section class="track dev" id="dev-ja">
+    <div class="track-head"><h2>Dev</h2><p>プロトコル変更、コントラクトのリスク、セキュリティの詳細、開発ツール。</p></div>
+    <div class="item">
+      <span class="tag mono" data-noread>続報 · Initia · 10月27〜28日</span>
+      <h3>Initia の修正と返済計画</h3>
+      <p>10月23日の MoveVM の攻撃以来停止している Initia は、27日、スクリプトキャッシュの攻撃面を取り除くパッチを外部監査に出しており、問題のない監査報告が出てから段階的にチェーンを再開すると発表しました。28日には財団が、ステーブルコイン iUSD を完全な裏付けに戻すための資金を承認しました。上限は 108万 USDC、105 ETH、140万 AUSD で、オンチェーン監査で実際の不足額が確認されてから支払われます（<a href='https://www.techflowpost.com/en-US/article/34937'>TechFlow</a>、<a href='https://www.techflowpost.com/en-US/article/34905'>TechFlow</a>）。イーサリアム上の受け取りアドレスの一部は凍結され、回収された資金は支払額から差し引かれます。</p>
+      <p class="unverified"><b>未確認</b>Initia 自身の投稿を伝える二次情報です。再開日はまだありません。</p>
+    </div>
+    <div class="item">
+      <h3>今週やること</h3>
+      <ul class="points"><li>決済を作るなら、ステーブルコインの収益分配の条件を比較する。ビジネスモデルの一部になりえます。</li><li>1つのインターフェースの裏で複数のステーブルコインに対応する。変換レイヤーがあれば1つに絞るより安く済みます。</li><li>トークンのコントラクトアドレスは、ブログではなく発行体自身のページで確認してから統合する。</li><li>Initia のような上限や監査の関門を含め、停止と返済の手順を必要になる前に書いておく。</li></ul>
+    </div>
+  </section>
+
+  <section class="track nondev" id="nondev-ja">
+    <div class="track-head"><h2>Non-dev</h2><p>市場・ビジネス・規制と、ニュースが何を意味するかのやさしい解説。</p></div>
+    <div class="item">
+      <span class="tag mono" data-noread>米国の銀行 · OCC · 10月27日</span>
+      <h3>Ripple が国法信託銀行の認可を取得</h3>
+      <p>米国の銀行規制当局 OCC は10月27日、Ripple にニューヨークでの Ripple National Trust Bank の開設を最終承認しました（<a href='https://www.ledgerinsights.com/ripple-gets-final-occ-trust-bank-charter-expands-rlusd-partnerships-with-bny-robinhood/'>Ledger Insights</a>）。この銀行は Ripple のステーブルコイン RLUSD を発行するのではなく、RLUSD の準備金を保管・管理し、保有者の受託者となり、機関向けに暗号資産のカストディを提供します。Ripple は BNY や Robinhood との RLUSD の提携拡大も発表しました。</p>
+      <p>OCC はこれまでに21の信託銀行の認可を承認または条件付き承認しており、少なくとも13件はデジタル資産企業です。地方銀行はこれに反対しており、業界団体 ICBA は10月2日、これらの認可の根拠となる規則の撤回を求めて OCC を提訴しました。</p>
+      <p class="unverified"><b>未確認</b>BNY と Robinhood との提携の詳細は有料記事のため確認できていません。</p>
+    </div>
+    <div class="item">
+      <span class="tag mono" data-noread>ステーブルコイン · zerohash · 10月27日</span>
+      <h3>Open USD が zerohash 全体で利用可能に</h3>
+      <p>Open USD（OUSD）は、Open Standard が9月30日に始め、Bridge が発行するドル建てステーブルコインです。発行体が準備金の運用益を独占せず、配布するアプリやフィンテックがその一部を受け取れます（<a href='https://wavect.io/blog/open-usd-stablecoin-explained-2026/'>Wavect</a>）。準備金は BlackRock、Lead Bank、BNY で保管されます。10月27日、多くのフィンテックアプリの暗号資産機能を支える zerohash が、Base、Ethereum、Solana、Tempo 上で OUSD をすべての提携先に提供しました。Marqeta や Visa Direct が提携先として挙がっています（<a href='https://www.globenewswire.com/news-release/2026/10/27/3389097/0/en/zerohash-brings-open-usd-ousd-stablecoin-live-across-its-network.html'>zerohash のプレスリリース</a>）。</p>
+      <p class="unverified"><b>未確認</b>確認できた範囲では OUSD は MiCA の認可を受けておらず、提携先は EU で宣伝できません。</p>
+    </div>
+    <div class="item">
+      <h3>利用者として</h3>
+      <ul class="points"><li>準備金が連邦の監督下にある受託者に置かれたステーブルコインは、ウェブサイト上の約束より確かな裏付けです。</li><li>OUSD は、名前が目立たないまま普段使っているアプリに入ってくるかもしれません。実際にどのステーブルコインを持っているか確認する。</li><li>EU では、認可を受けたプラットフォームで OUSD は使えないと考えておく。</li><li>Initia で iUSD を持っていたなら公式の再開告知を待ち、早期の「請求」を持ちかける人は無視する。</li></ul>
+      <p>今後の予定：ICBA の訴訟、Initia の再開日、Glamsterdam の Hoodi の新しい日程。</p>
+    </div>
+  </section>
+
+  <section class="sources">
+    <h2>出典</h2>
+    <p>2026年10月28日時点の報道に基づきます。zerohash の発表は企業の一次情報です。</p>
+    <ul>
+      <li><a href="https://www.ledgerinsights.com/ripple-gets-final-occ-trust-bank-charter-expands-rlusd-partnerships-with-bny-robinhood/">Ledger Insights: Ripple gets final OCC trust bank charter</a> <span class="kind">二次情報</span></li>
+      <li><a href="https://www.globenewswire.com/news-release/2026/10/27/3389097/0/en/zerohash-brings-open-usd-ousd-stablecoin-live-across-its-network.html">zerohash: OUSD live across its network</a> <span class="kind">一次情報</span></li>
+      <li><a href="https://wavect.io/blog/open-usd-stablecoin-explained-2026/">Wavect: Open USD explained</a> <span class="kind">ベンダー</span></li>
+      <li><a href="https://www.techflowpost.com/en-US/article/34905">TechFlow: Initia fix under audit</a> <span class="kind">二次情報</span></li>
+      <li><a href="https://www.techflowpost.com/en-US/article/34937">TechFlow: Initia loss coverage plan</a> <span class="kind">二次情報</span></li>
+    </ul>
+  </section>
+</article>
+
+<section class="comments" id="comments" data-noread>
+  <h2><span data-lang="en">Reader feedback</span><span data-lang="ja" hidden>読者のコメント</span></h2>
+  <p class="note"><span data-lang="en">Comments use GitHub sign-in, so every commenter is a real GitHub account. Be kind and stay on topic.</span><span data-lang="ja" hidden>コメントには GitHub へのログインが必要です。思いやりを持って、話題に沿って書き込んでください。</span></p>
+  <div class="giscus"></div>
+</section>
+
+<nav class="pager" data-noread>
+  <a href="../"><span data-lang="en">← All briefs</span><span data-lang="ja" hidden>← バックナンバー</span></a>
+  <span></span>
+</nav>
+</main>
+<script src="../assets/brief.js"></script>
+</body>
+</html>

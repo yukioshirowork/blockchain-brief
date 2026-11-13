@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Blockchain Brief, 30 Oct 2026</title>
+<meta name="description" content="Binance loses about $6.3 billion in a record theft, DTCC&#x27;s tokenization service goes live, and Starknet votes to study its own L1.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-title-en="Blockchain Brief, 30 Oct 2026" data-title-ja="ブロックチェーン・ブリーフ 2026年10月30日">
+<div class="bar"><div class="bar-in">
+  <a class="home" href="../">Blockchain Brief</a>
+  <div class="controls">
+    <div class="seg" role="group" aria-label="Language"><button type="button" data-set-lang="en" aria-pressed="true">EN</button><button type="button" data-set-lang="ja" aria-pressed="false">日本語</button></div>
+  </div>
+</div></div>
+
+<main class="wrap">
+
+<!-- Read-aloud panel (shared; labels follow the language toggle) -->
+<section class="audio" id="audio" aria-label="Read aloud" data-noread>
+  <div class="audio-row">
+    <button type="button" class="btn primary" data-a="play">▶ Listen</button>
+    <button type="button" class="btn" data-a="stop" disabled>■ Stop</button>
+    <select class="btn" data-a="scope" aria-label="What to read"><option value="all">Whole brief</option><option value="dev">Dev only</option><option value="nondev">Non-dev only</option></select>
+  </div>
+  <div class="audio-row">
+    <label class="status"><span data-a="speedlbl">Speed</span>
+      <select class="btn" data-a="rate"><option value="0.8">0.8×</option><option value="0.9">0.9×</option><option value="1" selected>1×</option><option value="1.15">1.15×</option><option value="1.3">1.3×</option><option value="1.5">1.5×</option></select></label>
+    <label class="status"><span data-a="voicelbl">Voice</span>
+      <select class="btn" data-a="voice"></select></label>
+  </div>
+  <p class="status" data-a="status" aria-live="polite"></p>
+</section>
+
+<!-- ===================== ENGLISH ===================== -->
+<article data-lang="en" class="wrap" style="padding:0">
+  <header class="brief">
+    <span class="mono meta">Daily brief · 30 Oct 2026 · about 5 min read</span>
+    <h1>Blockchain Brief, 30 Oct 2026</h1>
+    <p class="lede">Binance suffers what is reported as the largest crypto theft on record, DTCC's tokenization service goes live with 20 major firms, and Starknet votes to study leaving Ethereum.</p>
+    <p class="note">The Binance story is still developing, so figures may change. Claims I could not confirm from a primary or second independent source are marked Unverified.</p>
+    <nav class="jump" data-noread aria-label="Sections"><a class="dev" href="#dev-en">Dev ↓</a><a class="nondev" href="#nondev-en">Non-dev ↓</a></nav>
+  </header>
+
+  <section class="track dev" id="dev-en">
+    <div class="track-head"><h2>Dev</h2><p>Protocol changes, contract risks, security details and tooling.</p></div>
+    <div class="item">
+      <span class="tag mono" data-noread>Security · Binance · 29–30 Oct · developing</span>
+      <h3>How the $6.3 billion Binance theft happened</h3>
+      <p>Binance's early account is that a DevOps engineer's laptop was compromised, giving access to a service container that submitted unauthorized withdrawals, with no evidence that private keys leaked. TRM Labs describes it as a compromise of hot-wallet signing infrastructure, putting the loss at $6.36B across ten blockchains. On Ethereum the attacker reportedly used 50 pre-signed authorizations, likely phished, and wallets on other chains signed within about half an hour. TRM and Chainalysis both attribute the attack to TraderTraitor, the North Korean group behind the 2025 Bybit hack (<a href='https://www.helpnetsecurity.com/2026/10/30/binance-crypto-hack/'>Help Net Security</a>).</p>
+      <p class="unverified"><b>Unverified</b>Binance's explanation and TRM's differ. A full post-mortem is promised but not yet published.</p>
+    </div>
+    <div class="item">
+      <span class="tag mono" data-noread>Starknet · governance · 22 Oct</span>
+      <h3>Starknet votes to study its own L1</h3>
+      <p>A Starknet governance poll closed on 22 October with 93.5% of voting power backing research into an independent, quantum-resistant Layer 1 (<a href='https://coinpaper.com/37795/starknet-gets-93-5-support-to-explore-leaving-ethereum-for-its-own-blockchain'>Coinpaper</a>). The vote does not approve leaving Ethereum; it authorizes StarkWare and the Starknet Foundation to investigate. Starknet depends on Ethereum for data availability and bridges, and Ethereum targets quantum-resistant protections by 2029, while StarkWare wants Starknet quantum-safe by 2027. A draft whitepaper is expected in November, and STRK would remain the token.</p>
+      <p class="unverified"><b>Unverified</b>A claim of quantum-safe transactions costing about $0.023 comes from one AI-summarized report.</p>
+    </div>
+    <div class="item">
+      <h3>What to do this week</h3>
+      <ul class="points"><li>Treat engineer laptops as part of the key system. Isolate signing services and require hardware-backed approval for withdrawals.</li><li>Never pre-sign broad authorizations. Rate-limit hot-wallet outflows per chain so one breach cannot drain everything at once.</li><li>Know which assets your protocol holds can be frozen, and plan for both sides of that.</li><li>If you build on Starknet, follow the November whitepaper. Bridge and data-availability assumptions may change.</li></ul>
+    </div>
+  </section>
+
+  <section class="track nondev" id="nondev-en">
+    <div class="track-head"><h2>Non-dev</h2><p>Market, business and regulation, and what the news means in plain language.</p></div>
+    <div class="item">
+      <span class="tag mono" data-noread>Security · Binance · plain summary</span>
+      <h3>Binance loses about $6.3 billion</h3>
+      <p>On 29 October Binance paused deposits and withdrawals over a “potential security issue.” By the next morning it was reported as saying about $6.3 billion had been stolen, roughly four times the $1.5 billion Bybit hack of February 2025 (<a href='https://www.aljazeera.com/economy/2026/10/30/binance-says-2-54bn-in-crypto-funds-frozen-amid-potential-security-issue'>Al Jazeera</a>). About $2.7–3 billion has been frozen, mostly USDT by Tether and USDC by Circle. Binance says it will cover all losses from its SAFU fund and company funds. Deposits work again, and withdrawals were expected to resume within 48 hours.</p>
+      <p class="unverified"><b>Unverified</b>I did not see Binance's own post giving the $6.3B figure.</p>
+    </div>
+    <div class="item">
+      <span class="tag mono" data-noread>Follow-up · DTCC · live 28 Oct</span>
+      <h3>DTCC's tokenization service is live</h3>
+      <p>DTCC, the backbone of US securities settlement, went live with its tokenization service on 28 October (<a href='https://www.dtcc.com/press-releases/2026/dtcc-tokenization-service-goes-live'>DTCC</a>). Participants can mint tokenized “digital twins” of securities held at DTC with the same ownership rights, convert them back, and deliver them to wallets of their choice. Eligible assets are Russell 1000 stocks, major index ETFs and US Treasuries. Twenty firms have signed on, including J.P. Morgan, Citi, Bank of America, Morgan Stanley, Fidelity, UBS, Barclays, State Street and Citadel Securities.</p>
+      <p class="unverified"><b>Unverified</b>The $114 trillion often quoted is DTC's total custody, not what has been tokenized.</p>
+    </div>
+    <div class="item">
+      <h3>As a user</h3>
+      <ul class="points"><li>Binance says user funds are covered. Wait for withdrawals to reopen through official channels, and ignore “recovery” offers.</li><li>Expect phishing that uses the Binance news. Never enter credentials from a link in a message.</li><li>Keep only trading balances on any exchange. Long-term holdings belong in a wallet you control.</li><li>Tokenized stocks from DTCC reach you through brokers, not crypto wallets, for now.</li></ul>
+      <p>Coming up: Binance's post-mortem and withdrawal restart, where the remaining stolen funds move, and Starknet's whitepaper.</p>
+    </div>
+  </section>
+
+  <section class="sources">
+    <h2>Sources</h2>
+    <p>Reporting as of 30 October 2026. The DTCC release is primary; the rest are news reports, some citing TRM Labs and Chainalysis.</p>
+    <ul>
+      <li><a href="https://www.aljazeera.com/economy/2026/10/30/binance-says-2-54bn-in-crypto-funds-frozen-amid-potential-security-issue">Al Jazeera: Binance says $6.3bn stolen</a> <span class="kind">secondary</span></li>
+      <li><a href="https://www.helpnetsecurity.com/2026/10/30/binance-crypto-hack/">Help Net Security: Binance hit by $6.3 billion theft</a> <span class="kind">secondary</span></li>
+      <li><a href="https://abcnews.com/Business/wireStory/binance-flags-potential-security-issue-crypto-firms-froze-137691087">AP via ABC News: Binance flags potential security issue</a> <span class="kind">secondary</span></li>
+      <li><a href="https://www.dtcc.com/press-releases/2026/dtcc-tokenization-service-goes-live">DTCC: Tokenization Service goes live</a> <span class="kind">primary</span></li>
+      <li><a href="https://coinpaper.com/37795/starknet-gets-93-5-support-to-explore-leaving-ethereum-for-its-own-blockchain">Coinpaper: Starknet vote to explore own L1</a> <span class="kind">secondary</span></li>
+    </ul>
+  </section>
+</article>
+
+<!-- ===================== 日本語 ===================== -->
+<article data-lang="ja" class="wrap" style="padding:0" hidden>
+  <header class="brief">
+    <span class="mono meta">デイリーブリーフ · 2026年10月30日 · 約5分</span>
+    <h1>ブロックチェーン・ブリーフ 2026年10月30日</h1>
+    <p class="lede">Binance が過去最大と報じられる暗号資産の盗難に遭い、DTCC のトークン化サービスが大手20社とともに稼働、Starknet はイーサリアムから離れる可能性の調査を可決しました。</p>
+    <p class="note">Binance の件は進行中のため、数字が変わる可能性があります。一次情報または独立した2つ目の情報源で確認できなかった内容には「未確認」と表示しています。</p>
+    <nav class="jump" data-noread aria-label="セクション"><a class="dev" href="#dev-ja">Dev ↓</a><a class="nondev" href="#nondev-ja">Non-dev ↓</a></nav>
+  </header>
+
+  <section class="track dev" id="dev-ja">
+    <div class="track-head"><h2>Dev</h2><p>プロトコル変更、コントラクトのリスク、セキュリティの詳細、開発ツール。</p></div>
+    <div class="item">
+      <span class="tag mono" data-noread>セキュリティ · Binance · 10月29〜30日 · 進行中</span>
+      <h3>63億ドルの Binance 盗難はどう起きたか</h3>
+      <p>Binance の初期の説明では、DevOps エンジニアのノート PC が侵害され、そこから不正な出金を送信するサービスコンテナにアクセスされたとされ、秘密鍵の流出を示す証拠はないとしています。TRM Labs はこれをホットウォレットの署名基盤の侵害とし、被害額を10チェーンで63.6億ドルとしています。イーサリアムでは、おそらくフィッシングで得た事前署名の承認50件が使われ、他チェーンのウォレットも約30分以内に署名されたと報じられています。TRM と Chainalysis はいずれも、2025年の Bybit ハッキングを行った北朝鮮のグループ TraderTraitor によるものとしています（<a href='https://www.helpnetsecurity.com/2026/10/30/binance-crypto-hack/'>Help Net Security</a>）。</p>
+      <p class="unverified"><b>未確認</b>Binance と TRM の説明は食い違っています。完全な事後報告は約束されていますが、まだ出ていません。</p>
+    </div>
+    <div class="item">
+      <span class="tag mono" data-noread>Starknet · ガバナンス · 10月22日</span>
+      <h3>Starknet が独自 L1 の調査を可決</h3>
+      <p>Starknet のガバナンス投票が10月22日に締め切られ、投票権の93.5%が独立した耐量子の L1 の研究を支持しました（<a href='https://coinpaper.com/37795/starknet-gets-93-5-support-to-explore-leaving-ethereum-for-its-own-blockchain'>Coinpaper</a>）。これはイーサリアムからの離脱を承認するものではなく、StarkWare と Starknet Foundation に調査を認めるものです。Starknet はデータ可用性とブリッジをイーサリアムに頼っており、イーサリアムが耐量子対策を2029年までに目指すのに対し、StarkWare は2027年までに Starknet を耐量子にしたいと考えています。ホワイトペーパーの草案は11月に出る見込みで、トークンは引き続き STRK です。</p>
+      <p class="unverified"><b>未確認</b>耐量子トランザクションが約0.023ドルで済むという主張は、AI 要約のレポート1件によるものです。</p>
+    </div>
+    <div class="item">
+      <h3>今週やること</h3>
+      <ul class="points"><li>エンジニアのノート PC も鍵管理システムの一部として扱う。署名サービスを分離し、出金にはハードウェアによる承認を必須にする。</li><li>広い範囲の承認を事前署名しない。チェーンごとにホットウォレットの流出量を制限し、1か所の侵害で全部が抜かれないようにする。</li><li>プロトコルが持つ資産のうちどれが凍結されうるかを把握し、その両面に備える。</li><li>Starknet で開発しているなら11月のホワイトペーパーを追う。ブリッジやデータ可用性の前提が変わるかもしれません。</li></ul>
+    </div>
+  </section>
+
+  <section class="track nondev" id="nondev-ja">
+    <div class="track-head"><h2>Non-dev</h2><p>市場・ビジネス・規制と、ニュースが何を意味するかのやさしい解説。</p></div>
+    <div class="item">
+      <span class="tag mono" data-noread>セキュリティ · Binance · やさしい解説</span>
+      <h3>Binance が約63億ドルを失う</h3>
+      <p>Binance は10月29日、「潜在的なセキュリティ問題」を理由に入出金を停止しました。翌朝には約63億ドルが盗まれたと述べたと報じられました。2025年2月の Bybit の15億ドルのハッキングの約4倍です（<a href='https://www.aljazeera.com/economy/2026/10/30/binance-says-2-54bn-in-crypto-funds-frozen-amid-potential-security-issue'>Al Jazeera</a>）。約27〜30億ドルが凍結されており、その多くは Tether による USDT と Circle による USDC です。Binance は SAFU 基金と自社資金ですべての損失を補填するとしています。入金は再開しており、出金は48時間以内に再開する見込みでした。</p>
+      <p class="unverified"><b>未確認</b>63億ドルという数字を示した Binance 自身の投稿は確認できていません。</p>
+    </div>
+    <div class="item">
+      <span class="tag mono" data-noread>続報 · DTCC · 10月28日稼働</span>
+      <h3>DTCC のトークン化サービスが稼働</h3>
+      <p>米国の証券決済の中枢である DTCC が、10月28日にトークン化サービスを開始しました（<a href='https://www.dtcc.com/press-releases/2026/dtcc-tokenization-service-goes-live'>DTCC</a>）。参加者は DTC で保管する証券の、同じ所有権を持つトークン化された「デジタルツイン」を発行し、元に戻したり、選んだウォレットに届けたりできます。対象は Russell 1000 の株式、主要指数の ETF、米国債です。J.P. Morgan、Citi、Bank of America、Morgan Stanley、Fidelity、UBS、Barclays、State Street、Citadel Securities など20社が参加しています。</p>
+      <p class="unverified"><b>未確認</b>よく引用される114兆ドルは DTC の保管総額で、トークン化された額ではありません。</p>
+    </div>
+    <div class="item">
+      <h3>利用者として</h3>
+      <ul class="points"><li>Binance は利用者の資金は補填されるとしています。公式の案内で出金再開を待ち、「回収」の勧誘は無視する。</li><li>Binance のニュースを使ったフィッシングに注意。メッセージ内のリンクから認証情報を入力しない。</li><li>取引所には取引に使う分だけを置き、長期保有分は自分で管理するウォレットに。</li><li>DTCC のトークン化株式は、当面は暗号資産ウォレットではなく証券会社経由で届きます。</li></ul>
+      <p>今後の予定：Binance の事後報告と出金再開、残る盗難資金の動き、Starknet のホワイトペーパー。</p>
+    </div>
+  </section>
+
+  <section class="sources">
+    <h2>出典</h2>
+    <p>2026年10月30日時点の報道に基づきます。DTCC の発表は一次情報で、ほかは TRM Labs や Chainalysis を引用した報道です。</p>
+    <ul>
+      <li><a href="https://www.aljazeera.com/economy/2026/10/30/binance-says-2-54bn-in-crypto-funds-frozen-amid-potential-security-issue">Al Jazeera: Binance says $6.3bn stolen</a> <span class="kind">二次情報</span></li>
+      <li><a href="https://www.helpnetsecurity.com/2026/10/30/binance-crypto-hack/">Help Net Security: Binance hit by $6.3 billion theft</a> <span class="kind">二次情報</span></li>
+      <li><a href="https://abcnews.com/Business/wireStory/binance-flags-potential-security-issue-crypto-firms-froze-137691087">AP via ABC News: Binance flags potential security issue</a> <span class="kind">二次情報</span></li>
+      <li><a href="https://www.dtcc.com/press-releases/2026/dtcc-tokenization-service-goes-live">DTCC: Tokenization Service goes live</a> <span class="kind">一次情報</span></li>
+      <li><a href="https://coinpaper.com/37795/starknet-gets-93-5-support-to-explore-leaving-ethereum-for-its-own-blockchain">Coinpaper: Starknet vote to explore own L1</a> <span class="kind">二次情報</span></li>
+    </ul>
+  </section>
+</article>
+
+<section class="comments" id="comments" data-noread>
+  <h2><span data-lang="en">Reader feedback</span><span data-lang="ja" hidden>読者のコメント</span></h2>
+  <p class="note"><span data-lang="en">Comments use GitHub sign-in, so every commenter is a real GitHub account. Be kind and stay on topic.</span><span data-lang="ja" hidden>コメントには GitHub へのログインが必要です。思いやりを持って、話題に沿って書き込んでください。</span></p>
+  <div class="giscus"></div>
+</section>
+
+<nav class="pager" data-noread>
+  <a href="../"><span data-lang="en">← All briefs</span><span data-lang="ja" hidden>← バックナンバー</span></a>
+  <span></span>
+</nav>
+</main>
+<script src="../assets/brief.js"></script>
+</body>
+</html>

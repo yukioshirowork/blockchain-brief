@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Blockchain Brief, 27 Oct 2026</title>
+<meta name="description" content="Glamsterdam on Hoodi is postponed over EIP-8037, a MoveVM bug halts Initia, and a flash loan buys X100&#x27;s governance vote.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-title-en="Blockchain Brief, 27 Oct 2026" data-title-ja="ブロックチェーン・ブリーフ 2026年10月27日">
+<div class="bar"><div class="bar-in">
+  <a class="home" href="../">Blockchain Brief</a>
+  <div class="controls">
+    <div class="seg" role="group" aria-label="Language"><button type="button" data-set-lang="en" aria-pressed="true">EN</button><button type="button" data-set-lang="ja" aria-pressed="false">日本語</button></div>
+  </div>
+</div></div>
+
+<main class="wrap">
+
+<!-- Read-aloud panel (shared; labels follow the language toggle) -->
+<section class="audio" id="audio" aria-label="Read aloud" data-noread>
+  <div class="audio-row">
+    <button type="button" class="btn primary" data-a="play">▶ Listen</button>
+    <button type="button" class="btn" data-a="stop" disabled>■ Stop</button>
+    <select class="btn" data-a="scope" aria-label="What to read"><option value="all">Whole brief</option><option value="dev">Dev only</option><option value="nondev">Non-dev only</option></select>
+  </div>
+  <div class="audio-row">
+    <label class="status"><span data-a="speedlbl">Speed</span>
+      <select class="btn" data-a="rate"><option value="0.8">0.8×</option><option value="0.9">0.9×</option><option value="1" selected>1×</option><option value="1.15">1.15×</option><option value="1.3">1.3×</option><option value="1.5">1.5×</option></select></label>
+    <label class="status"><span data-a="voicelbl">Voice</span>
+      <select class="btn" data-a="voice"></select></label>
+  </div>
+  <p class="status" data-a="status" aria-live="polite"></p>
+</section>
+
+<!-- ===================== ENGLISH ===================== -->
+<article data-lang="en" class="wrap" style="padding:0">
+  <header class="brief">
+    <span class="mono meta">Daily brief · 27 Oct 2026 · about 4 min read</span>
+    <h1>Blockchain Brief, 27 Oct 2026</h1>
+    <p class="lede">Glamsterdam's last testnet run was postponed over a gas change that could break existing contracts, a VM bug halted a whole chain, and a flash loan bought a governance vote.</p>
+    <p class="note">This issue starts with a correction to the 25 October brief. Claims I could not confirm from a primary or second independent source are marked Unverified.</p>
+    <nav class="jump" data-noread aria-label="Sections"><a class="dev" href="#dev-en">Dev ↓</a><a class="nondev" href="#nondev-en">Non-dev ↓</a></nav>
+  </header>
+
+  <section class="track dev" id="dev-en">
+    <div class="track-head"><h2>Dev</h2><p>Protocol changes, contract risks, security details and tooling.</p></div>
+    <div class="item">
+      <span class="tag mono" data-noread>Correction · Ethereum · postponed 22 Oct</span>
+      <h3>Glamsterdam on Hoodi is postponed</h3>
+      <p>The 25 October brief said Glamsterdam would activate on the Hoodi testnet on 26 October. That was wrong. On 22 October the Ethereum Foundation announced that the Hoodi activation was postponed with no new date (<a href='https://blog.ethereum.org/2026/10/22/glamsterdam-hoodi-delay'>EF blog</a>).</p>
+      <p>The delay is tied to EIP-8037, one of the upgrade's gas-pricing changes. Developers want more time to check how it interacts with contracts already on mainnet, since some contracts assume fixed gas costs and could fail after a repricing (<a href='https://cryptobriefing.com/ethereum-cancels-glamsterdam-hoodi-upgrade/'>Crypto Briefing</a>, <a href='https://www.altcoinbuzz.io/ethereum-delays-glamsterdam-hoodi-test-over-smart-contract-gas-risk'>Altcoin Buzz</a>). Node operators should wait for client releases that confirm a new date.</p>
+      <p class="unverified"><b>Unverified</b>The exact contract patterns at risk are not described in the sources I could read.</p>
+    </div>
+    <div class="item">
+      <span class="tag mono" data-noread>Exploit · Initia · 23 Oct</span>
+      <h3>A MoveVM bug halts Initia</h3>
+      <p>On 23 October at 14:59 UTC, an attacker used a script-caching bug in Initia's MoveVM to mint AUSD stablecoins with nothing backing them. About $2.7M was bridged out through Circle's CCTP and LayerZero before validators halted the L1 and its rollups at 15:41 UTC (<a href='https://www.altcoinbuzz.io/initia-halts-chain-after-2-7m-movevm-exploit-no-restart-date-yet'>Altcoin Buzz</a>). The bug was in the VM, not an application, which is why the whole chain had to stop. Move is often promoted as safer than Solidity, but the runtime around the language is still code that can fail.</p>
+      <p class="unverified"><b>Unverified</b>The loss figure comes from one secondary report, and there is no public post-mortem yet.</p>
+    </div>
+    <div class="item">
+      <span class="tag mono" data-noread>Exploit · X100 · 24 Oct</span>
+      <h3>A flash loan buys a governance vote</h3>
+      <p>On 24 October an attacker took a flash loan, briefly held enough of X100's token to control a governance vote, passed a proposal and drained about $4.8M in USDT from the treasury. The proposal swapped assets with a minimum output of zero (<a href='https://cryptoticker.io/en/x100-flashloan-governance-attack/'>CryptoTicker</a>). It worked because the protocol had no minimum holding period for voters and no timelock between a vote passing and its execution.</p>
+      <p class="unverified"><b>Unverified</b>Reports give losses between $4.75M and $4.85M.</p>
+    </div>
+    <div class="item">
+      <h3>What to do this week</h3>
+      <ul class="points"><li>Search your contracts for hardcoded gas amounts and fixed gas stipends. Repricings like EIP-8037 can break them.</li><li>Base voting power on balances held before the proposal starts, and enforce a timelock before execution.</li><li>Never allow a zero minimum output on swaps, especially in treasury or governance actions.</li><li>Rate-limit mints and bridge outflows so a runtime bug cannot drain value before you can halt.</li></ul>
+    </div>
+  </section>
+
+  <section class="track nondev" id="nondev-en">
+    <div class="track-head"><h2>Non-dev</h2><p>Market, business and regulation, and what the news means in plain language.</p></div>
+    <div class="item">
+      <span class="tag mono" data-noread>Plain summary</span>
+      <h3>A delayed upgrade and two break-ins</h3>
+      <p>Ethereum's next upgrade was held back from its final test because a fee change might break some existing apps; there's no new date. Initia, a smaller blockchain, stopped completely after an attacker exploited a flaw in its core software and walked off with about $2.7 million. And X100, a crypto project run by token-holder votes, lost about $4.8 million after someone borrowed enough tokens for a few seconds to win a vote and send the treasury to themselves.</p>
+    </div>
+    <div class="item">
+      <h3>As a user</h3>
+      <ul class="points"><li>Glamsterdam has no new dates yet. Ignore anyone claiming it already shipped.</li><li>Holding a project's governance token does not protect you if its votes can be bought for one block.</li><li>Before depositing, check whether a protocol uses a timelock. It gives you time to exit after a bad proposal passes.</li><li>Bridged stablecoins on small chains carry the chain's own risk. A halted chain freezes your funds too.</li></ul>
+      <p>Coming up: A new Glamsterdam Hoodi date, Initia's post-mortem and restart, and confirmation that Aztec's V6 rollup became canonical on 26 October.</p>
+    </div>
+  </section>
+
+  <section class="sources">
+    <h2>Sources</h2>
+    <p>Reporting as of 27 October 2026. The EF blog is primary; the rest are secondary.</p>
+    <ul>
+      <li><a href="https://blog.ethereum.org/2026/10/22/glamsterdam-hoodi-delay">Ethereum Foundation: Glamsterdam on Hoodi postponed</a> <span class="kind">primary</span></li>
+      <li><a href="https://cryptobriefing.com/ethereum-cancels-glamsterdam-hoodi-upgrade/">Crypto Briefing: Developers cancel 26 Oct Hoodi upgrade</a> <span class="kind">secondary</span></li>
+      <li><a href="https://www.altcoinbuzz.io/ethereum-delays-glamsterdam-hoodi-test-over-smart-contract-gas-risk">Altcoin Buzz: Glamsterdam delayed over contract gas risk</a> <span class="kind">secondary</span></li>
+      <li><a href="https://www.altcoinbuzz.io/initia-halts-chain-after-2-7m-movevm-exploit-no-restart-date-yet">Altcoin Buzz: Initia halts after MoveVM exploit</a> <span class="kind">secondary</span></li>
+      <li><a href="https://cryptoticker.io/en/x100-flashloan-governance-attack/">CryptoTicker: X100 flash-loan governance attack</a> <span class="kind">secondary</span></li>
+      <li><a href="https://startupfortune.com/october-2026-becomes-defis-costliest-month-as-hackers-launder-through-dai/">Startup Fortune: October DeFi losses</a> <span class="kind">secondary</span></li>
+    </ul>
+  </section>
+</article>
+
+<!-- ===================== 日本語 ===================== -->
+<article data-lang="ja" class="wrap" style="padding:0" hidden>
+  <header class="brief">
+    <span class="mono meta">デイリーブリーフ · 2026年10月27日 · 約4分</span>
+    <h1>ブロックチェーン・ブリーフ 2026年10月27日</h1>
+    <p class="lede">既存コントラクトを壊しかねないガス変更のため Glamsterdam の最後のテストネット導入が延期、VM のバグでチェーン全体が停止し、フラッシュローンでガバナンス投票が買われました。</p>
+    <p class="note">この号は10月25日号の訂正から始まります。一次情報または独立した2つ目の情報源で確認できなかった内容には「未確認」と表示しています。</p>
+    <nav class="jump" data-noread aria-label="セクション"><a class="dev" href="#dev-ja">Dev ↓</a><a class="nondev" href="#nondev-ja">Non-dev ↓</a></nav>
+  </header>
+
+  <section class="track dev" id="dev-ja">
+    <div class="track-head"><h2>Dev</h2><p>プロトコル変更、コントラクトのリスク、セキュリティの詳細、開発ツール。</p></div>
+    <div class="item">
+      <span class="tag mono" data-noread>訂正 · Ethereum · 10月22日延期</span>
+      <h3>Glamsterdam の Hoodi 導入は延期</h3>
+      <p>10月25日号では、Glamsterdam が10月26日に Hoodi テストネットで有効化されると書きましたが、誤りでした。イーサリアム財団は10月22日、Hoodi での有効化を新しい日程なしで延期すると発表していました（<a href='https://blog.ethereum.org/2026/10/22/glamsterdam-hoodi-delay'>EF ブログ</a>）。</p>
+      <p>延期はアップグレードのガス価格変更の1つ、EIP-8037 に関係しています。固定のガス費用を前提とするコントラクトは価格見直し後に失敗しうるため、開発者はメインネットの既存コントラクトとの相互作用を確認する時間を求めています（<a href='https://cryptobriefing.com/ethereum-cancels-glamsterdam-hoodi-upgrade/'>Crypto Briefing</a>、<a href='https://www.altcoinbuzz.io/ethereum-delays-glamsterdam-hoodi-test-over-smart-contract-gas-risk'>Altcoin Buzz</a>）。ノード運用者は、新しい日程を示すクライアントのリリースを待ってください。</p>
+      <p class="unverified"><b>未確認</b>読めた情報源では、どのようなコントラクトのパターンが危ないのかは説明されていません。</p>
+    </div>
+    <div class="item">
+      <span class="tag mono" data-noread>攻撃 · Initia · 10月23日</span>
+      <h3>MoveVM のバグで Initia が停止</h3>
+      <p>10月23日 14:59 UTC、攻撃者は Initia の MoveVM のスクリプトキャッシュのバグを使い、裏付けのない AUSD ステーブルコインを発行しました。バリデータが 15:41 UTC に L1 とそのロールアップを停止するまでに、約270万ドルが Circle の CCTP と LayerZero でブリッジされて持ち出されました（<a href='https://www.altcoinbuzz.io/initia-halts-chain-after-2-7m-movevm-exploit-no-restart-date-yet'>Altcoin Buzz</a>）。バグがアプリではなく VM にあったため、チェーン全体を止める必要がありました。Move は Solidity より安全だとよく言われますが、言語を取り巻くランタイムも失敗しうるコードです。</p>
+      <p class="unverified"><b>未確認</b>損失額は二次情報1件によるもので、公開の事後報告はまだありません。</p>
+    </div>
+    <div class="item">
+      <span class="tag mono" data-noread>攻撃 · X100 · 10月24日</span>
+      <h3>フラッシュローンでガバナンス投票を買う</h3>
+      <p>10月24日、攻撃者はフラッシュローンで X100 のトークンを一時的に大量に保有してガバナンス投票を支配し、提案を通して財務から約480万ドルの USDT を抜き取りました。提案は最低受取額ゼロで資産をスワップするものでした（<a href='https://cryptoticker.io/en/x100-flashloan-governance-attack/'>CryptoTicker</a>）。投票者に最低保有期間がなく、可決から実行までのタイムロックもなかったため成立しました。</p>
+      <p class="unverified"><b>未確認</b>損失額は475万〜485万ドルと報道によって異なります。</p>
+    </div>
+    <div class="item">
+      <h3>今週やること</h3>
+      <ul class="points"><li>コントラクト内のハードコードされたガス量や固定の stipend を探す。EIP-8037 のような価格見直しで壊れることがあります。</li><li>投票権は提案開始前の保有残高で決め、実行前にタイムロックを設ける。</li><li>特に財務やガバナンスの操作では、スワップの最低受取額ゼロを許さない。</li><li>発行とブリッジの流出に上限を設け、ランタイムのバグで停止前に価値が抜かれないようにする。</li></ul>
+    </div>
+  </section>
+
+  <section class="track nondev" id="nondev-ja">
+    <div class="track-head"><h2>Non-dev</h2><p>市場・ビジネス・規制と、ニュースが何を意味するかのやさしい解説。</p></div>
+    <div class="item">
+      <span class="tag mono" data-noread>やさしい解説</span>
+      <h3>延期されたアップグレードと2件の侵入</h3>
+      <p>イーサリアムの次のアップグレードは、手数料の変更が一部の既存アプリを壊すおそれがあるとして、最終テストが見送られました。新しい日程はありません。小規模なブロックチェーンの Initia は、攻撃者に中核ソフトの欠陥を突かれて約270万ドルを持ち出され、完全に停止しました。またトークン保有者の投票で運営される X100 は、何者かが数秒間だけ大量のトークンを借りて投票に勝ち、財務を自分に送ったことで約480万ドルを失いました。</p>
+    </div>
+    <div class="item">
+      <h3>利用者として</h3>
+      <ul class="points"><li>Glamsterdam の新しい日程はまだありません。すでに導入されたという話は無視する。</li><li>1ブロックで投票が買えるなら、ガバナンストークンを持っていても身を守れません。</li><li>預ける前に、プロトコルにタイムロックがあるか確認する。悪い提案が通っても抜け出す時間ができます。</li><li>小さなチェーン上のブリッジされたステーブルコインには、そのチェーン自体のリスクがあります。チェーンが止まれば資金も止まります。</li></ul>
+      <p>今後の予定：Glamsterdam の Hoodi の新しい日程、Initia の事後報告と再開、Aztec の V6 ロールアップが10月26日に正式版になったかの確認。</p>
+    </div>
+  </section>
+
+  <section class="sources">
+    <h2>出典</h2>
+    <p>2026年10月27日時点の報道に基づきます。EF ブログは一次情報で、ほかは二次情報です。</p>
+    <ul>
+      <li><a href="https://blog.ethereum.org/2026/10/22/glamsterdam-hoodi-delay">Ethereum Foundation: Glamsterdam on Hoodi postponed</a> <span class="kind">一次情報</span></li>
+      <li><a href="https://cryptobriefing.com/ethereum-cancels-glamsterdam-hoodi-upgrade/">Crypto Briefing: Developers cancel 26 Oct Hoodi upgrade</a> <span class="kind">二次情報</span></li>
+      <li><a href="https://www.altcoinbuzz.io/ethereum-delays-glamsterdam-hoodi-test-over-smart-contract-gas-risk">Altcoin Buzz: Glamsterdam delayed over contract gas risk</a> <span class="kind">二次情報</span></li>
+      <li><a href="https://www.altcoinbuzz.io/initia-halts-chain-after-2-7m-movevm-exploit-no-restart-date-yet">Altcoin Buzz: Initia halts after MoveVM exploit</a> <span class="kind">二次情報</span></li>
+      <li><a href="https://cryptoticker.io/en/x100-flashloan-governance-attack/">CryptoTicker: X100 flash-loan governance attack</a> <span class="kind">二次情報</span></li>
+      <li><a href="https://startupfortune.com/october-2026-becomes-defis-costliest-month-as-hackers-launder-through-dai/">Startup Fortune: October DeFi losses</a> <span class="kind">二次情報</span></li>
+    </ul>
+  </section>
+</article>
+
+<section class="comments" id="comments" data-noread>
+  <h2><span data-lang="en">Reader feedback</span><span data-lang="ja" hidden>読者のコメント</span></h2>
+  <p class="note"><span data-lang="en">Comments use GitHub sign-in, so every commenter is a real GitHub account. Be kind and stay on topic.</span><span data-lang="ja" hidden>コメントには GitHub へのログインが必要です。思いやりを持って、話題に沿って書き込んでください。</span></p>
+  <div class="giscus"></div>
+</section>
+
+<nav class="pager" data-noread>
+  <a href="../"><span data-lang="en">← All briefs</span><span data-lang="ja" hidden>← バックナンバー</span></a>
+  <span></span>
+</nav>
+</main>
+<script src="../assets/brief.js"></script>
+</body>
+</html>

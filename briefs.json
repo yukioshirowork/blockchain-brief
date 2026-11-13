@@ -154,5 +154,77 @@
       "en": "The Binance drain ran through an EIP-7702 delegation, Bitcoin Core ships its first fast-track security fixes, and more Lightning patches.",
       "ja": "Binance の流出は EIP-7702 の委任経由、Bitcoin Core が初の即時公開セキュリティ修正、Lightning の追加パッチ。"
     }
+  },
+  {
+    "date": "2026-10-30",
+    "file": "briefs/2026-10-30.html",
+    "title": {
+      "en": "Blockchain Brief, 30 Oct 2026",
+      "ja": "ブロックチェーン・ブリーフ 2026年10月30日"
+    },
+    "summary": {
+      "en": "Binance loses about $6.3 billion in a record theft, DTCC's tokenization service goes live, and Starknet votes to study its own L1.",
+      "ja": "Binance が約63億ドルを失う過去最大の盗難、DTCC のトークン化サービスが稼働、Starknet が独自 L1 の調査を可決。"
+    }
+  },
+  {
+    "date": "2026-10-29",
+    "file": "briefs/2026-10-29.html",
+    "title": {
+      "en": "Blockchain Brief, 29 Oct 2026",
+      "ja": "ブロックチェーン・ブリーフ 2026年10月29日"
+    },
+    "summary": {
+      "en": "A Glamsterdam validator deposit flaw fixed in the spec, Polygon's payments stack adds Solana, and where Bitcoin's quantum plans stand.",
+      "ja": "Glamsterdam のバリデータ入金の欠陥を仕様で修正、Polygon の決済基盤が Solana に対応、ビットコインの量子対策の現状。"
+    }
+  },
+  {
+    "date": "2026-10-28",
+    "file": "briefs/2026-10-28.html",
+    "title": {
+      "en": "Blockchain Brief, 28 Oct 2026",
+      "ja": "ブロックチェーン・ブリーフ 2026年10月28日"
+    },
+    "summary": {
+      "en": "Ripple gets a federal trust bank charter, revenue-sharing Open USD goes live across zerohash, and Initia's repayment plan.",
+      "ja": "Ripple が連邦信託銀行の認可を取得、収益分配型の Open USD が zerohash 全体で利用可能に、Initia の返済計画。"
+    }
+  },
+  {
+    "date": "2026-10-27",
+    "file": "briefs/2026-10-27.html",
+    "title": {
+      "en": "Blockchain Brief, 27 Oct 2026",
+      "ja": "ブロックチェーン・ブリーフ 2026年10月27日"
+    },
+    "summary": {
+      "en": "Glamsterdam on Hoodi is postponed over EIP-8037, a MoveVM bug halts Initia, and a flash loan buys X100's governance vote.",
+      "ja": "EIP-8037 の問題で Glamsterdam の Hoodi 導入が延期、MoveVM のバグで Initia が停止、フラッシュローンで X100 のガバナンス投票が買われる。"
+    }
+  },
+  {
+    "date": "2026-10-26",
+    "file": "briefs/2026-10-26.html",
+    "title": {
+      "en": "Blockchain Brief, 26 Oct 2026",
+      "ja": "ブロックチェーン・ブリーフ 2026年10月26日"
+    },
+    "summary": {
+      "en": "A month of Lightning security fixes, Wavelength lets AI agents pay in bitcoin, and Chainlink CCIP 2.0 adds institution-run verification.",
+      "ja": "1か月にわたる Lightning のセキュリティ修正、Wavelength で AI エージェントがビットコインで支払い、Chainlink CCIP 2.0 に機関運用の検証を追加。"
+    }
+  },
+  {
+    "date": "2026-10-25",
+    "file": "briefs/2026-10-25.html",
+    "title": {
+      "en": "Blockchain Brief, 25 Oct 2026",
+      "ja": "ブロックチェーン・ブリーフ 2026年10月25日"
+    },
+    "summary": {
+      "en": "Spy chips in resold Ledger wallets cost users over $90M, and FOCIL makes transaction inclusion an Ethereum protocol rule.",
+      "ja": "転売された Ledger ウォレットのスパイチップで9,000万ドル超の被害、FOCIL でトランザクションの取り込みがイーサリアムのプロトコル規則に。"
+    }
   }
 ]

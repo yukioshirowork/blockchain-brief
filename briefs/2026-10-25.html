@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Blockchain Brief, 25 Oct 2026</title>
+<meta name="description" content="Spy chips in resold Ledger wallets cost users over $90M, and FOCIL makes transaction inclusion an Ethereum protocol rule.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-title-en="Blockchain Brief, 25 Oct 2026" data-title-ja="ブロックチェーン・ブリーフ 2026年10月25日">
+<div class="bar"><div class="bar-in">
+  <a class="home" href="../">Blockchain Brief</a>
+  <div class="controls">
+    <div class="seg" role="group" aria-label="Language"><button type="button" data-set-lang="en" aria-pressed="true">EN</button><button type="button" data-set-lang="ja" aria-pressed="false">日本語</button></div>
+  </div>
+</div></div>
+
+<main class="wrap">
+
+<!-- Read-aloud panel (shared; labels follow the language toggle) -->
+<section class="audio" id="audio" aria-label="Read aloud" data-noread>
+  <div class="audio-row">
+    <button type="button" class="btn primary" data-a="play">▶ Listen</button>
+    <button type="button" class="btn" data-a="stop" disabled>■ Stop</button>
+    <select class="btn" data-a="scope" aria-label="What to read"><option value="all">Whole brief</option><option value="dev">Dev only</option><option value="nondev">Non-dev only</option></select>
+  </div>
+  <div class="audio-row">
+    <label class="status"><span data-a="speedlbl">Speed</span>
+      <select class="btn" data-a="rate"><option value="0.8">0.8×</option><option value="0.9">0.9×</option><option value="1" selected>1×</option><option value="1.15">1.15×</option><option value="1.3">1.3×</option><option value="1.5">1.5×</option></select></label>
+    <label class="status"><span data-a="voicelbl">Voice</span>
+      <select class="btn" data-a="voice"></select></label>
+  </div>
+  <p class="status" data-a="status" aria-live="polite"></p>
+</section>
+
+<!-- ===================== ENGLISH ===================== -->
+<article data-lang="en" class="wrap" style="padding:0">
+  <header class="brief">
+    <span class="mono meta">Daily brief · 25 Oct 2026 · about 4 min read</span>
+    <h1>Blockchain Brief, 25 Oct 2026</h1>
+    <p class="lede">Tampered hardware wallets sold through one reseller cost users over $90 million, and Ethereum is writing censorship resistance into its rules.</p>
+    <p class="note">Claims I could not confirm from a primary or second independent source are marked Unverified.</p>
+    <nav class="jump" data-noread aria-label="Sections"><a class="dev" href="#dev-en">Dev ↓</a><a class="nondev" href="#nondev-en">Non-dev ↓</a></nav>
+  </header>
+
+  <section class="track dev" id="dev-en">
+    <div class="track-head"><h2>Dev</h2><p>Protocol changes, contract risks, security details and tooling.</p></div>
+    <div class="item">
+      <span class="tag mono" data-noread>Security · hardware supply chain · 9–13 Oct</span>
+      <h3>Spy chips in resold Ledger wallets</h3>
+      <p>Ledger confirmed that devices sold through CryptoBilis, a Southeast Asian reseller, contained an unauthorized implant inside the case (<a href='https://www.coindesk.com/tech/2026/10/13/ledger-says-spy-chip-inside-cryptobilis-ledger-devices-transmitted-wallet-keys-over-mobile-network'>CoinDesk</a>). The implant read the 24-word recovery phrase off the screen during setup and sent it out over a mobile network using an eSIM. It did not touch the Secure Element or firmware, so the device behaved normally and attestation would not catch it. On-chain estimates put losses at about $93M from roughly 315 wallets across six chains, most of it on TRON (<a href='https://www.halborn.com/blog/post/explained-ledger-supply-chain-attack-october-2026'>Halborn</a>).</p>
+      <p class="unverified"><b>Unverified</b>Ledger has not published an official loss total. Reports of implanted devices bought at MediaMarkt and Changi Airport are unconfirmed.</p>
+    </div>
+    <div class="item">
+      <span class="tag mono" data-noread>Ethereum · EIP-7805 · Hegota</span>
+      <h3>FOCIL makes inclusion a protocol rule</h3>
+      <p>FOCIL (Fork-Choice Enforced Inclusion Lists, <a href='https://eips.ethereum.org/EIPS/eip-7805'>EIP-7805</a>) is the consensus headliner for Hegota, the upgrade after Glamsterdam. For each block, a committee of 16 validators publishes lists of valid transactions they have seen waiting. The builder must include them when there is room, and validators won't vote for a block that leaves them out (<a href='https://coinspectator.com/mainstream/2026/10/07/focil-is-scheduled-for-hegota-including-transactions-on-ethereum-becomes-a-protocol-rule/'>CoinSpectator</a>). Since one honest list is enough, censoring a transaction would require the builder and all 16 members to exclude it, block after block. Hegota is also expected to carry EIP-8141, native account abstraction (<a href='https://www.theblock.co/post/390682/vitalik-buterin-is-building-a-cypherpunk-principled-non-ugly-ethereum-as-devs-officially-add-focil-to-upgrade-roadmap'>The Block</a>).</p>
+      <p class="unverified"><b>Unverified</b>Hegota has no confirmed date.</p>
+    </div>
+    <div class="item">
+      <span class="tag mono" data-noread>Correction, 27 Oct</span>
+      <h3>Glamsterdam on Hoodi did not happen on 26 October</h3>
+      <p>The original issue said Glamsterdam would activate on the Hoodi testnet on 26 October. The Ethereum Foundation had postponed it on 22 October with no new date (<a href='https://blog.ethereum.org/2026/10/22/glamsterdam-hoodi-delay'>EF blog</a>). See the 27 October brief.</p>
+    </div>
+    <div class="item">
+      <h3>What to do this week</h3>
+      <ul class="points"><li>Hardware makers should add tamper evidence users can check, such as attestation at first use and enclosure seals.</li><li>Wallet apps can warn when a device was not bought from a verified channel.</li><li>Block builders and relay operators should start modelling FOCIL's inclusion constraints.</li></ul>
+    </div>
+  </section>
+
+  <section class="track nondev" id="nondev-en">
+    <div class="track-head"><h2>Non-dev</h2><p>Market, business and regulation, and what the news means in plain language.</p></div>
+    <div class="item">
+      <span class="tag mono" data-noread>Hardware wallets · Plain summary</span>
+      <h3>Tampered wallets from one shop drained $93 million</h3>
+      <p>Starting on 9 October, people who bought Ledger hardware wallets from the reseller CryptoBilis saw their funds drained. A hidden chip inside copied the 24-word recovery phrase as it was shown during setup and sent it to the attackers over a mobile connection. About 315 wallets lost around $93 million. Ledger says every confirmed case involved a CryptoBilis device, and that devices bought directly from Ledger were not affected. Tether froze about $10M of the stolen USDT.</p>
+    </div>
+    <div class="item">
+      <span class="tag mono" data-noread>Ethereum · Plain summary</span>
+      <h3>Making it much harder to block anyone's transaction</h3>
+      <p>A planned Ethereum change called FOCIL lets random groups of validators point out transactions that are waiting, and forces the next block to include them. That makes it very hard for any single company building blocks to censor a user.</p>
+    </div>
+    <div class="item">
+      <h3>As a user</h3>
+      <ul class="points"><li>Buy hardware wallets directly from the maker or a reseller on its official list, and avoid marketplaces and secondhand units.</li><li>If your device came from CryptoBilis, do not set it up. If you already did, move funds to a new device with a new recovery phrase.</li><li>Never use a recovery phrase that came pre-printed or was shown before you chose to create a new wallet.</li><li>FOCIL needs no action from you.</li></ul>
+      <p>Coming up: Ledger's official loss total and investigation results, and a new Glamsterdam testnet date.</p>
+    </div>
+  </section>
+
+  <section class="sources">
+    <h2>Sources</h2>
+    <p>Reporting as of 25 October 2026. The EIP and EF blog are primary; the rest are secondary, security-firm or opinion pieces.</p>
+    <ul>
+      <li><a href="https://www.coindesk.com/tech/2026/10/13/ledger-says-spy-chip-inside-cryptobilis-ledger-devices-transmitted-wallet-keys-over-mobile-network">CoinDesk: Ledger says spy chip inside CryptoBilis devices</a> <span class="kind">secondary</span></li>
+      <li><a href="https://www.halborn.com/blog/post/explained-ledger-supply-chain-attack-october-2026">Halborn: Explained, the Ledger supply chain incident</a> <span class="kind">auditor</span></li>
+      <li><a href="https://shattered.io/ledger-cryptobilis-hack-92-9-million-2026/">Shattered: Ledger CryptoBilis hack</a> <span class="kind">aggregator</span></li>
+      <li><a href="https://eips.ethereum.org/EIPS/eip-7805">EIP-7805: Fork-choice enforced inclusion lists</a> <span class="kind">primary</span></li>
+      <li><a href="https://coinspectator.com/mainstream/2026/10/07/focil-is-scheduled-for-hegota-including-transactions-on-ethereum-becomes-a-protocol-rule/">CoinSpectator: FOCIL is scheduled for Hegota</a> <span class="kind">secondary</span></li>
+      <li><a href="https://www.theblock.co/post/390682/vitalik-buterin-is-building-a-cypherpunk-principled-non-ugly-ethereum-as-devs-officially-add-focil-to-upgrade-roadmap">The Block: Devs officially add FOCIL to roadmap</a> <span class="kind">secondary</span></li>
+      <li><a href="https://blog.ethereum.org/2026/10/22/glamsterdam-hoodi-delay">Ethereum Foundation: Glamsterdam on Hoodi postponed</a> <span class="kind">primary</span></li>
+    </ul>
+  </section>
+</article>
+
+<!-- ===================== 日本語 ===================== -->
+<article data-lang="ja" class="wrap" style="padding:0" hidden>
+  <header class="brief">
+    <span class="mono meta">デイリーブリーフ · 2026年10月25日 · 約4分</span>
+    <h1>ブロックチェーン・ブリーフ 2026年10月25日</h1>
+    <p class="lede">ある販売店経由で売られた改ざん済みハードウェアウォレットで利用者が9,000万ドル超を失い、イーサリアムは検閲耐性をルールに書き込もうとしています。</p>
+    <p class="note">一次情報または独立した2つ目の情報源で確認できなかった内容には「未確認」と表示しています。</p>
+    <nav class="jump" data-noread aria-label="セクション"><a class="dev" href="#dev-ja">Dev ↓</a><a class="nondev" href="#nondev-ja">Non-dev ↓</a></nav>
+  </header>
+
+  <section class="track dev" id="dev-ja">
+    <div class="track-head"><h2>Dev</h2><p>プロトコル変更、コントラクトのリスク、セキュリティの詳細、開発ツール。</p></div>
+    <div class="item">
+      <span class="tag mono" data-noread>セキュリティ · ハードウェアのサプライチェーン · 10月9〜13日</span>
+      <h3>転売された Ledger ウォレットにスパイチップ</h3>
+      <p>Ledger は、東南アジアの販売店 CryptoBilis 経由で売られた端末の筐体内に不正なインプラントが仕込まれていたことを確認しました（<a href='https://www.coindesk.com/tech/2026/10/13/ledger-says-spy-chip-inside-cryptobilis-ledger-devices-transmitted-wallet-keys-over-mobile-network'>CoinDesk</a>）。インプラントは初期設定時に画面から24語のリカバリーフレーズを読み取り、eSIM でモバイル回線経由で送信していました。セキュアエレメントやファームウェアには触れていないため、端末は普通に動き、真正性チェックでも検出できません。オンチェーンの推計では、6チェーンの約315のウォレットから約9,300万ドルが失われ、大半は TRON 上でした（<a href='https://www.halborn.com/blog/post/explained-ledger-supply-chain-attack-october-2026'>Halborn</a>）。</p>
+      <p class="unverified"><b>未確認</b>Ledger は公式の損失総額を公表していません。MediaMarkt やチャンギ空港で買った端末にもインプラントがあったという報道は未確認です。</p>
+    </div>
+    <div class="item">
+      <span class="tag mono" data-noread>Ethereum · EIP-7805 · Hegota</span>
+      <h3>FOCIL でトランザクションの取り込みがプロトコルの規則に</h3>
+      <p>FOCIL（Fork-Choice Enforced Inclusion Lists、<a href='https://eips.ethereum.org/EIPS/eip-7805'>EIP-7805</a>）は、Glamsterdam の次のアップグレード Hegota の合意層の目玉です。ブロックごとに16人のバリデータの委員会が、待機中の有効なトランザクションのリストを公開します。ビルダーは余裕があればそれらを含める必要があり、バリデータはそれを除外したブロックには投票しません（<a href='https://coinspectator.com/mainstream/2026/10/07/focil-is-scheduled-for-hegota-including-transactions-on-ethereum-becomes-a-protocol-rule/'>CoinSpectator</a>）。誠実なリストが1つあれば十分なので、検閲するにはビルダーと16人全員が毎ブロック除外し続ける必要があります。Hegota にはネイティブのアカウント抽象化 EIP-8141 も入る見込みです（<a href='https://www.theblock.co/post/390682/vitalik-buterin-is-building-a-cypherpunk-principled-non-ugly-ethereum-as-devs-officially-add-focil-to-upgrade-roadmap'>The Block</a>）。</p>
+      <p class="unverified"><b>未確認</b>Hegota の日程は確定していません。</p>
+    </div>
+    <div class="item">
+      <span class="tag mono" data-noread>訂正（10月27日）</span>
+      <h3>Glamsterdam の Hoodi 導入は10月26日には行われず</h3>
+      <p>元の号では、Glamsterdam が10月26日に Hoodi テストネットで有効化されると書いていました。実際にはイーサリアム財団が10月22日に、新しい日程なしで延期していました（<a href='https://blog.ethereum.org/2026/10/22/glamsterdam-hoodi-delay'>EF ブログ</a>）。10月27日号を参照してください。</p>
+    </div>
+    <div class="item">
+      <h3>今週やること</h3>
+      <ul class="points"><li>ハードウェアメーカーは、初回利用時の真正性確認や筐体の封印など、利用者が確認できる改ざんの痕跡を加える。</li><li>ウォレットアプリは、正規の販売経路で買われていない端末について警告できる。</li><li>ブロックビルダーやリレー運用者は、FOCIL の取り込み制約をモデル化し始める。</li></ul>
+    </div>
+  </section>
+
+  <section class="track nondev" id="nondev-ja">
+    <div class="track-head"><h2>Non-dev</h2><p>市場・ビジネス・規制と、ニュースが何を意味するかのやさしい解説。</p></div>
+    <div class="item">
+      <span class="tag mono" data-noread>ハードウェアウォレット · やさしい解説</span>
+      <h3>1つの販売店の改ざん端末で9,300万ドルが流出</h3>
+      <p>10月9日以降、販売店 CryptoBilis で Ledger のハードウェアウォレットを買った人の資金が抜かれました。内部に隠されたチップが、初期設定時に表示される24語のリカバリーフレーズを写し取り、モバイル回線で攻撃者に送っていたのです。約315のウォレットから約9,300万ドルが失われました。Ledger によると、確認された被害はすべて CryptoBilis の端末で、Ledger から直接買った端末は影響を受けていません。Tether は盗まれた USDT のうち約1,000万ドルを凍結しました。</p>
+    </div>
+    <div class="item">
+      <span class="tag mono" data-noread>Ethereum · やさしい解説</span>
+      <h3>誰かの取引を締め出すのを格段に難しくする</h3>
+      <p>FOCIL と呼ばれる予定中のイーサリアムの変更では、ランダムに選ばれたバリデータのグループが待機中のトランザクションを指摘し、次のブロックにそれを必ず含めさせます。これにより、ブロックを作る特定の企業が利用者を検閲するのは非常に難しくなります。</p>
+    </div>
+    <div class="item">
+      <h3>利用者として</h3>
+      <ul class="points"><li>ハードウェアウォレットはメーカーか公式リストにある販売店から直接買い、マーケットプレイスや中古品は避ける。</li><li>CryptoBilis から買った端末なら設定しない。設定済みなら、新しい端末と新しいリカバリーフレーズに資金を移す。</li><li>最初から印刷されていたリカバリーフレーズや、新規作成を選ぶ前に表示されたフレーズは絶対に使わない。</li><li>FOCIL について利用者がすることはありません。</li></ul>
+      <p>今後の予定：Ledger の公式な損失総額と調査結果、Glamsterdam のテストネットの新しい日程。</p>
+    </div>
+  </section>
+
+  <section class="sources">
+    <h2>出典</h2>
+    <p>2026年10月25日時点の報道に基づきます。EIP と EF ブログは一次情報で、ほかは二次情報、セキュリティ企業や論評記事です。</p>
+    <ul>
+      <li><a href="https://www.coindesk.com/tech/2026/10/13/ledger-says-spy-chip-inside-cryptobilis-ledger-devices-transmitted-wallet-keys-over-mobile-network">CoinDesk: Ledger says spy chip inside CryptoBilis devices</a> <span class="kind">二次情報</span></li>
+      <li><a href="https://www.halborn.com/blog/post/explained-ledger-supply-chain-attack-october-2026">Halborn: Explained, the Ledger supply chain incident</a> <span class="kind">監査会社</span></li>
+      <li><a href="https://shattered.io/ledger-cryptobilis-hack-92-9-million-2026/">Shattered: Ledger CryptoBilis hack</a> <span class="kind">まとめサイト</span></li>
+      <li><a href="https://eips.ethereum.org/EIPS/eip-7805">EIP-7805: Fork-choice enforced inclusion lists</a> <span class="kind">一次情報</span></li>
+      <li><a href="https://coinspectator.com/mainstream/2026/10/07/focil-is-scheduled-for-hegota-including-transactions-on-ethereum-becomes-a-protocol-rule/">CoinSpectator: FOCIL is scheduled for Hegota</a> <span class="kind">二次情報</span></li>
+      <li><a href="https://www.theblock.co/post/390682/vitalik-buterin-is-building-a-cypherpunk-principled-non-ugly-ethereum-as-devs-officially-add-focil-to-upgrade-roadmap">The Block: Devs officially add FOCIL to roadmap</a> <span class="kind">二次情報</span></li>
+      <li><a href="https://blog.ethereum.org/2026/10/22/glamsterdam-hoodi-delay">Ethereum Foundation: Glamsterdam on Hoodi postponed</a> <span class="kind">一次情報</span></li>
+    </ul>
+  </section>
+</article>
+
+<section class="comments" id="comments" data-noread>
+  <h2><span data-lang="en">Reader feedback</span><span data-lang="ja" hidden>読者のコメント</span></h2>
+  <p class="note"><span data-lang="en">Comments use GitHub sign-in, so every commenter is a real GitHub account. Be kind and stay on topic.</span><span data-lang="ja" hidden>コメントには GitHub へのログインが必要です。思いやりを持って、話題に沿って書き込んでください。</span></p>
+  <div class="giscus"></div>
+</section>
+
+<nav class="pager" data-noread>
+  <a href="../"><span data-lang="en">← All briefs</span><span data-lang="ja" hidden>← バックナンバー</span></a>
+  <span></span>
+</nav>
+</main>
+<script src="../assets/brief.js"></script>
+</body>
+</html>

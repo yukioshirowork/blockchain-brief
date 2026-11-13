@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Blockchain Brief, 26 Oct 2026</title>
+<meta name="description" content="A month of Lightning security fixes, Wavelength lets AI agents pay in bitcoin, and Chainlink CCIP 2.0 adds institution-run verification.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-title-en="Blockchain Brief, 26 Oct 2026" data-title-ja="ブロックチェーン・ブリーフ 2026年10月26日">
+<div class="bar"><div class="bar-in">
+  <a class="home" href="../">Blockchain Brief</a>
+  <div class="controls">
+    <div class="seg" role="group" aria-label="Language"><button type="button" data-set-lang="en" aria-pressed="true">EN</button><button type="button" data-set-lang="ja" aria-pressed="false">日本語</button></div>
+  </div>
+</div></div>
+
+<main class="wrap">
+
+<!-- Read-aloud panel (shared; labels follow the language toggle) -->
+<section class="audio" id="audio" aria-label="Read aloud" data-noread>
+  <div class="audio-row">
+    <button type="button" class="btn primary" data-a="play">▶ Listen</button>
+    <button type="button" class="btn" data-a="stop" disabled>■ Stop</button>
+    <select class="btn" data-a="scope" aria-label="What to read"><option value="all">Whole brief</option><option value="dev">Dev only</option><option value="nondev">Non-dev only</option></select>
+  </div>
+  <div class="audio-row">
+    <label class="status"><span data-a="speedlbl">Speed</span>
+      <select class="btn" data-a="rate"><option value="0.8">0.8×</option><option value="0.9">0.9×</option><option value="1" selected>1×</option><option value="1.15">1.15×</option><option value="1.3">1.3×</option><option value="1.5">1.5×</option></select></label>
+    <label class="status"><span data-a="voicelbl">Voice</span>
+      <select class="btn" data-a="voice"></select></label>
+  </div>
+  <p class="status" data-a="status" aria-live="polite"></p>
+</section>
+
+<!-- ===================== ENGLISH ===================== -->
+<article data-lang="en" class="wrap" style="padding:0">
+  <header class="brief">
+    <span class="mono meta">Daily brief · 26 Oct 2026 · about 4 min read</span>
+    <h1>Blockchain Brief, 26 Oct 2026</h1>
+    <p class="lede">Every major Lightning implementation shipped security fixes this month, Lightning Labs opened bitcoin payments to AI agents, and Chainlink rebuilt its cross-chain protocol around institutions' own checks.</p>
+    <p class="note">Claims I could not confirm from a primary or second independent source are marked Unverified.</p>
+    <nav class="jump" data-noread aria-label="Sections"><a class="dev" href="#dev-en">Dev ↓</a><a class="nondev" href="#nondev-en">Non-dev ↓</a></nav>
+  </header>
+
+  <section class="track dev" id="dev-en">
+    <div class="track-head"><h2>Dev</h2><p>Protocol changes, contract risks, security details and tooling.</p></div>
+    <div class="item">
+      <span class="tag mono" data-noread>Bitcoin · Lightning · patches 27 Sep–23 Oct</span>
+      <h3>A month of Lightning security fixes</h3>
+      <p>LDK 0.2.7 and 0.1.13 (1 October) fix a funds-theft bug: a malicious peer could acknowledge an update, disconnect, then claim on reconnect it never got it, tricking LDK into signing a conflicting commitment. Core Lightning v26.06.7 fixed a flaw where a revoked-state transaction could be mistaken for a cooperative close, skipping the penalty. On 2 October the CLN team warned that nodes on that version or older were being actively targeted (<a href='https://shattered.io/two-lightning-network-bugs-340m-btc-2026/'>Shattered</a>).</p>
+      <p>Eclair followed with 0.14.4 and 0.14.5, fixing trampoline routing, where a payer could steal from a forwarding node, and taproot splicing, where a peer could make Eclair sign an invalid splice. LND has release candidates out with further hardening (<a href='https://bitcoinops.org/en/newsletters/2026/10/23/'>Bitcoin Optech #428</a>).</p>
+      <p class="unverified"><b>Unverified</b>No losses have been confirmed. “$340M exposed” headlines refer to Lightning's total public channel capacity.</p>
+    </div>
+    <div class="item">
+      <span class="tag mono" data-noread>Chainlink · CCIP 2.0 · 2 Oct</span>
+      <h3>CCIP 2.0 adds institution-run verification</h3>
+      <p>Chainlink launched version 2.0 of CCIP, its cross-chain messaging and token protocol (<a href='https://thepaypers.com/crypto-web3-and-cbdc/news/chainlink-launches-ccip-20-for-cross-chain-institutional-assets'>The Paypers</a>). An institution can now run its own Cross-Chain Verifier, which must approve a message before CCIP executes it, and add extra independent verifiers. Compliance screening can be applied to every transfer, and speed is configurable from near-instant to full finality. Bridges have been crypto's most costly attack surface, so letting the asset issuer hold a veto is a meaningful design change. OpenZeppelin has added CCIP to its developer tools (<a href='https://tokenpost.com/news/technology/40545'>TokenPost</a>).</p>
+      <p class="unverified"><b>Unverified</b>The $84B secured figure is Chainlink's own, and “launch partner” does not necessarily mean a live integration.</p>
+    </div>
+    <div class="item">
+      <h3>What to do this week</h3>
+      <ul class="points"><li>Pin and audit your Lightning library versions, and test reconnect and channel-reestablish edge cases.</li><li>For paid APIs, consider supporting both L402 (bitcoin) and x402 (stablecoins).</li><li>When integrating CCIP 2.0, decide who runs the verifier and what happens when it rejects or goes offline.</li><li>Follow Bitcoin Optech's weekly security-release section.</li></ul>
+    </div>
+  </section>
+
+  <section class="track nondev" id="nondev-en">
+    <div class="track-head"><h2>Non-dev</h2><p>Market, business and regulation, and what the news means in plain language.</p></div>
+    <div class="item">
+      <span class="tag mono" data-noread>Lightning Labs · alpha · 25 Oct</span>
+      <h3>Wavelength lets AI agents pay in bitcoin</h3>
+      <p>Lightning Labs opened Wavelength to everyone. It lets software agents send and receive bitcoin over Lightning without a person approving each payment (<a href='https://tokenpost.com/news/technology/40583'>TokenPost</a>). It uses L402, which pairs the web's “Payment Required” error with a Lightning invoice, similar to Coinbase's x402 but settled in bitcoin instead of stablecoins. Developers don't need to run a node. Wallets stay self-custodial, start with a 300,000-sat limit (roughly $240), and pay a 0.25% service fee. It is still in alpha.</p>
+      <p class="unverified"><b>Unverified</b>Only one report so far, and no usage numbers.</p>
+    </div>
+    <div class="item">
+      <span class="tag mono" data-noread>Lightning · Plain summary</span>
+      <h3>Update your Lightning wallet</h3>
+      <p>The software behind most Lightning wallets, Bitcoin's fast-payment network, had several serious bugs fixed this month, and attackers were already probing for unpatched nodes. No losses have been confirmed, but updating your wallet app is the simple fix.</p>
+    </div>
+    <div class="item">
+      <h3>As a user</h3>
+      <ul class="points"><li>Update any Lightning wallet now, especially ones built on LDK such as Phoenix.</li><li>If you run your own Lightning node, upgrade to CLN v26.06.9, LDK 0.2.7, or Eclair 0.14.5 or newer.</li><li>Give AI agents their own small wallet with a spending limit, never access to your main funds.</li><li>Tokenized assets moving between chains may now carry issuer checks, so a transfer can be delayed or blocked by design.</li></ul>
+      <p>Coming up: LND's final releases, a new Glamsterdam Hoodi date, and the first live CCIP 2.0 integrations.</p>
+    </div>
+  </section>
+
+  <section class="sources">
+    <h2>Sources</h2>
+    <p>Reporting as of 26 October 2026. Bitcoin Optech is a primary technical source.</p>
+    <ul>
+      <li><a href="https://bitcoinops.org/en/newsletters/2026/10/23/">Bitcoin Optech Newsletter #428</a> <span class="kind">primary</span></li>
+      <li><a href="https://shattered.io/two-lightning-network-bugs-340m-btc-2026/">Shattered: Two Lightning Network bugs</a> <span class="kind">aggregator</span></li>
+      <li><a href="https://tokenpost.com/news/technology/40583">TokenPost: Lightning Labs opens Wavelength</a> <span class="kind">secondary</span></li>
+      <li><a href="https://thepaypers.com/crypto-web3-and-cbdc/news/chainlink-launches-ccip-20-for-cross-chain-institutional-assets">The Paypers: Chainlink launches CCIP 2.0</a> <span class="kind">secondary</span></li>
+      <li><a href="https://tokenpost.com/news/technology/40545">TokenPost: OpenZeppelin adds Chainlink CCIP</a> <span class="kind">secondary</span></li>
+    </ul>
+  </section>
+</article>
+
+<!-- ===================== 日本語 ===================== -->
+<article data-lang="ja" class="wrap" style="padding:0" hidden>
+  <header class="brief">
+    <span class="mono meta">デイリーブリーフ · 2026年10月26日 · 約4分</span>
+    <h1>ブロックチェーン・ブリーフ 2026年10月26日</h1>
+    <p class="lede">主要な Lightning 実装が今月そろってセキュリティ修正を出し、Lightning Labs は AI エージェントにビットコイン決済を開放、Chainlink はクロスチェーンプロトコルを機関自身のチェックを中心に作り直しました。</p>
+    <p class="note">一次情報または独立した2つ目の情報源で確認できなかった内容には「未確認」と表示しています。</p>
+    <nav class="jump" data-noread aria-label="セクション"><a class="dev" href="#dev-ja">Dev ↓</a><a class="nondev" href="#nondev-ja">Non-dev ↓</a></nav>
+  </header>
+
+  <section class="track dev" id="dev-ja">
+    <div class="track-head"><h2>Dev</h2><p>プロトコル変更、コントラクトのリスク、セキュリティの詳細、開発ツール。</p></div>
+    <div class="item">
+      <span class="tag mono" data-noread>Bitcoin · Lightning · 9月27日〜10月23日のパッチ</span>
+      <h3>1か月にわたる Lightning のセキュリティ修正</h3>
+      <p>LDK 0.2.7 と 0.1.13（10月1日）は資金窃取のバグを修正しました。悪意あるピアが更新を承認した後に切断し、再接続時に受け取っていないと主張することで、LDK に矛盾するコミットメントへ署名させられるというものです。Core Lightning v26.06.7 は、失効済み状態のトランザクションが協調クローズと誤認され、ペナルティが回避されうる欠陥を修正しました。CLN チームは10月2日、そのバージョン以前のノードが実際に狙われていると警告しました（<a href='https://shattered.io/two-lightning-network-bugs-340m-btc-2026/'>Shattered</a>）。</p>
+      <p>Eclair も 0.14.4 と 0.14.5 で、支払者が転送ノードから盗めるトランポリンルーティングの問題と、ピアが Eclair に不正なスプライスへ署名させられる taproot スプライシングの問題を修正しました。LND もさらなる強化を含むリリース候補を出しています（<a href='https://bitcoinops.org/en/newsletters/2026/10/23/'>Bitcoin Optech #428</a>）。</p>
+      <p class="unverified"><b>未確認</b>損失は確認されていません。「3.4億ドルが危険に」という見出しは、Lightning の公開チャネル容量の総額を指しています。</p>
+    </div>
+    <div class="item">
+      <span class="tag mono" data-noread>Chainlink · CCIP 2.0 · 10月2日</span>
+      <h3>CCIP 2.0 に機関が運用する検証を追加</h3>
+      <p>Chainlink は、クロスチェーンのメッセージングとトークンのプロトコル CCIP のバージョン2.0を公開しました（<a href='https://thepaypers.com/crypto-web3-and-cbdc/news/chainlink-launches-ccip-20-for-cross-chain-institutional-assets'>The Paypers</a>）。機関は独自の Cross-Chain Verifier を運用でき、CCIP が実行する前にメッセージを承認させたり、独立した検証者を追加したりできます。すべての送金にコンプライアンスのスクリーニングをかけられ、速度もほぼ即時から完全なファイナリティ待ちまで設定できます。ブリッジは暗号資産で最も被害の大きい攻撃対象だったため、資産の発行体に拒否権を持たせるのは意味のある設計変更です。OpenZeppelin も開発ツールに CCIP を追加しました（<a href='https://tokenpost.com/news/technology/40545'>TokenPost</a>）。</p>
+      <p class="unverified"><b>未確認</b>840億ドルを保護という数字は Chainlink 自身のもので、「ローンチパートナー」が稼働中の統合を意味するとは限りません。</p>
+    </div>
+    <div class="item">
+      <h3>今週やること</h3>
+      <ul class="points"><li>Lightning ライブラリのバージョンを固定して監査し、再接続やチャネル再確立の境界ケースをテストする。</li><li>有料 API では、L402（ビットコイン）と x402（ステーブルコイン）の両方への対応を検討する。</li><li>CCIP 2.0 を統合するときは、誰が検証者を運用するか、拒否やオフライン時にどうなるかを決めておく。</li><li>Bitcoin Optech の週刊セキュリティリリース欄を追う。</li></ul>
+    </div>
+  </section>
+
+  <section class="track nondev" id="nondev-ja">
+    <div class="track-head"><h2>Non-dev</h2><p>市場・ビジネス・規制と、ニュースが何を意味するかのやさしい解説。</p></div>
+    <div class="item">
+      <span class="tag mono" data-noread>Lightning Labs · アルファ版 · 10月25日</span>
+      <h3>Wavelength で AI エージェントがビットコインで支払い</h3>
+      <p>Lightning Labs は Wavelength を一般公開しました。人が1件ずつ承認しなくても、ソフトウェアのエージェントが Lightning でビットコインを送受信できるようにするものです（<a href='https://tokenpost.com/news/technology/40583'>TokenPost</a>）。ウェブの「支払いが必要」エラーと Lightning の請求書を組み合わせる L402 を使い、Coinbase の x402 に似ていますが、ステーブルコインではなくビットコインで決済します。開発者はノードを動かす必要がありません。ウォレットはセルフカストディで、上限は当初30万 sat（約240ドル）、手数料は0.25%です。まだアルファ版です。</p>
+      <p class="unverified"><b>未確認</b>報道は今のところ1件のみで、利用状況の数字はありません。</p>
+    </div>
+    <div class="item">
+      <span class="tag mono" data-noread>Lightning · やさしい解説</span>
+      <h3>Lightning ウォレットを更新しよう</h3>
+      <p>ビットコインの高速決済ネットワーク Lightning のウォレットの多くを支えるソフトで、今月いくつもの重大なバグが修正され、攻撃者はすでに未修正のノードを探っていました。損失は確認されていませんが、ウォレットアプリを更新すれば済む話です。</p>
+    </div>
+    <div class="item">
+      <h3>利用者として</h3>
+      <ul class="points"><li>Lightning ウォレット、特に Phoenix など LDK ベースのものは今すぐ更新する。</li><li>自分で Lightning ノードを運用しているなら、CLN v26.06.9、LDK 0.2.7、Eclair 0.14.5 以降にアップグレードする。</li><li>AI エージェントには上限付きの小さな専用ウォレットを与え、メインの資金には触れさせない。</li><li>チェーン間を移動するトークン化資産には発行体のチェックが入ることがあり、送金が意図的に遅れたり止められたりする場合があります。</li></ul>
+      <p>今後の予定：LND の正式リリース、Glamsterdam の Hoodi の新しい日程、CCIP 2.0 の最初の稼働中の統合。</p>
+    </div>
+  </section>
+
+  <section class="sources">
+    <h2>出典</h2>
+    <p>2026年10月26日時点の報道に基づきます。Bitcoin Optech は技術的な一次情報です。</p>
+    <ul>
+      <li><a href="https://bitcoinops.org/en/newsletters/2026/10/23/">Bitcoin Optech Newsletter #428</a> <span class="kind">一次情報</span></li>
+      <li><a href="https://shattered.io/two-lightning-network-bugs-340m-btc-2026/">Shattered: Two Lightning Network bugs</a> <span class="kind">まとめサイト</span></li>
+      <li><a href="https://tokenpost.com/news/technology/40583">TokenPost: Lightning Labs opens Wavelength</a> <span class="kind">二次情報</span></li>
+      <li><a href="https://thepaypers.com/crypto-web3-and-cbdc/news/chainlink-launches-ccip-20-for-cross-chain-institutional-assets">The Paypers: Chainlink launches CCIP 2.0</a> <span class="kind">二次情報</span></li>
+      <li><a href="https://tokenpost.com/news/technology/40545">TokenPost: OpenZeppelin adds Chainlink CCIP</a> <span class="kind">二次情報</span></li>
+    </ul>
+  </section>
+</article>
+
+<section class="comments" id="comments" data-noread>
+  <h2><span data-lang="en">Reader feedback</span><span data-lang="ja" hidden>読者のコメント</span></h2>
+  <p class="note"><span data-lang="en">Comments use GitHub sign-in, so every commenter is a real GitHub account. Be kind and stay on topic.</span><span data-lang="ja" hidden>コメントには GitHub へのログインが必要です。思いやりを持って、話題に沿って書き込んでください。</span></p>
+  <div class="giscus"></div>
+</section>
+
+<nav class="pager" data-noread>
+  <a href="../"><span data-lang="en">← All briefs</span><span data-lang="ja" hidden>← バックナンバー</span></a>
+  <span></span>
+</nav>
+</main>
+<script src="../assets/brief.js"></script>
+</body>
+</html>

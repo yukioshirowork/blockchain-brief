@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Blockchain Brief, 29 Oct 2026</title>
+<meta name="description" content="A Glamsterdam validator deposit flaw fixed in the spec, Polygon&#x27;s payments stack adds Solana, and where Bitcoin&#x27;s quantum plans stand.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-title-en="Blockchain Brief, 29 Oct 2026" data-title-ja="ブロックチェーン・ブリーフ 2026年10月29日">
+<div class="bar"><div class="bar-in">
+  <a class="home" href="../">Blockchain Brief</a>
+  <div class="controls">
+    <div class="seg" role="group" aria-label="Language"><button type="button" data-set-lang="en" aria-pressed="true">EN</button><button type="button" data-set-lang="ja" aria-pressed="false">日本語</button></div>
+  </div>
+</div></div>
+
+<main class="wrap">
+
+<!-- Read-aloud panel (shared; labels follow the language toggle) -->
+<section class="audio" id="audio" aria-label="Read aloud" data-noread>
+  <div class="audio-row">
+    <button type="button" class="btn primary" data-a="play">▶ Listen</button>
+    <button type="button" class="btn" data-a="stop" disabled>■ Stop</button>
+    <select class="btn" data-a="scope" aria-label="What to read"><option value="all">Whole brief</option><option value="dev">Dev only</option><option value="nondev">Non-dev only</option></select>
+  </div>
+  <div class="audio-row">
+    <label class="status"><span data-a="speedlbl">Speed</span>
+      <select class="btn" data-a="rate"><option value="0.8">0.8×</option><option value="0.9">0.9×</option><option value="1" selected>1×</option><option value="1.15">1.15×</option><option value="1.3">1.3×</option><option value="1.5">1.5×</option></select></label>
+    <label class="status"><span data-a="voicelbl">Voice</span>
+      <select class="btn" data-a="voice"></select></label>
+  </div>
+  <p class="status" data-a="status" aria-live="polite"></p>
+</section>
+
+<!-- ===================== ENGLISH ===================== -->
+<article data-lang="en" class="wrap" style="padding:0">
+  <header class="brief">
+    <span class="mono meta">Daily brief · 29 Oct 2026 · about 4 min read</span>
+    <h1>Blockchain Brief, 29 Oct 2026</h1>
+    <p class="lede">A second Glamsterdam issue was found and fixed in the spec, Polygon's payments stack adds Solana a week after Alpenglow, and Bitcoin's quantum plans remain drafts.</p>
+    <p class="note">Claims I could not confirm from a primary or second independent source are marked Unverified.</p>
+    <nav class="jump" data-noread aria-label="Sections"><a class="dev" href="#dev-en">Dev ↓</a><a class="nondev" href="#nondev-en">Non-dev ↓</a></nav>
+  </header>
+
+  <section class="track dev" id="dev-en">
+    <div class="track-head"><h2>Dev</h2><p>Protocol changes, contract risks, security details and tooling.</p></div>
+    <div class="item">
+      <span class="tag mono" data-noread>Ethereum · consensus-specs · fixed 26 Oct</span>
+      <h3>Glamsterdam's validator deposit flaw</h3>
+      <p>Separate from the EIP-8037 gas issue, researchers found a flaw in Glamsterdam's new builder rules. If a block builder registered a public key before a validator deposit arrived under the same key, both deposits could be credited to the builder, who could then withdraw the validator's funds. Reported on 12 October, the fix was closed for lack of client support on 19 October, reopened on 23 October and merged on 26 October. It routes deposits by withdrawal credentials and keeps builder and validator records apart (<a href='https://crypto.news/ethereum-glamsterdam-validator-deposit-bug-fix/'>crypto.news</a>, <a href='https://github.com/ethereum/consensus-specs/pull/5736'>consensus-specs #5736</a>).</p>
+      <p>On EIP-8037, researcher Toni Wahrstätter found cases where the gas change could make transactions revert unexpectedly or make code paths reachable that developers assumed were not. Hoodi remains unscheduled.</p>
+      <p class="unverified"><b>Unverified</b>The flaw was in rules still under development, and nothing was stolen.</p>
+    </div>
+    <div class="item">
+      <span class="tag mono" data-noread>Bitcoin · BIP-360 · BIP-361 · drafts</span>
+      <h3>Where Bitcoin's quantum plans stand</h3>
+      <p>BIP-360 (Pay-to-Merkle-Root) is Taproot with the key-path spend removed, so coins are not locked to a public key exposed on-chain; it adds no post-quantum signature. BIP-361 proposes a sunset: about three years after activation, sending to quantum-vulnerable addresses would be disallowed, and two years later old-style signatures would be restricted behind a rescue protocol. It depends on a post-quantum signature BIP that does not exist yet (<a href='https://qdaycountdown.com/crypto/bip-360-and-bip-361/'>QDay Countdown</a>, <a href='https://github.com/bitcoin/bips'>BIPs repo</a>). Both are drafts with no activation plan or consensus. A first hash-based signature draft, SHRINCS, appeared in August, marked not for production.</p>
+      <p class="unverified"><b>Unverified</b>The summary source is an explainer from a vendor of post-quantum products.</p>
+    </div>
+    <div class="item">
+      <h3>What to do this week</h3>
+      <ul class="points"><li>Audit contracts for assumptions about remaining gas, such as gasleft() checks, before EIP-8037 ships.</li><li>Staking protocols should review how they register keys and deposits under the new builder rules.</li><li>If you build payouts, compare one-integration stacks like Polygon's against holding your own licences.</li><li>Bitcoin wallet developers can prototype BIP-360 outputs on test networks and track signature drafts.</li></ul>
+    </div>
+  </section>
+
+  <section class="track nondev" id="nondev-en">
+    <div class="track-head"><h2>Non-dev</h2><p>Market, business and regulation, and what the news means in plain language.</p></div>
+    <div class="item">
+      <span class="tag mono" data-noread>Payments · Polygon · 29 Oct</span>
+      <h3>Polygon's Open Money Stack adds Solana</h3>
+      <p>Polygon Labs added Solana to its Open Money Stack, a payments platform that lets a business take money in from bank accounts, move it across blockchains and pay out to bank accounts, cards, cash services or wallets through one integration (<a href='https://theblock.co/news/defi/2026-10-29-polygon-adds-solana-payment-stack-432115'>The Block</a>). Solana joins Polygon, Ethereum and TRON. Fintech Kira, which helps clients pay foreign suppliers in stablecoins, is an early customer. Polygon's purchase of Coinme earlier this month brings money transmission licences in 48 US states, which is what lets it handle the bank-account ends of a payment.</p>
+      <p class="unverified"><b>Unverified</b>Fees, limits and bank partners were not disclosed.</p>
+    </div>
+    <div class="item">
+      <span class="tag mono" data-noread>Plain summary</span>
+      <h3>Ethereum caught another bug before launch, and Bitcoin's quantum plan is still a sketch</h3>
+      <p>Ethereum's testing found a flaw in its next upgrade that could have let some operators take funds meant for others. It was fixed in the rules before going live, so nobody lost anything. On Bitcoin, proposals to protect against future quantum computers exist only as drafts, and there is no agreed plan or date.</p>
+    </div>
+    <div class="item">
+      <h3>As a user</h3>
+      <ul class="points"><li>Delays like Glamsterdam's are the process working. Bugs found on testnets do not cost users anything.</li><li>Stablecoin payouts through apps may now settle on Solana without you noticing. The app's licence matters more than the chain.</li><li>For long-term Bitcoin holdings, avoid reusing addresses. A public key revealed on-chain is the main quantum exposure.</li><li>Ignore anyone selling “quantum-safe Bitcoin” today. No such standard exists yet.</li></ul>
+      <p>Coming up: A new Hoodi date, client releases with the deposit fix, and any BIP-360 activation discussion.</p>
+    </div>
+  </section>
+
+  <section class="sources">
+    <h2>Sources</h2>
+    <p>Reporting as of 29 October 2026. The consensus-specs PR and BIPs repo are primary.</p>
+    <ul>
+      <li><a href="https://crypto.news/ethereum-glamsterdam-validator-deposit-bug-fix/">crypto.news: Ethereum fixes Glamsterdam validator deposit flaw</a> <span class="kind">secondary</span></li>
+      <li><a href="https://github.com/ethereum/consensus-specs/pull/5736">GitHub: consensus-specs PR #5736</a> <span class="kind">primary</span></li>
+      <li><a href="https://theblock.co/news/defi/2026-10-29-polygon-adds-solana-payment-stack-432115">The Block: Polygon adds Solana to payment stack</a> <span class="kind">secondary</span></li>
+      <li><a href="https://qdaycountdown.com/crypto/bip-360-and-bip-361/">QDay Countdown: BIP-360 and BIP-361 explained</a> <span class="kind">vendor</span></li>
+      <li><a href="https://github.com/bitcoin/bips">GitHub: Bitcoin BIPs repository</a> <span class="kind">primary</span></li>
+    </ul>
+  </section>
+</article>
+
+<!-- ===================== 日本語 ===================== -->
+<article data-lang="ja" class="wrap" style="padding:0" hidden>
+  <header class="brief">
+    <span class="mono meta">デイリーブリーフ · 2026年10月29日 · 約4分</span>
+    <h1>ブロックチェーン・ブリーフ 2026年10月29日</h1>
+    <p class="lede">Glamsterdam で2つ目の問題が見つかり仕様で修正されました。Polygon の決済基盤は Alpenglow の1週間後に Solana に対応し、ビットコインの量子対策はまだ草案の段階です。</p>
+    <p class="note">一次情報または独立した2つ目の情報源で確認できなかった内容には「未確認」と表示しています。</p>
+    <nav class="jump" data-noread aria-label="セクション"><a class="dev" href="#dev-ja">Dev ↓</a><a class="nondev" href="#nondev-ja">Non-dev ↓</a></nav>
+  </header>
+
+  <section class="track dev" id="dev-ja">
+    <div class="track-head"><h2>Dev</h2><p>プロトコル変更、コントラクトのリスク、セキュリティの詳細、開発ツール。</p></div>
+    <div class="item">
+      <span class="tag mono" data-noread>Ethereum · consensus-specs · 10月26日修正</span>
+      <h3>Glamsterdam のバリデータ入金の欠陥</h3>
+      <p>EIP-8037 のガスの問題とは別に、Glamsterdam の新しいビルダー規則に欠陥が見つかりました。ブロックビルダーが、同じ鍵でのバリデータの入金より先に公開鍵を登録すると、両方の入金がビルダーに計上され、ビルダーがバリデータの資金を引き出せてしまうというものです。10月12日に報告され、修正は19日にクライアントの支持不足で一度閉じられ、23日に再開、26日にマージされました。引き出し資格情報で入金を振り分け、ビルダーとバリデータの記録を分けます（<a href='https://crypto.news/ethereum-glamsterdam-validator-deposit-bug-fix/'>crypto.news</a>、<a href='https://github.com/ethereum/consensus-specs/pull/5736'>consensus-specs #5736</a>）。</p>
+      <p>EIP-8037 については、研究者 Toni Wahrstätter が、ガスの変更でトランザクションが予期せず revert したり、開発者が到達しないと考えていたコード経路に到達したりするケースを見つけました。Hoodi の日程は未定のままです。</p>
+      <p class="unverified"><b>未確認</b>欠陥は開発中の規則にあったもので、何も盗まれていません。</p>
+    </div>
+    <div class="item">
+      <span class="tag mono" data-noread>Bitcoin · BIP-360 · BIP-361 · 草案</span>
+      <h3>ビットコインの量子対策の現状</h3>
+      <p>BIP-360（Pay-to-Merkle-Root）は Taproot からキーパスでの使用を取り除いたもので、オンチェーンでさらされる公開鍵にコインが結びつかないようにします。耐量子署名は追加しません。BIP-361 は段階的な廃止を提案しており、有効化の約3年後に量子に弱いアドレスへの送金を禁じ、その2年後に旧来の署名を救済プロトコルの背後に制限します。まだ存在しない耐量子署名の BIP が前提です（<a href='https://qdaycountdown.com/crypto/bip-360-and-bip-361/'>QDay Countdown</a>、<a href='https://github.com/bitcoin/bips'>BIPs リポジトリ</a>）。どちらも有効化計画も合意もない草案です。最初のハッシュベース署名の草案 SHRINCS は8月に出ましたが、本番利用向けではないと明記されています。</p>
+      <p class="unverified"><b>未確認</b>要約の情報源は耐量子製品のベンダーによる解説です。</p>
+    </div>
+    <div class="item">
+      <h3>今週やること</h3>
+      <ul class="points"><li>EIP-8037 の導入前に、gasleft() のチェックなど残りガスを前提にした箇所をコントラクトで監査する。</li><li>ステーキングプロトコルは、新しいビルダー規則のもとでの鍵と入金の登録方法を見直す。</li><li>支払い機能を作るなら、Polygon のような一括統合の基盤と自前のライセンス取得を比較する。</li><li>ビットコインのウォレット開発者は、テストネットで BIP-360 の出力を試作し、署名の草案を追う。</li></ul>
+    </div>
+  </section>
+
+  <section class="track nondev" id="nondev-ja">
+    <div class="track-head"><h2>Non-dev</h2><p>市場・ビジネス・規制と、ニュースが何を意味するかのやさしい解説。</p></div>
+    <div class="item">
+      <span class="tag mono" data-noread>決済 · Polygon · 10月29日</span>
+      <h3>Polygon の Open Money Stack が Solana に対応</h3>
+      <p>Polygon Labs は、Open Money Stack に Solana を加えました。企業が銀行口座から資金を受け取り、ブロックチェーン間で動かし、銀行口座、カード、現金サービス、ウォレットへ1つの統合で支払えるようにする決済基盤です（<a href='https://theblock.co/news/defi/2026-10-29-polygon-adds-solana-payment-stack-432115'>The Block</a>）。Solana は Polygon、Ethereum、TRON に続く対応チェーンです。顧客が海外の取引先にステーブルコインで支払うのを助けるフィンテックの Kira が初期の顧客です。今月初めの Coinme 買収で Polygon は米国48州の送金業ライセンスを得ており、これが支払いの両端の銀行口座部分を扱える理由です。</p>
+      <p class="unverified"><b>未確認</b>手数料、上限、提携銀行は公表されていません。</p>
+    </div>
+    <div class="item">
+      <span class="tag mono" data-noread>やさしい解説</span>
+      <h3>イーサリアムはまた公開前にバグを発見、ビットコインの量子対策はまだ構想段階</h3>
+      <p>イーサリアムのテストで、次のアップグレードに、一部の運用者が他人宛ての資金を取れてしまう欠陥が見つかりました。本番前に規則が修正されたので、誰も損をしていません。ビットコインでは、将来の量子コンピュータへの対策案は草案にとどまっており、合意された計画も日程もありません。</p>
+    </div>
+    <div class="item">
+      <h3>利用者として</h3>
+      <ul class="points"><li>Glamsterdam のような延期はプロセスが機能している証拠です。テストネットで見つかったバグで利用者が損をすることはありません。</li><li>アプリ経由のステーブルコインの支払いは、気づかないうちに Solana で決済されているかもしれません。チェーンよりアプリのライセンスが重要です。</li><li>ビットコインを長期保有するならアドレスを使い回さない。オンチェーンで公開された公開鍵が量子リスクの主な原因です。</li><li>今「量子耐性のあるビットコイン」を売り込む人は無視する。そのような標準はまだありません。</li></ul>
+      <p>今後の予定：Hoodi の新しい日程、入金の修正を含むクライアントのリリース、BIP-360 の有効化をめぐる議論。</p>
+    </div>
+  </section>
+
+  <section class="sources">
+    <h2>出典</h2>
+    <p>2026年10月29日時点の報道に基づきます。consensus-specs の PR と BIPs リポジトリは一次情報です。</p>
+    <ul>
+      <li><a href="https://crypto.news/ethereum-glamsterdam-validator-deposit-bug-fix/">crypto.news: Ethereum fixes Glamsterdam validator deposit flaw</a> <span class="kind">二次情報</span></li>
+      <li><a href="https://github.com/ethereum/consensus-specs/pull/5736">GitHub: consensus-specs PR #5736</a> <span class="kind">一次情報</span></li>
+      <li><a href="https://theblock.co/news/defi/2026-10-29-polygon-adds-solana-payment-stack-432115">The Block: Polygon adds Solana to payment stack</a> <span class="kind">二次情報</span></li>
+      <li><a href="https://qdaycountdown.com/crypto/bip-360-and-bip-361/">QDay Countdown: BIP-360 and BIP-361 explained</a> <span class="kind">ベンダー</span></li>
+      <li><a href="https://github.com/bitcoin/bips">GitHub: Bitcoin BIPs repository</a> <span class="kind">一次情報</span></li>
+    </ul>
+  </section>
+</article>
+
+<section class="comments" id="comments" data-noread>
+  <h2><span data-lang="en">Reader feedback</span><span data-lang="ja" hidden>読者のコメント</span></h2>
+  <p class="note"><span data-lang="en">Comments use GitHub sign-in, so every commenter is a real GitHub account. Be kind and stay on topic.</span><span data-lang="ja" hidden>コメントには GitHub へのログインが必要です。思いやりを持って、話題に沿って書き込んでください。</span></p>
+  <div class="giscus"></div>
+</section>
+
+<nav class="pager" data-noread>
+  <a href="../"><span data-lang="en">← All briefs</span><span data-lang="ja" hidden>← バックナンバー</span></a>
+  <span></span>
+</nav>
+</main>
+<script src="../assets/brief.js"></script>
+</body>
+</html>
