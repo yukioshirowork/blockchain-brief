@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Blockchain Brief, 11 Nov 2026</title>
+<meta name="description" content="EIP-8488&#x27;s versioned opcodes, North Korea-linked memecoin laundering on NEAR, and a 37-bank euro stablecoin.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-title-en="Blockchain Brief, 11 Nov 2026" data-title-ja="ブロックチェーン・ブリーフ 2026年11月11日">
+<div class="bar"><div class="bar-in">
+  <a class="home" href="../">Blockchain Brief</a>
+  <div class="controls">
+    <div class="seg" role="group" aria-label="Language"><button type="button" data-set-lang="en" aria-pressed="true">EN</button><button type="button" data-set-lang="ja" aria-pressed="false">日本語</button></div>
+  </div>
+</div></div>
+
+<main class="wrap">
+
+<!-- Read-aloud panel (shared; labels follow the language toggle) -->
+<section class="audio" id="audio" aria-label="Read aloud" data-noread>
+  <div class="audio-row">
+    <button type="button" class="btn primary" data-a="play">▶ Listen</button>
+    <button type="button" class="btn" data-a="stop" disabled>■ Stop</button>
+    <select class="btn" data-a="scope" aria-label="What to read"><option value="all">Whole brief</option><option value="dev">Dev only</option><option value="nondev">Non-dev only</option></select>
+  </div>
+  <div class="audio-row">
+    <label class="status"><span data-a="speedlbl">Speed</span>
+      <select class="btn" data-a="rate"><option value="0.8">0.8×</option><option value="0.9">0.9×</option><option value="1" selected>1×</option><option value="1.15">1.15×</option><option value="1.3">1.3×</option><option value="1.5">1.5×</option></select></label>
+    <label class="status"><span data-a="voicelbl">Voice</span>
+      <select class="btn" data-a="voice"></select></label>
+  </div>
+  <p class="status" data-a="status" aria-live="polite"></p>
+</section>
+
+<!-- ===================== ENGLISH ===================== -->
+<article data-lang="en" class="wrap" style="padding:0">
+  <header class="brief">
+    <span class="mono meta">Daily brief · 11 Nov 2026 · about 5 min read</span>
+    <h1>Blockchain Brief, 11 Nov 2026</h1>
+    <p class="lede">A draft EIP proposes versioned opcodes so Ethereum can reprice gas without breaking old contracts, North Korea-linked hackers launder stolen NEAR through home-made memecoins, and a 37-bank euro stablecoin gets closer to launch.</p>
+    <p class="note">Claims I could not confirm from a primary or second independent source are marked Unverified.</p>
+    <nav class="jump" data-noread aria-label="Sections"><a class="dev" href="#dev-en">Dev ↓</a><a class="nondev" href="#nondev-en">Non-dev ↓</a></nav>
+  </header>
+
+  <section class="track dev" id="dev-en">
+    <div class="track-head"><h2>Dev</h2><p>Protocol changes, contract risks, security details and tooling.</p></div>
+    <div class="item">
+      <span class="tag mono" data-noread>Protocol · Ethereum · 9 Nov</span>
+      <h3>EIP-8488: version the opcodes, keep old contracts safe</h3>
+      <p>Glamsterdam's Hoodi activation was postponed because two gas-pricing changes might alter how some deployed contracts behave. Draft EIP-8488, “Versioned Opcodes for Gas Repricing,” by Leo Glicic, proposes a way around that. Newly deployed contracts would use a V2 opcode set that follows the new gas schedule in EIP-8037 and EIP-8038, while existing contracts keep the old schedule. V2 code may not contain GAS or GASLIMIT, so contracts can't hardcode gas assumptions, and deployment fails if they do. A new DELEGATECALL_V2 only works if the target is also version 2 (<a href='https://phemex.com/news/article/ethereum-developer-proposes-eip-for-versioned-opcodes-to-enable-gas-repricing-without-breaking-existing-contracts-102814'>Phemex News</a>).</p>
+      <p>The trade-off is that V2 contracts can only call V2 contracts, so old and new code would form two separate interaction groups on one chain (<a href='https://www.aicoin.com/en/article/556433'>AiCoin</a>). That would split composability, which is a large cost for Ethereum.</p>
+      <p class="unverified"><b>Unverified</b>This is a draft that has not been merged, and I read it only through news summaries. A reported EF warning that EIP-8037/8038 break “8 contract invariants” is unconfirmed.</p>
+    </div>
+    <div class="item">
+      <h3>What to do this week</h3>
+      <ul class="points"><li>Stop relying on the GAS opcode and fixed gas amounts in contracts. Both are targets for repricing.</li><li>Follow EIP-8488 and comment on the composability split if your protocol calls older contracts.</li><li>DEX and launchpad teams should flag new tokens whose volume comes mainly from a few linked addresses.</li><li>Payment apps in the EU should plan for euro EMTs from bank issuers alongside EURC.</li></ul>
+    </div>
+  </section>
+
+  <section class="track nondev" id="nondev-en">
+    <div class="track-head"><h2>Non-dev</h2><p>Market, business and regulation, and what the news means in plain language.</p></div>
+    <div class="item">
+      <span class="tag mono" data-noread>Security · NEAR · ~9 Nov</span>
+      <h3>Laundering stolen coins through home-made memecoins</h3>
+      <p>Elliptic reports that North Korea-linked hackers created at least six NEAR memecoins and moved about 117,000 stolen NEAR through trading pools, buying and selling with themselves (<a href='https://www.kucoin.com/news/articles/crypto-daily-market-report-november-10-2026'>KuCoin daily report</a>). Trading a token you created against yourself turns stolen funds into what looks like trading profit, which is harder to trace than a direct transfer. Separately, Binance says it will commission an independent external review and tighten controls on its AI development environment and on-chain permissions.</p>
+      <p class="unverified"><b>Unverified</b>I have not read Elliptic's report, and it is not clear which theft the NEAR came from.</p>
+    </div>
+    <div class="item">
+      <span class="tag mono" data-noread>Stablecoins · EU · Oct–Nov</span>
+      <h3>A bank-backed euro stablecoin nears issue</h3>
+      <p>Qivalis, a joint venture of 37 European banks, received an electronic money institution licence from De Nederlandsche Bank in mid-October. That clears the main hurdle to issuing a euro e-money token under the EU's MiCA rules. Issuance is planned “in the coming months,” once its white paper is filed and reviewed. Fireblocks provides the infrastructure (<a href='https://www.ledgerinsights.com/qivalis-stablecoin-consortium-secures-dutch-emi-license/'>Ledger Insights</a>, <a href='https://cointelegraph.com/news/qivalis-authorization-dutch-central-bank-euro-stablecoin'>Cointelegraph</a>). It would give EU users a regulated euro option from banks.</p>
+      <p class="unverified"><b>Unverified</b>Which blockchain or blockchains it will launch on.</p>
+    </div>
+    <div class="item">
+      <h3>As a user</h3>
+      <ul class="points"><li>Be wary of brand-new memecoins with sudden volume. They may be laundering vehicles, and the tokens can be frozen or delisted.</li><li>If you hold euros on-chain in the EEA, watch for Qivalis and other MiCA-licensed euro tokens as compliant options.</li><li>Expect Ethereum's Glamsterdam upgrade to keep slipping while the gas-pricing safety question is debated.</li></ul>
+      <p>Coming up: Solana Breakpoint (15–17 November), the Stellar Bell vote on 23 November, and Qivalis's white paper.</p>
+    </div>
+  </section>
+
+  <section class="sources">
+    <h2>Sources</h2>
+    <p>Reporting as of 11 November 2026. All sources here are secondary news or round-ups. I could not read the EIP draft or Elliptic's report directly.</p>
+    <ul>
+      <li><a href="https://phemex.com/news/article/ethereum-developer-proposes-eip-for-versioned-opcodes-to-enable-gas-repricing-without-breaking-existing-contracts-102814">Phemex News: EIP for versioned opcodes</a> <span class="kind">secondary</span></li>
+      <li><a href="https://www.aicoin.com/en/article/556433">AiCoin: EIP-8488 analysis</a> <span class="kind">secondary</span></li>
+      <li><a href="https://www.kucoin.com/news/articles/crypto-daily-market-report-november-10-2026">KuCoin: crypto daily report, 10 Nov</a> <span class="kind">aggregator</span></li>
+      <li><a href="https://www.ledgerinsights.com/qivalis-stablecoin-consortium-secures-dutch-emi-license/">Ledger Insights: Qivalis secures Dutch EMI licence</a> <span class="kind">secondary</span></li>
+      <li><a href="https://cointelegraph.com/news/qivalis-authorization-dutch-central-bank-euro-stablecoin">Cointelegraph: Qivalis authorization</a> <span class="kind">secondary</span></li>
+    </ul>
+  </section>
+</article>
+
+<!-- ===================== 日本語 ===================== -->
+<article data-lang="ja" class="wrap" style="padding:0" hidden>
+  <header class="brief">
+    <span class="mono meta">デイリーブリーフ · 2026年11月11日 · 約5分</span>
+    <h1>ブロックチェーン・ブリーフ 2026年11月11日</h1>
+    <p class="lede">古いコントラクトを壊さずにガス価格を見直すための「バージョン付きオペコード」を提案するドラフト EIP、北朝鮮系ハッカーによる自作ミームコインを使った NEAR の資金洗浄、そして37行の銀行によるユーロ建てステーブルコインの発行準備が進んでいます。</p>
+    <p class="note">一次情報または独立した2つ目の情報源で確認できなかった内容には「未確認」と表示しています。</p>
+    <nav class="jump" data-noread aria-label="セクション"><a class="dev" href="#dev-ja">Dev ↓</a><a class="nondev" href="#nondev-ja">Non-dev ↓</a></nav>
+  </header>
+
+  <section class="track dev" id="dev-ja">
+    <div class="track-head"><h2>Dev</h2><p>プロトコル変更、コントラクトのリスク、セキュリティの詳細、開発ツール。</p></div>
+    <div class="item">
+      <span class="tag mono" data-noread>プロトコル · Ethereum · 11月9日</span>
+      <h3>EIP-8488：オペコードをバージョン管理し、既存コントラクトを守る</h3>
+      <p>Glamsterdam の Hoodi での有効化は、2つのガス価格変更が既存コントラクトの挙動を変えるおそれがあるとして延期されました。Leo Glicic によるドラフト EIP-8488「Versioned Opcodes for Gas Repricing」はその回避策です。新しくデプロイするコントラクトは EIP-8037・EIP-8038 の新しいガス表に従う V2 オペコードを使い、既存コントラクトは旧ガス表のままにします。V2 のコードには GAS や GASLIMIT を含められず、含めるとデプロイに失敗するため、ガスの前提をハードコードできません。新しい DELEGATECALL_V2 は呼び出し先も V2 の場合にのみ動作します（<a href='https://phemex.com/news/article/ethereum-developer-proposes-eip-for-versioned-opcodes-to-enable-gas-repricing-without-breaking-existing-contracts-102814'>Phemex News</a>）。</p>
+      <p>代償として、V2 コントラクトは V2 コントラクトしか呼べないため、1つのチェーン上に旧コードと新コードの2つの世界ができます（<a href='https://www.aicoin.com/en/article/556433'>AiCoin</a>）。コンポーザビリティが分断されるのは、イーサリアムにとって大きなコストです。</p>
+      <p class="unverified"><b>未確認</b>マージされていないドラフトで、ニュースの要約経由でしか読めていません。EIP-8037/8038 が「8つのコントラクト不変条件」を壊すという EF の警告は未確認です。</p>
+    </div>
+    <div class="item">
+      <h3>今週やること</h3>
+      <ul class="points"><li>コントラクトで GAS オペコードや固定ガス量に頼るのをやめる。どちらも価格見直しの対象です。</li><li>古いコントラクトを呼ぶプロトコルなら、EIP-8488 を追い、コンポーザビリティの分断についてコメントする。</li><li>DEX やローンチパッドは、少数の関連アドレスが出来高の大半を占める新規トークンにフラグを立てる。</li><li>EU の決済アプリは、EURC に加えて銀行発行のユーロ建て EMT への対応を計画する。</li></ul>
+    </div>
+  </section>
+
+  <section class="track nondev" id="nondev-ja">
+    <div class="track-head"><h2>Non-dev</h2><p>市場・ビジネス・規制と、ニュースが何を意味するかのやさしい解説。</p></div>
+    <div class="item">
+      <span class="tag mono" data-noread>セキュリティ · NEAR · 11月9日頃</span>
+      <h3>自作ミームコインを使った盗難資金の洗浄</h3>
+      <p>Elliptic によると、北朝鮮系のハッカーが少なくとも6つの NEAR ミームコインを作り、自分同士で売買することで約11万7,000 NEAR の盗難資金を取引プールに通しました（<a href='https://www.kucoin.com/news/articles/crypto-daily-market-report-november-10-2026'>KuCoin デイリーレポート</a>）。自作のトークンを自分相手に売買すると、盗んだ資金が「取引の利益」のように見え、直接送金するより追跡しにくくなります。これとは別に、Binance は外部の独立レビューを依頼し、AI 開発環境とオンチェーン権限の管理を強化するとしています。</p>
+      <p class="unverified"><b>未確認</b>Elliptic のレポート自体は読めておらず、どの盗難事件の NEAR なのかも不明です。</p>
+    </div>
+    <div class="item">
+      <span class="tag mono" data-noread>ステーブルコイン · EU · 10〜11月</span>
+      <h3>銀行が支えるユーロ建てステーブルコインが発行間近</h3>
+      <p>欧州の銀行37行の合弁会社 Qivalis は、10月中旬にオランダ中央銀行から電子マネー機関のライセンスを取得しました。これで EU の MiCA 規則のもとでユーロ建て電子マネートークンを発行する最大の関門を越えました。ホワイトペーパーの提出と審査を経て「今後数か月以内」に発行する予定で、基盤は Fireblocks が提供します（<a href='https://www.ledgerinsights.com/qivalis-stablecoin-consortium-secures-dutch-emi-license/'>Ledger Insights</a>、<a href='https://cointelegraph.com/news/qivalis-authorization-dutch-central-bank-euro-stablecoin'>Cointelegraph</a>）。EU の利用者にとって、銀行による規制下のユーロ建ての選択肢になります。</p>
+      <p class="unverified"><b>未確認</b>どのブロックチェーンで発行されるか。</p>
+    </div>
+    <div class="item">
+      <h3>利用者として</h3>
+      <ul class="points"><li>急に出来高が増えた新しいミームコインには注意。資金洗浄に使われている可能性があり、凍結や上場廃止もありえます。</li><li>EEA でユーロをオンチェーンで持っているなら、Qivalis など MiCA 認可のユーロ建てトークンに注目。</li><li>ガス価格の安全性が議論されているあいだ、イーサリアムの Glamsterdam はさらに遅れると見ておく。</li></ul>
+      <p>今後の予定：Solana Breakpoint（11月15〜17日）、11月23日の Stellar「Bell」投票、Qivalis のホワイトペーパー。</p>
+    </div>
+  </section>
+
+  <section class="sources">
+    <h2>出典</h2>
+    <p>2026年11月11日時点の報道に基づきます。いずれも二次情報やまとめで、EIP のドラフトと Elliptic のレポートは直接読めていません。</p>
+    <ul>
+      <li><a href="https://phemex.com/news/article/ethereum-developer-proposes-eip-for-versioned-opcodes-to-enable-gas-repricing-without-breaking-existing-contracts-102814">Phemex News: EIP for versioned opcodes</a> <span class="kind">二次情報</span></li>
+      <li><a href="https://www.aicoin.com/en/article/556433">AiCoin: EIP-8488 analysis</a> <span class="kind">二次情報</span></li>
+      <li><a href="https://www.kucoin.com/news/articles/crypto-daily-market-report-november-10-2026">KuCoin: crypto daily report, 10 Nov</a> <span class="kind">まとめサイト</span></li>
+      <li><a href="https://www.ledgerinsights.com/qivalis-stablecoin-consortium-secures-dutch-emi-license/">Ledger Insights: Qivalis secures Dutch EMI licence</a> <span class="kind">二次情報</span></li>
+      <li><a href="https://cointelegraph.com/news/qivalis-authorization-dutch-central-bank-euro-stablecoin">Cointelegraph: Qivalis authorization</a> <span class="kind">二次情報</span></li>
+    </ul>
+  </section>
+</article>
+
+<section class="comments" id="comments" data-noread>
+  <h2><span data-lang="en">Reader feedback</span><span data-lang="ja" hidden>読者のコメント</span></h2>
+  <p class="note"><span data-lang="en">Comments use GitHub sign-in, so every commenter is a real GitHub account. Be kind and stay on topic.</span><span data-lang="ja" hidden>コメントには GitHub へのログインが必要です。思いやりを持って、話題に沿って書き込んでください。</span></p>
+  <div class="giscus"></div>
+</section>
+
+<nav class="pager" data-noread>
+  <a href="../"><span data-lang="en">← All briefs</span><span data-lang="ja" hidden>← バックナンバー</span></a>
+  <span></span>
+</nav>
+</main>
+<script src="../assets/brief.js"></script>
+</body>
+</html>

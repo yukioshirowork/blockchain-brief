@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Blockchain Brief, 10 Nov 2026</title>
+<meta name="description" content="Gnosis Pay&#x27;s breach included card numbers and CVVs tied to wallets, Bittensor&#x27;s post-quantum wallet, and regulatory moves in the EU, Japan and US.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-title-en="Blockchain Brief, 10 Nov 2026" data-title-ja="ブロックチェーン・ブリーフ 2026年11月10日">
+<div class="bar"><div class="bar-in">
+  <a class="home" href="../">Blockchain Brief</a>
+  <div class="controls">
+    <div class="seg" role="group" aria-label="Language"><button type="button" data-set-lang="en" aria-pressed="true">EN</button><button type="button" data-set-lang="ja" aria-pressed="false">日本語</button></div>
+  </div>
+</div></div>
+
+<main class="wrap">
+
+<!-- Read-aloud panel (shared; labels follow the language toggle) -->
+<section class="audio" id="audio" aria-label="Read aloud" data-noread>
+  <div class="audio-row">
+    <button type="button" class="btn primary" data-a="play">▶ Listen</button>
+    <button type="button" class="btn" data-a="stop" disabled>■ Stop</button>
+    <select class="btn" data-a="scope" aria-label="What to read"><option value="all">Whole brief</option><option value="dev">Dev only</option><option value="nondev">Non-dev only</option></select>
+  </div>
+  <div class="audio-row">
+    <label class="status"><span data-a="speedlbl">Speed</span>
+      <select class="btn" data-a="rate"><option value="0.8">0.8×</option><option value="0.9">0.9×</option><option value="1" selected>1×</option><option value="1.15">1.15×</option><option value="1.3">1.3×</option><option value="1.5">1.5×</option></select></label>
+    <label class="status"><span data-a="voicelbl">Voice</span>
+      <select class="btn" data-a="voice"></select></label>
+  </div>
+  <p class="status" data-a="status" aria-live="polite"></p>
+</section>
+
+<!-- ===================== ENGLISH ===================== -->
+<article data-lang="en" class="wrap" style="padding:0">
+  <header class="brief">
+    <span class="mono meta">Daily brief · 10 Nov 2026 · about 5 min read</span>
+    <h1>Blockchain Brief, 10 Nov 2026</h1>
+    <p class="lede">The Gnosis Pay breach turns out to include full card numbers and CVVs linked to wallet addresses, Bittensor ships a post-quantum wallet with key rotation, and regulators on both sides of the Atlantic adjust their crypto rules.</p>
+    <p class="note">Claims I could not confirm from a primary or second independent source are marked Unverified.</p>
+    <nav class="jump" data-noread aria-label="Sections"><a class="dev" href="#dev-en">Dev ↓</a><a class="nondev" href="#nondev-en">Non-dev ↓</a></nav>
+  </header>
+
+  <section class="track dev" id="dev-en">
+    <div class="track-head"><h2>Dev</h2><p>Protocol changes, contract risks, security details and tooling.</p></div>
+    <div class="item">
+      <span class="tag mono" data-noread>Follow-up · Gnosis Pay · 3–9 Nov</span>
+      <h3>What the Gnosis Pay attackers took</h3>
+      <p>Gnosis Pay says it detected unauthorized access to its legacy consumer card system on 3 November and began containing it within two hours. Customer funds and its enterprise white-label platform were not affected (<a href='https://gnosispay.com/blog/data-breach-legacy-system-gnosis-pay-branded-cards'>Gnosis Pay statement</a>). Breach notifications seen by Cointelegraph list full card numbers (PAN), expiry dates, CVV codes, names, home addresses and linked wallet addresses, and some include emails, phone numbers, nationalities, and IBAN and BIC details (<a href='https://cointelegraph.com/news/gnosis-pay-breach-exposes-card-details-personal-data-crypto-wallet-information'>Cointelegraph</a>).</p>
+      <p>Storing CVVs after authorization is forbidden under PCI DSS, so their presence points to a serious design failure in the legacy stack. 3D Secure is now mandatory for all online card payments until the legacy system retires on 20 December (<a href='https://cryptoticker.io/en/gnosis-pay-data-breach/'>CryptoTicker</a>).</p>
+      <p class="unverified"><b>Unverified</b>Gnosis's own statement mentions only “certain customer information”; the full data list comes from customer notifications. The entry point and number of affected users are undisclosed.</p>
+    </div>
+    <div class="item">
+      <span class="tag mono" data-noread>Wallets · Bittensor · Nov</span>
+      <h3>A post-quantum wallet with automatic key rotation</h3>
+      <p>Bittensor has reportedly introduced a quantum-resistant wallet that supports three post-quantum signature algorithms and rotates keys automatically (<a href='https://www.kucoin.com/news/articles/crypto-daily-market-report-november-9-2026'>KuCoin daily report</a>). Rotating keys limits how long any single public key is exposed, the same idea behind not reusing Bitcoin addresses. It follows Stellar's ML-DSA support covered on 5 November.</p>
+      <p class="unverified"><b>Unverified</b>Which algorithms are used, and whether they sign on-chain transactions or only protect keys at rest. No primary source found.</p>
+    </div>
+    <div class="item">
+      <h3>What to do this week</h3>
+      <ul class="points"><li>Never store CVVs after authorization. PCI DSS forbids it.</li><li>Keep the mapping between wallets and identities in a separate, tightly controlled store.</li><li>When winding down a product, shrink its data and access early instead of letting the system run unattended.</li><li>Design key management so keys can rotate, a cheap step toward post-quantum readiness.</li></ul>
+    </div>
+  </section>
+
+  <section class="track nondev" id="nondev-en">
+    <div class="track-head"><h2>Non-dev</h2><p>Market, business and regulation, and what the news means in plain language.</p></div>
+    <div class="item">
+      <span class="tag mono" data-noread>Cards · Plain summary</span>
+      <h3>Why a card leak plus a wallet address is worse</h3>
+      <p>Gnosis Pay is a debit card that spends crypto from your own wallet. The leaked data ties people's names and home addresses to their wallet addresses, and anyone can look up a wallet's balance. That makes customers targets for convincing scams, and in the worst case for physical threats. No funds were taken, and Gnosis had already decided in September to leave the consumer card business.</p>
+    </div>
+    <div class="item">
+      <span class="tag mono" data-noread>Regulation · EU, Japan, US · 4–9 Nov</span>
+      <h3>Sanctions, MiCA talks and a dropped US rule</h3>
+      <p>The EU has reportedly set up a task force on sanctions evasion through crypto. Japan's Financial Services Agency and the European Commission discussed stablecoins, tokenization and MiCA implementation at their regulatory forum in Tokyo on 4–5 November. In the US, FinCEN and the Federal Reserve withdrew a proposal to cut the international remittance reporting threshold from $3,000 to $250 (<a href='https://note.com/yykoukishin22/n/n6290b28be283?hl=en'>note.com summary</a>, <a href='https://www.kucoin.com/news/articles/crypto-daily-market-report-november-9-2026'>KuCoin</a>).</p>
+      <p class="unverified"><b>Unverified</b>All three items come from secondary summaries without primary links.</p>
+    </div>
+    <div class="item">
+      <h3>As a user</h3>
+      <ul class="points"><li>If you had a Gnosis Pay card, check that it was cancelled and watch your bank statements for online charges.</li><li>Assume anyone with the leaked data knows your address and balances. Be wary of contact that uses those details.</li><li>Consider moving funds from a wallet address linked to the card to a fresh one.</li><li>Don't reuse addresses, which limits both privacy leaks and future quantum exposure.</li></ul>
+      <p>Coming up: Gnosis Pay's full disclosure, South Korea's Digital Asset Basic Act and Solana Breakpoint (15–17 November).</p>
+    </div>
+  </section>
+
+  <section class="sources">
+    <h2>Sources</h2>
+    <p>Reporting as of 10 November 2026. The Gnosis Pay statement is primary but was read through coverage.</p>
+    <ul>
+      <li><a href="https://gnosispay.com/blog/data-breach-legacy-system-gnosis-pay-branded-cards">Gnosis Pay: data breach in legacy system</a> <span class="kind">primary</span></li>
+      <li><a href="https://cointelegraph.com/news/gnosis-pay-breach-exposes-card-details-personal-data-crypto-wallet-information">Cointelegraph: Gnosis Pay breach exposes card details</a> <span class="kind">secondary</span></li>
+      <li><a href="https://cryptoticker.io/en/gnosis-pay-data-breach/">CryptoTicker: Gnosis Pay data breach</a> <span class="kind">secondary</span></li>
+      <li><a href="https://www.kucoin.com/news/articles/crypto-daily-market-report-november-9-2026">KuCoin: crypto daily report, 9 Nov</a> <span class="kind">aggregator</span></li>
+      <li><a href="https://note.com/yykoukishin22/n/n6290b28be283?hl=en">note.com: crypto news highlights, 9 Nov</a> <span class="kind">aggregator</span></li>
+    </ul>
+  </section>
+</article>
+
+<!-- ===================== 日本語 ===================== -->
+<article data-lang="ja" class="wrap" style="padding:0" hidden>
+  <header class="brief">
+    <span class="mono meta">デイリーブリーフ · 2026年11月10日 · 約5分</span>
+    <h1>ブロックチェーン・ブリーフ 2026年11月10日</h1>
+    <p class="lede">Gnosis Pay の情報流出には、ウォレットアドレスと紐づいたカード番号や CVV まで含まれていたことが判明。Bittensor は鍵ローテーション付きの耐量子ウォレットを公開し、大西洋の両側で規制当局が暗号資産のルールを調整しています。</p>
+    <p class="note">一次情報または独立した2つ目の情報源で確認できなかった内容には「未確認」と表示しています。</p>
+    <nav class="jump" data-noread aria-label="セクション"><a class="dev" href="#dev-ja">Dev ↓</a><a class="nondev" href="#nondev-ja">Non-dev ↓</a></nav>
+  </header>
+
+  <section class="track dev" id="dev-ja">
+    <div class="track-head"><h2>Dev</h2><p>プロトコル変更、コントラクトのリスク、セキュリティの詳細、開発ツール。</p></div>
+    <div class="item">
+      <span class="tag mono" data-noread>続報 · Gnosis Pay · 11月3〜9日</span>
+      <h3>Gnosis Pay の攻撃者が持ち出したもの</h3>
+      <p>Gnosis Pay によると、11月3日にレガシーの個人向けカードシステムへの不正アクセスを検知し、2時間以内に封じ込めを始めました。顧客資金と企業向けホワイトラベル基盤は影響を受けていません（<a href='https://gnosispay.com/blog/data-breach-legacy-system-gnosis-pay-branded-cards'>Gnosis Pay の声明</a>）。Cointelegraph が確認した通知には、カード番号（PAN）、有効期限、CVV、氏名、住所、紐づいたウォレットアドレスが含まれ、メール、電話番号、国籍、IBAN・BIC が含まれるものもあります（<a href='https://cointelegraph.com/news/gnosis-pay-breach-exposes-card-details-personal-data-crypto-wallet-information'>Cointelegraph</a>）。</p>
+      <p>承認後に CVV を保存することは PCI DSS で禁止されており、それが含まれていたことはレガシー環境の重大な設計上の欠陥を示しています。レガシーシステムが12月20日に廃止されるまで、すべてのオンライン決済で 3D セキュアが必須になりました（<a href='https://cryptoticker.io/en/gnosis-pay-data-breach/'>CryptoTicker</a>）。</p>
+      <p class="unverified"><b>未確認</b>Gnosis の声明は「一部の顧客情報」とだけ述べており、詳しい項目は顧客への通知によるものです。侵入経路と影響人数は公表されていません。</p>
+    </div>
+    <div class="item">
+      <span class="tag mono" data-noread>ウォレット · Bittensor · 11月</span>
+      <h3>鍵を自動でローテーションする耐量子ウォレット</h3>
+      <p>Bittensor は、3種類の耐量子署名アルゴリズムに対応し、鍵を自動でローテーションするウォレットを公開したと報じられています（<a href='https://www.kucoin.com/news/articles/crypto-daily-market-report-november-9-2026'>KuCoin デイリーレポート</a>）。鍵をローテーションすると、1つの公開鍵がさらされる期間が短くなります。ビットコインのアドレスを使い回さないのと同じ考え方です。11月5日に取り上げた Stellar の ML-DSA 対応に続く動きです。</p>
+      <p class="unverified"><b>未確認</b>どのアルゴリズムか、オンチェーン取引の署名に使うのか保管時の鍵保護だけなのか。一次情報は見つかっていません。</p>
+    </div>
+    <div class="item">
+      <h3>今週やること</h3>
+      <ul class="points"><li>承認後に CVV を保存しない。PCI DSS で禁止されています。</li><li>ウォレットと本人情報の対応表は、別の厳重に管理された場所に置く。</li><li>サービスを終了するときは、放置せず早めにデータとアクセス権を縮小する。</li><li>鍵をローテーションできる設計にする。耐量子対応への安価な一歩です。</li></ul>
+    </div>
+  </section>
+
+  <section class="track nondev" id="nondev-ja">
+    <div class="track-head"><h2>Non-dev</h2><p>市場・ビジネス・規制と、ニュースが何を意味するかのやさしい解説。</p></div>
+    <div class="item">
+      <span class="tag mono" data-noread>カード · やさしい解説</span>
+      <h3>カード情報とウォレットアドレスが一緒に漏れると何がまずいのか</h3>
+      <p>Gnosis Pay は自分のウォレットの暗号資産で支払えるデビットカードです。流出したデータは氏名や住所をウォレットアドレスと結びつけており、ウォレットの残高は誰でも調べられます。そのため利用者は巧妙な詐欺の標的になり、最悪の場合は身の安全にも関わります。資金は盗まれておらず、Gnosis は9月の時点で個人向けカード事業からの撤退を決めていました。</p>
+    </div>
+    <div class="item">
+      <span class="tag mono" data-noread>規制 · EU・日本・米国 · 11月4〜9日</span>
+      <h3>制裁、MiCA の協議、撤回された米国の規則</h3>
+      <p>EU は暗号資産を使った制裁逃れに対応するタスクフォースを設けたと報じられています。日本の金融庁と欧州委員会は、11月4〜5日に東京で開いた規制フォーラムで、ステーブルコイン、トークン化、MiCA の実施について協議しました。米国では FinCEN と FRB が、国際送金の報告基準額を3,000ドルから250ドルに下げる案を撤回しました（<a href='https://note.com/yykoukishin22/n/n6290b28be283?hl=en'>note.com のまとめ</a>、<a href='https://www.kucoin.com/news/articles/crypto-daily-market-report-november-9-2026'>KuCoin</a>）。</p>
+      <p class="unverified"><b>未確認</b>3件とも一次情報へのリンクがない二次的なまとめが情報源です。</p>
+    </div>
+    <div class="item">
+      <h3>利用者として</h3>
+      <ul class="points"><li>Gnosis Pay のカードを持っていたなら、解約されているか確認し、オンラインでの不審な請求がないか明細を確認する。</li><li>流出データを持つ人は住所と残高を知っていると考え、それを使った連絡には注意する。</li><li>カードに紐づいていたウォレットアドレスの資金を、新しいアドレスへ移すことを検討する。</li><li>アドレスを使い回さない。プライバシーの漏えいと将来の量子リスクの両方を減らせます。</li></ul>
+      <p>今後の予定：Gnosis Pay の詳細な開示、韓国のデジタル資産基本法、Solana Breakpoint（11月15〜17日）。</p>
+    </div>
+  </section>
+
+  <section class="sources">
+    <h2>出典</h2>
+    <p>2026年11月10日時点の報道に基づきます。Gnosis Pay の声明は一次情報ですが、報道経由で読んでいます。</p>
+    <ul>
+      <li><a href="https://gnosispay.com/blog/data-breach-legacy-system-gnosis-pay-branded-cards">Gnosis Pay: data breach in legacy system</a> <span class="kind">一次情報</span></li>
+      <li><a href="https://cointelegraph.com/news/gnosis-pay-breach-exposes-card-details-personal-data-crypto-wallet-information">Cointelegraph: Gnosis Pay breach exposes card details</a> <span class="kind">二次情報</span></li>
+      <li><a href="https://cryptoticker.io/en/gnosis-pay-data-breach/">CryptoTicker: Gnosis Pay data breach</a> <span class="kind">二次情報</span></li>
+      <li><a href="https://www.kucoin.com/news/articles/crypto-daily-market-report-november-9-2026">KuCoin: crypto daily report, 9 Nov</a> <span class="kind">まとめサイト</span></li>
+      <li><a href="https://note.com/yykoukishin22/n/n6290b28be283?hl=en">note.com: crypto news highlights, 9 Nov</a> <span class="kind">まとめサイト</span></li>
+    </ul>
+  </section>
+</article>
+
+<section class="comments" id="comments" data-noread>
+  <h2><span data-lang="en">Reader feedback</span><span data-lang="ja" hidden>読者のコメント</span></h2>
+  <p class="note"><span data-lang="en">Comments use GitHub sign-in, so every commenter is a real GitHub account. Be kind and stay on topic.</span><span data-lang="ja" hidden>コメントには GitHub へのログインが必要です。思いやりを持って、話題に沿って書き込んでください。</span></p>
+  <div class="giscus"></div>
+</section>
+
+<nav class="pager" data-noread>
+  <a href="../"><span data-lang="en">← All briefs</span><span data-lang="ja" hidden>← バックナンバー</span></a>
+  <span></span>
+</nav>
+</main>
+<script src="../assets/brief.js"></script>
+</body>
+</html>

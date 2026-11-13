@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Blockchain Brief, 9 Nov 2026</title>
+<meta name="description" content="A Gnosis Pay data breach, Greece&#x27;s flat crypto tax, USDC in Samsung Wallet via Stripe, and an ex-FBI agent&#x27;s theft from seized wallets.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-title-en="Blockchain Brief, 9 Nov 2026" data-title-ja="ブロックチェーン・ブリーフ 2026年11月9日">
+<div class="bar"><div class="bar-in">
+  <a class="home" href="../">Blockchain Brief</a>
+  <div class="controls">
+    <div class="seg" role="group" aria-label="Language"><button type="button" data-set-lang="en" aria-pressed="true">EN</button><button type="button" data-set-lang="ja" aria-pressed="false">日本語</button></div>
+  </div>
+</div></div>
+
+<main class="wrap">
+
+<!-- Read-aloud panel (shared; labels follow the language toggle) -->
+<section class="audio" id="audio" aria-label="Read aloud" data-noread>
+  <div class="audio-row">
+    <button type="button" class="btn primary" data-a="play">▶ Listen</button>
+    <button type="button" class="btn" data-a="stop" disabled>■ Stop</button>
+    <select class="btn" data-a="scope" aria-label="What to read"><option value="all">Whole brief</option><option value="dev">Dev only</option><option value="nondev">Non-dev only</option></select>
+  </div>
+  <div class="audio-row">
+    <label class="status"><span data-a="speedlbl">Speed</span>
+      <select class="btn" data-a="rate"><option value="0.8">0.8×</option><option value="0.9">0.9×</option><option value="1" selected>1×</option><option value="1.15">1.15×</option><option value="1.3">1.3×</option><option value="1.5">1.5×</option></select></label>
+    <label class="status"><span data-a="voicelbl">Voice</span>
+      <select class="btn" data-a="voice"></select></label>
+  </div>
+  <p class="status" data-a="status" aria-live="polite"></p>
+</section>
+
+<!-- ===================== ENGLISH ===================== -->
+<article data-lang="en" class="wrap" style="padding:0">
+  <header class="brief">
+    <span class="mono meta">Daily brief · 9 Nov 2026 · about 5 min read</span>
+    <h1>Blockchain Brief, 9 Nov 2026</h1>
+    <p class="lede">Gnosis Pay discloses a data breach in its legacy card system, Greece passes a flat crypto tax, Samsung Wallet adds USDC payments through Stripe, and an ex-FBI agent admits stealing from seized-case wallets.</p>
+    <p class="note">Claims I could not confirm from a primary or second independent source are marked Unverified.</p>
+    <nav class="jump" data-noread aria-label="Sections"><a class="dev" href="#dev-en">Dev ↓</a><a class="nondev" href="#nondev-en">Non-dev ↓</a></nav>
+  </header>
+
+  <section class="track dev" id="dev-en">
+    <div class="track-head"><h2>Dev</h2><p>Protocol changes, contract risks, security details and tooling.</p></div>
+    <div class="item">
+      <span class="tag mono" data-noread>Security · Gnosis Pay · 6 Nov</span>
+      <h3>A data breach at a self-custodial crypto card</h3>
+      <p>Gnosis Pay, the self-custodial Visa debit card that spends from a Safe account on Gnosis Chain, disclosed that user information was stolen from its legacy debit card system (<a href='https://www.theblock.co/news/defi/2026-11-06-gnosis-pay-data-breach-legacy-debit-card-system-435934'>The Block</a>). Card products link a wallet address to a real-world identity, so a breach like this can expose personal details together with on-chain balances even when no funds are taken.</p>
+      <p class="unverified"><b>Unverified</b>Which data fields were taken, how many users are affected, and whether any funds were touched.</p>
+    </div>
+    <div class="item">
+      <span class="tag mono" data-noread>Custody · United States · 7 Nov</span>
+      <h3>An insider steals from seized-case wallets</h3>
+      <p>Former FBI agent Patrick Steven Yaroch pleaded guilty to wire fraud and money laundering after using wallet credentials from 35 FBI investigations to steal about $2.47 million in crypto. He must repay at least $2.4 million (<a href='https://www.theblock.co/news/regulation/2026-11-07-ex-fbi-agent-pleads-guilty-to-stealing-2-47-million-in-crypto-from-wallets-tied-to-35-investigations-435988'>The Block</a>). Seized or escrowed crypto needs the same multi-party controls as an exchange hot wallet, because whoever holds the key holds the coins.</p>
+    </div>
+    <div class="item">
+      <h3>What to do this week</h3>
+      <ul class="points"><li>Keep identity data (KYC, card details) separate from wallet mapping, and minimise and encrypt both.</li><li>Retire legacy systems fully. Old card or KYC back ends are frequent breach points.</li><li>Put seized, escrowed or custodial keys behind multisig, with access logs no single person can edit.</li><li>Tax tools for the EU should label staking and DeFi income separately from disposals.</li></ul>
+    </div>
+  </section>
+
+  <section class="track nondev" id="nondev-en">
+    <div class="track-head"><h2>Non-dev</h2><p>Market, business and regulation, and what the news means in plain language.</p></div>
+    <div class="item">
+      <span class="tag mono" data-noread>Regulation · Greece · ~6 Nov</span>
+      <h3>Greece adopts a flat 10% crypto gains tax</h3>
+      <p>Greece's parliament approved a framework that, from 2027, taxes crypto gains at a flat 10% with a €500 annual exemption, and taxes staking and DeFi income at 15% (<a href='https://decrypt.co/382756/greece-passes-crypto-tax-law-staking-defi'>Decrypt</a>). Taxing staking and DeFi yield separately from trading gains is becoming a common pattern across EU states.</p>
+      <p class="unverified"><b>Unverified</b>How crypto-to-crypto swaps are treated is reported as still unsettled.</p>
+    </div>
+    <div class="item">
+      <span class="tag mono" data-noread>Payments · Samsung and Stripe · Nov</span>
+      <h3>USDC in Samsung Wallet</h3>
+      <p>Stripe says it now powers stablecoin purchases in Samsung Wallet, letting users pay with USDC through their debit and credit cards (<a href='https://stripe.com/en-be/newsroom/news/stripe-powers-stablecoin-purchases-in-samsung-wallet'>Stripe newsroom</a>). The stablecoin sits behind a familiar card flow, which is likely how stablecoin payments reach most people.</p>
+      <p class="unverified"><b>Unverified</b>I saw this through a weekly digest and have not read Stripe's announcement in full, including which markets get it.</p>
+    </div>
+    <div class="item">
+      <span class="tag mono" data-noread>Plain summary</span>
+      <h3>Two lessons from this week's custody stories</h3>
+      <p>A crypto card connects your wallet to your real name, so a leak there can reveal who owns which coins. And the FBI case shows that even official custodians can steal if one person holds the keys.</p>
+    </div>
+    <div class="item">
+      <h3>As a user</h3>
+      <ul class="points"><li>If you use Gnosis Pay, watch for its notice and expect targeted phishing that uses your real name and address.</li><li>Never sign a transaction or share a seed phrase in response to a “security” email or call.</li><li>If you are taxed in Greece, keep separate records of gains and staking or DeFi income from 2027.</li><li>Paying with USDC through a card means the card issuer, not you, holds the funds at the moment of payment.</li></ul>
+      <p>Coming up: Gnosis Pay's full disclosure, Solana Breakpoint (15–17 November) and a Glamsterdam testnet date, which has still not been set.</p>
+    </div>
+  </section>
+
+  <section class="sources">
+    <h2>Sources</h2>
+    <p>Reporting as of 9 November 2026. Stripe's newsroom is a vendor primary source; the rest are secondary.</p>
+    <ul>
+      <li><a href="https://www.theblock.co/news/defi/2026-11-06-gnosis-pay-data-breach-legacy-debit-card-system-435934">The Block: Gnosis Pay data breach</a> <span class="kind">secondary</span></li>
+      <li><a href="https://decrypt.co/382756/greece-passes-crypto-tax-law-staking-defi">Decrypt: Greece passes crypto tax law</a> <span class="kind">secondary</span></li>
+      <li><a href="https://stripe.com/en-be/newsroom/news/stripe-powers-stablecoin-purchases-in-samsung-wallet">Stripe: stablecoin purchases in Samsung Wallet</a> <span class="kind">vendor</span></li>
+      <li><a href="https://www.theblock.co/news/regulation/2026-11-07-ex-fbi-agent-pleads-guilty-to-stealing-2-47-million-in-crypto-from-wallets-tied-to-35-investigations-435988">The Block: ex-FBI agent pleads guilty</a> <span class="kind">secondary</span></li>
+      <li><a href="https://www.bitpredict.io/crypto-news/2026-11-08">BitPredict: crypto news, 8 Nov</a> <span class="kind">aggregator</span></li>
+    </ul>
+  </section>
+</article>
+
+<!-- ===================== 日本語 ===================== -->
+<article data-lang="ja" class="wrap" style="padding:0" hidden>
+  <header class="brief">
+    <span class="mono meta">デイリーブリーフ · 2026年11月9日 · 約5分</span>
+    <h1>ブロックチェーン・ブリーフ 2026年11月9日</h1>
+    <p class="lede">Gnosis Pay がレガシーのカードシステムでの情報流出を公表、ギリシャが一律の暗号資産課税を可決、Samsung Wallet が Stripe 経由で USDC 決済に対応し、元 FBI 捜査官が押収事件のウォレットからの窃盗を認めました。</p>
+    <p class="note">一次情報または独立した2つ目の情報源で確認できなかった内容には「未確認」と表示しています。</p>
+    <nav class="jump" data-noread aria-label="セクション"><a class="dev" href="#dev-ja">Dev ↓</a><a class="nondev" href="#nondev-ja">Non-dev ↓</a></nav>
+  </header>
+
+  <section class="track dev" id="dev-ja">
+    <div class="track-head"><h2>Dev</h2><p>プロトコル変更、コントラクトのリスク、セキュリティの詳細、開発ツール。</p></div>
+    <div class="item">
+      <span class="tag mono" data-noread>セキュリティ · Gnosis Pay · 11月6日</span>
+      <h3>セルフカストディ型暗号資産カードでの情報流出</h3>
+      <p>Gnosis Chain 上の Safe アカウントから支払うセルフカストディ型 Visa デビットカード Gnosis Pay が、レガシーのデビットカードシステムから利用者情報が盗まれたと公表しました（<a href='https://www.theblock.co/news/defi/2026-11-06-gnosis-pay-data-breach-legacy-debit-card-system-435934'>The Block</a>）。カード製品はウォレットアドレスと実在の身元を結びつけるため、資金が盗まれなくても、個人情報とオンチェーン残高が一緒にさらされる可能性があります。</p>
+      <p class="unverified"><b>未確認</b>どの項目が盗まれたか、影響人数、資金への影響の有無。</p>
+    </div>
+    <div class="item">
+      <span class="tag mono" data-noread>カストディ · 米国 · 11月7日</span>
+      <h3>内部の人間が押収事件のウォレットから窃盗</h3>
+      <p>元 FBI 捜査官 Patrick Steven Yaroch は、FBI の35件の捜査で得たウォレットの認証情報を使い、約247万ドル相当の暗号資産を盗んだとして、通信詐欺とマネーロンダリングの罪を認めました。少なくとも240万ドルの返済が命じられています（<a href='https://www.theblock.co/news/regulation/2026-11-07-ex-fbi-agent-pleads-guilty-to-stealing-2-47-million-in-crypto-from-wallets-tied-to-35-investigations-435988'>The Block</a>）。鍵を持つ者がコインを持つため、押収・預かりの暗号資産にも取引所のホットウォレットと同じ複数人による管理が必要です。</p>
+    </div>
+    <div class="item">
+      <h3>今週やること</h3>
+      <ul class="points"><li>本人確認データ（KYC、カード情報）とウォレットの対応表を分け、どちらも最小化して暗号化する。</li><li>レガシーシステムは完全に廃止する。古いカードや KYC の基盤は侵害の起点になりやすい。</li><li>押収・預かり・カストディの鍵はマルチシグで管理し、1人では編集できないアクセスログを残す。</li><li>EU 向けの税務ツールは、ステーキングや DeFi の収入を売却益と分けて記録する。</li></ul>
+    </div>
+  </section>
+
+  <section class="track nondev" id="nondev-ja">
+    <div class="track-head"><h2>Non-dev</h2><p>市場・ビジネス・規制と、ニュースが何を意味するかのやさしい解説。</p></div>
+    <div class="item">
+      <span class="tag mono" data-noread>規制 · ギリシャ · 11月6日頃</span>
+      <h3>ギリシャが暗号資産の利益に一律10%課税</h3>
+      <p>ギリシャ議会は、2027年から暗号資産の利益に一律10%（年500ユーロまで非課税）、ステーキングと DeFi の収入に15%を課す枠組みを承認しました（<a href='https://decrypt.co/382756/greece-passes-crypto-tax-law-staking-defi'>Decrypt</a>）。ステーキングや DeFi の利回りを売買益と分けて課税するのは、EU 各国で広がりつつあるやり方です。</p>
+      <p class="unverified"><b>未確認</b>暗号資産同士の交換の扱いはまだ決まっていないと報じられています。</p>
+    </div>
+    <div class="item">
+      <span class="tag mono" data-noread>決済 · Samsung と Stripe · 11月</span>
+      <h3>Samsung Wallet で USDC</h3>
+      <p>Stripe は、Samsung Wallet でのステーブルコイン購入を支え、デビットカードやクレジットカードを通じて USDC で支払えるようにしたと発表しました（<a href='https://stripe.com/en-be/newsroom/news/stripe-powers-stablecoin-purchases-in-samsung-wallet'>Stripe ニュースルーム</a>）。ステーブルコインは見慣れたカード決済の裏側で動くため、多くの人にはこの形で届きそうです。</p>
+      <p class="unverified"><b>未確認</b>週刊ダイジェスト経由で知ったもので、対象地域を含め Stripe の発表全文は読めていません。</p>
+    </div>
+    <div class="item">
+      <span class="tag mono" data-noread>やさしい解説</span>
+      <h3>今週の保管に関するニュースからの教訓</h3>
+      <p>暗号資産カードはウォレットを本名と結びつけるため、そこで漏えいが起きると誰がどのコインを持っているかが分かってしまいます。また FBI の事件は、1人が鍵を握っていれば公的な保管者でも盗めることを示しています。</p>
+    </div>
+    <div class="item">
+      <h3>利用者として</h3>
+      <ul class="points"><li>Gnosis Pay を使っているなら通知を確認し、本名や住所を使った標的型フィッシングに備える。</li><li>「セキュリティ」を名乗るメールや電話に応じて取引に署名したり、シードフレーズを伝えたりしない。</li><li>ギリシャで課税される人は、2027年から売却益とステーキング・DeFi 収入を分けて記録する。</li><li>カード経由で USDC で支払う場合、支払いの瞬間に資金を持っているのは自分ではなくカード発行会社です。</li></ul>
+      <p>今後の予定：Gnosis Pay の詳細な開示、Solana Breakpoint（11月15〜17日）、まだ決まっていない Glamsterdam のテストネット日程。</p>
+    </div>
+  </section>
+
+  <section class="sources">
+    <h2>出典</h2>
+    <p>2026年11月9日時点の報道に基づきます。Stripe のニュースルームはベンダーの一次情報で、それ以外は二次情報です。</p>
+    <ul>
+      <li><a href="https://www.theblock.co/news/defi/2026-11-06-gnosis-pay-data-breach-legacy-debit-card-system-435934">The Block: Gnosis Pay data breach</a> <span class="kind">二次情報</span></li>
+      <li><a href="https://decrypt.co/382756/greece-passes-crypto-tax-law-staking-defi">Decrypt: Greece passes crypto tax law</a> <span class="kind">二次情報</span></li>
+      <li><a href="https://stripe.com/en-be/newsroom/news/stripe-powers-stablecoin-purchases-in-samsung-wallet">Stripe: stablecoin purchases in Samsung Wallet</a> <span class="kind">ベンダー</span></li>
+      <li><a href="https://www.theblock.co/news/regulation/2026-11-07-ex-fbi-agent-pleads-guilty-to-stealing-2-47-million-in-crypto-from-wallets-tied-to-35-investigations-435988">The Block: ex-FBI agent pleads guilty</a> <span class="kind">二次情報</span></li>
+      <li><a href="https://www.bitpredict.io/crypto-news/2026-11-08">BitPredict: crypto news, 8 Nov</a> <span class="kind">まとめサイト</span></li>
+    </ul>
+  </section>
+</article>
+
+<section class="comments" id="comments" data-noread>
+  <h2><span data-lang="en">Reader feedback</span><span data-lang="ja" hidden>読者のコメント</span></h2>
+  <p class="note"><span data-lang="en">Comments use GitHub sign-in, so every commenter is a real GitHub account. Be kind and stay on topic.</span><span data-lang="ja" hidden>コメントには GitHub へのログインが必要です。思いやりを持って、話題に沿って書き込んでください。</span></p>
+  <div class="giscus"></div>
+</section>
+
+<nav class="pager" data-noread>
+  <a href="../"><span data-lang="en">← All briefs</span><span data-lang="ja" hidden>← バックナンバー</span></a>
+  <span></span>
+</nav>
+</main>
+<script src="../assets/brief.js"></script>
+</body>
+</html>

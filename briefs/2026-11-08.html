@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Blockchain Brief, 8 Nov 2026</title>
+<meta name="description" content="A BSC-Reth state-root hotfix and BNB&#x27;s Jenner fork, FinCEN cuts MEXC off from US banks, and Russia opens crypto to retail investors.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-title-en="Blockchain Brief, 8 Nov 2026" data-title-ja="ブロックチェーン・ブリーフ 2026年11月8日">
+<div class="bar"><div class="bar-in">
+  <a class="home" href="../">Blockchain Brief</a>
+  <div class="controls">
+    <div class="seg" role="group" aria-label="Language"><button type="button" data-set-lang="en" aria-pressed="true">EN</button><button type="button" data-set-lang="ja" aria-pressed="false">日本語</button></div>
+  </div>
+</div></div>
+
+<main class="wrap">
+
+<!-- Read-aloud panel (shared; labels follow the language toggle) -->
+<section class="audio" id="audio" aria-label="Read aloud" data-noread>
+  <div class="audio-row">
+    <button type="button" class="btn primary" data-a="play">▶ Listen</button>
+    <button type="button" class="btn" data-a="stop" disabled>■ Stop</button>
+    <select class="btn" data-a="scope" aria-label="What to read"><option value="all">Whole brief</option><option value="dev">Dev only</option><option value="nondev">Non-dev only</option></select>
+  </div>
+  <div class="audio-row">
+    <label class="status"><span data-a="speedlbl">Speed</span>
+      <select class="btn" data-a="rate"><option value="0.8">0.8×</option><option value="0.9">0.9×</option><option value="1" selected>1×</option><option value="1.15">1.15×</option><option value="1.3">1.3×</option><option value="1.5">1.5×</option></select></label>
+    <label class="status"><span data-a="voicelbl">Voice</span>
+      <select class="btn" data-a="voice"></select></label>
+  </div>
+  <p class="status" data-a="status" aria-live="polite"></p>
+</section>
+
+<!-- ===================== ENGLISH ===================== -->
+<article data-lang="en" class="wrap" style="padding:0">
+  <header class="brief">
+    <span class="mono meta">Daily brief · 8 Nov 2026 · about 5 min read</span>
+    <h1>Blockchain Brief, 8 Nov 2026</h1>
+    <p class="lede">BNB Chain patches a state-root bug in its Reth client and schedules a fork with a reserved payment lane, the US Treasury cuts MEXC off from American banks, and Russia opens crypto buying to retail investors.</p>
+    <p class="note">Claims I could not confirm from a primary or second independent source are marked Unverified.</p>
+    <nav class="jump" data-noread aria-label="Sections"><a class="dev" href="#dev-en">Dev ↓</a><a class="nondev" href="#nondev-en">Non-dev ↓</a></nav>
+  </header>
+
+  <section class="track dev" id="dev-en">
+    <div class="track-head"><h2>Dev</h2><p>Protocol changes, contract risks, security details and tooling.</p></div>
+    <div class="item">
+      <span class="tag mono" data-noread>Security · BNB Chain · 6–8 Nov</span>
+      <h3>BSC-Reth could compute the wrong state root</h3>
+      <p>BNB Chain released BSC-Reth v0.1.4-hotfix on 6 November to fix “an error that could make Reth calculate the wrong state root under specific conditions.” The fix pulls in an upstream Reth correction to a legacy calculation path. Operators only need to install the release and restart: no database migration or hard fork is required. It applies to mainnet and testnet BSC-Reth nodes; opBNB is not affected (<a href='https://github.com/bnb-chain/reth-bsc/releases/tag/v0.1.4-hotfix'>GitHub release</a>, <a href='https://crypto.news/bnb-chain-red-alarm-bsc-reth-security-hotfix/'>crypto.news</a>). A wrong state root makes a node disagree with the network about the chain's state, so validators running the bug could fork off or produce invalid blocks. This is the main risk of running a newer second client.</p>
+      <p>BNB Chain also announced the Jenner hard fork for 8 December at 02:30 UTC. It adds a “Payment Lane” that reserves a default 5% of block gas for eligible payment transactions.</p>
+      <p class="unverified"><b>Unverified</b>Which versions were affected, and how payments qualify for the Payment Lane. BNB Chain describes its exposure as “limited.”</p>
+    </div>
+    <div class="item">
+      <h3>What to do this week</h3>
+      <ul class="points"><li>BSC-Reth operators should upgrade to v0.1.4-hotfix now. It only needs a restart.</li><li>Run a second client in shadow mode and alert on any state-root mismatch with your primary client.</li><li>Payment apps on BNB Chain should test against Jenner's Payment Lane before 8 December.</li><li>Add the MEXC designation to your deposit and counterparty screening.</li></ul>
+    </div>
+  </section>
+
+  <section class="track nondev" id="nondev-en">
+    <div class="track-head"><h2>Non-dev</h2><p>Market, business and regulation, and what the news means in plain language.</p></div>
+    <div class="item">
+      <span class="tag mono" data-noread>Regulation · United States · 6 Nov</span>
+      <h3>FinCEN names MEXC a money laundering concern</h3>
+      <p>FinCEN has designated the MEXC Global exchange a primary money laundering concern, which bars US financial institutions from moving funds with it. The stated basis includes about $16.7 billion in illicit transfers from 2021 to 2026, sanctions evasion linked to Iran, Russia and North Korea, and more than $26 million tied to the “A7 Network” (<a href='https://home.treasury.gov/news/press-releases/sb0685'>US Treasury</a>, <a href='https://cryptoticker.io/en/crypto-news-this-week-recap-key-dates-november-2026/'>CryptoTicker</a>).</p>
+      <p class="unverified"><b>Unverified</b>The start date: one source says 30 days after issuance, another 30 days after publication in the Federal Register.</p>
+    </div>
+    <div class="item">
+      <span class="tag mono" data-noread>Regulation · Russia · from 17 Nov</span>
+      <h3>Russian retail investors get regulated crypto access</h3>
+      <p>From 17 November, licensed Russian exchanges and brokers may sell BTC, ETH and USDT to retail investors. Non-qualified investors can buy up to 300,000 rubles a year through each intermediary, and the Moscow Exchange is to start on 1 December (<a href='https://cryptoticker.io/en/crypto-news-this-week-recap-key-dates-november-2026/'>CryptoTicker</a>).</p>
+      <p class="unverified"><b>Unverified</b>I have not read the Bank of Russia's own notice.</p>
+    </div>
+    <div class="item">
+      <span class="tag mono" data-noread>BNB Chain · Plain summary</span>
+      <h3>A bug fix for BNB Chain's newer software</h3>
+      <p>Some computers that run BNB Chain use a newer piece of software that could, in rare cases, disagree with the rest of the network about balances. A fix is out and only needs a restart. Ordinary users don't need to do anything.</p>
+    </div>
+    <div class="item">
+      <h3>As a user</h3>
+      <ul class="points"><li>If you use MEXC and bank with a US institution, plan to move funds before the cut-off takes effect.</li><li>Check a scanner such as DappBay's Red Alarm list before interacting with unfamiliar BNB Chain contracts.</li><li>Coincheck users holding GRT, IMX, LSK, MANA, MASK or SAND should withdraw before 17 December.</li></ul>
+      <p>Coming up: The MEXC effective date, Solana Breakpoint in London (15–17 November), and a new Glamsterdam testnet date.</p>
+    </div>
+  </section>
+
+  <section class="sources">
+    <h2>Sources</h2>
+    <p>Reporting as of 8 November 2026. The GitHub and Treasury releases are primary but were read through coverage.</p>
+    <ul>
+      <li><a href="https://github.com/bnb-chain/reth-bsc/releases/tag/v0.1.4-hotfix">BNB Chain: BSC-Reth v0.1.4-hotfix release</a> <span class="kind">primary</span></li>
+      <li><a href="https://crypto.news/bnb-chain-red-alarm-bsc-reth-security-hotfix/">crypto.news: BSC-Reth hotfix and Red Alarm</a> <span class="kind">secondary</span></li>
+      <li><a href="https://home.treasury.gov/news/press-releases/sb0685">US Treasury press release on MEXC</a> <span class="kind">primary</span></li>
+      <li><a href="https://cryptoticker.io/en/crypto-news-this-week-recap-key-dates-november-2026/">CryptoTicker: crypto news this week</a> <span class="kind">secondary</span></li>
+      <li><a href="https://note.com/yykoukishin22/n/n623005bd750a?hl=en">note.com: top crypto news, 7 Nov</a> <span class="kind">aggregator</span></li>
+    </ul>
+  </section>
+</article>
+
+<!-- ===================== 日本語 ===================== -->
+<article data-lang="ja" class="wrap" style="padding:0" hidden>
+  <header class="brief">
+    <span class="mono meta">デイリーブリーフ · 2026年11月8日 · 約5分</span>
+    <h1>ブロックチェーン・ブリーフ 2026年11月8日</h1>
+    <p class="lede">BNB Chain が Reth クライアントのステートルートのバグを修正し、決済専用レーンを設けるフォークを予定。米財務省は MEXC を米国の銀行から締め出し、ロシアは個人投資家に暗号資産の購入を解禁します。</p>
+    <p class="note">一次情報または独立した2つ目の情報源で確認できなかった内容には「未確認」と表示しています。</p>
+    <nav class="jump" data-noread aria-label="セクション"><a class="dev" href="#dev-ja">Dev ↓</a><a class="nondev" href="#nondev-ja">Non-dev ↓</a></nav>
+  </header>
+
+  <section class="track dev" id="dev-ja">
+    <div class="track-head"><h2>Dev</h2><p>プロトコル変更、コントラクトのリスク、セキュリティの詳細、開発ツール。</p></div>
+    <div class="item">
+      <span class="tag mono" data-noread>セキュリティ · BNB Chain · 11月6〜8日</span>
+      <h3>BSC-Reth が誤ったステートルートを計算するおそれ</h3>
+      <p>BNB Chain は11月6日、「特定の条件下で Reth が誤ったステートルートを計算しうる不具合」を修正する BSC-Reth v0.1.4-hotfix を公開しました。上流の Reth で行われた、レガシーな計算経路の修正を取り込んだものです。運用者はリリースを入れて再起動するだけでよく、データベース移行やハードフォークは不要です。対象はメインネットとテストネットの BSC-Reth ノードで、opBNB は影響を受けません（<a href='https://github.com/bnb-chain/reth-bsc/releases/tag/v0.1.4-hotfix'>GitHub リリース</a>、<a href='https://crypto.news/bnb-chain-red-alarm-bsc-reth-security-hotfix/'>crypto.news</a>）。ステートルートが誤るとノードがチェーンの状態についてネットワークと食い違うため、バグのあるバリデータはフォークしたり不正なブロックを作ったりしえます。新しい2つ目のクライアントを動かす際の最大のリスクです。</p>
+      <p>BNB Chain は、12月8日 02:30 UTC に Jenner ハードフォークを行うことも発表しました。対象となる決済トランザクション向けに、ブロックガスの5%（既定値）を確保する「Payment Lane」を追加します。</p>
+      <p class="unverified"><b>未確認</b>影響を受けたバージョンと、Payment Lane の対象となる条件。BNB Chain は影響は「限定的」としています。</p>
+    </div>
+    <div class="item">
+      <h3>今週やること</h3>
+      <ul class="points"><li>BSC-Reth の運用者は今すぐ v0.1.4-hotfix にアップグレードする。再起動だけで済みます。</li><li>2つ目のクライアントをシャドーモードで動かし、主クライアントとのステートルートの不一致を通知する。</li><li>BNB Chain 上の決済アプリは、12月8日までに Jenner の Payment Lane でテストする。</li><li>入金や取引相手のスクリーニングに MEXC の指定を加える。</li></ul>
+    </div>
+  </section>
+
+  <section class="track nondev" id="nondev-ja">
+    <div class="track-head"><h2>Non-dev</h2><p>市場・ビジネス・規制と、ニュースが何を意味するかのやさしい解説。</p></div>
+    <div class="item">
+      <span class="tag mono" data-noread>規制 · 米国 · 11月6日</span>
+      <h3>FinCEN が MEXC を資金洗浄の主要懸念先に指定</h3>
+      <p>FinCEN は取引所 MEXC Global を資金洗浄の主要懸念先に指定し、米国の金融機関が同社と資金をやり取りすることを禁じました。根拠として、2021〜2026年の約167億ドルの不正送金、イラン・ロシア・北朝鮮に関わる制裁逃れ、「A7 Network」に結びつく2,600万ドル超を挙げています（<a href='https://home.treasury.gov/news/press-releases/sb0685'>米財務省</a>、<a href='https://cryptoticker.io/en/crypto-news-this-week-recap-key-dates-november-2026/'>CryptoTicker</a>）。</p>
+      <p class="unverified"><b>未確認</b>発効日。発出から30日後とする情報と、官報掲載から30日後とする情報があります。</p>
+    </div>
+    <div class="item">
+      <span class="tag mono" data-noread>規制 · ロシア · 11月17日から</span>
+      <h3>ロシアの個人投資家が規制下で暗号資産を購入可能に</h3>
+      <p>11月17日から、ロシアの認可を受けた取引所やブローカーが個人投資家に BTC、ETH、USDT を販売できるようになります。適格でない投資家は仲介業者ごとに年30万ルーブルまで購入でき、モスクワ取引所は12月1日に開始する予定です（<a href='https://cryptoticker.io/en/crypto-news-this-week-recap-key-dates-november-2026/'>CryptoTicker</a>）。</p>
+      <p class="unverified"><b>未確認</b>ロシア中央銀行自身の告知は読めていません。</p>
+    </div>
+    <div class="item">
+      <span class="tag mono" data-noread>BNB Chain · やさしい解説</span>
+      <h3>BNB Chain の新しいソフトのバグ修正</h3>
+      <p>BNB Chain を動かすコンピュータの一部は新しいソフトを使っており、まれに残高などについてネットワークの他の部分と食い違う可能性がありました。修正版はすでに出ており、再起動するだけで適用できます。一般の利用者は何もする必要はありません。</p>
+    </div>
+    <div class="item">
+      <h3>利用者として</h3>
+      <ul class="points"><li>MEXC を使っていて米国の銀行口座を持つなら、遮断が発効する前に資金の移動を計画する。</li><li>見慣れない BNB Chain のコントラクトを使う前に、DappBay の Red Alarm などのスキャナーで確認する。</li><li>Coincheck で GRT、IMX、LSK、MANA、MASK、SAND を持っている人は12月17日までに出庫する。</li></ul>
+      <p>今後の予定：MEXC 指定の発効日、ロンドンでの Solana Breakpoint（11月15〜17日）、Glamsterdam の新しいテストネット日程。</p>
+    </div>
+  </section>
+
+  <section class="sources">
+    <h2>出典</h2>
+    <p>2026年11月8日時点の報道に基づきます。GitHub と財務省の発表は一次情報ですが、報道経由で読んでいます。</p>
+    <ul>
+      <li><a href="https://github.com/bnb-chain/reth-bsc/releases/tag/v0.1.4-hotfix">BNB Chain: BSC-Reth v0.1.4-hotfix release</a> <span class="kind">一次情報</span></li>
+      <li><a href="https://crypto.news/bnb-chain-red-alarm-bsc-reth-security-hotfix/">crypto.news: BSC-Reth hotfix and Red Alarm</a> <span class="kind">二次情報</span></li>
+      <li><a href="https://home.treasury.gov/news/press-releases/sb0685">US Treasury press release on MEXC</a> <span class="kind">一次情報</span></li>
+      <li><a href="https://cryptoticker.io/en/crypto-news-this-week-recap-key-dates-november-2026/">CryptoTicker: crypto news this week</a> <span class="kind">二次情報</span></li>
+      <li><a href="https://note.com/yykoukishin22/n/n623005bd750a?hl=en">note.com: top crypto news, 7 Nov</a> <span class="kind">まとめサイト</span></li>
+    </ul>
+  </section>
+</article>
+
+<section class="comments" id="comments" data-noread>
+  <h2><span data-lang="en">Reader feedback</span><span data-lang="ja" hidden>読者のコメント</span></h2>
+  <p class="note"><span data-lang="en">Comments use GitHub sign-in, so every commenter is a real GitHub account. Be kind and stay on topic.</span><span data-lang="ja" hidden>コメントには GitHub へのログインが必要です。思いやりを持って、話題に沿って書き込んでください。</span></p>
+  <div class="giscus"></div>
+</section>
+
+<nav class="pager" data-noread>
+  <a href="../"><span data-lang="en">← All briefs</span><span data-lang="ja" hidden>← バックナンバー</span></a>
+  <span></span>
+</nav>
+</main>
+<script src="../assets/brief.js"></script>
+</body>
+</html>

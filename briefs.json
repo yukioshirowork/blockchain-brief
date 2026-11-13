@@ -2,10 +2,85 @@
   {
     "date": "2026-11-12",
     "file": "briefs/2026-11-12.html",
-    "title": { "en": "Blockchain Brief, 12 Nov 2026", "ja": "ブロックチェーン・ブリーフ 2026年11月12日" },
+    "title": {
+      "en": "Blockchain Brief, 12 Nov 2026",
+      "ja": "ブロックチェーン・ブリーフ 2026年11月12日"
+    },
     "summary": {
       "en": "Glamsterdam's gas assumptions, an emergency LNbits release, and breaches at Initia, Across and Mercado Bitcoin.",
       "ja": "Glamsterdam のガス前提、LNbits の緊急リリース、Initia・Across・Mercado Bitcoin の侵害。"
+    }
+  },
+  {
+    "date": "2026-11-11",
+    "file": "briefs/2026-11-11.html",
+    "title": {
+      "en": "Blockchain Brief, 11 Nov 2026",
+      "ja": "ブロックチェーン・ブリーフ 2026年11月11日"
+    },
+    "summary": {
+      "en": "EIP-8488's versioned opcodes, North Korea-linked memecoin laundering on NEAR, and a 37-bank euro stablecoin.",
+      "ja": "EIP-8488 のバージョン付きオペコード、北朝鮮系による NEAR ミームコイン洗浄、37行の銀行によるユーロ建てステーブルコイン。"
+    }
+  },
+  {
+    "date": "2026-11-10",
+    "file": "briefs/2026-11-10.html",
+    "title": {
+      "en": "Blockchain Brief, 10 Nov 2026",
+      "ja": "ブロックチェーン・ブリーフ 2026年11月10日"
+    },
+    "summary": {
+      "en": "Gnosis Pay's breach included card numbers and CVVs tied to wallets, Bittensor's post-quantum wallet, and regulatory moves in the EU, Japan and US.",
+      "ja": "Gnosis Pay の流出にカード番号・CVV とウォレットの紐づけ、Bittensor の耐量子ウォレット、EU・日本・米国の規制の動き。"
+    }
+  },
+  {
+    "date": "2026-11-09",
+    "file": "briefs/2026-11-09.html",
+    "title": {
+      "en": "Blockchain Brief, 9 Nov 2026",
+      "ja": "ブロックチェーン・ブリーフ 2026年11月9日"
+    },
+    "summary": {
+      "en": "A Gnosis Pay data breach, Greece's flat crypto tax, USDC in Samsung Wallet via Stripe, and an ex-FBI agent's theft from seized wallets.",
+      "ja": "Gnosis Pay の情報流出、ギリシャの一律暗号資産課税、Stripe 経由で Samsung Wallet に USDC、元 FBI 捜査官による押収ウォレットからの窃盗。"
+    }
+  },
+  {
+    "date": "2026-11-08",
+    "file": "briefs/2026-11-08.html",
+    "title": {
+      "en": "Blockchain Brief, 8 Nov 2026",
+      "ja": "ブロックチェーン・ブリーフ 2026年11月8日"
+    },
+    "summary": {
+      "en": "A BSC-Reth state-root hotfix and BNB's Jenner fork, FinCEN cuts MEXC off from US banks, and Russia opens crypto to retail investors.",
+      "ja": "BSC-Reth のステートルート修正と BNB の Jenner フォーク、FinCEN が MEXC を米銀から遮断、ロシアが個人投資家に暗号資産を解禁。"
+    }
+  },
+  {
+    "date": "2026-11-07",
+    "file": "briefs/2026-11-07.html",
+    "title": {
+      "en": "Blockchain Brief, 7 Nov 2026",
+      "ja": "ブロックチェーン・ブリーフ 2026年11月7日"
+    },
+    "summary": {
+      "en": "“Quantum landmines” for Bitcoin, Binance's preliminary breach report, and upgrade calls for Algorand and Solana node operators.",
+      "ja": "ビットコインの「量子地雷」案、Binance の暫定的な侵害報告、Algorand と Solana のノード運用者へのアップグレード要請。"
+    }
+  },
+  {
+    "date": "2026-11-06",
+    "file": "briefs/2026-11-06.html",
+    "title": {
+      "en": "Blockchain Brief, 6 Nov 2026",
+      "ja": "ブロックチェーン・ブリーフ 2026年11月6日"
+    },
+    "summary": {
+      "en": "Zcash NU7 goes live and strands Sprout funds, XRPL's cleanup amendment stops signature replay, and US and French policy shifts.",
+      "ja": "Zcash NU7 が稼働し Sprout の資金が動かせなく、XRPL の整理アップデートで署名の使い回しを防止、米仏の政策の動き。"
     }
   }
 ]

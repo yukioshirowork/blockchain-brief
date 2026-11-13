@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Blockchain Brief, 7 Nov 2026</title>
+<meta name="description" content="“Quantum landmines” for Bitcoin, Binance&#x27;s preliminary breach report, and upgrade calls for Algorand and Solana node operators.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-title-en="Blockchain Brief, 7 Nov 2026" data-title-ja="ブロックチェーン・ブリーフ 2026年11月7日">
+<div class="bar"><div class="bar-in">
+  <a class="home" href="../">Blockchain Brief</a>
+  <div class="controls">
+    <div class="seg" role="group" aria-label="Language"><button type="button" data-set-lang="en" aria-pressed="true">EN</button><button type="button" data-set-lang="ja" aria-pressed="false">日本語</button></div>
+  </div>
+</div></div>
+
+<main class="wrap">
+
+<!-- Read-aloud panel (shared; labels follow the language toggle) -->
+<section class="audio" id="audio" aria-label="Read aloud" data-noread>
+  <div class="audio-row">
+    <button type="button" class="btn primary" data-a="play">▶ Listen</button>
+    <button type="button" class="btn" data-a="stop" disabled>■ Stop</button>
+    <select class="btn" data-a="scope" aria-label="What to read"><option value="all">Whole brief</option><option value="dev">Dev only</option><option value="nondev">Non-dev only</option></select>
+  </div>
+  <div class="audio-row">
+    <label class="status"><span data-a="speedlbl">Speed</span>
+      <select class="btn" data-a="rate"><option value="0.8">0.8×</option><option value="0.9">0.9×</option><option value="1" selected>1×</option><option value="1.15">1.15×</option><option value="1.3">1.3×</option><option value="1.5">1.5×</option></select></label>
+    <label class="status"><span data-a="voicelbl">Voice</span>
+      <select class="btn" data-a="voice"></select></label>
+  </div>
+  <p class="status" data-a="status" aria-live="polite"></p>
+</section>
+
+<!-- ===================== ENGLISH ===================== -->
+<article data-lang="en" class="wrap" style="padding:0">
+  <header class="brief">
+    <span class="mono meta">Daily brief · 7 Nov 2026 · about 4 min read</span>
+    <h1>Blockchain Brief, 7 Nov 2026</h1>
+    <p class="lede">A Bitcoin Core developer floats “quantum landmines” to deter key theft, Binance's first technical report confirms a months-long intrusion, and node operators on Algorand and Solana get upgrade calls.</p>
+    <p class="note">A quieter news day, and much of it is thinly sourced. Claims I could not confirm from a primary or second independent source are marked Unverified.</p>
+    <nav class="jump" data-noread aria-label="Sections"><a class="dev" href="#dev-en">Dev ↓</a><a class="nondev" href="#nondev-en">Non-dev ↓</a></nav>
+  </header>
+
+  <section class="track dev" id="dev-en">
+    <div class="track-head"><h2>Dev</h2><p>Protocol changes, contract risks, security details and tooling.</p></div>
+    <div class="item">
+      <span class="tag mono" data-noread>Research · Bitcoin · 5–6 Nov</span>
+      <h3>Quantum landmines: make theft costly, not impossible</h3>
+      <p>Bitcoin Core developer Cory Fields has reportedly proposed “Quantum Landmines” on the bitcoin-dev mailing list. Anyone spending from a quantum-vulnerable address would have to post equal collateral, for example 1 BTC to move 1 BTC, and both would be locked for a period such as 30 days. If the true owner shows up during that window, a thief would lose the collateral as well as the coins. Instead of freezing old coins outright, it tries to make quantum theft economically unattractive. It is described as a thought experiment with no implementation timeline (<a href='https://www.fameex.com/en-US/news/crypto-news-recap-20261106'>FameEX recap</a>).</p>
+      <p class="unverified"><b>Unverified</b>I have not found the mailing-list post. Details come from one exchange's recap, and how the true owner would prove ownership is not described.</p>
+    </div>
+    <div class="item">
+      <span class="tag mono" data-noread>Follow-up · Binance · 3–4 Nov</span>
+      <h3>Binance's preliminary technical report</h3>
+      <p>Binance published its first technical report on the breach on 3 November on Binance Square. According to SpazioCrypto, cross-checked with CoinDesk and The Hacker News, it traces entry to a tampered installer in June and the drain to an internal AI tool combined with EIP-7702 delegations on Ethereum. About $2.85 billion is frozen. SpazioCrypto calls it “a preliminary, self-authored account,” and the promised independent review has not been delivered (<a href='https://en.spaziocrypto.com/hack/binance-6-billion-hack-fake-interviews-malware-eip-7702/'>SpazioCrypto</a>).</p>
+      <p class="unverified"><b>Unverified</b>I could not find a direct link to the report.</p>
+    </div>
+    <div class="item">
+      <span class="tag mono" data-noread>Operations · Algorand and Solana · 5–6 Nov</span>
+      <h3>Upgrade calls for node operators</h3>
+      <p>Algorand has reportedly rolled out a consensus protocol upgrade that requires node runners to run algod 5.0.5, effective 5 November (<a href='https://cryptonews.net/news/altcoins/33710066/'>cryptonews.net</a>). Separately, Solana validators were reportedly urged to upgrade by 6 November to avoid a network fork (<a href='https://cryptobriefing.com/solana-validators-urged-to-upgrade-by-nov-6-to-avoid-network-fork/'>Crypto Briefing</a>).</p>
+      <p class="unverified"><b>Unverified</b>Both items: versions, features and activation points are unconfirmed.</p>
+    </div>
+    <div class="item">
+      <h3>What to do this week</h3>
+      <ul class="points"><li>Follow bitcoin-dev quantum proposals. Collateral and timelock designs would change wallet spending flows.</li><li>Treat installers and AI-tool plugins as supply-chain risks. Verify signatures and pin hashes.</li><li>Algorand node operators should confirm they are on algod 5.0.5 from official release notes.</li><li>Solana validators should check Anza and Firedancer channels for any required version and feature gate.</li></ul>
+    </div>
+  </section>
+
+  <section class="track nondev" id="nondev-en">
+    <div class="track-head"><h2>Non-dev</h2><p>Market, business and regulation, and what the news means in plain language.</p></div>
+    <div class="item">
+      <span class="tag mono" data-noread>Plain summary · Bitcoin and quantum</span>
+      <h3>A new idea for protecting old bitcoin from future quantum computers</h3>
+      <p>Future quantum computers might be able to work out the keys to some old bitcoin addresses. Rather than freezing those coins, one developer suggests making anyone who moves them put up an equal deposit and wait a month, so a thief risks losing double if the real owner appears. It is only an idea for now.</p>
+    </div>
+    <div class="item">
+      <span class="tag mono" data-noread>Binance · Plain summary</span>
+      <h3>Binance's own account of its hack is out, but not yet checked</h3>
+      <p>Binance says the attackers got in through a tampered software installer back in June and later used an internal AI tool to move funds. About $2.85 billion has been frozen. This is the company's own version, and the independent review it promised hasn't been published.</p>
+    </div>
+    <div class="item">
+      <h3>As a user</h3>
+      <ul class="points"><li>If you hold bitcoin in old address types with exposed public keys, consider moving it to a fresh address you have never spent from.</li><li>Treat Binance's report as the company's own account until the independent review is published.</li><li>Nothing to do for Algorand or Solana unless you run a node.</li></ul>
+      <p>Coming up: The mailing-list thread, Binance's independent review, and the Stellar Bell mainnet vote on 23 November.</p>
+    </div>
+  </section>
+
+  <section class="sources">
+    <h2>Sources</h2>
+    <p>Reporting as of 7 November 2026. All sources are secondary news or exchange recaps; no primary source could be read.</p>
+    <ul>
+      <li><a href="https://www.fameex.com/en-US/news/crypto-news-recap-20261106">FameEX: crypto news recap, 6 Nov</a> <span class="kind">aggregator</span></li>
+      <li><a href="https://en.spaziocrypto.com/hack/binance-6-billion-hack-fake-interviews-malware-eip-7702/">SpazioCrypto: Binance technical report</a> <span class="kind">secondary</span></li>
+      <li><a href="https://cryptonews.net/news/altcoins/33710066/">cryptonews.net: Algorand consensus upgrade</a> <span class="kind">secondary</span></li>
+      <li><a href="https://cryptobriefing.com/solana-validators-urged-to-upgrade-by-nov-6-to-avoid-network-fork/">Crypto Briefing: Solana validators urged to upgrade</a> <span class="kind">secondary</span></li>
+    </ul>
+  </section>
+</article>
+
+<!-- ===================== 日本語 ===================== -->
+<article data-lang="ja" class="wrap" style="padding:0" hidden>
+  <header class="brief">
+    <span class="mono meta">デイリーブリーフ · 2026年11月7日 · 約4分</span>
+    <h1>ブロックチェーン・ブリーフ 2026年11月7日</h1>
+    <p class="lede">Bitcoin Core の開発者が鍵の盗難を抑止する「量子地雷」を提案、Binance の最初の技術報告で数か月に及ぶ侵入が確認され、Algorand と Solana のノード運用者にアップグレードが求められています。</p>
+    <p class="note">ニュースの少ない日で、情報源の薄いものが多くなっています。一次情報または独立した2つ目の情報源で確認できなかった内容には「未確認」と表示しています。</p>
+    <nav class="jump" data-noread aria-label="セクション"><a class="dev" href="#dev-ja">Dev ↓</a><a class="nondev" href="#nondev-ja">Non-dev ↓</a></nav>
+  </header>
+
+  <section class="track dev" id="dev-ja">
+    <div class="track-head"><h2>Dev</h2><p>プロトコル変更、コントラクトのリスク、セキュリティの詳細、開発ツール。</p></div>
+    <div class="item">
+      <span class="tag mono" data-noread>研究 · Bitcoin · 11月5〜6日</span>
+      <h3>量子地雷：盗難を不可能にするのではなく、割に合わなくする</h3>
+      <p>Bitcoin Core の開発者 Cory Fields が、bitcoin-dev メーリングリストで「Quantum Landmines」を提案したと報じられています。量子攻撃に弱いアドレスから送金する人は同額の担保（1 BTC を動かすなら 1 BTC）を差し入れ、両方が30日などの期間ロックされます。その間に本当の所有者が現れれば、盗んだ側はコインと担保の両方を失います。古いコインを一律に凍結する代わりに、量子による盗難を経済的に割に合わなくする発想です。実装時期のない思考実験とされています（<a href='https://www.fameex.com/en-US/news/crypto-news-recap-20261106'>FameEX のまとめ</a>）。</p>
+      <p class="unverified"><b>未確認</b>メーリングリストの投稿は見つかっていません。詳細は取引所1社のまとめによるもので、本当の所有者がどう証明するかは説明されていません。</p>
+    </div>
+    <div class="item">
+      <span class="tag mono" data-noread>続報 · Binance · 11月3〜4日</span>
+      <h3>Binance の暫定技術報告</h3>
+      <p>Binance は11月3日、Binance Square で侵害に関する最初の技術報告を公開しました。CoinDesk と The Hacker News で裏付けをとった SpazioCrypto によると、侵入の起点は6月の改ざんされたインストーラーで、資金の流出は社内の AI ツールとイーサリアム上の EIP-7702 による委任の組み合わせでした。約28.5億ドルが凍結されています。SpazioCrypto は「暫定的な自社作成の説明」と評しており、約束された独立レビューはまだ出ていません（<a href='https://en.spaziocrypto.com/hack/binance-6-billion-hack-fake-interviews-malware-eip-7702/'>SpazioCrypto</a>）。</p>
+      <p class="unverified"><b>未確認</b>報告書への直接リンクは見つかっていません。</p>
+    </div>
+    <div class="item">
+      <span class="tag mono" data-noread>運用 · Algorand と Solana · 11月5〜6日</span>
+      <h3>ノード運用者へのアップグレード要請</h3>
+      <p>Algorand は合意プロトコルのアップグレードを実施し、11月5日からノード運用者に algod 5.0.5 が必要になったと報じられています（<a href='https://cryptonews.net/news/altcoins/33710066/'>cryptonews.net</a>）。また Solana のバリデータは、ネットワークのフォークを避けるため11月6日までにアップグレードするよう求められたと報じられています（<a href='https://cryptobriefing.com/solana-validators-urged-to-upgrade-by-nov-6-to-avoid-network-fork/'>Crypto Briefing</a>）。</p>
+      <p class="unverified"><b>未確認</b>両方とも、バージョン、機能、有効化のタイミングは未確認です。</p>
+    </div>
+    <div class="item">
+      <h3>今週やること</h3>
+      <ul class="points"><li>bitcoin-dev の量子対策の提案を追う。担保やタイムロックの設計はウォレットの送金フローを変えます。</li><li>インストーラーや AI ツールのプラグインをサプライチェーンのリスクとして扱い、署名を確認しハッシュを固定する。</li><li>Algorand のノード運用者は、公式リリースノートで algod 5.0.5 になっているか確認する。</li><li>Solana のバリデータは、Anza と Firedancer の公式チャンネルで必要なバージョンとフィーチャーゲートを確認する。</li></ul>
+    </div>
+  </section>
+
+  <section class="track nondev" id="nondev-ja">
+    <div class="track-head"><h2>Non-dev</h2><p>市場・ビジネス・規制と、ニュースが何を意味するかのやさしい解説。</p></div>
+    <div class="item">
+      <span class="tag mono" data-noread>やさしい解説 · ビットコインと量子</span>
+      <h3>古いビットコインを将来の量子コンピュータから守る新しいアイデア</h3>
+      <p>将来の量子コンピュータは、一部の古いビットコインアドレスの鍵を割り出せるかもしれません。ある開発者は、そのコインを凍結する代わりに、動かす人に同額の預け金と1か月の待機を求め、本当の所有者が現れたら盗んだ側が倍を失う仕組みを提案しています。いまのところアイデアの段階です。</p>
+    </div>
+    <div class="item">
+      <span class="tag mono" data-noread>Binance · やさしい解説</span>
+      <h3>Binance がハッキングの経緯を公表、ただし第三者の検証はまだ</h3>
+      <p>Binance によると、攻撃者は6月に改ざんされたソフトのインストーラーから侵入し、後に社内の AI ツールを使って資金を動かしました。約28.5億ドルが凍結されています。これは会社自身の説明で、約束された独立レビューはまだ公表されていません。</p>
+    </div>
+    <div class="item">
+      <h3>利用者として</h3>
+      <ul class="points"><li>公開鍵がさらされた古い形式のアドレスにビットコインがあるなら、一度も送金に使っていない新しいアドレスへの移動を検討する。</li><li>独立レビューが出るまで、Binance の報告は会社自身の説明として受け止める。</li><li>ノードを運用していなければ、Algorand や Solana について何もする必要はありません。</li></ul>
+      <p>今後の予定：メーリングリストでの議論、Binance の独立レビュー、11月23日の Stellar「Bell」メインネット投票。</p>
+    </div>
+  </section>
+
+  <section class="sources">
+    <h2>出典</h2>
+    <p>2026年11月7日時点の報道に基づきます。いずれも二次情報や取引所のまとめで、一次情報は読めていません。</p>
+    <ul>
+      <li><a href="https://www.fameex.com/en-US/news/crypto-news-recap-20261106">FameEX: crypto news recap, 6 Nov</a> <span class="kind">まとめサイト</span></li>
+      <li><a href="https://en.spaziocrypto.com/hack/binance-6-billion-hack-fake-interviews-malware-eip-7702/">SpazioCrypto: Binance technical report</a> <span class="kind">二次情報</span></li>
+      <li><a href="https://cryptonews.net/news/altcoins/33710066/">cryptonews.net: Algorand consensus upgrade</a> <span class="kind">二次情報</span></li>
+      <li><a href="https://cryptobriefing.com/solana-validators-urged-to-upgrade-by-nov-6-to-avoid-network-fork/">Crypto Briefing: Solana validators urged to upgrade</a> <span class="kind">二次情報</span></li>
+    </ul>
+  </section>
+</article>
+
+<section class="comments" id="comments" data-noread>
+  <h2><span data-lang="en">Reader feedback</span><span data-lang="ja" hidden>読者のコメント</span></h2>
+  <p class="note"><span data-lang="en">Comments use GitHub sign-in, so every commenter is a real GitHub account. Be kind and stay on topic.</span><span data-lang="ja" hidden>コメントには GitHub へのログインが必要です。思いやりを持って、話題に沿って書き込んでください。</span></p>
+  <div class="giscus"></div>
+</section>
+
+<nav class="pager" data-noread>
+  <a href="../"><span data-lang="en">← All briefs</span><span data-lang="ja" hidden>← バックナンバー</span></a>
+  <span></span>
+</nav>
+</main>
+<script src="../assets/brief.js"></script>
+</body>
+</html>

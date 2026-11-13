@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Blockchain Brief, 6 Nov 2026</title>
+<meta name="description" content="Zcash NU7 goes live and strands Sprout funds, XRPL&#x27;s cleanup amendment stops signature replay, and US and French policy shifts.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-title-en="Blockchain Brief, 6 Nov 2026" data-title-ja="ブロックチェーン・ブリーフ 2026年11月6日">
+<div class="bar"><div class="bar-in">
+  <a class="home" href="../">Blockchain Brief</a>
+  <div class="controls">
+    <div class="seg" role="group" aria-label="Language"><button type="button" data-set-lang="en" aria-pressed="true">EN</button><button type="button" data-set-lang="ja" aria-pressed="false">日本語</button></div>
+  </div>
+</div></div>
+
+<main class="wrap">
+
+<!-- Read-aloud panel (shared; labels follow the language toggle) -->
+<section class="audio" id="audio" aria-label="Read aloud" data-noread>
+  <div class="audio-row">
+    <button type="button" class="btn primary" data-a="play">▶ Listen</button>
+    <button type="button" class="btn" data-a="stop" disabled>■ Stop</button>
+    <select class="btn" data-a="scope" aria-label="What to read"><option value="all">Whole brief</option><option value="dev">Dev only</option><option value="nondev">Non-dev only</option></select>
+  </div>
+  <div class="audio-row">
+    <label class="status"><span data-a="speedlbl">Speed</span>
+      <select class="btn" data-a="rate"><option value="0.8">0.8×</option><option value="0.9">0.9×</option><option value="1" selected>1×</option><option value="1.15">1.15×</option><option value="1.3">1.3×</option><option value="1.5">1.5×</option></select></label>
+    <label class="status"><span data-a="voicelbl">Voice</span>
+      <select class="btn" data-a="voice"></select></label>
+  </div>
+  <p class="status" data-a="status" aria-live="polite"></p>
+</section>
+
+<!-- ===================== ENGLISH ===================== -->
+<article data-lang="en" class="wrap" style="padding:0">
+  <header class="brief">
+    <span class="mono meta">Daily brief · 6 Nov 2026 · about 5 min read</span>
+    <h1>Blockchain Brief, 6 Nov 2026</h1>
+    <p class="lede">Zcash's NU7 is live and has stranded about 12,000 ZEC in its oldest pool, the XRP Ledger's cleanup amendment closes a signature-replay gap, and US and French policy moves change the outlook for crypto rules.</p>
+    <p class="note">Claims I could not confirm from a primary or second independent source are marked Unverified.</p>
+    <nav class="jump" data-noread aria-label="Sections"><a class="dev" href="#dev-en">Dev ↓</a><a class="nondev" href="#nondev-en">Non-dev ↓</a></nav>
+  </header>
+
+  <section class="track dev" id="dev-en">
+    <div class="track-head"><h2>Dev</h2><p>Protocol changes, contract risks, security details and tooling.</p></div>
+    <div class="item">
+      <span class="tag mono" data-noread>Follow-up · Zcash · 6 Nov</span>
+      <h3>NU7 activates, and Sprout funds are locked</h3>
+      <p>NU7 activated at block 3,543,405 at 02:34 UTC on 6 November, according to ZecStats (<a href='https://zecstats.org/nu7'>ZecStats</a>, <a href='https://cointelegraph.com/news/zcash-nu7-upgrade-15m-sprout-funds-unspendable'>Cointelegraph</a>). Zcash now targets 25-second blocks. Under ZIP 2003, the network rejects version 4 transactions, the only format able to spend from the original Sprout shielded pool. About 12,224 ZEC, roughly $15M, remains there. The coins are not burned, but the specification warns that “the ability to spend Sprout funds may never be re-enabled.” No problems with miners, nodes or exchanges have been reported.</p>
+      <p class="unverified"><b>Unverified</b>Sources describe the start of fee reissuance differently, as block 8,939,664 or “around February 2031.”</p>
+    </div>
+    <div class="item">
+      <span class="tag mono" data-noread>Upgrade · XRP Ledger · Nov</span>
+      <h3>A cleanup amendment that stops signature replay</h3>
+      <p>The fixCleanup3_4_0 amendment, shipped in xrpld 3.4.0, bundles about a dozen gated fixes (<a href='https://xrpl.org/blog/2026/xrpld-3.4.0'>XRPL release notes</a>). The most instructive gives the counterparty and sponsor signatures their own signing-hash prefixes, so a signature made for one role can't be replayed in another. Other fixes stop AMM clawbacks from silently recovering zero and burning LP tokens when rounding floors the amount, enforce multi-purpose token balance checks instead of only logging them, and stop accounts that disallow incoming trust lines from receiving tokens through offers. Activation needs at least 80% validator support for two straight weeks (<a href='https://36crypto.com/xrp-ledger-targets-november-4-activation-for-major-network-cleanup-upgrade/'>36Crypto</a>).</p>
+      <p class="unverified"><b>Unverified</b>Whether the amendment actually activated on 4 November. One outlet gave 23 October.</p>
+    </div>
+    <div class="item">
+      <h3>What to do this week</h3>
+      <ul class="points"><li>Before retiring a transaction version, measure the funds only that version can spend and give holders a long warning.</li><li>Give each signature role its own domain separator or hash prefix, as XRPL and EIP-712 do.</li><li>Make invariants enforce, not just log, once they have been proven in production.</li><li>XRPL server operators should be on xrpld 3.4.x and check the known-amendments page for activation.</li></ul>
+    </div>
+  </section>
+
+  <section class="track nondev" id="nondev-en">
+    <div class="track-head"><h2>Non-dev</h2><p>Market, business and regulation, and what the news means in plain language.</p></div>
+    <div class="item">
+      <span class="tag mono" data-noread>Zcash · Plain summary</span>
+      <h3>About $15 million in old Zcash can't be moved for now</h3>
+      <p>Zcash's latest upgrade makes blocks about three times faster, but it also switched off the old transaction format needed to move coins out of its very first privacy pool. Around 12,000 ZEC still sat there and is now stuck. A future upgrade could unlock it, but there's no promise.</p>
+    </div>
+    <div class="item">
+      <span class="tag mono" data-noread>Policy · US and EU · 4–5 Nov</span>
+      <h3>Midterms stall US rules, and France asks about self-custody</h3>
+      <p>After the US midterms, which Democrats won in both chambers, the CLARITY market-structure bill is stalled in the Senate. If it doesn't pass before the current Congress ends on 3 January 2027, it may need to be reintroduced. House Democrats are reportedly drafting their own bill with wider SEC powers. In France, the National Assembly passed an amendment requiring disclosure of self-custodied crypto worth more than €100,000 (<a href='https://www.kucoin.com/news/articles/crypto-daily-market-report-november-5-2026'>KuCoin daily report</a>).</p>
+      <p class="unverified"><b>Unverified</b>From one exchange round-up with no primary links. The French amendment still has to pass the rest of the legislative process.</p>
+    </div>
+    <div class="item">
+      <h3>As a user</h3>
+      <ul class="points"><li>If you still had ZEC in Sprout, it is locked for now. Don't pay anyone who claims they can recover it.</li><li>Expect Zcash confirmations about three times faster from now on.</li><li>If you live in France and self-custody more than €100,000 in crypto, follow the amendment's progress.</li><li>US crypto rules are likely to slip into 2027.</li></ul>
+      <p>Coming up: The Stellar Bell mainnet vote on 23 November, confirmation of the XRPL amendment, and the THORChain restart.</p>
+    </div>
+  </section>
+
+  <section class="sources">
+    <h2>Sources</h2>
+    <p>Reporting as of 6 November 2026. ZecStats and the XRPL release notes are primary sources.</p>
+    <ul>
+      <li><a href="https://zecstats.org/nu7">ZecStats: NU7</a> <span class="kind">data</span></li>
+      <li><a href="https://cointelegraph.com/news/zcash-nu7-upgrade-15m-sprout-funds-unspendable">Cointelegraph: NU7 goes live, Sprout funds unspendable</a> <span class="kind">secondary</span></li>
+      <li><a href="https://xrpl.org/blog/2026/xrpld-3.4.0">XRPL: xrpld 3.4.0 release</a> <span class="kind">primary</span></li>
+      <li><a href="https://36crypto.com/xrp-ledger-targets-november-4-activation-for-major-network-cleanup-upgrade/">36Crypto: XRPL targets 4 Nov activation</a> <span class="kind">secondary</span></li>
+      <li><a href="https://www.kucoin.com/news/articles/crypto-daily-market-report-november-5-2026">KuCoin: crypto daily report, 5 Nov</a> <span class="kind">aggregator</span></li>
+    </ul>
+  </section>
+</article>
+
+<!-- ===================== 日本語 ===================== -->
+<article data-lang="ja" class="wrap" style="padding:0" hidden>
+  <header class="brief">
+    <span class="mono meta">デイリーブリーフ · 2026年11月6日 · 約5分</span>
+    <h1>ブロックチェーン・ブリーフ 2026年11月6日</h1>
+    <p class="lede">Zcash の NU7 が稼働し、最も古いプールの約1万2,000 ZEC が動かせなくなりました。XRP Ledger の整理用アップデートは署名の使い回しの穴をふさぎ、米国とフランスの政策の動きが暗号資産ルールの見通しを変えています。</p>
+    <p class="note">一次情報または独立した2つ目の情報源で確認できなかった内容には「未確認」と表示しています。</p>
+    <nav class="jump" data-noread aria-label="セクション"><a class="dev" href="#dev-ja">Dev ↓</a><a class="nondev" href="#nondev-ja">Non-dev ↓</a></nav>
+  </header>
+
+  <section class="track dev" id="dev-ja">
+    <div class="track-head"><h2>Dev</h2><p>プロトコル変更、コントラクトのリスク、セキュリティの詳細、開発ツール。</p></div>
+    <div class="item">
+      <span class="tag mono" data-noread>続報 · Zcash · 11月6日</span>
+      <h3>NU7 が有効化、Sprout の資金はロック</h3>
+      <p>ZecStats によると、NU7 は11月6日 02:34 UTC にブロック 3,543,405 で有効化されました（<a href='https://zecstats.org/nu7'>ZecStats</a>、<a href='https://cointelegraph.com/news/zcash-nu7-upgrade-15m-sprout-funds-unspendable'>Cointelegraph</a>）。Zcash のブロック間隔の目標は25秒になりました。ZIP 2003 により、ネットワークはバージョン4のトランザクションを拒否します。これは初代の Sprout シールドプールから送金できる唯一の形式でした。そこには約12,224 ZEC（約1,500万ドル）が残っています。コインは焼却されたわけではありませんが、仕様は「Sprout の資金を使えるようにすることは二度とないかもしれない」と警告しています。マイナー、ノード、取引所での問題は報告されていません。</p>
+      <p class="unverified"><b>未確認</b>手数料の再発行の開始時期について、ブロック 8,939,664 とする情報と「2031年2月ごろ」とする情報があります。</p>
+    </div>
+    <div class="item">
+      <span class="tag mono" data-noread>アップグレード · XRP Ledger · 11月</span>
+      <h3>署名の使い回しを防ぐ整理用アメンドメント</h3>
+      <p>xrpld 3.4.0 に含まれる fixCleanup3_4_0 アメンドメントは、約12件の修正をまとめたものです（<a href='https://xrpl.org/blog/2026/xrpld-3.4.0'>XRPL リリースノート</a>）。最も参考になるのは、取引相手とスポンサーの署名にそれぞれ専用の署名ハッシュ接頭辞を与え、ある役割の署名を別の役割で使い回せなくする修正です。ほかに、丸めで金額が切り捨てられたときに AMM のクローバックが黙ってゼロを回収し LP トークンを焼却してしまう問題の修正、多目的トークンの残高チェックをログだけでなく強制する変更、信頼線の受け入れを拒否したアカウントがオファー経由でトークンを受け取れないようにする変更があります。有効化には2週間続けて80%以上のバリデータの支持が必要です（<a href='https://36crypto.com/xrp-ledger-targets-november-4-activation-for-major-network-cleanup-upgrade/'>36Crypto</a>）。</p>
+      <p class="unverified"><b>未確認</b>実際に11月4日に有効化されたか。10月23日とする報道もあります。</p>
+    </div>
+    <div class="item">
+      <h3>今週やること</h3>
+      <ul class="points"><li>トランザクションのバージョンを廃止する前に、そのバージョンでしか動かせない資金を測り、保有者に長い猶予を与える。</li><li>XRPL や EIP-712 のように、署名の役割ごとにドメイン区切りやハッシュ接頭辞を分ける。</li><li>本番で検証できた不変条件は、ログだけでなく強制する。</li><li>XRPL サーバー運用者は xrpld 3.4.x にし、known-amendments ページで有効化を確認する。</li></ul>
+    </div>
+  </section>
+
+  <section class="track nondev" id="nondev-ja">
+    <div class="track-head"><h2>Non-dev</h2><p>市場・ビジネス・規制と、ニュースが何を意味するかのやさしい解説。</p></div>
+    <div class="item">
+      <span class="tag mono" data-noread>Zcash · やさしい解説</span>
+      <h3>古い Zcash 約1,500万ドル分が当面動かせない</h3>
+      <p>Zcash の最新アップグレードでブロックは約3倍速くなりましたが、最初期のプライバシープールからコインを動かすのに必要な古いトランザクション形式も止められました。そこに残っていた約1万2,000 ZEC は動かせなくなっています。将来のアップグレードで解除される可能性はありますが、約束はされていません。</p>
+    </div>
+    <div class="item">
+      <span class="tag mono" data-noread>政策 · 米国と EU · 11月4〜5日</span>
+      <h3>中間選挙で米国のルールが停滞、フランスは自己管理の申告を求める</h3>
+      <p>民主党が両院で勝利した米中間選挙の後、市場構造法案 CLARITY は上院で止まっています。2027年1月3日に現議会が終わるまでに成立しなければ、出し直しになる可能性があります。下院の民主党は SEC の権限を広げる独自の法案を準備していると報じられています。フランスでは国民議会が、10万ユーロを超える自己管理の暗号資産の申告を義務づける修正案を可決しました（<a href='https://www.kucoin.com/news/articles/crypto-daily-market-report-november-5-2026'>KuCoin デイリーレポート</a>）。</p>
+      <p class="unverified"><b>未確認</b>一次情報へのリンクのない取引所のまとめ1件が情報源です。フランスの修正案は、まだ残りの立法手続きを経る必要があります。</p>
+    </div>
+    <div class="item">
+      <h3>利用者として</h3>
+      <ul class="points"><li>Sprout に ZEC が残っていたなら、当面はロックされています。回収できると言う人にお金を払わないこと。</li><li>今後、Zcash の承認は約3倍速くなります。</li><li>フランスに住み、10万ユーロを超える暗号資産を自己管理しているなら、修正案の行方を追う。</li><li>米国の暗号資産ルールは2027年にずれ込む可能性が高い。</li></ul>
+      <p>今後の予定：11月23日の Stellar「Bell」メインネット投票、XRPL アメンドメントの確認、THORChain の再開。</p>
+    </div>
+  </section>
+
+  <section class="sources">
+    <h2>出典</h2>
+    <p>2026年11月6日時点の報道に基づきます。ZecStats と XRPL のリリースノートは一次情報です。</p>
+    <ul>
+      <li><a href="https://zecstats.org/nu7">ZecStats: NU7</a> <span class="kind">データ</span></li>
+      <li><a href="https://cointelegraph.com/news/zcash-nu7-upgrade-15m-sprout-funds-unspendable">Cointelegraph: NU7 goes live, Sprout funds unspendable</a> <span class="kind">二次情報</span></li>
+      <li><a href="https://xrpl.org/blog/2026/xrpld-3.4.0">XRPL: xrpld 3.4.0 release</a> <span class="kind">一次情報</span></li>
+      <li><a href="https://36crypto.com/xrp-ledger-targets-november-4-activation-for-major-network-cleanup-upgrade/">36Crypto: XRPL targets 4 Nov activation</a> <span class="kind">二次情報</span></li>
+      <li><a href="https://www.kucoin.com/news/articles/crypto-daily-market-report-november-5-2026">KuCoin: crypto daily report, 5 Nov</a> <span class="kind">まとめサイト</span></li>
+    </ul>
+  </section>
+</article>
+
+<section class="comments" id="comments" data-noread>
+  <h2><span data-lang="en">Reader feedback</span><span data-lang="ja" hidden>読者のコメント</span></h2>
+  <p class="note"><span data-lang="en">Comments use GitHub sign-in, so every commenter is a real GitHub account. Be kind and stay on topic.</span><span data-lang="ja" hidden>コメントには GitHub へのログインが必要です。思いやりを持って、話題に沿って書き込んでください。</span></p>
+  <div class="giscus"></div>
+</section>
+
+<nav class="pager" data-noread>
+  <a href="../"><span data-lang="en">← All briefs</span><span data-lang="ja" hidden>← バックナンバー</span></a>
+  <span></span>
+</nav>
+</main>
+<script src="../assets/brief.js"></script>
+</body>
+</html>
