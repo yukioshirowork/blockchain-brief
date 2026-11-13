@@ -180,9 +180,9 @@
   "use strict";
   var GISCUS = {
     repo: "yukioshirowork/blockchain-brief",
-    repoId: "",        // filled in once Discussions is on
-    category: "Brief comments",
-    categoryId: ""
+    repoId: "R_kgDOVtDQaA",
+    category: "Announcements",   // announcement-type: only maintainers and giscus can start threads
+    categoryId: "DIC_kwDOVtDQaM4DLC9H"
   };
   var box = document.querySelector(".giscus");
   if (!box) return;
