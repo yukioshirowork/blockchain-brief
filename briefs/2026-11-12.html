@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Blockchain Brief, 12 Nov 2026</title>
+<meta name="description" content="Glamsterdam's gas assumptions, an emergency LNbits release, and breaches at Initia, Across and Mercado Bitcoin.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-title-en="Blockchain Brief, 12 Nov 2026" data-title-ja="ブロックチェーン・ブリーフ 2026年11月12日">
+<div class="bar"><div class="bar-in">
+  <a class="home" href="../">Blockchain Brief</a>
+  <div class="controls">
+    <div class="seg" role="group" aria-label="Language"><button type="button" data-set-lang="en" aria-pressed="true">EN</button><button type="button" data-set-lang="ja" aria-pressed="false">日本語</button></div>
+  </div>
+</div></div>
+
+<main class="wrap">
+
+<!-- Read-aloud panel (shared; labels follow the language toggle) -->
+<section class="audio" id="audio" aria-label="Read aloud" data-noread>
+  <div class="audio-row">
+    <button type="button" class="btn primary" data-a="play">▶ Listen</button>
+    <button type="button" class="btn" data-a="stop" disabled>■ Stop</button>
+    <select class="btn" data-a="scope" aria-label="What to read"><option value="all">Whole brief</option><option value="dev">Dev only</option><option value="nondev">Non-dev only</option></select>
+  </div>
+  <div class="audio-row">
+    <label class="status"><span data-a="speedlbl">Speed</span>
+      <select class="btn" data-a="rate"><option value="0.8">0.8×</option><option value="0.9">0.9×</option><option value="1" selected>1×</option><option value="1.15">1.15×</option><option value="1.3">1.3×</option><option value="1.5">1.5×</option></select></label>
+    <label class="status"><span data-a="voicelbl">Voice</span>
+      <select class="btn" data-a="voice"></select></label>
+  </div>
+  <p class="status" data-a="status" aria-live="polite"></p>
+</section>
+
+<!-- ===================== ENGLISH ===================== -->
+<article data-lang="en" class="wrap" style="padding:0">
+  <header class="brief">
+    <span class="mono meta">Daily brief · 12 Nov 2026 · about 6 min read</span>
+    <h1>Blockchain Brief, 12 Nov 2026</h1>
+    <p class="lede">The Ethereum Foundation lists the contract assumptions Glamsterdam's gas changes could break, LNbits ships an emergency fix after attacks on self-hosted Lightning wallets, and a string of infrastructure breaches hits Initia, Across and Mercado Bitcoin.</p>
+    <p class="note">Claims I could not confirm from a primary or second independent source are marked Unverified.</p>
+    <nav class="jump" data-noread aria-label="Sections"><a class="dev" href="#dev-en">Dev ↓</a><a class="nondev" href="#nondev-en">Non-dev ↓</a></nav>
+  </header>
+
+  <section class="track dev" id="dev-en">
+    <div class="track-head"><h2>Dev</h2><p>Protocol changes, contract risks, security details and tooling.</p></div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>Follow-up · Ethereum · 6 Nov</span>
+      <h3>The gas invariants EIP-8037 and EIP-8038 could break</h3>
+      <p>The Ethereum Foundation explained on 6 November why Glamsterdam is stalled before the Hoodi testnet (<a href="https://blog.ethereum.org/2026/11/06/glamsterdam-8037-8038">EF blog</a>). A ChainSecurity review on 13 October found that EIP-8037, which reprices state creation, and EIP-8038, which reprices state access, can break contracts that rely on fixed gas costs when external calls fail (<a href="https://www.chainsecurity.com/blog/glamsterdam-gas/index.html">ChainSecurity</a>).</p>
+      <p>The EF has published eight such invariants in a repository (<a href="https://github.com/ethereum/glamsterdam-gas-invariants">glamsterdam-gas-invariants</a>). Those named in coverage include: gas use only moves one way; fixed gas stipends stay sufficient; a reverted call can't refund gas already spent creating state; and an operation can be marked permanently failed after a sub-call runs out of gas. Fixed gas budgets and gas reserves are the most common problems found so far.</p>
+      <p>Developers may change the EIPs or ask affected contracts to update. EIP-8488 is one proposed way out. Auditors are asked to send findings to glamsterdam@ethereum.org before the next core developers' call (<a href="https://cointelegraph.com/news/ethereum-devs-fork-glamsterdam-hoodi-smart-contract-risks">Cointelegraph</a>).</p>
+      <p class="unverified"><b>Unverified</b>I read the EF post and repository only through coverage, so the full list of eight is not reproduced here.</p>
+    </div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>Security · Lightning · 8–10 Nov</span>
+      <h3>LNbits 1.7.0: treat every secret as exposed</h3>
+      <p>After attacks on self-hosted LNbits instances began on 8 November, the project shipped 1.7.0 on 10 November as an urgent security release. The exploit has not been disclosed. Recovery is more than an upgrade: rebuild on a fresh server, rotate every wallet key, replace the macaroons or credentials that connect LNbits to the Lightning node, and treat every secret in its settings as compromised (<a href="https://bitcoinmagazine.com/news/lnbits-releases-1-7-0-urgent-security-update-after-november-8-attacks-drain-funds">Bitcoin Magazine</a>).</p>
+      <p class="unverified"><b>Unverified</b>The vulnerability and the number of affected servers.</p>
+    </div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>Security · Infrastructure · ~10–11 Nov</span>
+      <h3>Cloud, DNS and hot-wallet compromises, not contract bugs</h3>
+      <p>Initia's roughly $3.27 million loss came from compromised cloud infrastructure, its second incident in three weeks after October's MoveVM bug. Across Protocol's domain was hijacked through social engineering at the registrar and pointed at a wallet-drainer page. Mercado Bitcoin's reported loss came from linked hot wallets (<a href="https://www.kucoin.com/news/insight/BTC/6af44fda777a440007550fbd">KuCoin round-up</a>).</p>
+      <p class="unverified"><b>Unverified</b>All three come from one aggregator citing an X post.</p>
+    </div>
+
+    <div class="item">
+      <h3>What to do this week</h3>
+      <ul class="points">
+        <li>Check your contracts against the glamsterdam-gas-invariants list, especially fixed gas budgets, stipends and reserves.</li>
+        <li>Never mark an operation as permanently failed just because a sub-call ran out of gas.</li>
+        <li>Lock down domain registrars and DNS with hardware keys and registry lock, and alert on record changes.</li>
+        <li>Keep signing keys out of general cloud accounts. Use HSMs or MPC with separate access paths.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="track nondev" id="nondev-en">
+    <div class="track-head"><h2>Non-dev</h2><p>Market, business and regulation, and what the incidents mean in plain language.</p></div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>Ethereum · Upgrade timing</span>
+      <h3>Ethereum's next upgrade is delayed again</h3>
+      <p>Ethereum's next big upgrade, called Glamsterdam, is meant to make the network cheaper and faster. Auditors found that two of its fee changes could make some existing apps behave wrongly, so the rollout to the last test network has been postponed with no new date. Nothing is at risk today, because the changes are not live. It simply means the upgrade arrives later, and some apps may need updates before it does.</p>
+    </div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>Bitcoin · Self-hosted wallets</span>
+      <h3>Attackers drained some self-run Bitcoin payment servers</h3>
+      <p>LNbits is free software that shops and hobbyists run on their own servers to accept fast Bitcoin payments over the Lightning network. Since 8 November attackers have been emptying some of these servers. One operator reported losing about 0.023 BTC. If you don't run your own LNbits server, this doesn't affect you directly.</p>
+    </div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>Exchanges and DeFi · Losses</span>
+      <h3>Three break-ins, and none were about clever code</h3>
+      <p>Initia, a blockchain project, lost about $3.27 million when attackers got into its cloud accounts. Across, a service for moving money between blockchains, had its website address taken over and redirected to a fake page that tried to empty visitors' wallets; it has since taken the address back. Brazil's Mercado Bitcoin exchange is reported to have lost about $49 million and paused crypto withdrawals while it investigates.</p>
+      <p class="unverified"><b>Unverified</b>All three figures come from one aggregator. Mercado Bitcoin's loss was given earlier as $38 million.</p>
+    </div>
+
+    <div class="item">
+      <h3>As a user</h3>
+      <ul class="points">
+        <li>Bookmark the crypto sites you use, and be suspicious of a familiar site suddenly asking you to connect or approve something new.</li>
+        <li>Keep only spending money on exchanges and hosted wallets.</li>
+        <li>If an exchange pauses withdrawals, wait for its official update rather than links shared on social media.</li>
+        <li>There is nothing to do about Glamsterdam until a date is set.</li>
+      </ul>
+      <p>Coming up: the next Ethereum core developers' call on these fee changes, Solana's Breakpoint conference (15–17 November) and the Stellar "Bell" vote on 23 November.</p>
+    </div>
+  </section>
+
+  <section class="sources">
+    <h2>Sources</h2>
+    <p>Reporting as of 12 November 2026. The EF blog, GitHub repository and ChainSecurity report are primary but were read through coverage.</p>
+    <ul>
+      <li><a href="https://blog.ethereum.org/2026/11/06/glamsterdam-8037-8038">Ethereum Foundation: Glamsterdam, EIP-8037 and EIP-8038</a> <span class="kind">primary</span></li>
+      <li><a href="https://github.com/ethereum/glamsterdam-gas-invariants">GitHub: glamsterdam-gas-invariants</a> <span class="kind">primary</span></li>
+      <li><a href="https://www.chainsecurity.com/blog/glamsterdam-gas/index.html">ChainSecurity: Glamsterdam gas review</a> <span class="kind">auditor</span></li>
+      <li><a href="https://cointelegraph.com/news/ethereum-devs-fork-glamsterdam-hoodi-smart-contract-risks">Cointelegraph: Glamsterdam, Hoodi and contract risks</a> <span class="kind">secondary</span></li>
+      <li><a href="https://crypto.news/ethereum-delays-glamsterdam-upgrade-as-eight-smart-contract-risks-emerge/">crypto.news: eight smart contract risks</a> <span class="kind">secondary</span></li>
+      <li><a href="https://bitcoinmagazine.com/news/lnbits-releases-1-7-0-urgent-security-update-after-november-8-attacks-drain-funds">Bitcoin Magazine: LNbits 1.7.0</a> <span class="kind">secondary</span></li>
+      <li><a href="https://thecryptodesk.substack.com/p/the-crypto-desk-wednesday-11-november">The Crypto Desk, 11 Nov</a> <span class="kind">newsletter</span></li>
+      <li><a href="https://www.kucoin.com/news/insight/BTC/6af44fda777a440007550fbd">KuCoin: security round-up, 11 Nov</a> <span class="kind">aggregator</span></li>
+    </ul>
+  </section>
+</article>
+
+<!-- ===================== 日本語 ===================== -->
+<article data-lang="ja" class="wrap" style="padding:0" hidden>
+  <header class="brief">
+    <span class="mono meta">デイリーブリーフ · 2026年11月12日 · 約6分</span>
+    <h1>ブロックチェーン・ブリーフ 2026年11月12日</h1>
+    <p class="lede">イーサリアム財団が Glamsterdam のガス変更で壊れうるコントラクトの前提を公表。LNbits は自前運用の Lightning ウォレットへの攻撃を受けて緊急修正をリリース。Initia、Across、Mercado Bitcoin ではインフラ経由の侵害が相次ぎました。</p>
+    <p class="note">一次情報または独立した2つ目の情報源で確認できなかった内容には「未確認」と表示しています。</p>
+    <nav class="jump" data-noread aria-label="セクション"><a class="dev" href="#dev-ja">Dev ↓</a><a class="nondev" href="#nondev-ja">Non-dev ↓</a></nav>
+  </header>
+
+  <section class="track dev" id="dev-ja">
+    <div class="track-head"><h2>Dev</h2><p>プロトコル変更、コントラクトのリスク、セキュリティの詳細、開発ツール。</p></div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>続報 · Ethereum · 11月6日</span>
+      <h3>EIP-8037 と EIP-8038 が壊しうるガスの不変条件</h3>
+      <p>イーサリアム財団（EF）は11月6日、Glamsterdam が Hoodi テストネットの手前で止まっている理由を説明しました（<a href="https://blog.ethereum.org/2026/11/06/glamsterdam-8037-8038">EF ブログ</a>）。10月13日の ChainSecurity のレビューで、ステート作成の価格を見直す EIP-8037 と、ステートアクセスの価格を見直す EIP-8038 が、外部呼び出し失敗時に固定のガス量を前提とするコントラクトを壊しうることが分かりました（<a href="https://www.chainsecurity.com/blog/glamsterdam-gas/index.html">ChainSecurity</a>）。</p>
+      <p>EF はこうした不変条件8項目をリポジトリで公開しています（<a href="https://github.com/ethereum/glamsterdam-gas-invariants">glamsterdam-gas-invariants</a>）。報道で挙げられているのは、ガス消費は一方向にしか動かない、固定のガス stipend は足り続ける、revert した呼び出しはステート作成に使ったガスを返さない、サブコールがガス切れになったら処理を恒久的に失敗扱いにしてよい、といった前提です。これまでに最も多く見つかっている問題は、固定ガス予算とガスの予約です。</p>
+      <p>開発者は EIP 側を変えるか、影響を受けるコントラクトに更新を求めるかを検討しています。EIP-8488 は打開策の一つです。監査人には、次回のコア開発者会議までに glamsterdam@ethereum.org へ報告するよう求めています（<a href="https://cointelegraph.com/news/ethereum-devs-fork-glamsterdam-hoodi-smart-contract-risks">Cointelegraph</a>）。</p>
+      <p class="unverified"><b>未確認</b>EF の投稿とリポジトリは報道経由でしか読めていないため、8項目すべては載せていません。</p>
+    </div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>セキュリティ · Lightning · 11月8〜10日</span>
+      <h3>LNbits 1.7.0：すべてのシークレットが漏れた前提で</h3>
+      <p>11月8日から自前運用の LNbits への攻撃が始まり、プロジェクトは11月10日に緊急セキュリティリリース 1.7.0 を出しました。脆弱性の内容は公表されていません。復旧はアップグレードだけでは足りません。新しいサーバーで作り直し、すべてのウォレットキーをローテーションし、LNbits と Lightning ノードをつなぐ macaroon などの認証情報を入れ替え、設定内のシークレットはすべて漏えいしたものとして扱ってください（<a href="https://bitcoinmagazine.com/news/lnbits-releases-1-7-0-urgent-security-update-after-november-8-attacks-drain-funds">Bitcoin Magazine</a>）。</p>
+      <p class="unverified"><b>未確認</b>脆弱性の内容と、影響を受けたサーバーの数。</p>
+    </div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>セキュリティ · インフラ · 11月10〜11日頃</span>
+      <h3>原因はコントラクトのバグではなく、クラウド・DNS・ホットウォレット</h3>
+      <p>Initia の約327万ドルの損失はクラウド基盤の侵害によるもので、10月の MoveVM のバグに続き3週間で2件目です。Across Protocol はレジストラでのソーシャルエンジニアリングによりドメインを乗っ取られ、ウォレットドレイナーのページに向けられました。Mercado Bitcoin の損失は連携するホットウォレットから出たと報じられています（<a href="https://www.kucoin.com/news/insight/BTC/6af44fda777a440007550fbd">KuCoin まとめ</a>）。</p>
+      <p class="unverified"><b>未確認</b>3件とも、X の投稿を引用した1つのまとめサイトが情報源です。</p>
+    </div>
+
+    <div class="item">
+      <h3>今週やること</h3>
+      <ul class="points">
+        <li>自分のコントラクトを glamsterdam-gas-invariants の一覧と照合する。特に固定ガス予算、stipend、予約。</li>
+        <li>サブコールのガス切れだけを理由に、処理を恒久的な失敗扱いにしない。</li>
+        <li>ドメインのレジストラと DNS をハードウェアキーとレジストリロックで守り、レコード変更を通知する。</li>
+        <li>署名鍵を一般的なクラウドアカウントに置かない。HSM や MPC を使い、アクセス経路を分ける。</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="track nondev" id="nondev-ja">
+    <div class="track-head"><h2>Non-dev</h2><p>市場・ビジネス・規制と、事件が何を意味するかのやさしい解説。</p></div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>Ethereum · アップグレード時期</span>
+      <h3>イーサリアムの次のアップグレードがまた延期</h3>
+      <p>イーサリアムの次の大型アップグレード「Glamsterdam」は、ネットワークを安く速くするためのものです。監査で、手数料の変更2つが既存のアプリの一部を誤作動させうると分かり、最後のテストネットへの導入は新しい日程のないまま延期されました。変更はまだ本番に入っていないので、今すぐ危険なものはありません。アップグレードが遅れ、その前に一部のアプリが更新を必要とするかもしれない、ということです。</p>
+    </div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>Bitcoin · 自前運用のウォレット</span>
+      <h3>自分で運用するビットコイン決済サーバーが狙われた</h3>
+      <p>LNbits は、お店や個人が自分のサーバーで動かし、Lightning ネットワークでビットコインの即時決済を受け付けるための無料ソフトです。11月8日から、こうしたサーバーの一部が攻撃者に空にされています。ある運営者は約0.023 BTC を失ったと報告しています。自分で LNbits サーバーを運用していなければ、直接の影響はありません。</p>
+    </div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>取引所と DeFi · 被害</span>
+      <h3>3件の侵入、どれも高度なコードの話ではない</h3>
+      <p>ブロックチェーンプロジェクトの Initia は、クラウドのアカウントに侵入され約327万ドルを失いました。ブロックチェーン間でお金を移すサービスの Across は、サイトのアドレスを乗っ取られ、訪問者のウォレットを空にしようとする偽ページに転送されました。アドレスはすでに取り戻しています。ブラジルの取引所 Mercado Bitcoin は約4,900万ドルを失ったと報じられ、調査のあいだ暗号資産の出金を止めています。</p>
+      <p class="unverified"><b>未確認</b>3件の金額はいずれも1つのまとめサイトによるものです。Mercado Bitcoin の損失は、以前は3,800万ドルと報じられていました。</p>
+    </div>
+
+    <div class="item">
+      <h3>利用者として</h3>
+      <ul class="points">
+        <li>よく使う暗号資産サイトはブックマークから開き、見慣れたサイトが急に新しい接続や承認を求めてきたら疑う。</li>
+        <li>取引所やホスト型ウォレットには、使う分だけを置く。</li>
+        <li>取引所が出金を止めたら、SNS で回ってくるリンクではなく公式の発表を待つ。</li>
+        <li>Glamsterdam については、日程が決まるまでやることはありません。</li>
+      </ul>
+      <p>今後の予定：この手数料変更を議論する次回のイーサリアムコア開発者会議、Solana の Breakpoint カンファレンス（11月15〜17日）、11月23日の Stellar「Bell」投票。</p>
+    </div>
+  </section>
+
+  <section class="sources">
+    <h2>出典</h2>
+    <p>2026年11月12日時点の報道に基づきます。EF ブログ、GitHub リポジトリ、ChainSecurity のレポートは一次情報ですが、報道経由で読んでいます。</p>
+    <ul>
+      <li><a href="https://blog.ethereum.org/2026/11/06/glamsterdam-8037-8038">Ethereum Foundation: Glamsterdam, EIP-8037 and EIP-8038</a> <span class="kind">一次情報</span></li>
+      <li><a href="https://github.com/ethereum/glamsterdam-gas-invariants">GitHub: glamsterdam-gas-invariants</a> <span class="kind">一次情報</span></li>
+      <li><a href="https://www.chainsecurity.com/blog/glamsterdam-gas/index.html">ChainSecurity: Glamsterdam gas review</a> <span class="kind">監査会社</span></li>
+      <li><a href="https://cointelegraph.com/news/ethereum-devs-fork-glamsterdam-hoodi-smart-contract-risks">Cointelegraph: Glamsterdam, Hoodi and contract risks</a> <span class="kind">二次情報</span></li>
+      <li><a href="https://crypto.news/ethereum-delays-glamsterdam-upgrade-as-eight-smart-contract-risks-emerge/">crypto.news: eight smart contract risks</a> <span class="kind">二次情報</span></li>
+      <li><a href="https://bitcoinmagazine.com/news/lnbits-releases-1-7-0-urgent-security-update-after-november-8-attacks-drain-funds">Bitcoin Magazine: LNbits 1.7.0</a> <span class="kind">二次情報</span></li>
+      <li><a href="https://thecryptodesk.substack.com/p/the-crypto-desk-wednesday-11-november">The Crypto Desk, 11 Nov</a> <span class="kind">ニュースレター</span></li>
+      <li><a href="https://www.kucoin.com/news/insight/BTC/6af44fda777a440007550fbd">KuCoin: security round-up, 11 Nov</a> <span class="kind">まとめサイト</span></li>
+    </ul>
+  </section>
+</article>
+
+
+<section class="comments" id="comments" data-noread>
+  <h2><span data-lang="en">Reader feedback</span><span data-lang="ja" hidden>読者のコメント</span></h2>
+  <p class="note"><span data-lang="en">Comments use GitHub sign-in, so every commenter is a real GitHub account. Be kind and stay on topic.</span><span data-lang="ja" hidden>コメントには GitHub へのログインが必要です。思いやりを持って、話題に沿って書き込んでください。</span></p>
+  <div class="giscus"></div>
+</section>
+
+<nav class="pager" data-noread>
+  <a href="../"><span data-lang="en">← All briefs</span><span data-lang="ja" hidden>← バックナンバー</span></a>
+  <span></span>
+</nav>
+</main>
+<script src="../assets/brief.js"></script>
+</body>
+</html>
