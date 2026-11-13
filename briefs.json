@@ -1,5 +1,17 @@
 [
   {
+    "date": "2026-11-13",
+    "file": "briefs/2026-11-13.html",
+    "title": {
+      "en": "Blockchain Brief, 13 Nov 2026",
+      "ja": "ブロックチェーン・ブリーフ 2026年11月13日"
+    },
+    "summary": {
+      "en": "The US moves to seize $1.2B of the Binance loot, North Korea's FaceStealer video-call malware, Trezor's Safe 5 implants and an Ankr bridge drain.",
+      "ja": "米国が Binance の盗難資産12億ドルの差し押さえへ、北朝鮮のビデオ通話型マルウェア FaceStealer、Trezor Safe 5 の仕込み部品、Ankr ブリッジの流出。"
+    }
+  },
+  {
     "date": "2026-11-12",
     "file": "briefs/2026-11-12.html",
     "title": {

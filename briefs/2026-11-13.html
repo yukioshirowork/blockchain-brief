@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Blockchain Brief, 13 Nov 2026</title>
+<meta name="description" content="The DOJ moves to seize $1.2B of the Binance loot and exposes North Korea's FaceStealer, Binance covers every customer, Trezor details Safe 5 implants, and Ankr's bridge is drained.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-title-en="Blockchain Brief, 13 Nov 2026" data-title-ja="ブロックチェーン・ブリーフ 2026年11月13日">
+<div class="bar"><div class="bar-in">
+  <a class="home" href="../">Blockchain Brief</a>
+  <div class="controls">
+    <div class="seg" role="group" aria-label="Language"><button type="button" data-set-lang="en" aria-pressed="true">EN</button><button type="button" data-set-lang="ja" aria-pressed="false">日本語</button></div>
+  </div>
+</div></div>
+
+<main class="wrap">
+
+<!-- Read-aloud panel (shared; labels follow the language toggle) -->
+<section class="audio" id="audio" aria-label="Read aloud" data-noread>
+  <div class="audio-row">
+    <button type="button" class="btn primary" data-a="play">▶ Listen</button>
+    <button type="button" class="btn" data-a="stop" disabled>■ Stop</button>
+    <select class="btn" data-a="scope" aria-label="What to read"><option value="all">Whole brief</option><option value="dev">Dev only</option><option value="nondev">Non-dev only</option></select>
+  </div>
+  <div class="audio-row">
+    <label class="status"><span data-a="speedlbl">Speed</span>
+      <select class="btn" data-a="rate"><option value="0.8">0.8×</option><option value="0.9">0.9×</option><option value="1" selected>1×</option><option value="1.15">1.15×</option><option value="1.3">1.3×</option><option value="1.5">1.5×</option></select></label>
+    <label class="status"><span data-a="voicelbl">Voice</span>
+      <select class="btn" data-a="voice"></select></label>
+  </div>
+  <p class="status" data-a="status" aria-live="polite"></p>
+</section>
+
+<!-- ===================== ENGLISH ===================== -->
+<article data-lang="en" class="wrap" style="padding:0">
+  <header class="brief">
+    <span class="mono meta">Daily brief · 13 Nov 2026 · about 6 min read</span>
+    <h1>Blockchain Brief, 13 Nov 2026</h1>
+    <p class="lede">The US Justice Department moves to seize $1.2 billion of the Binance loot and exposes a North Korean video-call malware campaign aimed at developers. Binance says every affected customer is now covered, Trezor details implants in tampered Safe 5 wallets, and an Ankr bridge was drained with one recycled deposit.</p>
+    <p class="note">Claims I could not confirm from a primary or second independent source are marked Unverified.</p>
+    <nav class="jump" data-noread aria-label="Sections"><a class="dev" href="#dev-en">Dev ↓</a><a class="nondev" href="#nondev-en">Non-dev ↓</a></nav>
+  </header>
+
+  <section class="track dev" id="dev-en">
+    <div class="track-head"><h2>Dev</h2><p>Protocol changes, contract risks, security details and tooling.</p></div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>Security · North Korea · 12 Nov</span>
+      <h3>FaceStealer: the fake "can't hear you" fix</h3>
+      <p>On 12 November the Justice Department said it had seized the cloud infrastructure behind "FaceStealer", a North Korean campaign that stole more than $400 million over 18 months (<a href="https://www.justice.gov/opa/pr/justice-department-announces-actions-disrupt-north-koreas-massive-theft-cryptocurrency">DOJ</a>). The chain works like this. A meeting invite arrives from an account stolen from an earlier victim. On the call, the attackers play prerecorded webcam footage of that victim, or deepfakes of well-known crypto figures. Then they fake an audio problem and send a link or prompt that "fixes" it by installing malware. The FBI seized more than 900 webcam recordings.</p>
+      <p>Two details matter for developers. The DOJ says the groups (Sapphire Sleet, BlueNoroff, APT38 and others) increasingly target people who build and maintain open-source software, which points to supply-chain attacks. And the theft can come months or more than a year after the first infection, after the attackers have read contacts and messaging apps. The FBI published a separate advisory with guidance (<a href="https://www.ic3.gov/CSA/2026/261112.pdf">IC3</a>).</p>
+    </div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>Security · Bridges · 9 Nov</span>
+      <h3>Ankr's bridge paid out five times for one deposit</h3>
+      <p>Ankr's Ethereum bridge lost about $303,000 on 9 November. Blockaid flagged five withdrawals that all pointed at a single Optimism deposit of 0.0044 ankrETH. That deposit was made and already redeemed on 3 November. Each new request carried changed receipt data, with a different recipient, amount and token (<a href="https://crypto.news/ankr-ethereum-bridge-exploit-303k-loss/">crypto.news</a>). The bridge needs approval from a designated signer, so either that key, the receipt check or something else failed. Ankr had not responded at the time of reporting.</p>
+      <p class="unverified"><b>Unverified</b>The root cause: a compromised signer key versus a receipt-validation bug.</p>
+    </div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>Follow-up · Hardware wallets · 11–12 Nov</span>
+      <h3>What the Trezor Safe 5 implant does</h3>
+      <p>Trezor first warned on 30 October about a tampered Safe 5 sold by the reseller CryptoBilis (<a href="https://trezor.io/blog/news/implant-reported-in-a-trezor-sold-by-cryptobilis">Trezor</a>). Its 12 November update, as reported, confirms three devices. It describes the implant as an extra circuit board between the main board and the display. The board reads the recovery phrase off the screen and sends it over a mobile network. It does not change the firmware or the Secure Element. Firmware 2.13.1, released 11 November, is said to block further capture, but it cannot protect phrases already shown (<a href="https://financefeeds.com/trezor-confirms-hardware-implants-in-three-safe-5-wallets-cuts-reseller-network-by-80/">FinanceFeeds</a>).</p>
+      <p class="unverified"><b>Unverified</b>The three-device count, firmware 2.13.1 and the passphrase capture are not on Trezor's own page yet.</p>
+    </div>
+
+    <div class="item">
+      <h3>What to do this week</h3>
+      <ul class="points">
+        <li>Never install anything to "fix" a call, however familiar the caller looks. Check with them on a second channel you already use.</li>
+        <li>If you maintain packages, require hardware-key 2FA and signed releases, and review who can publish.</li>
+        <li>In bridge and claim contracts, mark each source message as spent by its hash, and bind the recipient, amount and token into what the signer signs.</li>
+        <li>Block the TraderTraitor addresses in the FBI alert if you run a deposit flow.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="track nondev" id="nondev-en">
+    <div class="track-head"><h2>Non-dev</h2><p>Market, business and regulation, and what the incidents mean in plain language.</p></div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>Follow-up · Binance · 12 Nov</span>
+      <h3>Binance covers everyone; the US moves to seize $1.2 billion</h3>
+      <p>Binance says it has fully covered the customers hit by the 29 October theft, spending more than $6.34 billion of its own money from its treasury, its SAFU emergency fund and spare insurance money (<a href="https://www.binance.com/en/support/announcement/detail/0729ad59cde74700b4eaa96c33441e71">Binance</a>). It will refill SAFU to about $1 billion. It published a new proof-of-reserves snapshot covering 198 tokens. A full proof that lets customers check 1:1 backing needs another 40 to 50 hours to generate. Withdrawals are still reopening in stages, with no end date.</p>
+      <p>The same day, US prosecutors said they have court approval to seize or hold more than $1.2 billion of the stolen crypto. That is part of the more than $2.7 billion frozen with help from companies such as Tether and Circle. Covering customers is not the same as getting the money back. Seizure and forfeiture take time, and nothing has been returned yet.</p>
+    </div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>Hardware wallets · Southeast Asia</span>
+      <h3>Tampered Trezor wallets from one reseller</h3>
+      <p>Some Trezor Safe 5 hardware wallets bought from CryptoBilis, a reseller in Southeast Asia that also sold on Tokopedia and Shopee, had a hidden part added that sends the wallet's backup words to the attackers. No customer has reported losing money. Trezor removed CryptoBilis in October. It is reported to have cut about 80% of its authorized resellers as a precaution, while saying those sellers were not shown to be compromised. Buyers can get a replacement or refund.</p>
+      <p class="unverified"><b>Unverified</b>The 80% reseller cut comes from one news report.</p>
+    </div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>Security · 2026 so far</span>
+      <h3>A record year for crypto theft, driven by one hack</h3>
+      <p>DefiLlama's hack list shows about $8.78 billion stolen across 328 incidents so far in 2026, the highest on its records. Binance alone is about $6.3 billion. There are many more hacks than in 2025, but the typical one is smaller (<a href="https://www.altcoinbuzz.io/8-78-billion-lost-to-328-hacks-crypto-s-record-2026">AltcoinBuzz</a>).</p>
+      <p class="unverified"><b>Unverified</b>Recovered funds are mostly not recorded, so the net loss is lower.</p>
+    </div>
+
+    <div class="item">
+      <h3>As a user</h3>
+      <ul class="points">
+        <li>Buy hardware wallets only from the maker's own shop. If you bought a Trezor from CryptoBilis since March 2026, move your funds to a new wallet with new backup words.</li>
+        <li>Never type or photograph your backup words for anyone, and don't restore them on a "replacement" someone sends you.</li>
+        <li>Be wary of video calls that suddenly need you to install something. That is the exact trick behind $400 million in thefts.</li>
+        <li>If you are waiting on Binance withdrawals, follow its announcement page only.</li>
+      </ul>
+      <p>Coming up: Binance's full proof of reserves around 14–15 November, Solana's Breakpoint (15–17 November), Russia's retail crypto rules from 17 November and the Stellar "Bell" vote on 23 November.</p>
+    </div>
+  </section>
+
+  <section class="sources">
+    <h2>Sources</h2>
+    <p>Reporting as of 13 November 2026. The FBI advisory was cited by the DOJ and not read in full.</p>
+    <ul>
+      <li><a href="https://www.justice.gov/opa/pr/justice-department-announces-actions-disrupt-north-koreas-massive-theft-cryptocurrency">US DOJ: actions to disrupt North Korea's crypto theft</a> <span class="kind">primary</span></li>
+      <li><a href="https://www.ic3.gov/CSA/2026/261112.pdf">FBI IC3: FaceStealer advisory</a> <span class="kind">primary</span></li>
+      <li><a href="https://www.binance.com/en/support/announcement/detail/0729ad59cde74700b4eaa96c33441e71">Binance: coverage completed, new proof of reserves</a> <span class="kind">primary</span></li>
+      <li><a href="https://trezor.io/blog/news/implant-reported-in-a-trezor-sold-by-cryptobilis">Trezor: implant reported in a Trezor sold by CryptoBilis</a> <span class="kind">primary</span></li>
+      <li><a href="https://decrypt.co/383208/north-korea-stole-400-million-crypto-deepfake-video-calls">Decrypt: North Korea's deepfake video calls</a> <span class="kind">secondary</span></li>
+      <li><a href="https://financefeeds.com/trezor-confirms-hardware-implants-in-three-safe-5-wallets-cuts-reseller-network-by-80/">FinanceFeeds: Trezor confirms three implants</a> <span class="kind">secondary</span></li>
+      <li><a href="https://crypto.news/ankr-ethereum-bridge-exploit-303k-loss/">crypto.news: Ankr bridge exploit</a> <span class="kind">secondary</span></li>
+      <li><a href="https://www.altcoinbuzz.io/8-78-billion-lost-to-328-hacks-crypto-s-record-2026">AltcoinBuzz: 2026 hack totals (DefiLlama data)</a> <span class="kind">aggregator</span></li>
+    </ul>
+  </section>
+</article>
+
+<!-- ===================== 日本語 ===================== -->
+<article data-lang="ja" class="wrap" style="padding:0" hidden>
+  <header class="brief">
+    <span class="mono meta">デイリーブリーフ · 2026年11月13日 · 約6分</span>
+    <h1>ブロックチェーン・ブリーフ 2026年11月13日</h1>
+    <p class="lede">米司法省が Binance から盗まれた資産のうち12億ドルの差し押さえに動き、開発者を狙う北朝鮮のビデオ通話型マルウェア攻撃を明らかにしました。Binance は被害を受けた顧客全員の補填を完了したと発表。Trezor は改ざんされた Safe 5 に仕込まれた部品の詳細を示し、Ankr のブリッジは使い回された1件の入金で資金を抜かれました。</p>
+    <p class="note">一次情報または独立した2つ目の情報源で確認できなかった内容には「未確認」と表示しています。</p>
+    <nav class="jump" data-noread aria-label="セクション"><a class="dev" href="#dev-ja">Dev ↓</a><a class="nondev" href="#nondev-ja">Non-dev ↓</a></nav>
+  </header>
+
+  <section class="track dev" id="dev-ja">
+    <div class="track-head"><h2>Dev</h2><p>プロトコル変更、コントラクトのリスク、セキュリティの詳細、開発ツール。</p></div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>セキュリティ · 北朝鮮 · 11月12日</span>
+      <h3>FaceStealer：「声が聞こえない」を直すふり</h3>
+      <p>米司法省は11月12日、18か月で4億ドル超を盗んだ北朝鮮の攻撃「FaceStealer」のクラウド基盤を押収したと発表しました（<a href="https://www.justice.gov/opa/pr/justice-department-announces-actions-disrupt-north-koreas-massive-theft-cryptocurrency">DOJ</a>）。手口はこうです。以前の被害者から奪ったアカウントから会議の招待が届きます。通話では、その被害者の録画済みのウェブカメラ映像や、著名な暗号資産関係者のディープフェイクが流されます。そのうえで音声トラブルを装い、「修正」と称するリンクや指示でマルウェアを入れさせます。FBI はウェブカメラの録画900本超を押収しました。</p>
+      <p>開発者にとって大事な点が2つあります。司法省によると、関与グループ（Sapphire Sleet、BlueNoroff、APT38 など）はオープンソースソフトの開発者やメンテナーを狙う傾向を強めており、サプライチェーン攻撃を示唆しています。また、盗難は最初の感染から数か月、ときに1年以上たってから起きます。その間に連絡先やメッセージアプリが読まれています。FBI は対策をまとめた別の勧告を出しています（<a href="https://www.ic3.gov/CSA/2026/261112.pdf">IC3</a>）。</p>
+    </div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>セキュリティ · ブリッジ · 11月9日</span>
+      <h3>Ankr のブリッジ、1件の入金に5回払い出し</h3>
+      <p>Ankr の Ethereum ブリッジは11月9日に約30.3万ドルを失いました。Blockaid が検知した5件の出金は、すべて Optimism 上の 0.0044 ankrETH の入金1件を参照していました。この入金は11月3日に行われ、同日に引き出し済みでした。新しい出金要求ごとにレシートのデータが書き換えられ、受取人・金額・トークンが異なっていました（<a href="https://crypto.news/ankr-ethereum-bridge-exploit-303k-loss/">crypto.news</a>）。ブリッジは指定の署名者の承認を必要とするため、その鍵か、レシートの検証か、別の部分のどれかが破られたことになります。報道時点で Ankr はコメントしていません。</p>
+      <p class="unverified"><b>未確認</b>根本原因（署名鍵の漏えいか、レシート検証のバグか）。</p>
+    </div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>続報 · ハードウェアウォレット · 11月11〜12日</span>
+      <h3>Trezor Safe 5 に仕込まれた部品の働き</h3>
+      <p>Trezor は10月30日、販売店 CryptoBilis が売った Safe 5 の改ざんについて最初の警告を出しました（<a href="https://trezor.io/blog/news/implant-reported-in-a-trezor-sold-by-cryptobilis">Trezor</a>）。報道によると、11月12日の続報で3台が確認されました。仕込まれたのはメイン基板とディスプレイの間に追加された回路基板で、画面に表示されたリカバリーフレーズを読み取り、モバイル回線で送信します。ファームウェアや Secure Element は変更しません。11月11日公開のファームウェア 2.13.1 はこれ以上の読み取りを防ぐとされますが、すでに表示されたフレーズは守れません（<a href="https://financefeeds.com/trezor-confirms-hardware-implants-in-three-safe-5-wallets-cuts-reseller-network-by-80/">FinanceFeeds</a>）。</p>
+      <p class="unverified"><b>未確認</b>3台という数、ファームウェア 2.13.1、パスフレーズの取得は、まだ Trezor 自身のページに載っていません。</p>
+    </div>
+
+    <div class="item">
+      <h3>今週やること</h3>
+      <ul class="points">
+        <li>相手がどれほど見慣れた人でも、通話を「直す」ために何かをインストールしない。普段使っている別の手段で本人に確認する。</li>
+        <li>パッケージをメンテナンスしているなら、ハードウェアキーの2要素認証と署名付きリリースを必須にし、公開権限を持つ人を見直す。</li>
+        <li>ブリッジや請求のコントラクトでは、元のメッセージをハッシュで使用済みにし、受取人・金額・トークンを署名対象に含める。</li>
+        <li>入金の仕組みを運用しているなら、FBI のアラートにある TraderTraitor のアドレスをブロックする。</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="track nondev" id="nondev-ja">
+    <div class="track-head"><h2>Non-dev</h2><p>市場・ビジネス・規制と、事件が何を意味するかのやさしい解説。</p></div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>続報 · Binance · 11月12日</span>
+      <h3>Binance は全員を補填、米国は12億ドルの差し押さえへ</h3>
+      <p>Binance は、10月29日の盗難で被害を受けた顧客の補填を完了したと発表しました。自社の資金、SAFU 緊急基金、保険基金の余剰から63.4億ドル超を充てています（<a href="https://www.binance.com/en/support/announcement/detail/0729ad59cde74700b4eaa96c33441e71">Binance</a>）。SAFU は約10億ドルまで積み戻します。198銘柄を対象とする準備金証明のスナップショットを新たに公開しました。顧客が1対1の裏付けを確かめられる完全な証明の生成には、さらに40〜50時間かかります。出金は段階的に再開中で、完了日は示されていません。</p>
+      <p>同じ日、米検察は盗まれた暗号資産のうち12億ドル超を差し押さえ・保全する裁判所の許可を得たと発表しました。これは Tether や Circle などの協力で凍結された27億ドル超の一部です。顧客の補填は、お金を取り戻すこととは別です。差し押さえと没収には時間がかかり、まだ何も返還されていません。</p>
+    </div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>ハードウェアウォレット · 東南アジア</span>
+      <h3>1つの販売店から出た、改ざんされた Trezor</h3>
+      <p>東南アジアの販売店 CryptoBilis（Tokopedia や Shopee でも販売）で買われた Trezor Safe 5 の一部に、ウォレットのバックアップの単語を攻撃者に送る部品が隠されていました。お金を失ったという顧客の報告はありません。Trezor は10月に CryptoBilis を外しました。念のため正規販売店の約8割を減らしたと報じられていますが、それらの店が侵害されていた証拠はないとしています。購入者は交換か返金を受けられます。</p>
+      <p class="unverified"><b>未確認</b>販売店を約8割減らしたという話は1つの報道によるものです。</p>
+    </div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>セキュリティ · 2026年のここまで</span>
+      <h3>暗号資産の盗難は過去最悪の年に、ほぼ1件のせいで</h3>
+      <p>DefiLlama のハッキング一覧によると、2026年はここまでに328件で約87.8億ドルが盗まれ、記録上で最多です。このうち Binance だけで約63億ドルです。件数は2025年より大きく増えましたが、1件あたりの典型的な被害額は小さくなっています（<a href="https://www.altcoinbuzz.io/8-78-billion-lost-to-328-hacks-crypto-s-record-2026">AltcoinBuzz</a>）。</p>
+      <p class="unverified"><b>未確認</b>回収された資金はほとんど記録されていないため、実際の損失はこれより少なくなります。</p>
+    </div>
+
+    <div class="item">
+      <h3>利用者として</h3>
+      <ul class="points">
+        <li>ハードウェアウォレットはメーカーの公式ストアでだけ買う。2026年3月以降に CryptoBilis で Trezor を買った人は、新しいバックアップの単語を持つ新しいウォレットに資金を移す。</li>
+        <li>バックアップの単語は誰に対しても入力したり撮影したりせず、送られてきた「交換品」で復元しない。</li>
+        <li>ビデオ通話で急に何かのインストールを求められたら警戒する。4億ドルの盗難はまさにこの手口です。</li>
+        <li>Binance の出金を待っているなら、公式のお知らせページだけを見る。</li>
+      </ul>
+      <p>今後の予定：11月14〜15日頃の Binance の完全な準備金証明、Solana の Breakpoint（11月15〜17日）、11月17日からのロシアの個人向け暗号資産ルール、11月23日の Stellar「Bell」投票。</p>
+    </div>
+  </section>
+
+  <section class="sources">
+    <h2>出典</h2>
+    <p>2026年11月13日時点の報道に基づきます。FBI の勧告は司法省の発表で引用されたもので、全文は読んでいません。</p>
+    <ul>
+      <li><a href="https://www.justice.gov/opa/pr/justice-department-announces-actions-disrupt-north-koreas-massive-theft-cryptocurrency">US DOJ: actions to disrupt North Korea's crypto theft</a> <span class="kind">一次情報</span></li>
+      <li><a href="https://www.ic3.gov/CSA/2026/261112.pdf">FBI IC3: FaceStealer advisory</a> <span class="kind">一次情報</span></li>
+      <li><a href="https://www.binance.com/en/support/announcement/detail/0729ad59cde74700b4eaa96c33441e71">Binance: coverage completed, new proof of reserves</a> <span class="kind">一次情報</span></li>
+      <li><a href="https://trezor.io/blog/news/implant-reported-in-a-trezor-sold-by-cryptobilis">Trezor: implant reported in a Trezor sold by CryptoBilis</a> <span class="kind">一次情報</span></li>
+      <li><a href="https://decrypt.co/383208/north-korea-stole-400-million-crypto-deepfake-video-calls">Decrypt: North Korea's deepfake video calls</a> <span class="kind">二次情報</span></li>
+      <li><a href="https://financefeeds.com/trezor-confirms-hardware-implants-in-three-safe-5-wallets-cuts-reseller-network-by-80/">FinanceFeeds: Trezor confirms three implants</a> <span class="kind">二次情報</span></li>
+      <li><a href="https://crypto.news/ankr-ethereum-bridge-exploit-303k-loss/">crypto.news: Ankr bridge exploit</a> <span class="kind">二次情報</span></li>
+      <li><a href="https://www.altcoinbuzz.io/8-78-billion-lost-to-328-hacks-crypto-s-record-2026">AltcoinBuzz: 2026 hack totals (DefiLlama data)</a> <span class="kind">まとめサイト</span></li>
+    </ul>
+  </section>
+</article>
+
+
+
+<section class="comments" id="comments" data-noread>
+  <h2><span data-lang="en">Reader feedback</span><span data-lang="ja" hidden>読者のコメント</span></h2>
+  <p class="note"><span data-lang="en">Comments use GitHub sign-in, so every commenter is a real GitHub account. Be kind and stay on topic.</span><span data-lang="ja" hidden>コメントには GitHub へのログインが必要です。思いやりを持って、話題に沿って書き込んでください。</span></p>
+  <div class="giscus"></div>
+</section>
+
+<nav class="pager" data-noread>
+  <a href="../"><span data-lang="en">← All briefs</span><span data-lang="ja" hidden>← バックナンバー</span></a>
+  <span></span>
+</nav>
+</main>
+<script src="../assets/brief.js"></script>
+</body>
+</html>
