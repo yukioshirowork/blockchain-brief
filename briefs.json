@@ -1,5 +1,17 @@
 [
   {
+    "date": "2026-11-14",
+    "file": "briefs/2026-11-14.html",
+    "title": {
+      "en": "Blockchain Brief, 14 Nov 2026",
+      "ja": "ブロックチェーン・ブリーフ 2026年11月14日"
+    },
+    "summary": {
+      "en": "Glamsterdam's audit calls next week, Starknet's block-sized proofs, Metis's hybrid rollup, the banks' Project Faro, Hong Kong's 24/7 settlement and stUSDT's wind-down.",
+      "ja": "来週の Glamsterdam 監査会議、Starknet のブロック規模証明、Metis のハイブリッドロールアップ、銀行の Project Faro、香港の24時間決済、stUSDT の終了。"
+    }
+  },
+  {
     "date": "2026-11-13",
     "file": "briefs/2026-11-13.html",
     "title": {

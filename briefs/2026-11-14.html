@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Blockchain Brief, 14 Nov 2026</title>
+<meta name="description" content="Glamsterdam's audit calls set for 16 and 19 Nov, Starknet's block-sized proofs, Metis's hybrid rollup, the banks' Project Faro, Hong Kong's round-the-clock settlement and stUSDT's wind-down.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-title-en="Blockchain Brief, 14 Nov 2026" data-title-ja="ブロックチェーン・ブリーフ 2026年11月14日">
+<div class="bar"><div class="bar-in">
+  <a class="home" href="../">Blockchain Brief</a>
+  <div class="controls">
+    <div class="seg" role="group" aria-label="Language"><button type="button" data-set-lang="en" aria-pressed="true">EN</button><button type="button" data-set-lang="ja" aria-pressed="false">日本語</button></div>
+  </div>
+</div></div>
+
+<main class="wrap">
+
+<!-- Read-aloud panel (shared; labels follow the language toggle) -->
+<section class="audio" id="audio" aria-label="Read aloud" data-noread>
+  <div class="audio-row">
+    <button type="button" class="btn primary" data-a="play">▶ Listen</button>
+    <button type="button" class="btn" data-a="stop" disabled>■ Stop</button>
+    <select class="btn" data-a="scope" aria-label="What to read"><option value="all">Whole brief</option><option value="dev">Dev only</option><option value="nondev">Non-dev only</option></select>
+  </div>
+  <div class="audio-row">
+    <label class="status"><span data-a="speedlbl">Speed</span>
+      <select class="btn" data-a="rate"><option value="0.8">0.8×</option><option value="0.9">0.9×</option><option value="1" selected>1×</option><option value="1.15">1.15×</option><option value="1.3">1.3×</option><option value="1.5">1.5×</option></select></label>
+    <label class="status"><span data-a="voicelbl">Voice</span>
+      <select class="btn" data-a="voice"></select></label>
+  </div>
+  <p class="status" data-a="status" aria-live="polite"></p>
+</section>
+
+<!-- ===================== ENGLISH ===================== -->
+<article data-lang="en" class="wrap" style="padding:0">
+  <header class="brief">
+    <span class="mono meta">Daily brief · 14 Nov 2026 · about 6 min read</span>
+    <h1>Blockchain Brief, 14 Nov 2026</h1>
+    <p class="lede">Ethereum's developers set two calls next week to decide what to do about Glamsterdam's gas changes. Starknet now accepts block-sized proofs, and Metis puts a hybrid rollup on devnet. On the business side, 21 institutions back a bank stablecoin, Hong Kong moves tokenized money to round-the-clock settlement, and stUSDT is winding down.</p>
+    <p class="note">Claims I could not confirm from a primary or second independent source are marked Unverified.</p>
+    <nav class="jump" data-noread aria-label="Sections"><a class="dev" href="#dev-en">Dev ↓</a><a class="nondev" href="#nondev-en">Non-dev ↓</a></nav>
+  </header>
+
+  <section class="track dev" id="dev-en">
+    <div class="track-head"><h2>Dev</h2><p>Protocol changes, contract risks, security details and tooling.</p></div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>Follow-up · Ethereum · 16 and 19 Nov</span>
+      <h3>Glamsterdam: audits first, then a decision</h3>
+      <p>The Ethereum Foundation has asked ChainSecurity and Dedaub to review EIP-8037 and EIP-8038, the state-creation and state-access repricings that put Glamsterdam's Hoodi testnet fork on hold. Their reports are expected before 16 November. That day's core developers' testing call includes a public Q&amp;A, and the execution-layer call on 19 November is expected to take up the findings and possibly change the specs (<a href="https://econotimes.com/Ethereum-s-Glamsterdam-Audit-Talks-Set-as-Hoodi-Test-Date-Remains-Open-1775247">EconoTimes</a>, <a href="https://www.tokenpost.com/news/technology/53813">TokenPost</a>).</p>
+      <p>Ethlabs has asked developers not to revise the specs or set a Hoodi date until the audits are out. The core concern is unchanged: after a sub-call reverts, more gas can remain than a contract expects, so code that infers an out-of-gas failure from leftover gas can misjudge what happened. Glamsterdam's goal is still to raise the block gas limit from 60M to 200M.</p>
+    </div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>ZK · Starknet · 11 Nov</span>
+      <h3>Starknet accepts proofs of up to 1.1 billion L2 gas</h3>
+      <p>Starknet mainnet now takes "block-sized" application proofs. An app can run logic offchain and submit one proof, in one transaction, covering up to 1.1 billion L2 gas. Starknet verifies the proof, so the app pays for verification rather than full execution (<a href="https://www.tokenpost.com/news/technology/54573">TokenPost</a>). The protocol support came with v0.14.4 (SNIP-36), which went to mainnet on 5 October. The team said large proofs would be switched on after an internal audit (<a href="https://community.starknet.io/t/starknet-v0-14-4-prerelease-notes/116341">Starknet forum</a>).</p>
+      <p class="unverified"><b>Unverified</b>I found no StarkWare announcement of the 11 November switch-on, only one news report.</p>
+    </div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>L2 · Metis · 11 Nov</span>
+      <h3>Metis Hybrid Rollup: fraud proofs plus validity proofs</h3>
+      <p>Metis launched its Hybrid Rollup on devnet. It keeps optimistic challenges but adds validity proofs from Ziren, ZKM's open-source zkVM, so withdrawals can finalize once a proof verifies instead of waiting out the challenge window. Its decentralized sequencer supports ML-DSA post-quantum signatures, starting on classic ECC and moving module by module to post-quantum. A testnet is planned for Q1 2027 (<a href="https://www.kucoin.com/news/flash/metis-hybrid-rollup-launches-on-devnet-post-quantum-proof-path-in-development">KuCoin, citing MarsBit</a>).</p>
+      <p class="unverified"><b>Unverified</b>Reported only through Chinese-language flash news. I did not read a Metis post.</p>
+    </div>
+
+    <div class="item">
+      <h3>What to do this week</h3>
+      <ul class="points">
+        <li>Read the ChainSecurity and Dedaub reports when they land, and bring questions to the 16 November Q&amp;A.</li>
+        <li>Search your contracts for logic that treats "little gas left" as proof a call ran out of gas.</li>
+        <li>If your Starknet app does heavy computation, compare the cost of one large proof with running it onchain.</li>
+        <li>If you bridge from Metis, don't change withdrawal timing assumptions until the testnet ships.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="track nondev" id="nondev-en">
+    <div class="track-head"><h2>Non-dev</h2><p>Market, business and regulation, and what the incidents mean in plain language.</p></div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>Stablecoins · Banks</span>
+      <h3>Big banks fund their own dollar stablecoin</h3>
+      <p>Eighteen banks and three other institutions are putting about $270 million, meant to last five years, into a joint stablecoin company code-named Project Faro. Members include Bank of America, Citi, Goldman Sachs, UBS, Wells Fargo, Deutsche Bank, Santander and MUFG. The plan is a US company issuing a dollar coin first, and it is still hiring a chief executive (<a href="https://www.ledgerinsights.com/goldman-citi-ubs-18-others-fund-project-faro-stablecoin-what-is-a-bank-coin-for/">Ledger Insights</a>, <a href="https://decrypt.co/382953/goldman-citi-global-banks-270-million-challenge-crypto-stablecoin-giants">Decrypt</a>). Ledger Insights reads it as a connector between the banks' own tokenized-deposit networks rather than a USDC-style rival.</p>
+      <p class="unverified"><b>Unverified</b>The launch target of the first half of 2027 comes from one newsletter.</p>
+    </div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>Hong Kong · Tokenization</span>
+      <h3>Hong Kong wants tokenized money to settle around the clock</h3>
+      <p>Hong Kong's securities regulator (SFC) and its central bank (HKMA) held a joint seminar on 11 November for about 200 people. The SFC has already let two tokenized money market funds trade continuously on a licensed crypto platform. The HKMA upgraded EnsembleTX, its pilot network, so tokenized bank deposits settle at any hour using tokenized central bank money. Twelve banks and 20 other firms take part (<a href="https://crypto.news/hong-kong-tokenized-assets-24-7-trading-settlement">crypto.news</a>, <a href="https://www.hkma.gov.hk/eng/news-and-media/press-releases/2026/11/20261112-3/">HKMA</a>).</p>
+    </div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>Stablecoins · Wind-down</span>
+      <h3>stUSDT stops issuing; redeem by 14 May 2027</h3>
+      <p>stUSDT, a yield-bearing token backed by USDT, stopped issuing new tokens and paying rewards on 14 November. Holders of stUSDT and wstUSDT can unstake and then press "Claim" to get USDT through the self-service portal until 14 May 2027. After that, support will process requests in monthly batches until August 2027 (<a href="https://www.theblockbeats.info/flash/377344">BlockBeats</a>).</p>
+      <p class="unverified"><b>Unverified</b>Who runs stUSDT. A headline on the same news site links it to TRON.</p>
+    </div>
+
+    <div class="item">
+      <h3>As a user</h3>
+      <ul class="points">
+        <li>If you hold stUSDT or wstUSDT, redeem now rather than near the deadline, and only through the official site you already use.</li>
+        <li>Anyone who messages you about "stUSDT redemption help" or asks for your backup words is a scammer.</li>
+        <li>Bank stablecoins and Hong Kong's round-the-clock settlement don't need anything from you yet.</li>
+        <li>Nothing to do about Glamsterdam until a date is set.</li>
+      </ul>
+      <p>Coming up: Solana's Breakpoint (15–17 November), Ethereum's Glamsterdam Q&amp;A (16 November) and decision call (19 November), Russia's retail crypto rules from 17 November and the Stellar "Bell" vote on 23 November.</p>
+    </div>
+  </section>
+
+  <section class="sources">
+    <h2>Sources</h2>
+    <p>Reporting as of 14 November 2026. The audit reports were not yet public, and the HKMA release was read through coverage.</p>
+    <ul>
+      <li><a href="https://community.starknet.io/t/starknet-v0-14-4-prerelease-notes/116341">Starknet forum: v0.14.4 release notes</a> <span class="kind">primary</span></li>
+      <li><a href="https://www.hkma.gov.hk/eng/news-and-media/press-releases/2026/11/20261112-3/">HKMA press release, 12 Nov</a> <span class="kind">primary</span></li>
+      <li><a href="https://econotimes.com/Ethereum-s-Glamsterdam-Audit-Talks-Set-as-Hoodi-Test-Date-Remains-Open-1775247">EconoTimes: Glamsterdam audit talks</a> <span class="kind">secondary</span></li>
+      <li><a href="https://www.tokenpost.com/news/technology/53813">TokenPost: Ethlabs on the Hoodi date</a> <span class="kind">secondary</span></li>
+      <li><a href="https://www.tokenpost.com/news/technology/54573">TokenPost: Starknet block-sized proofs</a> <span class="kind">secondary</span></li>
+      <li><a href="https://www.ledgerinsights.com/goldman-citi-ubs-18-others-fund-project-faro-stablecoin-what-is-a-bank-coin-for/">Ledger Insights: Project Faro</a> <span class="kind">secondary</span></li>
+      <li><a href="https://decrypt.co/382953/goldman-citi-global-banks-270-million-challenge-crypto-stablecoin-giants">Decrypt: banks commit $270M</a> <span class="kind">secondary</span></li>
+      <li><a href="https://crypto.news/hong-kong-tokenized-assets-24-7-trading-settlement">crypto.news: Hong Kong round-the-clock trading</a> <span class="kind">secondary</span></li>
+      <li><a href="https://www.theblockbeats.info/flash/377344">BlockBeats: stUSDT wind-down</a> <span class="kind">aggregator</span></li>
+      <li><a href="https://www.kucoin.com/news/flash/metis-hybrid-rollup-launches-on-devnet-post-quantum-proof-path-in-development">KuCoin: Metis Hybrid Rollup devnet</a> <span class="kind">aggregator</span></li>
+    </ul>
+  </section>
+</article>
+
+<!-- ===================== 日本語 ===================== -->
+<article data-lang="ja" class="wrap" style="padding:0" hidden>
+  <header class="brief">
+    <span class="mono meta">デイリーブリーフ · 2026年11月14日 · 約6分</span>
+    <h1>ブロックチェーン・ブリーフ 2026年11月14日</h1>
+    <p class="lede">イーサリアムの開発者は、Glamsterdam のガス変更をどうするか決めるため、来週2回の会議を設定しました。Starknet はブロック規模の証明を受け付けるようになり、Metis はハイブリッドロールアップを devnet で公開。ビジネス面では、21の金融機関が銀行系ステーブルコインに出資し、香港はトークン化されたお金の24時間決済へ進み、stUSDT は終了に向かっています。</p>
+    <p class="note">一次情報または独立した2つ目の情報源で確認できなかった内容には「未確認」と表示しています。</p>
+    <nav class="jump" data-noread aria-label="セクション"><a class="dev" href="#dev-ja">Dev ↓</a><a class="nondev" href="#nondev-ja">Non-dev ↓</a></nav>
+  </header>
+
+  <section class="track dev" id="dev-ja">
+    <div class="track-head"><h2>Dev</h2><p>プロトコル変更、コントラクトのリスク、セキュリティの詳細、開発ツール。</p></div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>続報 · Ethereum · 11月16日・19日</span>
+      <h3>Glamsterdam：まず監査、それから判断</h3>
+      <p>イーサリアム財団は、Glamsterdam の Hoodi テストネットのフォークを止めている EIP-8037 と EIP-8038（ステート作成とステートアクセスの価格見直し）のレビューを ChainSecurity と Dedaub に依頼しました。報告は11月16日までに出る見込みです。同日のコア開発者テスト会議には公開の質疑応答があり、11月19日の実行レイヤー会議で結果を取り上げ、仕様を変える可能性もあります（<a href="https://econotimes.com/Ethereum-s-Glamsterdam-Audit-Talks-Set-as-Hoodi-Test-Date-Remains-Open-1775247">EconoTimes</a>、<a href="https://www.tokenpost.com/news/technology/53813">TokenPost</a>）。</p>
+      <p>Ethlabs は、監査が出るまで仕様の修正や Hoodi の日程決定をしないよう開発者に求めています。懸念の中身は変わりません。サブコールが revert した後に、コントラクトの想定より多くのガスが残ることがあり、残りガスからガス切れを推測するコードは状況を誤って判断しうる、という点です。Glamsterdam の目標は、引き続きブロックのガス上限を60Mから200Mに上げることです。</p>
+    </div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>ZK · Starknet · 11月11日</span>
+      <h3>Starknet、最大11億 L2 ガス分の証明を受け付け</h3>
+      <p>Starknet のメインネットが「ブロック規模」のアプリ証明を受け付けるようになりました。アプリはロジックをオフチェーンで実行し、最大11億 L2 ガス分を1つの証明・1つのトランザクションで提出できます。Starknet が証明を検証するため、アプリが払うのは実行全体ではなく検証の費用です（<a href="https://www.tokenpost.com/news/technology/54573">TokenPost</a>）。プロトコル側の対応は v0.14.4（SNIP-36）で入り、10月5日にメインネットへ導入されました。チームは、内部監査の後に大きな証明を有効にするとしていました（<a href="https://community.starknet.io/t/starknet-v0-14-4-prerelease-notes/116341">Starknet フォーラム</a>）。</p>
+      <p class="unverified"><b>未確認</b>11月11日に有効化されたという StarkWare の発表は見つからず、報道1件のみです。</p>
+    </div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>L2 · Metis · 11月11日</span>
+      <h3>Metis Hybrid Rollup：不正証明に有効性証明を追加</h3>
+      <p>Metis はハイブリッドロールアップを devnet で公開しました。optimistic のチャレンジはそのままに、ZKM のオープンソース zkVM「Ziren」による有効性証明を加え、チャレンジ期間を待たずに証明の検証で出金を確定できるようにします。分散型シーケンサーは ML-DSA の耐量子署名に対応し、まず従来の ECC で動かし、モジュールごとに耐量子へ移行します。テストネットは2027年第1四半期の予定です（<a href="https://www.kucoin.com/news/flash/metis-hybrid-rollup-launches-on-devnet-post-quantum-proof-path-in-development">KuCoin（MarsBit 引用）</a>）。</p>
+      <p class="unverified"><b>未確認</b>中国語の速報経由の情報のみで、Metis 自身の投稿は読めていません。</p>
+    </div>
+
+    <div class="item">
+      <h3>今週やること</h3>
+      <ul class="points">
+        <li>ChainSecurity と Dedaub の報告が出たら読み、疑問点を11月16日の質疑応答に持ち込む。</li>
+        <li>「残りガスが少ない」ことを呼び出しのガス切れの証拠として扱うロジックがないか、コントラクトを検索する。</li>
+        <li>Starknet で重い計算をしているアプリなら、大きな証明1つとオンチェーン実行のコストを比べる。</li>
+        <li>Metis からブリッジしているなら、テストネットが出るまで出金時間の前提を変えない。</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="track nondev" id="nondev-ja">
+    <div class="track-head"><h2>Non-dev</h2><p>市場・ビジネス・規制と、事件が何を意味するかのやさしい解説。</p></div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>ステーブルコイン · 銀行</span>
+      <h3>大手銀行が自前のドル建てステーブルコインに出資</h3>
+      <p>18の銀行とその他3つの機関が、5年分の運営資金として約2億7,000万ドルを、コードネーム「Project Faro」の共同ステーブルコイン会社に投じます。参加行には Bank of America、Citi、Goldman Sachs、UBS、Wells Fargo、Deutsche Bank、Santander、MUFG などが含まれます。まず米国法人を作ってドル建てコインを発行する計画で、最高経営責任者はまだ募集中です（<a href="https://www.ledgerinsights.com/goldman-citi-ubs-18-others-fund-project-faro-stablecoin-what-is-a-bank-coin-for/">Ledger Insights</a>、<a href="https://decrypt.co/382953/goldman-citi-global-banks-270-million-challenge-crypto-stablecoin-giants">Decrypt</a>）。Ledger Insights は、USDC のような競合というより、各行のトークン化預金ネットワークをつなぐ役割と見ています。</p>
+      <p class="unverified"><b>未確認</b>2027年上半期という開始目標は、ニュースレター1件によるものです。</p>
+    </div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>香港 · トークン化</span>
+      <h3>香港、トークン化されたお金を24時間決済へ</h3>
+      <p>香港の証券規制当局（SFC）と中央銀行にあたる香港金融管理局（HKMA）は、11月11日に約200人が参加する合同セミナーを開きました。SFC はすでに、トークン化されたマネー・マーケット・ファンド2本を、認可を受けた暗号資産取引所で常時売買できるようにしています。HKMA は試験ネットワーク EnsembleTX を改良し、トークン化された銀行預金をトークン化された中央銀行マネーで時間を問わず決済できるようにしました。12の銀行と20のその他の企業が参加しています（<a href="https://crypto.news/hong-kong-tokenized-assets-24-7-trading-settlement">crypto.news</a>、<a href="https://www.hkma.gov.hk/eng/news-and-media/press-releases/2026/11/20261112-3/">HKMA</a>）。</p>
+    </div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>ステーブルコイン · 終了</span>
+      <h3>stUSDT が発行停止、償還は2027年5月14日まで</h3>
+      <p>USDT を裏付けにした利回り付きトークン stUSDT は、11月14日に新規発行と報酬の支払いを止めました。stUSDT と wstUSDT の保有者は、アンステーク後に「Claim」を押すことで、2027年5月14日までセルフサービスのポータルから USDT を受け取れます。その後は、2027年8月までサポートが月ごとにまとめて処理します（<a href="https://www.theblockbeats.info/flash/377344">BlockBeats</a>）。</p>
+      <p class="unverified"><b>未確認</b>stUSDT の運営者。同じニュースサイトの見出しは TRON と結びつけています。</p>
+    </div>
+
+    <div class="item">
+      <h3>利用者として</h3>
+      <ul class="points">
+        <li>stUSDT や wstUSDT を持っているなら、期限間際ではなく今のうちに、普段使っている公式サイトからだけ償還する。</li>
+        <li>「stUSDT の償還を手伝う」と連絡してきたり、バックアップの単語を聞いてきたりする相手は詐欺です。</li>
+        <li>銀行系ステーブルコインや香港の24時間決済について、今のところやることはありません。</li>
+        <li>Glamsterdam については、日程が決まるまでやることはありません。</li>
+      </ul>
+      <p>今後の予定：Solana の Breakpoint（11月15〜17日）、イーサリアムの Glamsterdam 質疑応答（11月16日）と判断の会議（11月19日）、11月17日からのロシアの個人向け暗号資産ルール、11月23日の Stellar「Bell」投票。</p>
+    </div>
+  </section>
+
+  <section class="sources">
+    <h2>出典</h2>
+    <p>2026年11月14日時点の報道に基づきます。監査報告はまだ公開されておらず、HKMA の発表は報道経由で読んでいます。</p>
+    <ul>
+      <li><a href="https://community.starknet.io/t/starknet-v0-14-4-prerelease-notes/116341">Starknet forum: v0.14.4 release notes</a> <span class="kind">一次情報</span></li>
+      <li><a href="https://www.hkma.gov.hk/eng/news-and-media/press-releases/2026/11/20261112-3/">HKMA press release, 12 Nov</a> <span class="kind">一次情報</span></li>
+      <li><a href="https://econotimes.com/Ethereum-s-Glamsterdam-Audit-Talks-Set-as-Hoodi-Test-Date-Remains-Open-1775247">EconoTimes: Glamsterdam audit talks</a> <span class="kind">二次情報</span></li>
+      <li><a href="https://www.tokenpost.com/news/technology/53813">TokenPost: Ethlabs on the Hoodi date</a> <span class="kind">二次情報</span></li>
+      <li><a href="https://www.tokenpost.com/news/technology/54573">TokenPost: Starknet block-sized proofs</a> <span class="kind">二次情報</span></li>
+      <li><a href="https://www.ledgerinsights.com/goldman-citi-ubs-18-others-fund-project-faro-stablecoin-what-is-a-bank-coin-for/">Ledger Insights: Project Faro</a> <span class="kind">二次情報</span></li>
+      <li><a href="https://decrypt.co/382953/goldman-citi-global-banks-270-million-challenge-crypto-stablecoin-giants">Decrypt: banks commit $270M</a> <span class="kind">二次情報</span></li>
+      <li><a href="https://crypto.news/hong-kong-tokenized-assets-24-7-trading-settlement">crypto.news: Hong Kong round-the-clock trading</a> <span class="kind">二次情報</span></li>
+      <li><a href="https://www.theblockbeats.info/flash/377344">BlockBeats: stUSDT wind-down</a> <span class="kind">まとめサイト</span></li>
+      <li><a href="https://www.kucoin.com/news/flash/metis-hybrid-rollup-launches-on-devnet-post-quantum-proof-path-in-development">KuCoin: Metis Hybrid Rollup devnet</a> <span class="kind">まとめサイト</span></li>
+    </ul>
+  </section>
+</article>
+
+
+
+<section class="comments" id="comments" data-noread>
+  <h2><span data-lang="en">Reader feedback</span><span data-lang="ja" hidden>読者のコメント</span></h2>
+  <p class="note"><span data-lang="en">Comments use GitHub sign-in, so every commenter is a real GitHub account. Be kind and stay on topic.</span><span data-lang="ja" hidden>コメントには GitHub へのログインが必要です。思いやりを持って、話題に沿って書き込んでください。</span></p>
+  <div class="giscus"></div>
+</section>
+
+<nav class="pager" data-noread>
+  <a href="../"><span data-lang="en">← All briefs</span><span data-lang="ja" hidden>← バックナンバー</span></a>
+  <span></span>
+</nav>
+</main>
+<script src="../assets/brief.js"></script>
+</body>
+</html>
