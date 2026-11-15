@@ -1,5 +1,17 @@
 [
   {
+    "date": "2026-11-15",
+    "file": "briefs/2026-11-15.html",
+    "title": {
+      "en": "Blockchain Brief, 15 Nov 2026",
+      "ja": "ブロックチェーン・ブリーフ 2026年11月15日"
+    },
+    "summary": {
+      "en": "Three Bitcoin Core node bugs, Ledger's SDK sending signing data by default, Unocoin's paper-key breach, Coinbase's federal trust charter and the NYSE picking Avalanche.",
+      "ja": "Bitcoin Core のノードのバグ3件、初期設定で署名データを送る Ledger の SDK、Unocoin の紙の鍵からの侵害、Coinbase の連邦信託免許、NYSE の Avalanche 採用。"
+    }
+  },
+  {
     "date": "2026-11-14",
     "file": "briefs/2026-11-14.html",
     "title": {

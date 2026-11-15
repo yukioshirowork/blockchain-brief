@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Blockchain Brief, 15 Nov 2026</title>
+<meta name="description" content="Three Bitcoin Core node bugs disclosed, Ledger's SDK sending signing data by default, Unocoin's paper-key breach, Coinbase's federal trust charter and the NYSE picking Avalanche.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-title-en="Blockchain Brief, 15 Nov 2026" data-title-ja="ブロックチェーン・ブリーフ 2026年11月15日">
+<div class="bar"><div class="bar-in">
+  <a class="home" href="../">Blockchain Brief</a>
+  <div class="controls">
+    <div class="seg" role="group" aria-label="Language"><button type="button" data-set-lang="en" aria-pressed="true">EN</button><button type="button" data-set-lang="ja" aria-pressed="false">日本語</button></div>
+  </div>
+</div></div>
+
+<main class="wrap">
+
+<!-- Read-aloud panel (shared; labels follow the language toggle) -->
+<section class="audio" id="audio" aria-label="Read aloud" data-noread>
+  <div class="audio-row">
+    <button type="button" class="btn primary" data-a="play">▶ Listen</button>
+    <button type="button" class="btn" data-a="stop" disabled>■ Stop</button>
+    <select class="btn" data-a="scope" aria-label="What to read"><option value="all">Whole brief</option><option value="dev">Dev only</option><option value="nondev">Non-dev only</option></select>
+  </div>
+  <div class="audio-row">
+    <label class="status"><span data-a="speedlbl">Speed</span>
+      <select class="btn" data-a="rate"><option value="0.8">0.8×</option><option value="0.9">0.9×</option><option value="1" selected>1×</option><option value="1.15">1.15×</option><option value="1.3">1.3×</option><option value="1.5">1.5×</option></select></label>
+    <label class="status"><span data-a="voicelbl">Voice</span>
+      <select class="btn" data-a="voice"></select></label>
+  </div>
+  <p class="status" data-a="status" aria-live="polite"></p>
+</section>
+
+<!-- ===================== ENGLISH ===================== -->
+<article data-lang="en" class="wrap" style="padding:0">
+  <header class="brief">
+    <span class="mono meta">Daily brief · 15 Nov 2026 · about 6 min read</span>
+    <h1>Blockchain Brief, 15 Nov 2026</h1>
+    <p class="lede">Bitcoin Core discloses three patched node bugs, including one that could stop miners building blocks. Ledger's signing SDK turns out to send transaction details to Ledger by default, and an Indian exchange loses hot wallets to eight-year-old paper backups. On the business side, Coinbase becomes a federally chartered trust company and the NYSE picks Avalanche for its tokenized-stock settlement.</p>
+    <p class="note">Claims I could not confirm from a primary or second independent source are marked Unverified.</p>
+    <nav class="jump" data-noread aria-label="Sections"><a class="dev" href="#dev-en">Dev ↓</a><a class="nondev" href="#nondev-en">Non-dev ↓</a></nav>
+  </header>
+
+  <section class="track dev" id="dev-en">
+    <div class="track-head"><h2>Dev</h2><p>Protocol changes, contract risks, security details and tooling.</p></div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>Security · Bitcoin Core · 10 Nov</span>
+      <h3>Three Bitcoin Core bugs, one high severity</h3>
+      <p>Bitcoin Core published three advisories on 10 November for bugs fixed in releases from October 2025 (<a href="https://bitcoincore.org/en/security-advisories/">Bitcoin Core</a>):</p>
+      <ul class="points">
+        <li><b>CVE-2025-62861 (high).</b> After a chain reorg, the mempool could evict the wrong TRUC (v3) sibling transaction and end up inconsistent, so miners had to restart before they could build valid block templates. It affects 28.0–28.2 and 29.0–29.1.</li>
+        <li><b>CVE-2025-62859 (medium).</b> Malleated witness data in compact blocks could delay block processing by up to 10 minutes. It is repeatable against -blocksonly nodes or when an attacker controls all three high-bandwidth peers.</li>
+        <li><b>CVE-2025-62860 (medium).</b> If the Tor proxy's IP fell inside a configured -whitelist range, every inbound Tor peer got whitelist permissions. Thousands of mainnet nodes were exposed, but only those with a non-default whitelist.</li>
+      </ul>
+      <p>The fixes are in 30.0, 29.2 and, for the Tor bug, 28.3 (<a href="https://theblock.co/news/ecosystems/2026-11-11-bitcoin-core-discloses-three-patched-security-flaws-including-high-severity-mining-bug-437862">The Block</a>).</p>
+    </div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>Wallets · Ledger · 10–11 Nov</span>
+      <h3>Ledger's signing SDK phones home for clear signing</h3>
+      <p>Ledger's default TypeScript device SDK (device-sdk-ts, through its context-module) sends signing metadata to a Ledger endpoint for every transaction and typed-data request. According to Protos, that includes the device model, its software version and the addresses involved. Ambire developer Kaloyan Kosev flagged it on 10 November. Ledger's Donjon team said this is how clear signing works: the descriptors are too big to store on the device, so the SDK fetches them from Ledger, which keeps none of the data. Wallets can plug in their own context module, but most don't (<a href="https://protos.com/ledgers-sdk-snitched-users-transaction-data-and-device-info/">Protos</a>).</p>
+      <p class="unverified"><b>Unverified</b>Exactly which fields are sent. I didn't read the SDK code myself.</p>
+    </div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>Security · Exchanges · 14 Nov</span>
+      <h3>Unocoin: old paper backup keys beat the custodian's freeze</h3>
+      <p>India's Unocoin said three of its more than 20 hot wallets were drained, with an estimated loss of about $200,000 that it will cover. The wallets used BitGo's multisig with keys held by the client. BitGo said the transfers were signed with the user key and the backup key, so its own freeze could not stop them. Unocoin traced the leak to encrypted backup keys printed on paper about eight years ago (<a href="https://thecryptodesk.substack.com/p/the-sunday-crypto-desk-15-november">The Crypto Desk</a>).</p>
+      <p class="unverified"><b>Unverified</b>Comes from one newsletter citing crypto.news. I found no statement from Unocoin or BitGo.</p>
+    </div>
+
+    <div class="item">
+      <h3>What to do this week</h3>
+      <ul class="points">
+        <li>Run Bitcoin Core 30.x or 29.2 or later. If you mine, upgrade before the next reorg rather than after.</li>
+        <li>If you use -whitelist with Tor, make sure the proxy IP isn't in the range, even after upgrading.</li>
+        <li>If your wallet uses Ledger's device SDK, decide whether to host your own context module, and tell users what is sent.</li>
+        <li>Count every backup key ever printed or exported. If any can't be accounted for, rotate it out of the quorum.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="track nondev" id="nondev-en">
+    <div class="track-head"><h2>Non-dev</h2><p>Market, business and regulation, and what the incidents mean in plain language.</p></div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>US · Banking charters</span>
+      <h3>Coinbase is now a federally chartered trust company</h3>
+      <p>The US national bank regulator (OCC) gave final approval on 6 November for Coinbase National Trust Company, and Coinbase announced it on 9 November. Its custody of crypto for institutions will now answer to a single federal supervisor instead of New York's state regulator. Circle and Ripple got similar charters earlier this year (<a href="https://decrypt.co/382816/coinbase-joins-circle-ripple-with-final-occ-approval-for-federal-trust-bank-charter">Decrypt</a>, <a href="https://www.coinbase.com/en-gb/blog/coinbase-launches-national-trust-company-with-federally-regulated-institutional-grade-custody-offering">Coinbase</a>). Banking groups oppose these approvals, and one community-bank association is suing the OCC.</p>
+      <p class="unverified"><b>Unverified</b>Coinbase said in April that it won't take retail deposits. Only one outlet reports that lending and direct stablecoin issuance are excluded, and that New York custody moves over three years.</p>
+    </div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>Tokenization · Stock markets</span>
+      <h3>The NYSE picks Avalanche for tokenized-stock settlement</h3>
+      <p>Ava Labs says Avalanche will be the core ledger for the clearing firm behind the New York Stock Exchange's planned tokenized-securities venue, recording and settling trades. The venue is meant to trade around the clock with onchain settlement and accept shares issued on several blockchains. It still needs regulatory approval and has no launch date. The NYSE tested Avalanche for about a year (<a href="https://crypto.news/nyse-selects-avalanche-to-power-settlement-for-tokenized-stock-platform/">crypto.news</a>, <a href="https://www.prnewswire.com/news-releases/avalanche-to-serve-as-core-ledger-technology-for-clearing-and-settlement-of-nyse-affiliated-upcoming-tokenized-securities-platform-302932803.html">Ava Labs</a>).</p>
+    </div>
+
+    <div class="item">
+      <h3>As a user</h3>
+      <ul class="points">
+        <li>If you run your own Bitcoin node, update it. If you only use a wallet app, there's nothing to do.</li>
+        <li>Ledger users: your keys are not at risk, but the wallet app you pair with may tell Ledger which addresses you send to.</li>
+        <li>Never store a seed or backup key on paper that others can reach. Check where yours actually are.</li>
+        <li>Federal charters and tokenized stocks are long-term changes, with nothing to do yet.</li>
+      </ul>
+      <p>Coming up: Solana's Breakpoint runs in London 15–17 November. Then come Ethereum's Glamsterdam Q&amp;A (16 November) and decision call (19 November), and the Stellar "Bell" vote on 23 November.</p>
+    </div>
+  </section>
+
+  <section class="sources">
+    <h2>Sources</h2>
+    <p>Reporting as of 15 November 2026. The Coinbase and Ava Labs announcements were read through coverage.</p>
+    <ul>
+      <li><a href="https://bitcoincore.org/en/security-advisories/">Bitcoin Core: security advisories</a> <span class="kind">primary</span></li>
+      <li><a href="https://www.coinbase.com/en-gb/blog/coinbase-launches-national-trust-company-with-federally-regulated-institutional-grade-custody-offering">Coinbase: national trust company</a> <span class="kind">primary</span></li>
+      <li><a href="https://www.prnewswire.com/news-releases/avalanche-to-serve-as-core-ledger-technology-for-clearing-and-settlement-of-nyse-affiliated-upcoming-tokenized-securities-platform-302932803.html">Ava Labs: NYSE-affiliated tokenized securities platform</a> <span class="kind">primary</span></li>
+      <li><a href="https://theblock.co/news/ecosystems/2026-11-11-bitcoin-core-discloses-three-patched-security-flaws-including-high-severity-mining-bug-437862">The Block: Bitcoin Core discloses three flaws</a> <span class="kind">secondary</span></li>
+      <li><a href="https://protos.com/ledgers-sdk-snitched-users-transaction-data-and-device-info/">Protos: Ledger SDK data</a> <span class="kind">secondary</span></li>
+      <li><a href="https://decrypt.co/382816/coinbase-joins-circle-ripple-with-final-occ-approval-for-federal-trust-bank-charter">Decrypt: Coinbase final OCC approval</a> <span class="kind">secondary</span></li>
+      <li><a href="https://crypto.news/nyse-selects-avalanche-to-power-settlement-for-tokenized-stock-platform/">crypto.news: NYSE selects Avalanche</a> <span class="kind">secondary</span></li>
+      <li><a href="https://thecryptodesk.substack.com/p/the-sunday-crypto-desk-15-november">The Sunday Crypto Desk, 15 Nov</a> <span class="kind">newsletter</span></li>
+    </ul>
+  </section>
+</article>
+
+<!-- ===================== 日本語 ===================== -->
+<article data-lang="ja" class="wrap" style="padding:0" hidden>
+  <header class="brief">
+    <span class="mono meta">デイリーブリーフ · 2026年11月15日 · 約6分</span>
+    <h1>ブロックチェーン・ブリーフ 2026年11月15日</h1>
+    <p class="lede">Bitcoin Core が修正済みのノードのバグ3件を公表しました。その1つは、マイナーがブロックを作れなくなるおそれのあるものです。Ledger の署名用 SDK が初期設定で取引の詳細を Ledger に送っていたことが分かり、インドの取引所は8年前の紙のバックアップからホットウォレットを破られました。ビジネス面では、Coinbase が連邦認可の信託会社になり、NYSE はトークン化株式の決済に Avalanche を選びました。</p>
+    <p class="note">一次情報または独立した2つ目の情報源で確認できなかった内容には「未確認」と表示しています。</p>
+    <nav class="jump" data-noread aria-label="セクション"><a class="dev" href="#dev-ja">Dev ↓</a><a class="nondev" href="#nondev-ja">Non-dev ↓</a></nav>
+  </header>
+
+  <section class="track dev" id="dev-ja">
+    <div class="track-head"><h2>Dev</h2><p>プロトコル変更、コントラクトのリスク、セキュリティの詳細、開発ツール。</p></div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>セキュリティ · Bitcoin Core · 11月10日</span>
+      <h3>Bitcoin Core のバグ3件、うち1件は深刻度「高」</h3>
+      <p>Bitcoin Core は11月10日、2025年10月のリリースで修正済みのバグについて3件のアドバイザリを公開しました（<a href="https://bitcoincore.org/en/security-advisories/">Bitcoin Core</a>）。</p>
+      <ul class="points">
+        <li><b>CVE-2025-62861（高）。</b>チェーンの再編成の後、mempool が誤った TRUC（v3）の兄弟トランザクションを追い出して不整合になることがありました。そのためマイナーは、有効なブロックテンプレートを作る前にノードを再起動する必要がありました。影響は 28.0〜28.2 と 29.0〜29.1。</li>
+        <li><b>CVE-2025-62859（中）。</b>コンパクトブロック内の witness データを改変されると、ブロック処理が最大10分遅れることがありました。-blocksonly のノードや、攻撃者が高帯域ピア3つすべてを握っている場合は繰り返し起こせます。</li>
+        <li><b>CVE-2025-62860（中）。</b>Tor プロキシの IP が設定した -whitelist の範囲に入っていると、Tor 経由の受信ピアすべてにホワイトリスト権限が与えられていました。メインネットの数千ノードが該当しましたが、初期設定以外のホワイトリストを使っているノードに限られます。</li>
+      </ul>
+      <p>修正は 30.0、29.2、Tor のバグについては 28.3 に含まれています（<a href="https://theblock.co/news/ecosystems/2026-11-11-bitcoin-core-discloses-three-patched-security-flaws-including-high-severity-mining-bug-437862">The Block</a>）。</p>
+    </div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>ウォレット · Ledger · 11月10〜11日</span>
+      <h3>Ledger の署名 SDK、クリアサイニングのために情報を送信</h3>
+      <p>Ledger の標準の TypeScript 用デバイス SDK（device-sdk-ts の context-module 経由）は、取引や typed data の署名要求のたびに、署名のメタデータを Ledger のエンドポイントへ送っています。Protos によると、そこにはデバイスの機種、ソフトウェアのバージョン、関係するアドレスが含まれます。11月10日に Ambire の開発者 Kaloyan Kosev が指摘しました。Ledger の Donjon チームは、これはクリアサイニングの仕組みだと説明しています。記述子が大きすぎてデバイスに保存できないため SDK が Ledger から取得しており、データは一切保存していないとしています。ウォレット側で独自の context module に差し替えられますが、ほとんどのウォレットはそうしていません（<a href="https://protos.com/ledgers-sdk-snitched-users-transaction-data-and-device-info/">Protos</a>）。</p>
+      <p class="unverified"><b>未確認</b>送られる項目の正確な内容。SDK のコードは自分では読んでいません。</p>
+    </div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>セキュリティ · 取引所 · 11月14日</span>
+      <h3>Unocoin：古い紙のバックアップ鍵がカストディアンの凍結を突破</h3>
+      <p>インドの Unocoin は、20以上あるホットウォレットのうち3つから資金を抜かれたと発表しました。推定損失は約20万ドルで、同社が補填します。これらのウォレットは、鍵を顧客側が持つ BitGo のマルチシグを使っていました。BitGo によると、送金はユーザー鍵とバックアップ鍵で署名されていたため、BitGo 側の凍結では止められませんでした。Unocoin は、約8年前に紙に印刷した暗号化済みのバックアップ鍵から漏れたとしています（<a href="https://thecryptodesk.substack.com/p/the-sunday-crypto-desk-15-november">The Crypto Desk</a>）。</p>
+      <p class="unverified"><b>未確認</b>crypto.news を引用したニュースレター1件が情報源です。Unocoin や BitGo の声明は見つかりませんでした。</p>
+    </div>
+
+    <div class="item">
+      <h3>今週やること</h3>
+      <ul class="points">
+        <li>Bitcoin Core は 30.x か 29.2 以降を使う。マイニングしているなら、次の再編成が起きる前に更新する。</li>
+        <li>Tor と -whitelist を併用しているなら、更新後もプロキシの IP が範囲に入っていないか確認する。</li>
+        <li>ウォレットで Ledger のデバイス SDK を使っているなら、独自の context module を立てるか決め、何が送られるかをユーザーに伝える。</li>
+        <li>これまでに印刷・書き出ししたバックアップ鍵をすべて数え、所在が分からないものがあれば署名の組から外す。</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="track nondev" id="nondev-ja">
+    <div class="track-head"><h2>Non-dev</h2><p>市場・ビジネス・規制と、事件が何を意味するかのやさしい解説。</p></div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>米国 · 銀行免許</span>
+      <h3>Coinbase、連邦認可の信託会社に</h3>
+      <p>米国の銀行監督当局である通貨監督庁（OCC）は11月6日に Coinbase National Trust Company を最終承認し、Coinbase は11月9日にそれを発表しました。機関投資家向けの暗号資産の保管は、ニューヨーク州の規制当局ではなく、連邦の監督当局1つの下に置かれます。Circle と Ripple も今年、同様の免許を得ています（<a href="https://decrypt.co/382816/coinbase-joins-circle-ripple-with-final-occ-approval-for-federal-trust-bank-charter">Decrypt</a>、<a href="https://www.coinbase.com/en-gb/blog/coinbase-launches-national-trust-company-with-federally-regulated-institutional-grade-custody-offering">Coinbase</a>）。銀行業界はこうした承認に反対しており、地域銀行の団体の1つは OCC を提訴しています。</p>
+      <p class="unverified"><b>未確認</b>Coinbase は4月に、個人の預金は受け入れないと述べています。融資やステーブルコインの直接発行が対象外であること、ニューヨークでの保管業務を3年かけて移すことは、1つの媒体だけが報じています。</p>
+    </div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>トークン化 · 株式市場</span>
+      <h3>NYSE、トークン化株式の決済に Avalanche を採用</h3>
+      <p>Ava Labs によると、ニューヨーク証券取引所が計画するトークン化証券の取引の場で、その裏の清算会社が取引を記録・決済する中核の台帳に Avalanche が使われます。この取引の場は24時間の取引とオンチェーン決済を目指し、複数のブロックチェーンで発行された株式を扱う予定です。まだ規制当局の承認が必要で、開始日は決まっていません。NYSE は約1年 Avalanche を試験していました（<a href="https://crypto.news/nyse-selects-avalanche-to-power-settlement-for-tokenized-stock-platform/">crypto.news</a>、<a href="https://www.prnewswire.com/news-releases/avalanche-to-serve-as-core-ledger-technology-for-clearing-and-settlement-of-nyse-affiliated-upcoming-tokenized-securities-platform-302932803.html">Ava Labs</a>）。</p>
+    </div>
+
+    <div class="item">
+      <h3>利用者として</h3>
+      <ul class="points">
+        <li>自分で Bitcoin ノードを動かしているなら更新する。ウォレットアプリを使っているだけなら、やることはありません。</li>
+        <li>Ledger の利用者へ：鍵が危険にさらされているわけではありませんが、組み合わせて使うウォレットアプリが、送金先のアドレスを Ledger に伝えている可能性があります。</li>
+        <li>シードやバックアップ鍵を、他人の手が届く紙に保管しない。実際にどこにあるか確認する。</li>
+        <li>連邦免許やトークン化株式は長期的な変化で、今のところやることはありません。</li>
+      </ul>
+      <p>今後の予定：Solana の Breakpoint がロンドンで11月15〜17日に開催。続いて、イーサリアムの Glamsterdam 質疑応答（11月16日）と判断の会議（11月19日）、11月23日の Stellar「Bell」投票。</p>
+    </div>
+  </section>
+
+  <section class="sources">
+    <h2>出典</h2>
+    <p>2026年11月15日時点の報道に基づきます。Coinbase と Ava Labs の発表は報道経由で読んでいます。</p>
+    <ul>
+      <li><a href="https://bitcoincore.org/en/security-advisories/">Bitcoin Core: security advisories</a> <span class="kind">一次情報</span></li>
+      <li><a href="https://www.coinbase.com/en-gb/blog/coinbase-launches-national-trust-company-with-federally-regulated-institutional-grade-custody-offering">Coinbase: national trust company</a> <span class="kind">一次情報</span></li>
+      <li><a href="https://www.prnewswire.com/news-releases/avalanche-to-serve-as-core-ledger-technology-for-clearing-and-settlement-of-nyse-affiliated-upcoming-tokenized-securities-platform-302932803.html">Ava Labs: NYSE-affiliated tokenized securities platform</a> <span class="kind">一次情報</span></li>
+      <li><a href="https://theblock.co/news/ecosystems/2026-11-11-bitcoin-core-discloses-three-patched-security-flaws-including-high-severity-mining-bug-437862">The Block: Bitcoin Core discloses three flaws</a> <span class="kind">二次情報</span></li>
+      <li><a href="https://protos.com/ledgers-sdk-snitched-users-transaction-data-and-device-info/">Protos: Ledger SDK data</a> <span class="kind">二次情報</span></li>
+      <li><a href="https://decrypt.co/382816/coinbase-joins-circle-ripple-with-final-occ-approval-for-federal-trust-bank-charter">Decrypt: Coinbase final OCC approval</a> <span class="kind">二次情報</span></li>
+      <li><a href="https://crypto.news/nyse-selects-avalanche-to-power-settlement-for-tokenized-stock-platform/">crypto.news: NYSE selects Avalanche</a> <span class="kind">二次情報</span></li>
+      <li><a href="https://thecryptodesk.substack.com/p/the-sunday-crypto-desk-15-november">The Sunday Crypto Desk, 15 Nov</a> <span class="kind">ニュースレター</span></li>
+    </ul>
+  </section>
+</article>
+
+
+
+<section class="comments" id="comments" data-noread>
+  <h2><span data-lang="en">Reader feedback</span><span data-lang="ja" hidden>読者のコメント</span></h2>
+  <p class="note"><span data-lang="en">Comments use GitHub sign-in, so every commenter is a real GitHub account. Be kind and stay on topic.</span><span data-lang="ja" hidden>コメントには GitHub へのログインが必要です。思いやりを持って、話題に沿って書き込んでください。</span></p>
+  <div class="giscus"></div>
+</section>
+
+<nav class="pager" data-noread>
+  <a href="../"><span data-lang="en">← All briefs</span><span data-lang="ja" hidden>← バックナンバー</span></a>
+  <span></span>
+</nav>
+</main>
+<script src="../assets/brief.js"></script>
+</body>
+</html>
