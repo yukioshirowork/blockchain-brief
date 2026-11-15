@@ -71,14 +71,14 @@
     <div class="item">
       <span class="tag mono" data-noread>Security · Exchanges · 14 Nov</span>
       <h3>Unocoin: old paper backup keys beat the custodian's freeze</h3>
-      <p>India's Unocoin said three of its more than 20 hot wallets were drained, with an estimated loss of about $200,000 that it will cover. The wallets used BitGo's multisig with keys held by the client. BitGo said the transfers were signed with the user key and the backup key, so its own freeze could not stop them. Unocoin traced the leak to encrypted backup keys printed on paper about eight years ago (<a href="https://thecryptodesk.substack.com/p/the-sunday-crypto-desk-15-november">The Crypto Desk</a>).</p>
+      <p>India's Unocoin said three of its more than 20 hot wallets were compromised, with an estimated loss of about $200,000 that it will cover. The wallets used BitGo multisig, with some keys held by Unocoin itself. BitGo said the transfers were signed with the user key and the backup key, so its own freeze could not stop them. The wallets were compromised through encrypted backup keys printed on paper about eight years ago. How those keys leaked is still under investigation (<a href="https://thecryptodesk.substack.com/p/the-sunday-crypto-desk-15-november">The Crypto Desk</a>).</p>
       <p class="unverified"><b>Unverified</b>Comes from one newsletter citing crypto.news. I found no statement from Unocoin or BitGo.</p>
     </div>
 
     <div class="item">
       <h3>What to do this week</h3>
       <ul class="points">
-        <li>Run Bitcoin Core 30.x or 29.2 or later. If you mine, upgrade before the next reorg rather than after.</li>
+        <li>Run a maintained Bitcoin Core release (30.x or later). 29.x is patched but reportedly out of maintenance since 27 October. If you mine, upgrade now rather than after a reorg.</li>
         <li>If you use -whitelist with Tor, make sure the proxy IP isn't in the range, even after upgrading.</li>
         <li>If your wallet uses Ledger's device SDK, decide whether to host your own context module, and tell users what is sent.</li>
         <li>Count every backup key ever printed or exported. If any can't be accounted for, rotate it out of the quorum.</li>
@@ -92,7 +92,7 @@
     <div class="item">
       <span class="tag mono" data-noread>US · Banking charters</span>
       <h3>Coinbase is now a federally chartered trust company</h3>
-      <p>The US national bank regulator (OCC) gave final approval on 6 November for Coinbase National Trust Company, and Coinbase announced it on 9 November. Its custody of crypto for institutions will now answer to a single federal supervisor instead of New York's state regulator. Circle and Ripple got similar charters earlier this year (<a href="https://decrypt.co/382816/coinbase-joins-circle-ripple-with-final-occ-approval-for-federal-trust-bank-charter">Decrypt</a>, <a href="https://www.coinbase.com/en-gb/blog/coinbase-launches-national-trust-company-with-federally-regulated-institutional-grade-custody-offering">Coinbase</a>). Banking groups oppose these approvals, and one community-bank association is suing the OCC.</p>
+      <p>The US national bank regulator (OCC) gave final approval on 6 November for Coinbase National Trust Company, and Coinbase announced it on 9 November. Its custody of crypto for institutions will move under a single federal supervisor, rather than New York's state regulator. Circle and Ripple got similar charters earlier this year (<a href="https://decrypt.co/382816/coinbase-joins-circle-ripple-with-final-occ-approval-for-federal-trust-bank-charter">Decrypt</a>, <a href="https://www.coinbase.com/en-gb/blog/coinbase-launches-national-trust-company-with-federally-regulated-institutional-grade-custody-offering">Coinbase</a>). Banking groups oppose these approvals, and one community-bank association is suing the OCC.</p>
       <p class="unverified"><b>Unverified</b>Coinbase said in April that it won't take retail deposits. Only one outlet reports that lending and direct stablecoin issuance are excluded, and that New York custody moves over three years.</p>
     </div>
 
@@ -165,14 +165,14 @@
     <div class="item">
       <span class="tag mono" data-noread>セキュリティ · 取引所 · 11月14日</span>
       <h3>Unocoin：古い紙のバックアップ鍵がカストディアンの凍結を突破</h3>
-      <p>インドの Unocoin は、20以上あるホットウォレットのうち3つから資金を抜かれたと発表しました。推定損失は約20万ドルで、同社が補填します。これらのウォレットは、鍵を顧客側が持つ BitGo のマルチシグを使っていました。BitGo によると、送金はユーザー鍵とバックアップ鍵で署名されていたため、BitGo 側の凍結では止められませんでした。Unocoin は、約8年前に紙に印刷した暗号化済みのバックアップ鍵から漏れたとしています（<a href="https://thecryptodesk.substack.com/p/the-sunday-crypto-desk-15-november">The Crypto Desk</a>）。</p>
+      <p>インドの Unocoin は、20以上あるホットウォレットのうち3つが侵害されたと発表しました。推定損失は約20万ドルで、同社が補填します。これらのウォレットは、一部の鍵を Unocoin 自身が持つ BitGo のマルチシグを使っていました。BitGo によると、送金はユーザー鍵とバックアップ鍵で署名されていたため、BitGo 側の凍結では止められませんでした。侵害は約8年前に紙に印刷した暗号化済みのバックアップ鍵を通じて起きましたが、鍵がどう漏れたかは調査中です（<a href="https://thecryptodesk.substack.com/p/the-sunday-crypto-desk-15-november">The Crypto Desk</a>）。</p>
       <p class="unverified"><b>未確認</b>crypto.news を引用したニュースレター1件が情報源です。Unocoin や BitGo の声明は見つかりませんでした。</p>
     </div>
 
     <div class="item">
       <h3>今週やること</h3>
       <ul class="points">
-        <li>Bitcoin Core は 30.x か 29.2 以降を使う。マイニングしているなら、次の再編成が起きる前に更新する。</li>
+        <li>保守が続いている Bitcoin Core（30.x 以降）を使う。29.x は修正済みですが、10月27日で保守が終わったと報じられています。マイニングしているなら、再編成が起きてからではなく今すぐ更新する。</li>
         <li>Tor と -whitelist を併用しているなら、更新後もプロキシの IP が範囲に入っていないか確認する。</li>
         <li>ウォレットで Ledger のデバイス SDK を使っているなら、独自の context module を立てるか決め、何が送られるかをユーザーに伝える。</li>
         <li>これまでに印刷・書き出ししたバックアップ鍵をすべて数え、所在が分からないものがあれば署名の組から外す。</li>
@@ -186,7 +186,7 @@
     <div class="item">
       <span class="tag mono" data-noread>米国 · 銀行免許</span>
       <h3>Coinbase、連邦認可の信託会社に</h3>
-      <p>米国の銀行監督当局である通貨監督庁（OCC）は11月6日に Coinbase National Trust Company を最終承認し、Coinbase は11月9日にそれを発表しました。機関投資家向けの暗号資産の保管は、ニューヨーク州の規制当局ではなく、連邦の監督当局1つの下に置かれます。Circle と Ripple も今年、同様の免許を得ています（<a href="https://decrypt.co/382816/coinbase-joins-circle-ripple-with-final-occ-approval-for-federal-trust-bank-charter">Decrypt</a>、<a href="https://www.coinbase.com/en-gb/blog/coinbase-launches-national-trust-company-with-federally-regulated-institutional-grade-custody-offering">Coinbase</a>）。銀行業界はこうした承認に反対しており、地域銀行の団体の1つは OCC を提訴しています。</p>
+      <p>米国の銀行監督当局である通貨監督庁（OCC）は11月6日に Coinbase National Trust Company を最終承認し、Coinbase は11月9日にそれを発表しました。機関投資家向けの暗号資産の保管は、ニューヨーク州の規制当局ではなく、連邦の監督当局1つの下に移っていきます。Circle と Ripple も今年、同様の免許を得ています（<a href="https://decrypt.co/382816/coinbase-joins-circle-ripple-with-final-occ-approval-for-federal-trust-bank-charter">Decrypt</a>、<a href="https://www.coinbase.com/en-gb/blog/coinbase-launches-national-trust-company-with-federally-regulated-institutional-grade-custody-offering">Coinbase</a>）。銀行業界はこうした承認に反対しており、地域銀行の団体の1つは OCC を提訴しています。</p>
       <p class="unverified"><b>未確認</b>Coinbase は4月に、個人の預金は受け入れないと述べています。融資やステーブルコインの直接発行が対象外であること、ニューヨークでの保管業務を3年かけて移すことは、1つの媒体だけが報じています。</p>
     </div>
 
