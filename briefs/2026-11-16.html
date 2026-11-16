@@ -52,14 +52,14 @@
     <div class="item">
       <span class="tag mono" data-noread>Solana · Breakpoint · 15–16 Nov</span>
       <h3>Solana 1.0: one protocol version, many clients</h3>
-      <p>At Breakpoint in London on 16 November, the Solana Foundation retired the "mainnet-beta" name and announced Solana 1.0, coordinated with the Anza (Agave) and Firedancer teams (<a href="https://solana.com/news/solana-1-0-dropping-beta-and-what-comes-next">Solana</a>). The main change for developers is a shared protocol version that no longer follows any one client's version number. The Foundation notes that announcing a protocol version "does not activate every associated improvement at once", so feature gates still decide what is live (<a href="https://u.today/after-7-years-and-99-speed-leap-solana-sol-finally-drops-its-beta-label">U.Today</a>).</p>
+      <p>At Breakpoint in London on 16 November, the Solana Foundation retired the "mainnet-beta" name and announced Solana 1.0, coordinated with the Anza (Agave) and Firedancer teams (<a href="https://solana.com/news/solana-1-0-dropping-beta-and-what-comes-next">Solana</a>). The main change for developers is a shared protocol version that no longer follows any one client's version number. The Foundation notes that announcing a protocol version "does not activate every associated improvement at once". Individual features still switch on separately (<a href="https://u.today/after-7-years-and-99-speed-leap-solana-sol-finally-drops-its-beta-label">U.Today</a>).</p>
       <p>The day before, Firedancer developer Ritchie Patel showed a mainnet full node running on a tablet, using under one CPU core and 20 GB of RAM over 5G. It synced from a snapshot and was voting in about 10 seconds. That is a demo, not validator guidance: Anza still advises at least 12 cores and 256 GB of RAM for staked validators (<a href="https://crypto.news/solana-co-founder-tablet-node-firedancer/">crypto.news</a>).</p>
     </div>
 
     <div class="item">
       <span class="tag mono" data-noread>Ethereum · Privacy · Research</span>
       <h3>A privacy pool on frame transactions: almost there</h3>
-      <p>Daniil Ankushin of Nethermind built a privacy pool on EIP-8141 frame transactions and measured it. A withdrawal where the pool itself is the sender costs 679,322 gas on Nethermind master. Two drafts make this work. EIP-8250 uses each note's nullifier as a nonce key, so withdrawals don't collide. EIP-8272 checks the pool's Merkle root against a recent-roots contract (<a href="https://ethresear.ch/t/a-privacy-pool-on-frame-transactions-what-works-and-the-case-that-does-not-yet/26223">ethresear.ch</a>). Two problems remain. The proof check exceeds EIP-8141's validation-gas cap, and a pool can't yet pay for a call made from the user's own address in one transaction.</p>
+      <p>Daniil Ankushin of Nethermind measured a minimal shielded pool running on frame transactions. A withdrawal where the pool itself is the sender costs 679,322 gas on Nethermind master. Two drafts make this work. EIP-8250 uses each note's nullifier as a nonce key, so a reused nullifier is rejected like a reused nonce. EIP-8272 checks the pool's Merkle root against a recent-roots contract (<a href="https://ethresear.ch/t/a-privacy-pool-on-frame-transactions-what-works-and-the-case-that-does-not-yet/26223">ethresear.ch</a>). Two problems remain. The proof check exceeds EIP-8141's validation-gas cap, and a pool can't yet pay for a call made from the user's own address in one transaction.</p>
       <p class="unverified"><b>Unverified</b>I read the post through Etherspot's weekly digest.</p>
     </div>
 
@@ -86,20 +86,20 @@
     <div class="item">
       <span class="tag mono" data-noread>Solana · Milestone</span>
       <h3>Solana is no longer "beta"</h3>
-      <p>Solana has run as "mainnet beta" since 2020. At its London conference it dropped the label and called the network Solana 1.0. Nothing changes for your wallet or tokens. The name reflects that transactions now confirm in a fraction of a second after October's Alpenglow upgrade, and that a second, independent software client, Firedancer, now runs on the network. Two independent clients make a full outage less likely. The conference opened with no new token launches or protocol upgrades.</p>
+      <p>Solana has run as "mainnet beta" since 2020. At its London conference it dropped the label and called the network Solana 1.0. Nothing changes for your wallet or tokens. The name reflects that transactions now confirm in a fraction of a second after October's Alpenglow upgrade, and that a second, independent software client, Firedancer, now runs on the network. The Foundation says independent clients limit the damage when one has a bug. The conference opened with no new token launches or protocol upgrades.</p>
     </div>
 
     <div class="item">
       <span class="tag mono" data-noread>Brazil · Stablecoins</span>
       <h3>Brazil's central bank warns about stablecoins in money transfers</h3>
-      <p>At a closed industry meeting, a senior official from Brazil's central bank reportedly said some ways of converting money through stablecoins can amount to money laundering, and that some business models are not allowed for Brazilian institutions (<a href="https://coingape.com/brazils-central-bank-links-stablecoin-use-to-money-laundering-in-closed-meeting/">CoinGape</a>). Under a rule in force since 1 October, online foreign-exchange providers can no longer use stablecoins to settle the overseas side of a transfer. Licensed crypto firms are not covered (<a href="https://thecoinrepublic.com/2026/11/16/brazil-stablecoin-regulations-target-cross-border-transfers">The Coin Republic</a>).</p>
-      <p class="unverified"><b>Unverified</b>Both reports rely on one local outlet and spell the official's name differently. A follow-up meeting on 19 November with more restrictions is rumoured.</p>
+      <p>At a closed industry meeting, a senior official from Brazil's central bank reportedly said some ways of converting money through stablecoins can amount to money laundering, and that some business models are not allowed for Brazilian institutions (<a href="https://coingape.com/brazils-central-bank-links-stablecoin-use-to-money-laundering-in-closed-meeting/">CoinGape</a>). Under a rule in force since 1 October, fintechs, payment firms and e-money issuers offering foreign exchange can no longer use stablecoins to settle the overseas side of a transfer. Licensed crypto firms, including banks holding that licence, are not covered (<a href="https://thecoinrepublic.com/2026/11/16/brazil-stablecoin-regulations-target-cross-border-transfers">The Coin Republic</a>).</p>
+      <p class="unverified"><b>Unverified</b>The official's remarks come from one local outlet, and reports spell the name differently. A follow-up meeting on 19 November with more restrictions is rumoured.</p>
     </div>
 
     <div class="item">
       <h3>As a user</h3>
       <ul class="points">
-        <li>Solana's new name needs nothing from you. Ignore any "migrate to Solana 1.0" message, because that is a scam.</li>
+        <li>Solana's new name needs nothing from you. Nobody needs you to "migrate" tokens, so treat any such message as a scam.</li>
         <li>If you send money from Brazil through a fintech, expect it to settle through regular exchange channels rather than stablecoins.</li>
         <li>Protected-account tokens are only a proposal. For now, the best theft protection is a hardware wallet and small balances in hot wallets.</li>
       </ul>
@@ -139,14 +139,14 @@
     <div class="item">
       <span class="tag mono" data-noread>Solana · Breakpoint · 11月15〜16日</span>
       <h3>Solana 1.0：プロトコルバージョンは1つ、クライアントは複数</h3>
-      <p>Solana Foundation は11月16日、ロンドンの Breakpoint で「mainnet-beta」の名称を廃止し、Anza（Agave）と Firedancer の両チームと調整のうえ Solana 1.0 を発表しました（<a href="https://solana.com/news/solana-1-0-dropping-beta-and-what-comes-next">Solana</a>）。開発者にとっての主な変更は、特定のクライアントのバージョン番号に縛られない、共通のプロトコルバージョンです。Foundation は、プロトコルバージョンの発表が「関連するすべての改善を一度に有効にするわけではない」と注意しており、何が有効かは引き続き feature gate で決まります（<a href="https://u.today/after-7-years-and-99-speed-leap-solana-sol-finally-drops-its-beta-label">U.Today</a>）。</p>
+      <p>Solana Foundation は11月16日、ロンドンの Breakpoint で「mainnet-beta」の名称を廃止し、Anza（Agave）と Firedancer の両チームと調整のうえ Solana 1.0 を発表しました（<a href="https://solana.com/news/solana-1-0-dropping-beta-and-what-comes-next">Solana</a>）。開発者にとっての主な変更は、特定のクライアントのバージョン番号に縛られない、共通のプロトコルバージョンです。Foundation は、プロトコルバージョンの発表が「関連するすべての改善を一度に有効にするわけではない」と注意しており、個々の機能は引き続き別々に有効化されます（<a href="https://u.today/after-7-years-and-99-speed-leap-solana-sol-finally-drops-its-beta-label">U.Today</a>）。</p>
       <p>前日には Firedancer の開発者 Ritchie Patel が、CPU 1コア未満、RAM 20GB、5G 回線のタブレットでメインネットのフルノードを動かして見せました。スナップショットから同期し、約10秒で投票を始めています。ただしこれはデモであり、バリデーターの推奨構成ではありません。Anza はステーク付きのバリデーターに、引き続き12コア以上・RAM 256GB 以上を推奨しています（<a href="https://crypto.news/solana-co-founder-tablet-node-firedancer/">crypto.news</a>）。</p>
     </div>
 
     <div class="item">
       <span class="tag mono" data-noread>Ethereum · プライバシー · 研究</span>
       <h3>フレームトランザクション上のプライバシープール：あと一歩</h3>
-      <p>Nethermind の Daniil Ankushin は、EIP-8141 のフレームトランザクション上にプライバシープールを作り、測定しました。プール自身を送信者とする出金は、Nethermind の master で 679,322 ガスかかります。これを可能にする案が2つあります。EIP-8250 は各ノートの nullifier を nonce キーとして使い、出金どうしが衝突しないようにします。EIP-8272 はプールの Merkle ルートを直近のルートを記録するコントラクトと照合します（<a href="https://ethresear.ch/t/a-privacy-pool-on-frame-transactions-what-works-and-the-case-that-does-not-yet/26223">ethresear.ch</a>）。課題は2つ残っています。証明の検証が EIP-8141 の検証用ガス上限を超えること、そしてユーザー自身のアドレスからの呼び出しの費用を、プールが1つのトランザクションで払えないことです。</p>
+      <p>Nethermind の Daniil Ankushin は、フレームトランザクション上で動く最小構成のシールドプールを測定しました。プール自身を送信者とする出金は、Nethermind の master で 679,322 ガスかかります。これを可能にする案が2つあります。EIP-8250 は各ノートの nullifier を nonce キーとして使うため、使い回された nullifier は使い回された nonce と同じく拒否されます。EIP-8272 はプールの Merkle ルートを直近のルートを記録するコントラクトと照合します（<a href="https://ethresear.ch/t/a-privacy-pool-on-frame-transactions-what-works-and-the-case-that-does-not-yet/26223">ethresear.ch</a>）。課題は2つ残っています。証明の検証が EIP-8141 の検証用ガス上限を超えること、そしてユーザー自身のアドレスからの呼び出しの費用を、プールが1つのトランザクションで払えないことです。</p>
       <p class="unverified"><b>未確認</b>投稿は Etherspot の週刊まとめ経由で読んでいます。</p>
     </div>
 
@@ -173,20 +173,20 @@
     <div class="item">
       <span class="tag mono" data-noread>Solana · 節目</span>
       <h3>Solana はもう「ベータ版」ではない</h3>
-      <p>Solana は2020年から「mainnet beta」として動いてきましたが、ロンドンのカンファレンスでこの名前を外し、Solana 1.0 と呼ぶことにしました。ウォレットやトークンに変化はありません。この名前は、10月の Alpenglow アップグレードで取引が1秒もかからずに確定するようになったこと、そして独立した2つ目のソフトウェア Firedancer がネットワークで動いていることを反映しています。独立したソフトが2つあれば、ネットワーク全体が止まる可能性は下がります。カンファレンスの初日には、新しいトークンやプロトコルのアップグレードの発表はありませんでした。</p>
+      <p>Solana は2020年から「mainnet beta」として動いてきましたが、ロンドンのカンファレンスでこの名前を外し、Solana 1.0 と呼ぶことにしました。ウォレットやトークンに変化はありません。この名前は、10月の Alpenglow アップグレードで取引が1秒もかからずに確定するようになったこと、そして独立した2つ目のソフトウェア Firedancer がネットワークで動いていることを反映しています。Foundation は、独立したクライアントがあれば、1つにバグがあっても影響を抑えられるとしています。カンファレンスの初日には、新しいトークンやプロトコルのアップグレードの発表はありませんでした。</p>
     </div>
 
     <div class="item">
       <span class="tag mono" data-noread>ブラジル · ステーブルコイン</span>
       <h3>ブラジル中央銀行、送金でのステーブルコイン利用に警告</h3>
-      <p>報道によると、ブラジル中央銀行の幹部が非公開の業界会合で、ステーブルコインを介したお金の両替の一部はマネーロンダリングにあたりうると述べ、ブラジルの金融機関には認められないビジネスモデルもあると話しました（<a href="https://coingape.com/brazils-central-bank-links-stablecoin-use-to-money-laundering-in-closed-meeting/">CoinGape</a>）。10月1日に施行されたルールにより、オンラインの外国為替事業者は、送金の海外側の決済にステーブルコインを使えなくなっています。認可を受けた暗号資産事業者は対象外です（<a href="https://thecoinrepublic.com/2026/11/16/brazil-stablecoin-regulations-target-cross-border-transfers">The Coin Republic</a>）。</p>
-      <p class="unverified"><b>未確認</b>どちらの報道も地元の1つの媒体を元にしており、幹部の名前の綴りも異なります。11月19日に追加の規制を話し合う会合があるとのうわさもあります。</p>
+      <p>報道によると、ブラジル中央銀行の幹部が非公開の業界会合で、ステーブルコインを介したお金の両替の一部はマネーロンダリングにあたりうると述べ、ブラジルの金融機関には認められないビジネスモデルもあると話しました（<a href="https://coingape.com/brazils-central-bank-links-stablecoin-use-to-money-laundering-in-closed-meeting/">CoinGape</a>）。10月1日に施行されたルールにより、外国為替サービスを提供するフィンテック、決済事業者、電子マネー発行者は、送金の海外側の決済にステーブルコインを使えなくなっています。認可を受けた暗号資産事業者（その認可を持つ銀行を含む）は対象外です（<a href="https://thecoinrepublic.com/2026/11/16/brazil-stablecoin-regulations-target-cross-border-transfers">The Coin Republic</a>）。</p>
+      <p class="unverified"><b>未確認</b>幹部の発言は地元の1つの媒体によるもので、報道によって名前の綴りも異なります。11月19日に追加の規制を話し合う会合があるとのうわさもあります。</p>
     </div>
 
     <div class="item">
       <h3>利用者として</h3>
       <ul class="points">
-        <li>Solana の名前の変更で、やることはありません。「Solana 1.0 へ移行してください」というメッセージは詐欺なので無視する。</li>
+        <li>Solana の名前の変更で、やることはありません。トークンの「移行」は不要なので、そうしたメッセージは詐欺として扱う。</li>
         <li>ブラジルからフィンテック経由で送金するなら、ステーブルコインではなく通常の為替の経路で決済されると考えておく。</li>
         <li>保護付きアカウントのトークンはまだ提案段階です。当面の最善の盗難対策は、ハードウェアウォレットを使い、ホットウォレットには少額だけ置くことです。</li>
       </ul>
