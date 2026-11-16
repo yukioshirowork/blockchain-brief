@@ -1,5 +1,17 @@
 [
   {
+    "date": "2026-11-16",
+    "file": "briefs/2026-11-16.html",
+    "title": {
+      "en": "Blockchain Brief, 16 Nov 2026",
+      "ja": "ブロックチェーン・ブリーフ 2026年11月16日"
+    },
+    "summary": {
+      "en": "Solana 1.0 drops the beta label, a privacy pool on Ethereum frame transactions, a draft ERC for protected token accounts, and Brazil's central bank on stablecoins.",
+      "ja": "ベータの名前を外した Solana 1.0、イーサリアムのフレームトランザクション上のプライバシープール、トークンの保護付きアカウントの ERC 草案、ブラジル中央銀行のステーブルコイン警告。"
+    }
+  },
+  {
     "date": "2026-11-15",
     "file": "briefs/2026-11-15.html",
     "title": {
