@@ -1,5 +1,17 @@
 [
   {
+    "date": "2026-11-17",
+    "file": "briefs/2026-11-17.html",
+    "title": {
+      "en": "Blockchain Brief, 17 Nov 2026",
+      "ja": "ブロックチェーン・ブリーフ 2026年11月17日"
+    },
+    "summary": {
+      "en": "A poisoned Optimizely script on 178 websites, $17M lost at Lighter and a Safe wallet via keys, Zelle picks Solana, and Russia's retail crypto rules take effect.",
+      "ja": "178サイトに広がった Optimizely スクリプトの汚染、鍵の問題で Lighter と Safe ウォレットが1,700万ドルを失う、Zelle が Solana を採用、ロシアの個人向け暗号資産ルール施行。"
+    }
+  },
+  {
     "date": "2026-11-16",
     "file": "briefs/2026-11-16.html",
     "title": {

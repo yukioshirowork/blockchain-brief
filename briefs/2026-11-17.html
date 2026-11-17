@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Blockchain Brief, 17 Nov 2026</title>
+<meta name="description" content="The Optimjack script attack on 178 websites, $17M lost at Lighter and a Safe wallet through keys and permissions, Zelle picking Solana, Custodia's Supreme Court loss and Russia's retail crypto rules.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-title-en="Blockchain Brief, 17 Nov 2026" data-title-ja="ブロックチェーン・ブリーフ 2026年11月17日">
+<div class="bar"><div class="bar-in">
+  <a class="home" href="../">Blockchain Brief</a>
+  <div class="controls">
+    <div class="seg" role="group" aria-label="Language"><button type="button" data-set-lang="en" aria-pressed="true">EN</button><button type="button" data-set-lang="ja" aria-pressed="false">日本語</button></div>
+  </div>
+</div></div>
+
+<main class="wrap">
+
+<!-- Read-aloud panel (shared; labels follow the language toggle) -->
+<section class="audio" id="audio" aria-label="Read aloud" data-noread>
+  <div class="audio-row">
+    <button type="button" class="btn primary" data-a="play">▶ Listen</button>
+    <button type="button" class="btn" data-a="stop" disabled>■ Stop</button>
+    <select class="btn" data-a="scope" aria-label="What to read"><option value="all">Whole brief</option><option value="dev">Dev only</option><option value="nondev">Non-dev only</option></select>
+  </div>
+  <div class="audio-row">
+    <label class="status"><span data-a="speedlbl">Speed</span>
+      <select class="btn" data-a="rate"><option value="0.8">0.8×</option><option value="0.9">0.9×</option><option value="1" selected>1×</option><option value="1.15">1.15×</option><option value="1.3">1.3×</option><option value="1.5">1.5×</option></select></label>
+    <label class="status"><span data-a="voicelbl">Voice</span>
+      <select class="btn" data-a="voice"></select></label>
+  </div>
+  <p class="status" data-a="status" aria-live="polite"></p>
+</section>
+
+<!-- ===================== ENGLISH ===================== -->
+<article data-lang="en" class="wrap" style="padding:0">
+  <header class="brief">
+    <span class="mono meta">Daily brief · 17 Nov 2026 · about 6 min read</span>
+    <h1>Blockchain Brief, 17 Nov 2026</h1>
+    <p class="lede">A poisoned third-party script swapped crypto addresses on Ledger's site and 177 other websites for most of a day. Lighter and a Safe wallet lost $17 million between them through keys and permissions, not contract bugs. Zelle picks Solana for its stablecoin, the Supreme Court ends Custodia's Fed account fight, and Russia's retail crypto rules take effect.</p>
+    <p class="note">Claims I could not confirm from a primary or second independent source are marked Unverified.</p>
+    <nav class="jump" data-noread aria-label="Sections"><a class="dev" href="#dev-en">Dev ↓</a><a class="nondev" href="#nondev-en">Non-dev ↓</a></nav>
+  </header>
+
+  <section class="track dev" id="dev-en">
+    <div class="track-head"><h2>Dev</h2><p>Protocol changes, contract risks, security details and tooling.</p></div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>Security · Supply chain · 16 Nov</span>
+      <h3>Optimjack: an A/B-testing script turned clipper and skimmer</h3>
+      <p>On 16 November attackers injected code into scripts served by Optimizely, the experimentation platform, and reached 178 organisations, including Ledger, OANDA/Coinpass, IG, Interactive Investor, Zoom, IKEA, BBC and CNN. The malware, named "Optimjack", replaced wallet addresses when visitors copied them and captured card details typed into forms. It was first seen on the BBC around 04:21 UTC. Most of it was gone by about 21:52 UTC, and Ledger's copy was cleaned at about 20:41 UTC (<a href="https://cointelegraph.com/news/hackers-inject-malware-into-178-major-websites">Cointelegraph</a>, <a href="https://www.stepsecurity.io/blog/optimjack-optimizely-hosted-scripts-crypto-clipper-card-skimmer">StepSecurity</a>, <a href="https://blog.report-uri.com/worlds-largest-brands-infected-with-malware-via-optimizely/">Report URI</a>).</p>
+      <p class="unverified"><b>Unverified</b>How the scripts were compromised, and the losses: attacker addresses reportedly received about $7,100.</p>
+    </div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>Security · Keys and permissions · 16 Nov</span>
+      <h3>Lighter and a Safe wallet: $17M lost without a contract bug</h3>
+      <p>About 10.39M USDC left Lighter's Ethereum contract at 10:11 UTC through a trader's leaked API key. Lighter's API keys can move funds between accounts tied to the same wallet. Lighter says its contracts were not affected. It paused withdrawals, turned on "Guardian mode" and planned contract upgrades before reopening (<a href="https://cointelegraph.com/news/lighter-dex-pauses-withdrawals-10m-exploit">Cointelegraph</a>, <a href="https://bitquery.io/investigations/lighter-hack">Bitquery</a>).</p>
+      <p>Separately, a Safe wallet lost about 4.39M USDC and 1.72M syrupUSDC in one transaction. It was signed with a long-standing role member's key, most likely compromised, and approved by the Zodiac Roles Modifier because the wallet's own policy allowed it. Zodiac says the module has no bug (<a href="https://cointelegraph.com/news/safe-wallet-reportedly-loses-millions-after-key-compromise">Cointelegraph</a>). Both thieves cashed out by buying XMR1 on Hyperliquid. Bitquery saw similarities but no direct link between them.</p>
+      <p class="unverified"><b>Unverified</b>Reports that Lighter returned about $5M to the trader.</p>
+    </div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>Follow-up · Ethereum · 16 Nov</span>
+      <h3>Glamsterdam: findings reviewed, no decision yet</h3>
+      <p>The 16 November testing call went through the compatibility research and the ChainSecurity and Dedaub findings on EIP-8037 and EIP-8038. Its aim was a shared understanding before Thursday's execution-layer call. It did not change the spec or set a Hoodi date (<a href="https://github.com/ethereum/pm/issues/2299">ethereum/pm agenda</a>).</p>
+    </div>
+
+    <div class="item">
+      <h3>What to do this week</h3>
+      <ul class="points">
+        <li>Pin third-party scripts with Subresource Integrity, or self-host them, and lock down script sources with a strict Content-Security-Policy.</li>
+        <li>Scope API keys to trading only, and rotate any key that has ever been in a log, CI secret or chat.</li>
+        <li>Audit Zodiac Roles and similar policies for what they allow, not just who holds a role. Cap amounts per transaction and per day.</li>
+        <li>Check the ACDE notes on 19 November before planning around Glamsterdam.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="track nondev" id="nondev-en">
+    <div class="track-head"><h2>Non-dev</h2><p>Market, business and regulation, and what the incidents mean in plain language.</p></div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>Payments · Stablecoins</span>
+      <h3>Zelle picks Solana for its dollar stablecoin</h3>
+      <p>Zelle, the bank-owned US payment network, said at Solana's Breakpoint conference that its ZelleUSD stablecoin will run on Solana for international transfers. ZelleUSD is issued by Anchorage Digital Bank. Users can hide a transfer from public view while banks in the network can still see it for compliance. No launch date was given on stage. India was earlier named as the first corridor (<a href="https://cointelegraph.com/news/zelle-solana-zelleusd-stablecoin-international-payments">Cointelegraph</a>).</p>
+    </div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>US · Courts</span>
+      <h3>Two court endings: Custodia and the MEV brothers</h3>
+      <p>On 16 November the Supreme Court declined to hear Custodia Bank's case. That leaves in place the ruling that a Federal Reserve bank can refuse a master account even to an eligible state-chartered bank, so crypto banks have no guaranteed direct access to the Fed's payment system (<a href="https://bitcoinmagazine.com/news/supreme-court-ends-custodia-fed-master">Bitcoin Magazine</a>, <a href="https://www.supremecourt.gov/orders/courtorders/111626zor_cb7d.pdf">Supreme Court order list</a>). The same day, a federal judge acquitted the Peraire-Bueno brothers over their 2023 exploit of Ethereum's MEV-Boost, which took about $25M in seconds.</p>
+      <p class="unverified"><b>Unverified</b>The acquittal and its grounds, reported by one newsletter only.</p>
+    </div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>Follow-up · Russia · 17 Nov</span>
+      <h3>Russians can now buy BTC, ETH and USDT, within limits</h3>
+      <p>The Bank of Russia's rules take effect today. Ordinary investors must pass a knowledge test and can buy up to ₽300,000 a year through each approved broker or exchange office, limited to BTC, ETH and USDT. Qualified investors have no cap. Paying for goods in crypto stays restricted. The Moscow Exchange is reportedly preparing to trade crypto in December (<a href="https://www.cbr.ru/eng/press/event/?id=32966">Bank of Russia</a>, <a href="https://cointelegraph.com/news/russia-finalizes-crypto-trading-rules-november-rollout">Cointelegraph</a>).</p>
+    </div>
+
+    <div class="item">
+      <h3>As a user</h3>
+      <ul class="points">
+        <li>If you copied a deposit address from a big website on 16 November, check the transaction went where you meant. Always compare the first and last characters after pasting.</li>
+        <li>Never trust an address you copied without checking it on your hardware wallet's screen.</li>
+        <li>If you use trading bots, give their API keys trade-only permission and no withdrawals.</li>
+      </ul>
+      <p>Coming up: Ethereum's Glamsterdam call (19 November), the Stellar "Bell" vote (23 November), the Monad lockup end (24 November) and Moscow Exchange crypto trading, reportedly in December.</p>
+    </div>
+  </section>
+
+  <section class="sources">
+    <h2>Sources</h2>
+    <p>Reporting as of 17 November 2026. The StepSecurity, Report URI, Bank of Russia and Supreme Court pages were read through coverage.</p>
+    <ul>
+      <li><a href="https://github.com/ethereum/pm/issues/2299">ethereum/pm: testing call agenda</a> <span class="kind">primary</span></li>
+      <li><a href="https://www.supremecourt.gov/orders/courtorders/111626zor_cb7d.pdf">US Supreme Court: order list, 16 Nov</a> <span class="kind">primary</span></li>
+      <li><a href="https://www.cbr.ru/eng/press/event/?id=32966">Bank of Russia: retail crypto rules</a> <span class="kind">primary</span></li>
+      <li><a href="https://www.stepsecurity.io/blog/optimjack-optimizely-hosted-scripts-crypto-clipper-card-skimmer">StepSecurity: Optimjack analysis</a> <span class="kind">auditor</span></li>
+      <li><a href="https://blog.report-uri.com/worlds-largest-brands-infected-with-malware-via-optimizely/">Report URI: brands infected via Optimizely</a> <span class="kind">auditor</span></li>
+      <li><a href="https://bitquery.io/investigations/lighter-hack">Bitquery: Lighter investigation</a> <span class="kind">auditor</span></li>
+      <li><a href="https://cointelegraph.com/news/hackers-inject-malware-into-178-major-websites">Cointelegraph: malware on 178 websites</a> <span class="kind">secondary</span></li>
+      <li><a href="https://cointelegraph.com/news/lighter-dex-pauses-withdrawals-10m-exploit">Cointelegraph: Lighter pauses withdrawals</a> <span class="kind">secondary</span></li>
+      <li><a href="https://cointelegraph.com/news/safe-wallet-reportedly-loses-millions-after-key-compromise">Cointelegraph: Safe wallet key compromise</a> <span class="kind">secondary</span></li>
+      <li><a href="https://cointelegraph.com/news/zelle-solana-zelleusd-stablecoin-international-payments">Cointelegraph: Zelle picks Solana</a> <span class="kind">secondary</span></li>
+      <li><a href="https://bitcoinmagazine.com/news/supreme-court-ends-custodia-fed-master">Bitcoin Magazine: Custodia</a> <span class="kind">secondary</span></li>
+      <li><a href="https://cointelegraph.com/news/russia-finalizes-crypto-trading-rules-november-rollout">Cointelegraph: Russia crypto rules</a> <span class="kind">secondary</span></li>
+      <li><a href="https://thecryptodesk.substack.com/p/the-crypto-desk-tuesday-17-november">The Crypto Desk, 17 Nov</a> <span class="kind">newsletter</span></li>
+    </ul>
+  </section>
+</article>
+
+<!-- ===================== 日本語 ===================== -->
+<article data-lang="ja" class="wrap" style="padding:0" hidden>
+  <header class="brief">
+    <span class="mono meta">デイリーブリーフ · 2026年11月17日 · 約6分</span>
+    <h1>ブロックチェーン・ブリーフ 2026年11月17日</h1>
+    <p class="lede">汚染された外部スクリプトが、Ledger のサイトを含む178のウェブサイトで、ほぼ1日にわたり暗号資産のアドレスを差し替えました。Lighter と Safe のウォレットは、コントラクトのバグではなく鍵と権限の問題で合わせて1,700万ドルを失いました。Zelle はステーブルコインに Solana を採用し、米最高裁は Custodia の FRB 口座をめぐる争いに終止符を打ち、ロシアの個人向け暗号資産ルールが施行されました。</p>
+    <p class="note">一次情報または独立した2つ目の情報源で確認できなかった内容には「未確認」と表示しています。</p>
+    <nav class="jump" data-noread aria-label="セクション"><a class="dev" href="#dev-ja">Dev ↓</a><a class="nondev" href="#nondev-ja">Non-dev ↓</a></nav>
+  </header>
+
+  <section class="track dev" id="dev-ja">
+    <div class="track-head"><h2>Dev</h2><p>プロトコル変更、コントラクトのリスク、セキュリティの詳細、開発ツール。</p></div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>セキュリティ · サプライチェーン · 11月16日</span>
+      <h3>Optimjack：A/B テスト用スクリプトがクリッパーとスキマーに</h3>
+      <p>11月16日、攻撃者は実験プラットフォーム Optimizely が配信するスクリプトにコードを注入し、Ledger、OANDA/Coinpass、IG、Interactive Investor、Zoom、IKEA、BBC、CNN など178の組織に届けました。「Optimjack」と名付けられたこのマルウェアは、訪問者がウォレットのアドレスをコピーすると別のアドレスに差し替え、フォームに入力されたカード情報も盗みました。最初に確認されたのは BBC で、04:21 UTC 頃です。大半は 21:52 UTC 頃までに除去され、Ledger の分は 20:41 UTC 頃に取り除かれました（<a href="https://cointelegraph.com/news/hackers-inject-malware-into-178-major-websites">Cointelegraph</a>、<a href="https://www.stepsecurity.io/blog/optimjack-optimizely-hosted-scripts-crypto-clipper-card-skimmer">StepSecurity</a>、<a href="https://blog.report-uri.com/worlds-largest-brands-infected-with-malware-via-optimizely/">Report URI</a>）。</p>
+      <p class="unverified"><b>未確認</b>スクリプトが侵害された経緯と被害額。攻撃者のアドレスが受け取ったのは約7,100ドルと報じられています。</p>
+    </div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>セキュリティ · 鍵と権限 · 11月16日</span>
+      <h3>Lighter と Safe ウォレット：コントラクトのバグなしで1,700万ドル</h3>
+      <p>トレーダーの API キーが漏れ、10:11 UTC に約1,039万 USDC が Lighter の Ethereum コントラクトから流出しました。Lighter の API キーは、同じウォレットに紐づくアカウント間で資金を動かせます。Lighter はコントラクト自体に影響はないとしており、出金を止めて「Guardian mode」を有効にし、再開前にコントラクトを更新する予定です（<a href="https://cointelegraph.com/news/lighter-dex-pauses-withdrawals-10m-exploit">Cointelegraph</a>、<a href="https://bitquery.io/investigations/lighter-hack">Bitquery</a>）。</p>
+      <p>別件で、ある Safe ウォレットが1回の取引で約439万 USDC と172万 syrupUSDC を失いました。署名には古くからのロールメンバーの鍵が使われ、侵害された可能性が高いとされています。ウォレット自身のポリシーが許していたため、Zodiac Roles Modifier はこれを承認しました。Zodiac はモジュールにバグはないとしています（<a href="https://cointelegraph.com/news/safe-wallet-reportedly-loses-millions-after-key-compromise">Cointelegraph</a>）。どちらの犯人も Hyperliquid で XMR1 を買って現金化しました。Bitquery は両者に似た点を見つけましたが、直接のつながりは確認していません。</p>
+      <p class="unverified"><b>未確認</b>Lighter がトレーダーに約500万ドルを返したという報道。</p>
+    </div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>続報 · Ethereum · 11月16日</span>
+      <h3>Glamsterdam：結果を確認、判断はまだ</h3>
+      <p>11月16日のテスト会議では、EIP-8037 と EIP-8038 についての互換性調査と、ChainSecurity・Dedaub の指摘を確認しました。木曜の実行レイヤー会議の前に認識をそろえるのが目的で、仕様の変更や Hoodi の日程決定はありませんでした（<a href="https://github.com/ethereum/pm/issues/2299">ethereum/pm の議題</a>）。</p>
+    </div>
+
+    <div class="item">
+      <h3>今週やること</h3>
+      <ul class="points">
+        <li>外部スクリプトは Subresource Integrity で固定するか自前でホストし、厳しい Content-Security-Policy で読み込み元を絞る。</li>
+        <li>API キーは取引だけに権限を絞り、ログ・CI のシークレット・チャットに一度でも出たキーはローテーションする。</li>
+        <li>Zodiac Roles などのポリシーは、誰がロールを持つかだけでなく、何を許しているかを監査する。1回あたり・1日あたりの上限を設ける。</li>
+        <li>Glamsterdam を前提に計画する前に、11月19日の ACDE の議事録を確認する。</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="track nondev" id="nondev-ja">
+    <div class="track-head"><h2>Non-dev</h2><p>市場・ビジネス・規制と、事件が何を意味するかのやさしい解説。</p></div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>決済 · ステーブルコイン</span>
+      <h3>Zelle、ドル建てステーブルコインに Solana を採用</h3>
+      <p>銀行が運営する米国の決済ネットワーク Zelle は、Solana の Breakpoint で、ステーブルコイン ZelleUSD を国際送金のために Solana で動かすと発表しました。ZelleUSD の発行元は Anchorage Digital Bank です。利用者は送金を一般には見えないようにでき、ネットワーク内の銀行はコンプライアンスのために中身を確認できます。開始日は示されませんでした。最初の送金先として、以前からインドが挙げられています（<a href="https://cointelegraph.com/news/zelle-solana-zelleusd-stablecoin-international-payments">Cointelegraph</a>）。</p>
+    </div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>米国 · 裁判</span>
+      <h3>2つの裁判の決着：Custodia と MEV の兄弟</h3>
+      <p>米最高裁は11月16日、Custodia Bank の上告を受理しないと決めました。これにより、条件を満たす州認可の銀行であっても、連邦準備銀行はマスター口座を拒めるという判決が確定し、暗号資産系の銀行が FRB の決済システムに直接つながれる保証はなくなりました（<a href="https://bitcoinmagazine.com/news/supreme-court-ends-custodia-fed-master">Bitcoin Magazine</a>、<a href="https://www.supremecourt.gov/orders/courtorders/111626zor_cb7d.pdf">最高裁の決定一覧</a>）。同じ日、連邦判事は、2023年に Ethereum の MEV-Boost を突いて数秒で約2,500万ドルを得た Peraire-Bueno 兄弟に無罪を言い渡しました。</p>
+      <p class="unverified"><b>未確認</b>無罪判決とその理由は、ニュースレター1件だけの情報です。</p>
+    </div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>続報 · ロシア · 11月17日</span>
+      <h3>ロシアで BTC・ETH・USDT が購入可能に、ただし上限付き</h3>
+      <p>ロシア中央銀行のルールが今日施行されました。一般の投資家は知識テストに合格する必要があり、認可を受けたブローカーや両替所ごとに年間30万ルーブルまで、BTC・ETH・USDT に限って購入できます。適格投資家に上限はありません。商品の支払いに暗号資産を使うことは引き続き制限されます。モスクワ取引所は12月の暗号資産取引開始に向けて準備していると報じられています（<a href="https://www.cbr.ru/eng/press/event/?id=32966">ロシア中央銀行</a>、<a href="https://cointelegraph.com/news/russia-finalizes-crypto-trading-rules-november-rollout">Cointelegraph</a>）。</p>
+    </div>
+
+    <div class="item">
+      <h3>利用者として</h3>
+      <ul class="points">
+        <li>11月16日に大手サイトから入金アドレスをコピーした人は、送金先が正しかったか確認する。貼り付けた後は、必ず最初と最後の数文字を見比べる。</li>
+        <li>コピーしたアドレスは、ハードウェアウォレットの画面で確かめるまで信用しない。</li>
+        <li>取引ボットを使うなら、API キーは取引のみの権限にし、出金を許可しない。</li>
+      </ul>
+      <p>今後の予定：イーサリアムの Glamsterdam 会議（11月19日）、Stellar「Bell」投票（11月23日）、Monad のロック期間終了（11月24日）、12月とされるモスクワ取引所の暗号資産取引。</p>
+    </div>
+  </section>
+
+  <section class="sources">
+    <h2>出典</h2>
+    <p>2026年11月17日時点の報道に基づきます。StepSecurity、Report URI、ロシア中央銀行、最高裁のページは報道経由で読んでいます。</p>
+    <ul>
+      <li><a href="https://github.com/ethereum/pm/issues/2299">ethereum/pm: testing call agenda</a> <span class="kind">一次情報</span></li>
+      <li><a href="https://www.supremecourt.gov/orders/courtorders/111626zor_cb7d.pdf">US Supreme Court: order list, 16 Nov</a> <span class="kind">一次情報</span></li>
+      <li><a href="https://www.cbr.ru/eng/press/event/?id=32966">Bank of Russia: retail crypto rules</a> <span class="kind">一次情報</span></li>
+      <li><a href="https://www.stepsecurity.io/blog/optimjack-optimizely-hosted-scripts-crypto-clipper-card-skimmer">StepSecurity: Optimjack analysis</a> <span class="kind">監査会社</span></li>
+      <li><a href="https://blog.report-uri.com/worlds-largest-brands-infected-with-malware-via-optimizely/">Report URI: brands infected via Optimizely</a> <span class="kind">監査会社</span></li>
+      <li><a href="https://bitquery.io/investigations/lighter-hack">Bitquery: Lighter investigation</a> <span class="kind">監査会社</span></li>
+      <li><a href="https://cointelegraph.com/news/hackers-inject-malware-into-178-major-websites">Cointelegraph: malware on 178 websites</a> <span class="kind">二次情報</span></li>
+      <li><a href="https://cointelegraph.com/news/lighter-dex-pauses-withdrawals-10m-exploit">Cointelegraph: Lighter pauses withdrawals</a> <span class="kind">二次情報</span></li>
+      <li><a href="https://cointelegraph.com/news/safe-wallet-reportedly-loses-millions-after-key-compromise">Cointelegraph: Safe wallet key compromise</a> <span class="kind">二次情報</span></li>
+      <li><a href="https://cointelegraph.com/news/zelle-solana-zelleusd-stablecoin-international-payments">Cointelegraph: Zelle picks Solana</a> <span class="kind">二次情報</span></li>
+      <li><a href="https://bitcoinmagazine.com/news/supreme-court-ends-custodia-fed-master">Bitcoin Magazine: Custodia</a> <span class="kind">二次情報</span></li>
+      <li><a href="https://cointelegraph.com/news/russia-finalizes-crypto-trading-rules-november-rollout">Cointelegraph: Russia crypto rules</a> <span class="kind">二次情報</span></li>
+      <li><a href="https://thecryptodesk.substack.com/p/the-crypto-desk-tuesday-17-november">The Crypto Desk, 17 Nov</a> <span class="kind">ニュースレター</span></li>
+    </ul>
+  </section>
+</article>
+
+
+
+<section class="comments" id="comments" data-noread>
+  <h2><span data-lang="en">Reader feedback</span><span data-lang="ja" hidden>読者のコメント</span></h2>
+  <p class="note"><span data-lang="en">Comments use GitHub sign-in, so every commenter is a real GitHub account. Be kind and stay on topic.</span><span data-lang="ja" hidden>コメントには GitHub へのログインが必要です。思いやりを持って、話題に沿って書き込んでください。</span></p>
+  <div class="giscus"></div>
+</section>
+
+<nav class="pager" data-noread>
+  <a href="../"><span data-lang="en">← All briefs</span><span data-lang="ja" hidden>← バックナンバー</span></a>
+  <span></span>
+</nav>
+</main>
+<script src="../assets/brief.js"></script>
+</body>
+</html>
