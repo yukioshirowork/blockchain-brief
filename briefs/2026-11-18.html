@@ -41,7 +41,7 @@
   <header class="brief">
     <span class="mono meta">Daily brief · 18 Nov 2026 · about 6 min read</span>
     <h1>Blockchain Brief, 18 Nov 2026</h1>
-    <p class="lede">The Glamsterdam audits are in: about 200 findings and up to 15,000 contracts that could break, ahead of Thursday's decision call. Lighter's postmortem traces its loss to reused signature nonces, and Hedera switches to Block Streams today. Outside the code, the CFTC approves two blockchain derivatives exchanges, the Solana Foundation buys into CoinGecko, and Trezor customers face another shipping-partner leak.</p>
+    <p class="lede">The Glamsterdam audits are in: about 200 findings and up to 15,000 contracts that could break, ahead of Thursday's call. Lighter's postmortem traces its loss to reused signature nonces, and Hedera switches to Block Streams today. Outside the code, the CFTC approves two blockchain derivatives exchanges, the Solana Foundation buys into CoinGecko, and Trezor customers face another shipping-partner leak.</p>
     <p class="note">Claims I could not confirm from a primary or second independent source are marked Unverified.</p>
     <nav class="jump" data-noread aria-label="Sections"><a class="dev" href="#dev-en">Dev ↓</a><a class="nondev" href="#nondev-en">Non-dev ↓</a></nav>
   </header>
@@ -53,13 +53,13 @@
       <span class="tag mono" data-noread>Follow-up · Ethereum · 16 Nov</span>
       <h3>Glamsterdam audits: about 200 findings, up to 15,000 contracts</h3>
       <p>At the 16 November testing call, ChainSecurity reported 152 findings on EIP-8037 and EIP-8038, about 200 when combined with the Ethereum Foundation's own research. Dedaub reviewed about 25,000 contracts with unusual gas use and flagged 70 medium- and high-risk issues, 22 of which the Foundation had missed. The EF's Marius van der Wijden estimated from a broad scan that up to 15,000 contracts could break, a tiny share of roughly 90 million, holding a few hundred thousand dollars (<a href="https://www.coindesk.com/tech/2026/11/17/ethereum-s-glamsterdam-upgrade-risks-breaking-up-to-15-000-contracts">CoinDesk</a>).</p>
-      <p>The repricing is steep. Deploying a contract rises from 32,000 to about 183,600 gas, and writing a new storage slot from 20,000 to about 97,920. Contracts that pass a fixed gas allowance to other contracts, or assume fixed costs, are the ones at risk. The execution-layer call on 19 November takes it up again.</p>
+      <p>The repricing is steep. Deploying a contract rises from 32,000 to about 183,600 gas, and writing a new storage slot from 20,000 to about 97,920. Contracts that pass a fixed gas allowance to other contracts, or assume fixed costs, are the ones at risk. Core developers revisit the proposals on the 19 November call, with no agreement yet.</p>
     </div>
 
     <div class="item">
       <span class="tag mono" data-noread>Follow-up · Lighter · 16–17 Nov</span>
       <h3>Lighter's postmortem: two signatures, one nonce, one private key</h3>
-      <p>Lighter says the trader's API key leaked through the account's own public signatures. The trader used signing software outside Lighter's official SDKs that reused nonces, and two signatures made with the same nonce and key are enough to compute the private key. The attacker then opened a public pool from that account, minted shares from a second account, moved the trader's funds into the pool without minting new shares, and redeemed. Lighter reopened withdrawals on 16 November and returned about $5M USDC to the trader. Pool transfers now need a wallet signature, API-key signatures are no longer public, and IP allowlists and per-key permissions are coming (<a href="https://www.theblock.co/news/defi/2026-11-17-lighter-reopens-withdrawals-after-traders-api-key-leak-returns-about-5-million-in-usdc-442113">The Block</a>, <a href="https://memeburn.com/lighter-exploit-without-being-hacked/">Memeburn</a>).</p>
+      <p>Lighter says the trader's API key leaked through the account's own signatures. The trader used signing software outside Lighter's official SDKs that reused nonces, and two signatures made with the same nonce and key are enough to compute the private key. The attacker then opened a public pool from that account, minted shares from a second account, moved the trader's funds into the pool without minting new shares, and redeemed. Lighter reopened withdrawals on 16 November and returned about $5M USDC to the trader. Pool transfers now need a wallet signature, API-key signatures are no longer public, and IP allowlists and per-key permissions are coming (<a href="https://www.theblock.co/news/defi/2026-11-17-lighter-reopens-withdrawals-after-traders-api-key-leak-returns-about-5-million-in-usdc-442113">The Block</a>, <a href="https://memeburn.com/lighter-exploit-without-being-hacked/">Memeburn</a>).</p>
       <p class="unverified"><b>Unverified</b>The total loss. Lighter hasn't disclosed it, analysts estimate up to $15.5M, and earlier tracing found $10.4M.</p>
     </div>
 
@@ -87,30 +87,30 @@
     <div class="item">
       <span class="tag mono" data-noread>US · Derivatives</span>
       <h3>The CFTC approves two blockchain derivatives exchanges</h3>
-      <p>CFTC Chair Michael Selig said on 16 November that the agency had approved applications from tZERO and Backpack. tZERO can now run a regulated derivatives exchange, on top of its earlier approval to run a clearinghouse. Backpack says it was approved as a blockchain-based derivatives exchange and clearinghouse. Neither has given a launch date. Selig is currently the CFTC's only commissioner. The Senate Agriculture Committee held a hearing on 17 November for the two nominees who would join him (<a href="https://www.theblock.co/news/regulation/2026-11-16-cftc-blockchain-derivatives-exchange-approval-backpack-tzero-441591">The Block</a>, <a href="https://theblock.co/news/regulation/2026-11-12-white-house-crypto-picks-sec-cftc-439175">The Block</a>).</p>
+      <p>Backpack announced on 16 November that the CFTC had approved it as a blockchain-based derivatives exchange and clearinghouse, an approval CFTC Chair Michael Selig highlighted the same day. The week before, tZERO said it had been approved to run a regulated derivatives exchange, on top of its earlier clearinghouse approval. No launch dates were reported. Selig is currently the CFTC's only commissioner, and a Senate Agriculture Committee hearing for the two nominees who would join him was set for 17 November (<a href="https://www.theblock.co/news/regulation/2026-11-16-cftc-blockchain-derivatives-exchange-approval-backpack-tzero-441591">The Block</a>, <a href="https://theblock.co/news/regulation/2026-11-12-white-house-crypto-picks-sec-cftc-439175">The Block</a>).</p>
       <p class="unverified"><b>Unverified</b>Reports that Backpack will offer perpetual futures to US users.</p>
     </div>
 
     <div class="item">
       <span class="tag mono" data-noread>Business · Data</span>
-      <h3>The Solana Foundation takes control of CoinGecko</h3>
+      <h3>The Solana Foundation takes a majority stake in CoinGecko</h3>
       <p>At Breakpoint, the Solana Foundation took a majority stake in CoinGecko, the price-data site with 18 million registered users whose data feeds about 180,000 apps and businesses. The price wasn't disclosed. The Foundation plans to add Solana-powered trading to CoinGecko's site and apps. CoinGecko says it will keep covering the whole market with its own technology and public methods (<a href="https://www.coindesk.com/business/2026/11/17/solana-foundation-takes-majority-stake-in-crypto-data-provider-coingecko">CoinDesk</a>, <a href="https://solana.com/news/coingecko-backed-by-solana-foundation">Solana</a>).</p>
     </div>
 
     <div class="item">
       <span class="tag mono" data-noread>Wallets · Privacy</span>
       <h3>Trezor's shipping partner leaks 27,000 customers' addresses</h3>
-      <p>Trezor says its shipping partner Skladon was breached on 7 November. Orders placed from 9 August to 7 November were exported, about 27,000 of them, including names, phone numbers, email and delivery addresses, and order details. No backups, PINs or passphrases were exposed, and Trezor's own systems weren't affected. Some customers are already getting calls from fake "Trezor support". This is Trezor's second shipping-partner leak since August. It is cutting how long it keeps order data from 90 to 45 days and offering anonymous pickup in 18 European countries (<a href="https://www.theblock.co/news/business/2026-11-16-trezor-hit-another-shipping-partner-data-leak-affecting-27000-skladon-orders-441524">The Block</a>).</p>
+      <p>Trezor says its shipping partner Skladon was breached, reportedly on 7 November. Orders placed from 9 August to 7 November were exported, about 27,000 of them, including names, phone numbers, email and delivery addresses, and order details. No backups, PINs or passphrases were exposed, and Trezor's own systems weren't affected. Some customers are already getting calls from fake "Trezor support". This is Trezor's second shipping-partner leak since August. It is working to cut how long it keeps order data from 90 to 45 days, and is offering anonymous pickup in 18 European countries (<a href="https://www.theblock.co/news/business/2026-11-16-trezor-hit-another-shipping-partner-data-leak-affecting-27000-skladon-orders-441524">The Block</a>).</p>
     </div>
 
     <div class="item">
       <h3>As a user</h3>
       <ul class="points">
-        <li>Trezor never calls you. Hang up on anyone claiming to be Trezor support, and never read out or type your recovery words.</li>
+        <li>Treat any call claiming to be Trezor support as a scam, and never read out or type your recovery words for anyone.</li>
         <li>If your home address may be on a crypto customer list, keep your holdings private and consider anonymous pickup next time.</li>
-        <li>CoinGecko is now owned by a blockchain foundation. Keep that in mind when its pages promote Solana trading.</li>
+        <li>A blockchain foundation now holds a majority stake in CoinGecko. Keep that in mind when its pages promote Solana trading.</li>
       </ul>
-      <p>Coming up: Ethereum's Glamsterdam decision call (19 November), the Stellar "Bell" vote (23 November), the Monad lockup end (24 November) and Moscow Exchange crypto trading, reportedly in December.</p>
+      <p>Coming up: Ethereum's next Glamsterdam call (19 November), the Stellar "Bell" vote (23 November), the Monad lockup end (24 November) and Moscow Exchange crypto trading, reportedly in December.</p>
     </div>
   </section>
 
@@ -137,7 +137,7 @@
   <header class="brief">
     <span class="mono meta">デイリーブリーフ · 2026年11月18日 · 約6分</span>
     <h1>ブロックチェーン・ブリーフ 2026年11月18日</h1>
-    <p class="lede">Glamsterdam の監査結果が出そろいました。指摘は約200件、壊れうるコントラクトは最大15,000件で、木曜の判断の会議を前にしています。Lighter の事後報告は、損失の原因を署名の nonce の使い回しと特定し、Hedera は今日 Block Streams に切り替わります。コード以外では、CFTC がブロックチェーン系デリバティブ取引所2つを承認し、Solana Foundation が CoinGecko に出資、Trezor の顧客は再び配送業者からの情報漏えいに見舞われました。</p>
+    <p class="lede">Glamsterdam の監査結果が出そろいました。指摘は約200件、壊れうるコントラクトは最大15,000件で、木曜の会議を前にしています。Lighter の事後報告は、損失の原因を署名の nonce の使い回しと特定し、Hedera は今日 Block Streams に切り替わります。コード以外では、CFTC がブロックチェーン系デリバティブ取引所2つを承認し、Solana Foundation が CoinGecko に出資、Trezor の顧客は再び配送業者からの情報漏えいに見舞われました。</p>
     <p class="note">一次情報または独立した2つ目の情報源で確認できなかった内容には「未確認」と表示しています。</p>
     <nav class="jump" data-noread aria-label="セクション"><a class="dev" href="#dev-ja">Dev ↓</a><a class="nondev" href="#nondev-ja">Non-dev ↓</a></nav>
   </header>
@@ -149,13 +149,13 @@
       <span class="tag mono" data-noread>続報 · Ethereum · 11月16日</span>
       <h3>Glamsterdam の監査：指摘約200件、最大15,000コントラクト</h3>
       <p>11月16日のテスト会議で、ChainSecurity は EIP-8037 と EIP-8038 について152件の指摘を報告しました。イーサリアム財団自身の調査と合わせると約200件です。Dedaub はガスの使い方が特殊な約25,000のコントラクトを調べ、中・高リスクの問題を70件挙げました。うち22件は財団が見落としていたものです。財団の Marius van der Wijden は大まかなスキャンから、最大15,000のコントラクトが壊れうると見積もりました。約9,000万あるコントラクトのごく一部で、保有額は数十万ドル程度です（<a href="https://www.coindesk.com/tech/2026/11/17/ethereum-s-glamsterdam-upgrade-risks-breaking-up-to-15-000-contracts">CoinDesk</a>）。</p>
-      <p>値上げ幅は大きく、コントラクトのデプロイは 32,000 から約 183,600 ガスへ、新しいストレージスロットへの書き込みは 20,000 から約 97,920 ガスへ上がります。他のコントラクトに固定量のガスを渡すものや、コストが一定だと前提にしているものが危険です。11月19日の実行レイヤー会議で再び議論されます。</p>
+      <p>値上げ幅は大きく、コントラクトのデプロイは 32,000 から約 183,600 ガスへ、新しいストレージスロットへの書き込みは 20,000 から約 97,920 ガスへ上がります。他のコントラクトに固定量のガスを渡すものや、コストが一定だと前提にしているものが危険です。コア開発者は11月19日の会議で再検討しますが、まだ合意はありません。</p>
     </div>
 
     <div class="item">
       <span class="tag mono" data-noread>続報 · Lighter · 11月16〜17日</span>
       <h3>Lighter の事後報告：署名2つ、nonce 1つで秘密鍵が判明</h3>
-      <p>Lighter によると、トレーダーの API キーはアカウント自身の公開された署名から漏れました。トレーダーは Lighter 公式の SDK ではない署名ソフトを使っており、それが nonce を使い回していました。同じ nonce と鍵で作った署名が2つあれば、秘密鍵を計算できます。攻撃者はそのアカウントから公開プールを開き、別のアカウントでシェアを発行し、新しいシェアを発行せずにトレーダーの資金をプールへ移してから償還しました。Lighter は11月16日に出金を再開し、約500万 USDC をトレーダーに返しました。プールへの送金にはウォレットの署名が必要になり、API キーの署名は公開されなくなり、IP の許可リストとキーごとの権限設定も導入予定です（<a href="https://www.theblock.co/news/defi/2026-11-17-lighter-reopens-withdrawals-after-traders-api-key-leak-returns-about-5-million-in-usdc-442113">The Block</a>、<a href="https://memeburn.com/lighter-exploit-without-being-hacked/">Memeburn</a>）。</p>
+      <p>Lighter によると、トレーダーの API キーはアカウント自身の署名から漏れました。トレーダーは Lighter 公式の SDK ではない署名ソフトを使っており、それが nonce を使い回していました。同じ nonce と鍵で作った署名が2つあれば、秘密鍵を計算できます。攻撃者はそのアカウントから公開プールを開き、別のアカウントでシェアを発行し、新しいシェアを発行せずにトレーダーの資金をプールへ移してから償還しました。Lighter は11月16日に出金を再開し、約500万 USDC をトレーダーに返しました。プールへの送金にはウォレットの署名が必要になり、API キーの署名は公開されなくなり、IP の許可リストとキーごとの権限設定も導入予定です（<a href="https://www.theblock.co/news/defi/2026-11-17-lighter-reopens-withdrawals-after-traders-api-key-leak-returns-about-5-million-in-usdc-442113">The Block</a>、<a href="https://memeburn.com/lighter-exploit-without-being-hacked/">Memeburn</a>）。</p>
       <p class="unverified"><b>未確認</b>損失の総額。Lighter は公表しておらず、アナリストは最大1,550万ドルと見積もり、以前の追跡では1,040万ドルでした。</p>
     </div>
 
@@ -183,30 +183,30 @@
     <div class="item">
       <span class="tag mono" data-noread>米国 · デリバティブ</span>
       <h3>CFTC、ブロックチェーン系デリバティブ取引所2つを承認</h3>
-      <p>CFTC の Michael Selig 委員長は11月16日、tZERO と Backpack の申請を承認したと述べました。tZERO は、以前に承認された清算機関に加え、規制下のデリバティブ取引所も運営できるようになります。Backpack は、ブロックチェーンを使うデリバティブ取引所兼清算機関として承認されたとしています。どちらも開始日は示していません。現在 CFTC の委員は Selig 氏1人だけで、11月17日には上院農業委員会で、新たに加わる2人の候補者の公聴会が開かれました（<a href="https://www.theblock.co/news/regulation/2026-11-16-cftc-blockchain-derivatives-exchange-approval-backpack-tzero-441591">The Block</a>、<a href="https://theblock.co/news/regulation/2026-11-12-white-house-crypto-picks-sec-cftc-439175">The Block</a>）。</p>
+      <p>Backpack は11月16日、ブロックチェーンを使うデリバティブ取引所兼清算機関として CFTC の承認を得たと発表し、CFTC の Michael Selig 委員長も同日この承認に触れました。その前の週には tZERO が、以前に承認された清算機関に加え、規制下のデリバティブ取引所の運営も承認されたと発表しています。開始日は報じられていません。現在 CFTC の委員は Selig 氏1人だけで、新たに加わる2人の候補者について、上院農業委員会の公聴会が11月17日に予定されていました（<a href="https://www.theblock.co/news/regulation/2026-11-16-cftc-blockchain-derivatives-exchange-approval-backpack-tzero-441591">The Block</a>、<a href="https://theblock.co/news/regulation/2026-11-12-white-house-crypto-picks-sec-cftc-439175">The Block</a>）。</p>
       <p class="unverified"><b>未確認</b>Backpack が米国の利用者に無期限先物を提供するという報道。</p>
     </div>
 
     <div class="item">
       <span class="tag mono" data-noread>ビジネス · データ</span>
-      <h3>Solana Foundation、CoinGecko を傘下に</h3>
+      <h3>Solana Foundation、CoinGecko の過半数株式を取得</h3>
       <p>Solana Foundation は Breakpoint で、価格データサイト CoinGecko の過半数の株式を取得しました。CoinGecko の登録ユーザーは1,800万人で、そのデータは約18万のアプリや企業に使われています。金額は公表されていません。Foundation は、CoinGecko のサイトやアプリに Solana を使った取引機能を加える計画です。CoinGecko は、自社の技術と公開した手法で市場全体を引き続きカバーするとしています（<a href="https://www.coindesk.com/business/2026/11/17/solana-foundation-takes-majority-stake-in-crypto-data-provider-coingecko">CoinDesk</a>、<a href="https://solana.com/news/coingecko-backed-by-solana-foundation">Solana</a>）。</p>
     </div>
 
     <div class="item">
       <span class="tag mono" data-noread>ウォレット · プライバシー</span>
       <h3>Trezor の配送業者から顧客2万7,000件の住所が流出</h3>
-      <p>Trezor によると、配送業者 Skladon が11月7日に侵害されました。8月9日から11月7日までの約2万7,000件の注文データが持ち出され、氏名、電話番号、メールアドレス、配送先住所、注文内容が含まれます。バックアップ、PIN、パスフレーズは漏れておらず、Trezor 自身のシステムにも影響はありません。すでに一部の顧客には偽の「Trezor サポート」から電話がかかっています。8月以降、Trezor の配送業者からの流出は2回目です。注文データの保存期間を90日から45日に短縮し、ヨーロッパ18か国で匿名での受け取りを提供します（<a href="https://www.theblock.co/news/business/2026-11-16-trezor-hit-another-shipping-partner-data-leak-affecting-27000-skladon-orders-441524">The Block</a>）。</p>
+      <p>Trezor によると、配送業者 Skladon が侵害されました。侵害は11月7日とされています。8月9日から11月7日までの約2万7,000件の注文データが持ち出され、氏名、電話番号、メールアドレス、配送先住所、注文内容が含まれます。バックアップ、PIN、パスフレーズは漏れておらず、Trezor 自身のシステムにも影響はありません。すでに一部の顧客には偽の「Trezor サポート」から電話がかかっています。8月以降、Trezor の配送業者からの流出は2回目です。注文データの保存期間を90日から45日に短縮する作業を進めており、ヨーロッパ18か国で匿名での受け取りを提供しています（<a href="https://www.theblock.co/news/business/2026-11-16-trezor-hit-another-shipping-partner-data-leak-affecting-27000-skladon-orders-441524">The Block</a>）。</p>
     </div>
 
     <div class="item">
       <h3>利用者として</h3>
       <ul class="points">
-        <li>Trezor から電話がかかってくることはありません。Trezor サポートを名乗る電話は切り、リカバリーワードは絶対に読み上げたり入力したりしない。</li>
+        <li>Trezor サポートを名乗る電話は詐欺として扱い、リカバリーワードは誰に対しても読み上げたり入力したりしない。</li>
         <li>自宅の住所が暗号資産の顧客リストに載っているかもしれないなら、保有を人に話さず、次回は匿名受け取りも検討する。</li>
-        <li>CoinGecko はブロックチェーンの財団が所有するようになりました。ページで Solana の取引が勧められるときは、そのことを念頭に置く。</li>
+        <li>CoinGecko の過半数の株式は、ブロックチェーンの財団が持つようになりました。ページで Solana の取引が勧められるときは、そのことを念頭に置く。</li>
       </ul>
-      <p>今後の予定：イーサリアムの Glamsterdam 判断の会議（11月19日）、Stellar「Bell」投票（11月23日）、Monad のロック期間終了（11月24日）、12月とされるモスクワ取引所の暗号資産取引。</p>
+      <p>今後の予定：イーサリアムの次の Glamsterdam 会議（11月19日）、Stellar「Bell」投票（11月23日）、Monad のロック期間終了（11月24日）、12月とされるモスクワ取引所の暗号資産取引。</p>
     </div>
   </section>
 
