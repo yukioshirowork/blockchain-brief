@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Blockchain Brief, 18 Nov 2026</title>
+<meta name="description" content="Glamsterdam's audit results, Lighter's nonce-reuse postmortem, Hedera's switch to Block Streams, the CFTC's first blockchain derivatives approvals, the Solana Foundation buying into CoinGecko and Trezor's shipping leak.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-title-en="Blockchain Brief, 18 Nov 2026" data-title-ja="ブロックチェーン・ブリーフ 2026年11月18日">
+<div class="bar"><div class="bar-in">
+  <a class="home" href="../">Blockchain Brief</a>
+  <div class="controls">
+    <div class="seg" role="group" aria-label="Language"><button type="button" data-set-lang="en" aria-pressed="true">EN</button><button type="button" data-set-lang="ja" aria-pressed="false">日本語</button></div>
+  </div>
+</div></div>
+
+<main class="wrap">
+
+<!-- Read-aloud panel (shared; labels follow the language toggle) -->
+<section class="audio" id="audio" aria-label="Read aloud" data-noread>
+  <div class="audio-row">
+    <button type="button" class="btn primary" data-a="play">▶ Listen</button>
+    <button type="button" class="btn" data-a="stop" disabled>■ Stop</button>
+    <select class="btn" data-a="scope" aria-label="What to read"><option value="all">Whole brief</option><option value="dev">Dev only</option><option value="nondev">Non-dev only</option></select>
+  </div>
+  <div class="audio-row">
+    <label class="status"><span data-a="speedlbl">Speed</span>
+      <select class="btn" data-a="rate"><option value="0.8">0.8×</option><option value="0.9">0.9×</option><option value="1" selected>1×</option><option value="1.15">1.15×</option><option value="1.3">1.3×</option><option value="1.5">1.5×</option></select></label>
+    <label class="status"><span data-a="voicelbl">Voice</span>
+      <select class="btn" data-a="voice"></select></label>
+  </div>
+  <p class="status" data-a="status" aria-live="polite"></p>
+</section>
+
+<!-- ===================== ENGLISH ===================== -->
+<article data-lang="en" class="wrap" style="padding:0">
+  <header class="brief">
+    <span class="mono meta">Daily brief · 18 Nov 2026 · about 6 min read</span>
+    <h1>Blockchain Brief, 18 Nov 2026</h1>
+    <p class="lede">The Glamsterdam audits are in: about 200 findings and up to 15,000 contracts that could break, ahead of Thursday's decision call. Lighter's postmortem traces its loss to reused signature nonces, and Hedera switches to Block Streams today. Outside the code, the CFTC approves two blockchain derivatives exchanges, the Solana Foundation buys into CoinGecko, and Trezor customers face another shipping-partner leak.</p>
+    <p class="note">Claims I could not confirm from a primary or second independent source are marked Unverified.</p>
+    <nav class="jump" data-noread aria-label="Sections"><a class="dev" href="#dev-en">Dev ↓</a><a class="nondev" href="#nondev-en">Non-dev ↓</a></nav>
+  </header>
+
+  <section class="track dev" id="dev-en">
+    <div class="track-head"><h2>Dev</h2><p>Protocol changes, contract risks, security details and tooling.</p></div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>Follow-up · Ethereum · 16 Nov</span>
+      <h3>Glamsterdam audits: about 200 findings, up to 15,000 contracts</h3>
+      <p>At the 16 November testing call, ChainSecurity reported 152 findings on EIP-8037 and EIP-8038, about 200 when combined with the Ethereum Foundation's own research. Dedaub reviewed about 25,000 contracts with unusual gas use and flagged 70 medium- and high-risk issues, 22 of which the Foundation had missed. The EF's Marius van der Wijden estimated from a broad scan that up to 15,000 contracts could break, a tiny share of roughly 90 million, holding a few hundred thousand dollars (<a href="https://www.coindesk.com/tech/2026/11/17/ethereum-s-glamsterdam-upgrade-risks-breaking-up-to-15-000-contracts">CoinDesk</a>).</p>
+      <p>The repricing is steep. Deploying a contract rises from 32,000 to about 183,600 gas, and writing a new storage slot from 20,000 to about 97,920. Contracts that pass a fixed gas allowance to other contracts, or assume fixed costs, are the ones at risk. The execution-layer call on 19 November takes it up again.</p>
+    </div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>Follow-up · Lighter · 16–17 Nov</span>
+      <h3>Lighter's postmortem: two signatures, one nonce, one private key</h3>
+      <p>Lighter says the trader's API key leaked through the account's own public signatures. The trader used signing software outside Lighter's official SDKs that reused nonces, and two signatures made with the same nonce and key are enough to compute the private key. The attacker then opened a public pool from that account, minted shares from a second account, moved the trader's funds into the pool without minting new shares, and redeemed. Lighter reopened withdrawals on 16 November and returned about $5M USDC to the trader. Pool transfers now need a wallet signature, API-key signatures are no longer public, and IP allowlists and per-key permissions are coming (<a href="https://www.theblock.co/news/defi/2026-11-17-lighter-reopens-withdrawals-after-traders-api-key-leak-returns-about-5-million-in-usdc-442113">The Block</a>, <a href="https://memeburn.com/lighter-exploit-without-being-hacked/">Memeburn</a>).</p>
+      <p class="unverified"><b>Unverified</b>The total loss. Lighter hasn't disclosed it, analysts estimate up to $15.5M, and earlier tracing found $10.4M.</p>
+    </div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>Hedera · Upgrade · 18 Nov</span>
+      <h3>Hedera v0.79 replaces the Record Stream with Block Streams</h3>
+      <p>Hedera's mainnet upgrades at 18:00 UTC today, with about 40 minutes of disruption. The record stream gives way to Block Streams, a single verifiable stream signed with threshold (TSS) signatures. HAPI, the SDKs, the mirror node REST API and the JSON-RPC relay are not affected. Mirror node operators need version 0.163.0 or later before the switch, because older versions can't read the new stream (<a href="https://hedera.com/blog/block-streams-replace-the-record-stream-by-default/">Hedera</a>, <a href="https://cryptoticker.io/en/hedera-mainnet-upgrade-v0-79-november-18/">CryptoTicker</a>).</p>
+      <p class="unverified"><b>Unverified</b>The 0.163.0 minimum comes from coverage. I didn't read Hedera's release notes.</p>
+    </div>
+
+    <div class="item">
+      <h3>What to do this week</h3>
+      <ul class="points">
+        <li>Use RFC 6979 deterministic nonces or a vetted library for every signature. Never sign with hand-rolled ECDSA code.</li>
+        <li>Grep your contracts for hardcoded gas stipends and for gas math that assumes 20,000 per new storage slot or 32,000 per deployment.</li>
+        <li>If you run a Hedera mirror node, upgrade to 0.163.0 or later before 18:00 UTC.</li>
+        <li>Read the ACDE outcome on 19 November before committing to Glamsterdam timelines.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="track nondev" id="nondev-en">
+    <div class="track-head"><h2>Non-dev</h2><p>Market, business and regulation, and what the incidents mean in plain language.</p></div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>US · Derivatives</span>
+      <h3>The CFTC approves two blockchain derivatives exchanges</h3>
+      <p>CFTC Chair Michael Selig said on 16 November that the agency had approved applications from tZERO and Backpack. tZERO can now run a regulated derivatives exchange, on top of its earlier approval to run a clearinghouse. Backpack says it was approved as a blockchain-based derivatives exchange and clearinghouse. Neither has given a launch date. Selig is currently the CFTC's only commissioner. The Senate Agriculture Committee held a hearing on 17 November for the two nominees who would join him (<a href="https://www.theblock.co/news/regulation/2026-11-16-cftc-blockchain-derivatives-exchange-approval-backpack-tzero-441591">The Block</a>, <a href="https://theblock.co/news/regulation/2026-11-12-white-house-crypto-picks-sec-cftc-439175">The Block</a>).</p>
+      <p class="unverified"><b>Unverified</b>Reports that Backpack will offer perpetual futures to US users.</p>
+    </div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>Business · Data</span>
+      <h3>The Solana Foundation takes control of CoinGecko</h3>
+      <p>At Breakpoint, the Solana Foundation took a majority stake in CoinGecko, the price-data site with 18 million registered users whose data feeds about 180,000 apps and businesses. The price wasn't disclosed. The Foundation plans to add Solana-powered trading to CoinGecko's site and apps. CoinGecko says it will keep covering the whole market with its own technology and public methods (<a href="https://www.coindesk.com/business/2026/11/17/solana-foundation-takes-majority-stake-in-crypto-data-provider-coingecko">CoinDesk</a>, <a href="https://solana.com/news/coingecko-backed-by-solana-foundation">Solana</a>).</p>
+    </div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>Wallets · Privacy</span>
+      <h3>Trezor's shipping partner leaks 27,000 customers' addresses</h3>
+      <p>Trezor says its shipping partner Skladon was breached on 7 November. Orders placed from 9 August to 7 November were exported, about 27,000 of them, including names, phone numbers, email and delivery addresses, and order details. No backups, PINs or passphrases were exposed, and Trezor's own systems weren't affected. Some customers are already getting calls from fake "Trezor support". This is Trezor's second shipping-partner leak since August. It is cutting how long it keeps order data from 90 to 45 days and offering anonymous pickup in 18 European countries (<a href="https://www.theblock.co/news/business/2026-11-16-trezor-hit-another-shipping-partner-data-leak-affecting-27000-skladon-orders-441524">The Block</a>).</p>
+    </div>
+
+    <div class="item">
+      <h3>As a user</h3>
+      <ul class="points">
+        <li>Trezor never calls you. Hang up on anyone claiming to be Trezor support, and never read out or type your recovery words.</li>
+        <li>If your home address may be on a crypto customer list, keep your holdings private and consider anonymous pickup next time.</li>
+        <li>CoinGecko is now owned by a blockchain foundation. Keep that in mind when its pages promote Solana trading.</li>
+      </ul>
+      <p>Coming up: Ethereum's Glamsterdam decision call (19 November), the Stellar "Bell" vote (23 November), the Monad lockup end (24 November) and Moscow Exchange crypto trading, reportedly in December.</p>
+    </div>
+  </section>
+
+  <section class="sources">
+    <h2>Sources</h2>
+    <p>Reporting as of 18 November 2026. The Hedera and Solana posts were read through coverage.</p>
+    <ul>
+      <li><a href="https://hedera.com/blog/block-streams-replace-the-record-stream-by-default/">Hedera: Block Streams replace the Record Stream</a> <span class="kind">primary</span></li>
+      <li><a href="https://solana.com/news/coingecko-backed-by-solana-foundation">Solana: CoinGecko backed by the Solana Foundation</a> <span class="kind">primary</span></li>
+      <li><a href="https://www.coindesk.com/tech/2026/11/17/ethereum-s-glamsterdam-upgrade-risks-breaking-up-to-15-000-contracts">CoinDesk: Glamsterdam could break up to 15,000 contracts</a> <span class="kind">secondary</span></li>
+      <li><a href="https://www.theblock.co/news/defi/2026-11-17-lighter-reopens-withdrawals-after-traders-api-key-leak-returns-about-5-million-in-usdc-442113">The Block: Lighter reopens withdrawals</a> <span class="kind">secondary</span></li>
+      <li><a href="https://memeburn.com/lighter-exploit-without-being-hacked/">Memeburn: Lighter exploit</a> <span class="kind">secondary</span></li>
+      <li><a href="https://cryptoticker.io/en/hedera-mainnet-upgrade-v0-79-november-18/">CryptoTicker: Hedera v0.79</a> <span class="kind">secondary</span></li>
+      <li><a href="https://www.theblock.co/news/regulation/2026-11-16-cftc-blockchain-derivatives-exchange-approval-backpack-tzero-441591">The Block: CFTC approves Backpack and tZERO</a> <span class="kind">secondary</span></li>
+      <li><a href="https://theblock.co/news/regulation/2026-11-12-white-house-crypto-picks-sec-cftc-439175">The Block: SEC and CFTC nominees</a> <span class="kind">secondary</span></li>
+      <li><a href="https://www.coindesk.com/business/2026/11/17/solana-foundation-takes-majority-stake-in-crypto-data-provider-coingecko">CoinDesk: Solana Foundation and CoinGecko</a> <span class="kind">secondary</span></li>
+      <li><a href="https://www.theblock.co/news/business/2026-11-16-trezor-hit-another-shipping-partner-data-leak-affecting-27000-skladon-orders-441524">The Block: Trezor's Skladon leak</a> <span class="kind">secondary</span></li>
+    </ul>
+  </section>
+</article>
+
+<!-- ===================== 日本語 ===================== -->
+<article data-lang="ja" class="wrap" style="padding:0" hidden>
+  <header class="brief">
+    <span class="mono meta">デイリーブリーフ · 2026年11月18日 · 約6分</span>
+    <h1>ブロックチェーン・ブリーフ 2026年11月18日</h1>
+    <p class="lede">Glamsterdam の監査結果が出そろいました。指摘は約200件、壊れうるコントラクトは最大15,000件で、木曜の判断の会議を前にしています。Lighter の事後報告は、損失の原因を署名の nonce の使い回しと特定し、Hedera は今日 Block Streams に切り替わります。コード以外では、CFTC がブロックチェーン系デリバティブ取引所2つを承認し、Solana Foundation が CoinGecko に出資、Trezor の顧客は再び配送業者からの情報漏えいに見舞われました。</p>
+    <p class="note">一次情報または独立した2つ目の情報源で確認できなかった内容には「未確認」と表示しています。</p>
+    <nav class="jump" data-noread aria-label="セクション"><a class="dev" href="#dev-ja">Dev ↓</a><a class="nondev" href="#nondev-ja">Non-dev ↓</a></nav>
+  </header>
+
+  <section class="track dev" id="dev-ja">
+    <div class="track-head"><h2>Dev</h2><p>プロトコル変更、コントラクトのリスク、セキュリティの詳細、開発ツール。</p></div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>続報 · Ethereum · 11月16日</span>
+      <h3>Glamsterdam の監査：指摘約200件、最大15,000コントラクト</h3>
+      <p>11月16日のテスト会議で、ChainSecurity は EIP-8037 と EIP-8038 について152件の指摘を報告しました。イーサリアム財団自身の調査と合わせると約200件です。Dedaub はガスの使い方が特殊な約25,000のコントラクトを調べ、中・高リスクの問題を70件挙げました。うち22件は財団が見落としていたものです。財団の Marius van der Wijden は大まかなスキャンから、最大15,000のコントラクトが壊れうると見積もりました。約9,000万あるコントラクトのごく一部で、保有額は数十万ドル程度です（<a href="https://www.coindesk.com/tech/2026/11/17/ethereum-s-glamsterdam-upgrade-risks-breaking-up-to-15-000-contracts">CoinDesk</a>）。</p>
+      <p>値上げ幅は大きく、コントラクトのデプロイは 32,000 から約 183,600 ガスへ、新しいストレージスロットへの書き込みは 20,000 から約 97,920 ガスへ上がります。他のコントラクトに固定量のガスを渡すものや、コストが一定だと前提にしているものが危険です。11月19日の実行レイヤー会議で再び議論されます。</p>
+    </div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>続報 · Lighter · 11月16〜17日</span>
+      <h3>Lighter の事後報告：署名2つ、nonce 1つで秘密鍵が判明</h3>
+      <p>Lighter によると、トレーダーの API キーはアカウント自身の公開された署名から漏れました。トレーダーは Lighter 公式の SDK ではない署名ソフトを使っており、それが nonce を使い回していました。同じ nonce と鍵で作った署名が2つあれば、秘密鍵を計算できます。攻撃者はそのアカウントから公開プールを開き、別のアカウントでシェアを発行し、新しいシェアを発行せずにトレーダーの資金をプールへ移してから償還しました。Lighter は11月16日に出金を再開し、約500万 USDC をトレーダーに返しました。プールへの送金にはウォレットの署名が必要になり、API キーの署名は公開されなくなり、IP の許可リストとキーごとの権限設定も導入予定です（<a href="https://www.theblock.co/news/defi/2026-11-17-lighter-reopens-withdrawals-after-traders-api-key-leak-returns-about-5-million-in-usdc-442113">The Block</a>、<a href="https://memeburn.com/lighter-exploit-without-being-hacked/">Memeburn</a>）。</p>
+      <p class="unverified"><b>未確認</b>損失の総額。Lighter は公表しておらず、アナリストは最大1,550万ドルと見積もり、以前の追跡では1,040万ドルでした。</p>
+    </div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>Hedera · アップグレード · 11月18日</span>
+      <h3>Hedera v0.79、Record Stream を Block Streams に置き換え</h3>
+      <p>Hedera のメインネットは今日 18:00 UTC にアップグレードされ、約40分の中断が見込まれます。レコードストリームは、閾値署名（TSS）付きの検証可能な単一のストリーム Block Streams に置き換わります。HAPI、各 SDK、ミラーノードの REST API、JSON-RPC リレーには影響しません。ミラーノードの運用者は、切り替え前にバージョン 0.163.0 以降にする必要があります。古いバージョンは新しいストリームを読めません（<a href="https://hedera.com/blog/block-streams-replace-the-record-stream-by-default/">Hedera</a>、<a href="https://cryptoticker.io/en/hedera-mainnet-upgrade-v0-79-november-18/">CryptoTicker</a>）。</p>
+      <p class="unverified"><b>未確認</b>0.163.0 という最低バージョンは報道によるもので、Hedera のリリースノートは読めていません。</p>
+    </div>
+
+    <div class="item">
+      <h3>今週やること</h3>
+      <ul class="points">
+        <li>すべての署名に RFC 6979 の決定的 nonce か、実績のあるライブラリを使う。自作の ECDSA コードでは署名しない。</li>
+        <li>コントラクト内の固定のガス stipend や、新規ストレージスロット 20,000・デプロイ 32,000 を前提にしたガス計算を grep で探す。</li>
+        <li>Hedera のミラーノードを運用しているなら、18:00 UTC までに 0.163.0 以降へ更新する。</li>
+        <li>Glamsterdam のスケジュールを決める前に、11月19日の ACDE の結果を確認する。</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="track nondev" id="nondev-ja">
+    <div class="track-head"><h2>Non-dev</h2><p>市場・ビジネス・規制と、事件が何を意味するかのやさしい解説。</p></div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>米国 · デリバティブ</span>
+      <h3>CFTC、ブロックチェーン系デリバティブ取引所2つを承認</h3>
+      <p>CFTC の Michael Selig 委員長は11月16日、tZERO と Backpack の申請を承認したと述べました。tZERO は、以前に承認された清算機関に加え、規制下のデリバティブ取引所も運営できるようになります。Backpack は、ブロックチェーンを使うデリバティブ取引所兼清算機関として承認されたとしています。どちらも開始日は示していません。現在 CFTC の委員は Selig 氏1人だけで、11月17日には上院農業委員会で、新たに加わる2人の候補者の公聴会が開かれました（<a href="https://www.theblock.co/news/regulation/2026-11-16-cftc-blockchain-derivatives-exchange-approval-backpack-tzero-441591">The Block</a>、<a href="https://theblock.co/news/regulation/2026-11-12-white-house-crypto-picks-sec-cftc-439175">The Block</a>）。</p>
+      <p class="unverified"><b>未確認</b>Backpack が米国の利用者に無期限先物を提供するという報道。</p>
+    </div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>ビジネス · データ</span>
+      <h3>Solana Foundation、CoinGecko を傘下に</h3>
+      <p>Solana Foundation は Breakpoint で、価格データサイト CoinGecko の過半数の株式を取得しました。CoinGecko の登録ユーザーは1,800万人で、そのデータは約18万のアプリや企業に使われています。金額は公表されていません。Foundation は、CoinGecko のサイトやアプリに Solana を使った取引機能を加える計画です。CoinGecko は、自社の技術と公開した手法で市場全体を引き続きカバーするとしています（<a href="https://www.coindesk.com/business/2026/11/17/solana-foundation-takes-majority-stake-in-crypto-data-provider-coingecko">CoinDesk</a>、<a href="https://solana.com/news/coingecko-backed-by-solana-foundation">Solana</a>）。</p>
+    </div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>ウォレット · プライバシー</span>
+      <h3>Trezor の配送業者から顧客2万7,000件の住所が流出</h3>
+      <p>Trezor によると、配送業者 Skladon が11月7日に侵害されました。8月9日から11月7日までの約2万7,000件の注文データが持ち出され、氏名、電話番号、メールアドレス、配送先住所、注文内容が含まれます。バックアップ、PIN、パスフレーズは漏れておらず、Trezor 自身のシステムにも影響はありません。すでに一部の顧客には偽の「Trezor サポート」から電話がかかっています。8月以降、Trezor の配送業者からの流出は2回目です。注文データの保存期間を90日から45日に短縮し、ヨーロッパ18か国で匿名での受け取りを提供します（<a href="https://www.theblock.co/news/business/2026-11-16-trezor-hit-another-shipping-partner-data-leak-affecting-27000-skladon-orders-441524">The Block</a>）。</p>
+    </div>
+
+    <div class="item">
+      <h3>利用者として</h3>
+      <ul class="points">
+        <li>Trezor から電話がかかってくることはありません。Trezor サポートを名乗る電話は切り、リカバリーワードは絶対に読み上げたり入力したりしない。</li>
+        <li>自宅の住所が暗号資産の顧客リストに載っているかもしれないなら、保有を人に話さず、次回は匿名受け取りも検討する。</li>
+        <li>CoinGecko はブロックチェーンの財団が所有するようになりました。ページで Solana の取引が勧められるときは、そのことを念頭に置く。</li>
+      </ul>
+      <p>今後の予定：イーサリアムの Glamsterdam 判断の会議（11月19日）、Stellar「Bell」投票（11月23日）、Monad のロック期間終了（11月24日）、12月とされるモスクワ取引所の暗号資産取引。</p>
+    </div>
+  </section>
+
+  <section class="sources">
+    <h2>出典</h2>
+    <p>2026年11月18日時点の報道に基づきます。Hedera と Solana の投稿は報道経由で読んでいます。</p>
+    <ul>
+      <li><a href="https://hedera.com/blog/block-streams-replace-the-record-stream-by-default/">Hedera: Block Streams replace the Record Stream</a> <span class="kind">一次情報</span></li>
+      <li><a href="https://solana.com/news/coingecko-backed-by-solana-foundation">Solana: CoinGecko backed by the Solana Foundation</a> <span class="kind">一次情報</span></li>
+      <li><a href="https://www.coindesk.com/tech/2026/11/17/ethereum-s-glamsterdam-upgrade-risks-breaking-up-to-15-000-contracts">CoinDesk: Glamsterdam could break up to 15,000 contracts</a> <span class="kind">二次情報</span></li>
+      <li><a href="https://www.theblock.co/news/defi/2026-11-17-lighter-reopens-withdrawals-after-traders-api-key-leak-returns-about-5-million-in-usdc-442113">The Block: Lighter reopens withdrawals</a> <span class="kind">二次情報</span></li>
+      <li><a href="https://memeburn.com/lighter-exploit-without-being-hacked/">Memeburn: Lighter exploit</a> <span class="kind">二次情報</span></li>
+      <li><a href="https://cryptoticker.io/en/hedera-mainnet-upgrade-v0-79-november-18/">CryptoTicker: Hedera v0.79</a> <span class="kind">二次情報</span></li>
+      <li><a href="https://www.theblock.co/news/regulation/2026-11-16-cftc-blockchain-derivatives-exchange-approval-backpack-tzero-441591">The Block: CFTC approves Backpack and tZERO</a> <span class="kind">二次情報</span></li>
+      <li><a href="https://theblock.co/news/regulation/2026-11-12-white-house-crypto-picks-sec-cftc-439175">The Block: SEC and CFTC nominees</a> <span class="kind">二次情報</span></li>
+      <li><a href="https://www.coindesk.com/business/2026/11/17/solana-foundation-takes-majority-stake-in-crypto-data-provider-coingecko">CoinDesk: Solana Foundation and CoinGecko</a> <span class="kind">二次情報</span></li>
+      <li><a href="https://www.theblock.co/news/business/2026-11-16-trezor-hit-another-shipping-partner-data-leak-affecting-27000-skladon-orders-441524">The Block: Trezor's Skladon leak</a> <span class="kind">二次情報</span></li>
+    </ul>
+  </section>
+</article>
+
+
+
+<section class="comments" id="comments" data-noread>
+  <h2><span data-lang="en">Reader feedback</span><span data-lang="ja" hidden>読者のコメント</span></h2>
+  <p class="note"><span data-lang="en">Comments use GitHub sign-in, so every commenter is a real GitHub account. Be kind and stay on topic.</span><span data-lang="ja" hidden>コメントには GitHub へのログインが必要です。思いやりを持って、話題に沿って書き込んでください。</span></p>
+  <div class="giscus"></div>
+</section>
+
+<nav class="pager" data-noread>
+  <a href="../"><span data-lang="en">← All briefs</span><span data-lang="ja" hidden>← バックナンバー</span></a>
+  <span></span>
+</nav>
+</main>
+<script src="../assets/brief.js"></script>
+</body>
+</html>

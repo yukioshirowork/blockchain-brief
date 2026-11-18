@@ -1,5 +1,17 @@
 [
   {
+    "date": "2026-11-18",
+    "file": "briefs/2026-11-18.html",
+    "title": {
+      "en": "Blockchain Brief, 18 Nov 2026",
+      "ja": "ブロックチェーン・ブリーフ 2026年11月18日"
+    },
+    "summary": {
+      "en": "Glamsterdam's audit results, Lighter's nonce-reuse postmortem, Hedera's Block Streams, the CFTC's first blockchain derivatives approvals, and the Solana Foundation buying into CoinGecko.",
+      "ja": "Glamsterdam の監査結果、nonce 使い回しを原因とする Lighter の事後報告、Hedera の Block Streams、CFTC 初のブロックチェーン系デリバティブ承認、Solana Foundation の CoinGecko 出資。"
+    }
+  },
+  {
     "date": "2026-11-17",
     "file": "briefs/2026-11-17.html",
     "title": {
