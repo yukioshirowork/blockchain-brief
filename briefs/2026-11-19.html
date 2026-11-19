@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Blockchain Brief, 19 Nov 2026</title>
+<meta name="description" content="North Korean backdoors in AI coding-tool config, an attempted break-in at Etherscan's support desk, the World Bank Group exploring stablecoins, DBS USDC minting and Binance's freezing order.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-title-en="Blockchain Brief, 19 Nov 2026" data-title-ja="ブロックチェーン・ブリーフ 2026年11月19日">
+<div class="bar"><div class="bar-in">
+  <a class="home" href="../">Blockchain Brief</a>
+  <div class="controls">
+    <div class="seg" role="group" aria-label="Language"><button type="button" data-set-lang="en" aria-pressed="true">EN</button><button type="button" data-set-lang="ja" aria-pressed="false">日本語</button></div>
+  </div>
+</div></div>
+
+<main class="wrap">
+
+<!-- Read-aloud panel (shared; labels follow the language toggle) -->
+<section class="audio" id="audio" aria-label="Read aloud" data-noread>
+  <div class="audio-row">
+    <button type="button" class="btn primary" data-a="play">▶ Listen</button>
+    <button type="button" class="btn" data-a="stop" disabled>■ Stop</button>
+    <select class="btn" data-a="scope" aria-label="What to read"><option value="all">Whole brief</option><option value="dev">Dev only</option><option value="nondev">Non-dev only</option></select>
+  </div>
+  <div class="audio-row">
+    <label class="status"><span data-a="speedlbl">Speed</span>
+      <select class="btn" data-a="rate"><option value="0.8">0.8×</option><option value="0.9">0.9×</option><option value="1" selected>1×</option><option value="1.15">1.15×</option><option value="1.3">1.3×</option><option value="1.5">1.5×</option></select></label>
+    <label class="status"><span data-a="voicelbl">Voice</span>
+      <select class="btn" data-a="voice"></select></label>
+  </div>
+  <p class="status" data-a="status" aria-live="polite"></p>
+</section>
+
+<!-- ===================== ENGLISH ===================== -->
+<article data-lang="en" class="wrap" style="padding:0">
+  <header class="brief">
+    <span class="mono meta">Daily brief · 19 Nov 2026 · about 6 min read</span>
+    <h1>Blockchain Brief, 19 Nov 2026</h1>
+    <p class="lede">Google links a North Korean campaign against crypto firms that planted backdoors in developers' AI coding-tool settings. Etherscan investigates an attempted break-in at its support desk. In payments, the World Bank Group starts exploring stablecoins with Citi and Circle, DBS opens round-the-clock USDC minting for institutions, and Binance wins a worldwide freezing order against its hackers.</p>
+    <p class="note">Claims I could not confirm from a primary or second independent source are marked Unverified.</p>
+    <nav class="jump" data-noread aria-label="Sections"><a class="dev" href="#dev-en">Dev ↓</a><a class="nondev" href="#nondev-en">Non-dev ↓</a></nav>
+  </header>
+
+  <section class="track dev" id="dev-en">
+    <div class="track-head"><h2>Dev</h2><p>Protocol changes, contract risks, security details and tooling.</p></div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>Security · North Korea · 16 Nov</span>
+      <h3>MIDNIGHT NEPTUNE: backdoors hidden in AI coding-tool config</h3>
+      <p>Google Threat Intelligence Group's quarterly AI threat update describes a campaign it calls MIDNIGHT NEPTUNE, attributed to suspected North Korean actors and aimed at crypto companies in North America and Europe. The way in was familiar: fake recruiter profiles, then fake video-meeting sites that told targets to run a "diagnostic-repair" script, which GTIG assesses was likely written with an LLM. Inside, the attackers edited <code>.claude/settings.json</code> files in internal repositories so that opening Claude Code in that repo downloaded a backdoor called SOMBERMEME. They also created GitHub personal access tokens named to look like Microsoft Copilot (<a href="https://www.tokenpost.com/news/technology/60173">TokenPost</a>).</p>
+      <p>The same update describes an "exploit_agent" framework that chained AI models to diff patches, find bugs, write exploits and run them without a human. It also counts zero-days averaging 11 a month this year, up from 8 in 2025.</p>
+      <p class="unverified"><b>Unverified</b>I read the GTIG report only through one news article.</p>
+    </div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>Security · Etherscan · 18 Nov</span>
+      <h3>Etherscan's support desk targeted</h3>
+      <p>Etherscan said it detected attempts on 18 November to break into its customer support and ticketing system, which runs on Freshworks. It is investigating and has taken precautions. It hasn't said whether anyone got in or whether customer data was exposed, and nothing suggests the explorer, its data or user wallets were affected. Etherscan says its support will never ask for private keys or recovery phrases (<a href="https://crypto.news/etherscan-warns-users-after-attempted-breach-of-freshworks-support-system/">crypto.news</a>, <a href="https://x.com/etherscan/status/2122983346506736035">Etherscan</a>).</p>
+    </div>
+
+    <div class="item">
+      <h3>What to do this week</h3>
+      <ul class="points">
+        <li>Treat AI-tool config in a repo (<code>.claude/</code>, <code>.cursor/</code>, <code>.vscode/</code>, MCP and hook settings) as executable code. Review changes to it and protect it with CODEOWNERS.</li>
+        <li>List your organisation's GitHub personal access tokens and revoke any you can't account for, especially ones named after tools.</li>
+        <li>Never run a "fix" script from a meeting link or a recruiter.</li>
+        <li>Expect phishing that quotes real Etherscan support tickets. Verify through the site, not email links.</li>
+        <li>Watch today's Ethereum core developers' call for the Glamsterdam decision.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="track nondev" id="nondev-en">
+    <div class="track-head"><h2>Non-dev</h2><p>Market, business and regulation, and what the incidents mean in plain language.</p></div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>Stablecoins · Development finance</span>
+      <h3>The World Bank Group explores paying out in stablecoins</h3>
+      <p>On 17 November the World Bank Group said it will explore using regulated US-dollar stablecoins to make payments to its clients cheaper, faster and easier to trace, so more money reaches development work. Citi will connect to banking systems and Circle will handle USDC. It would run alongside today's bank transfers on the group's FundsChain platform, which already tracks more than 350 projects in 96 countries, and only in borrower countries that permit digital assets. No timeline was given (<a href="https://www.worldbank.org/en/news/press-release/2026/11/17/world-bank-group-explores-regulated-stablecoins-to-modernize-payments-redirect-res">World Bank</a>).</p>
+    </div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>Stablecoins · Asia</span>
+      <h3>DBS opens USDC minting; Visa pilots stablecoin prefunding</h3>
+      <p>Singapore's DBS said on 18 November that eligible institutional clients can now mint and redeem USDC directly through the bank with Circle, swapping between dollars and USDC at any hour. It is not for retail customers. The same day, Visa began piloting stablecoin prefunding for cross-border Visa Direct payouts in Asia Pacific with dtcpay. Businesses fund payouts in stablecoins, and recipients get local currency (<a href="https://fintechnize.substack.com/p/dbs-opens-a-bank-route-to-usdc-visa">Fintechnize</a>, <a href="https://www.coindesk.com/business/2026/11/18/circle-turns-to-dbs-as-banks-build-rival-digital-payment-systems-across-asia">CoinDesk</a>).</p>
+    </div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>Follow-up · Binance · 18 Nov</span>
+      <h3>Binance wins a $6.5B worldwide freezing order</h3>
+      <p>Binance says an Abu Dhabi court granted it a worldwide freezing order worth $6.5 billion against the people behind October's theft, with a hearing on extending it set for 1 December (<a href="https://cointelegraph.com/news/binance-says-won-65b-worldwide-freezing-order-after-hack">Cointelegraph</a>). An order like this lets Binance ask exchanges and custodians anywhere to hold matching assets. Meanwhile, wallets tied to the hack have started moving ether again after two weeks of silence.</p>
+      <p class="unverified"><b>Unverified</b>The order's details come from Binance's statement as reported in one article.</p>
+    </div>
+
+    <div class="item">
+      <h3>As a user</h3>
+      <ul class="points">
+        <li>If you get a message about an "Etherscan support ticket", don't click. Etherscan never asks for your recovery words.</li>
+        <li>Stablecoin news from the World Bank, DBS and Visa is aimed at institutions, so there is nothing to sign up for.</li>
+        <li>Job offers in crypto that move fast to a video call with a "please run this to fix your audio" step are scams.</li>
+      </ul>
+      <p>Coming up: the Glamsterdam call (today), the Stellar "Bell" vote (23 November), the Monad lockup end (24 November) and Binance's freezing-order hearing (1 December).</p>
+    </div>
+  </section>
+
+  <section class="sources">
+    <h2>Sources</h2>
+    <p>Reporting as of 19 November 2026. The GTIG report and Etherscan's post were read through coverage.</p>
+    <ul>
+      <li><a href="https://www.worldbank.org/en/news/press-release/2026/11/17/world-bank-group-explores-regulated-stablecoins-to-modernize-payments-redirect-res">World Bank Group: exploring regulated stablecoins</a> <span class="kind">primary</span></li>
+      <li><a href="https://x.com/etherscan/status/2122983346506736035">Etherscan on X</a> <span class="kind">primary</span></li>
+      <li><a href="https://www.tokenpost.com/news/technology/60173">TokenPost: Google links crypto campaign to North Korea</a> <span class="kind">secondary</span></li>
+      <li><a href="https://crypto.news/etherscan-warns-users-after-attempted-breach-of-freshworks-support-system/">crypto.news: Etherscan and Freshworks</a> <span class="kind">secondary</span></li>
+      <li><a href="https://www.coindesk.com/business/2026/11/18/circle-turns-to-dbs-as-banks-build-rival-digital-payment-systems-across-asia">CoinDesk: Circle turns to DBS</a> <span class="kind">secondary</span></li>
+      <li><a href="https://cointelegraph.com/news/binance-says-won-65b-worldwide-freezing-order-after-hack">Cointelegraph: Binance freezing order</a> <span class="kind">secondary</span></li>
+      <li><a href="https://fintechnize.substack.com/p/dbs-opens-a-bank-route-to-usdc-visa">Fintechnize: DBS and Visa</a> <span class="kind">newsletter</span></li>
+      <li><a href="https://thecryptodesk.substack.com/p/the-crypto-desk-thursday-19-november">The Crypto Desk, 19 Nov</a> <span class="kind">newsletter</span></li>
+    </ul>
+  </section>
+</article>
+
+<!-- ===================== 日本語 ===================== -->
+<article data-lang="ja" class="wrap" style="padding:0" hidden>
+  <header class="brief">
+    <span class="mono meta">デイリーブリーフ · 2026年11月19日 · 約6分</span>
+    <h1>ブロックチェーン・ブリーフ 2026年11月19日</h1>
+    <p class="lede">Google は、開発者の AI コーディングツールの設定にバックドアを仕込んだ暗号資産企業向けの攻撃を北朝鮮と結びつけました。Etherscan はサポート窓口への侵入未遂を調査しています。決済では、世界銀行グループが Citi と Circle とともにステーブルコインの検討を始め、DBS が機関投資家向けに24時間の USDC 発行を開始し、Binance はハッカーに対する全世界資産凍結命令を勝ち取りました。</p>
+    <p class="note">一次情報または独立した2つ目の情報源で確認できなかった内容には「未確認」と表示しています。</p>
+    <nav class="jump" data-noread aria-label="セクション"><a class="dev" href="#dev-ja">Dev ↓</a><a class="nondev" href="#nondev-ja">Non-dev ↓</a></nav>
+  </header>
+
+  <section class="track dev" id="dev-ja">
+    <div class="track-head"><h2>Dev</h2><p>プロトコル変更、コントラクトのリスク、セキュリティの詳細、開発ツール。</p></div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>セキュリティ · 北朝鮮 · 11月16日</span>
+      <h3>MIDNIGHT NEPTUNE：AI コーディングツールの設定に隠されたバックドア</h3>
+      <p>Google Threat Intelligence Group（GTIG）の四半期 AI 脅威レポートは、MIDNIGHT NEPTUNE と呼ぶ攻撃を取り上げています。北朝鮮の関与が疑われ、北米と欧州の暗号資産企業が標的です。入口はおなじみの手口で、偽のリクルーターのプロフィールから偽のビデオ会議サイトに誘導し、「診断・修復」スクリプトを実行させました。GTIG はこのスクリプトが LLM で書かれた可能性が高いとみています。侵入後、攻撃者は社内リポジトリの <code>.claude/settings.json</code> を書き換え、そのリポジトリで Claude Code を開くと SOMBERMEME というバックドアがダウンロードされるようにしました。Microsoft Copilot に見せかけた名前の GitHub 個人アクセストークンも作成していました（<a href="https://www.tokenpost.com/news/technology/60173">TokenPost</a>）。</p>
+      <p>同じレポートは、AI モデルを連携させてパッチの差分を取り、バグを見つけ、エクスプロイトを書いて実行するまでを人手なしで行う「exploit_agent」というフレームワークにも触れています。今年のゼロデイは月平均11件で、2025年の8件から増えました。</p>
+      <p class="unverified"><b>未確認</b>GTIG のレポートは1本のニュース記事を通じてしか読めていません。</p>
+    </div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>セキュリティ · Etherscan · 11月18日</span>
+      <h3>Etherscan のサポート窓口が標的に</h3>
+      <p>Etherscan は、Freshworks 上で運用している顧客サポート・チケットシステムへの侵入の試みを11月18日に検知したと発表しました。調査中で、予防措置を取ったとしています。実際に侵入されたかどうか、顧客データが漏れたかどうかは明らかにしておらず、エクスプローラー本体やそのデータ、利用者のウォレットに影響があったことを示す情報はありません。Etherscan のサポートが秘密鍵やリカバリーフレーズを尋ねることは決してないとしています（<a href="https://crypto.news/etherscan-warns-users-after-attempted-breach-of-freshworks-support-system/">crypto.news</a>、<a href="https://x.com/etherscan/status/2122983346506736035">Etherscan</a>）。</p>
+    </div>
+
+    <div class="item">
+      <h3>今週やること</h3>
+      <ul class="points">
+        <li>リポジトリ内の AI ツールの設定（<code>.claude/</code>、<code>.cursor/</code>、<code>.vscode/</code>、MCP やフックの設定）は実行可能なコードとして扱い、変更をレビューし、CODEOWNERS で保護する。</li>
+        <li>組織の GitHub 個人アクセストークンを一覧にし、説明のつかないもの、特にツール名を名乗るものは失効させる。</li>
+        <li>会議のリンクやリクルーターから渡された「修復」スクリプトは絶対に実行しない。</li>
+        <li>実在する Etherscan のサポートチケットを引用したフィッシングを想定する。メールのリンクではなくサイトで確認する。</li>
+        <li>今日のイーサリアム・コア開発者会議で Glamsterdam の判断を確認する。</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="track nondev" id="nondev-ja">
+    <div class="track-head"><h2>Non-dev</h2><p>市場・ビジネス・規制と、事件が何を意味するかのやさしい解説。</p></div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>ステーブルコイン · 開発金融</span>
+      <h3>世界銀行グループ、ステーブルコインでの支払いを検討</h3>
+      <p>世界銀行グループは11月17日、規制された米ドル建てステーブルコインを使って顧客への支払いをより安く、速く、追跡しやすくし、開発事業に届く資金を増やす方法を検討すると発表しました。Citi が銀行システムとの接続を、Circle が USDC を担います。今の銀行送金と並行して、すでに96か国で350件超のプロジェクトを追跡しているグループの FundsChain 上で動かす構想で、デジタル資産を認めている借入国に限られます。時期は示されていません（<a href="https://www.worldbank.org/en/news/press-release/2026/11/17/world-bank-group-explores-regulated-stablecoins-to-modernize-payments-redirect-res">世界銀行</a>）。</p>
+    </div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>ステーブルコイン · アジア</span>
+      <h3>DBS が USDC 発行を開始、Visa はステーブルコインでの事前入金を試験</h3>
+      <p>シンガポールの DBS は11月18日、対象となる機関投資家の顧客が Circle と連携して銀行経由で直接 USDC を発行・償還でき、ドルと USDC をいつでも交換できるようになったと発表しました。個人顧客は対象外です。同じ日、Visa はアジア太平洋で dtcpay とともに、国際送金サービス Visa Direct の支払いをステーブルコインで事前入金する試験を始めました。企業がステーブルコインで資金を入れ、受取人は現地通貨で受け取ります（<a href="https://fintechnize.substack.com/p/dbs-opens-a-bank-route-to-usdc-visa">Fintechnize</a>、<a href="https://www.coindesk.com/business/2026/11/18/circle-turns-to-dbs-as-banks-build-rival-digital-payment-systems-across-asia">CoinDesk</a>）。</p>
+    </div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>続報 · Binance · 11月18日</span>
+      <h3>Binance、65億ドルの全世界資産凍結命令を獲得</h3>
+      <p>Binance によると、アブダビの裁判所が10月の盗難の実行者に対し、65億ドル相当の全世界資産凍結命令を出しました。延長を審理する期日は12月1日です（<a href="https://cointelegraph.com/news/binance-says-won-65b-worldwide-freezing-order-after-hack">Cointelegraph</a>）。この種の命令があると、Binance は世界中の取引所やカストディアンに該当する資産の保全を求められます。一方、ハッキングに関係するウォレットは2週間の沈黙の後、再びイーサを動かし始めています。</p>
+      <p class="unverified"><b>未確認</b>命令の詳細は、1本の記事が伝えた Binance の声明に基づいています。</p>
+    </div>
+
+    <div class="item">
+      <h3>利用者として</h3>
+      <ul class="points">
+        <li>「Etherscan のサポートチケット」に関するメッセージが届いてもクリックしないでください。Etherscan がリカバリーフレーズを尋ねることはありません。</li>
+        <li>世界銀行、DBS、Visa のステーブルコインのニュースは機関向けで、個人が申し込むものはありません。</li>
+        <li>暗号資産業界の求人で、すぐにビデオ通話に進み「音声を直すためにこれを実行して」と言われたら詐欺です。</li>
+      </ul>
+      <p>今後の予定：Glamsterdam の会議（今日）、Stellar「Bell」の投票（11月23日）、Monad のロックアップ終了（11月24日）、Binance の凍結命令の審理（12月1日）。</p>
+    </div>
+  </section>
+
+  <section class="sources">
+    <h2>出典</h2>
+    <p>2026年11月19日時点の報道に基づきます。GTIG のレポートと Etherscan の投稿は報道を通じて読みました。</p>
+    <ul>
+      <li><a href="https://www.worldbank.org/en/news/press-release/2026/11/17/world-bank-group-explores-regulated-stablecoins-to-modernize-payments-redirect-res">世界銀行グループ：規制されたステーブルコインの検討</a> <span class="kind">一次情報</span></li>
+      <li><a href="https://x.com/etherscan/status/2122983346506736035">Etherscan（X）</a> <span class="kind">一次情報</span></li>
+      <li><a href="https://www.tokenpost.com/news/technology/60173">TokenPost：Google が暗号資産企業への攻撃を北朝鮮と関連付け</a> <span class="kind">二次情報</span></li>
+      <li><a href="https://crypto.news/etherscan-warns-users-after-attempted-breach-of-freshworks-support-system/">crypto.news：Etherscan と Freshworks</a> <span class="kind">二次情報</span></li>
+      <li><a href="https://www.coindesk.com/business/2026/11/18/circle-turns-to-dbs-as-banks-build-rival-digital-payment-systems-across-asia">CoinDesk：Circle が DBS と提携</a> <span class="kind">二次情報</span></li>
+      <li><a href="https://cointelegraph.com/news/binance-says-won-65b-worldwide-freezing-order-after-hack">Cointelegraph：Binance の資産凍結命令</a> <span class="kind">二次情報</span></li>
+      <li><a href="https://fintechnize.substack.com/p/dbs-opens-a-bank-route-to-usdc-visa">Fintechnize：DBS と Visa</a> <span class="kind">ニュースレター</span></li>
+      <li><a href="https://thecryptodesk.substack.com/p/the-crypto-desk-thursday-19-november">The Crypto Desk（11月19日）</a> <span class="kind">ニュースレター</span></li>
+    </ul>
+  </section>
+</article>
+
+
+
+<section class="comments" id="comments" data-noread>
+  <h2><span data-lang="en">Reader feedback</span><span data-lang="ja" hidden>読者のコメント</span></h2>
+  <p class="note"><span data-lang="en">Comments use GitHub sign-in, so every commenter is a real GitHub account. Be kind and stay on topic.</span><span data-lang="ja" hidden>コメントには GitHub へのログインが必要です。思いやりを持って、話題に沿って書き込んでください。</span></p>
+  <div class="giscus"></div>
+</section>
+
+<nav class="pager" data-noread>
+  <a href="../"><span data-lang="en">← All briefs</span><span data-lang="ja" hidden>← バックナンバー</span></a>
+  <span></span>
+</nav>
+</main>
+<script src="../assets/brief.js"></script>
+</body>
+</html>
