@@ -1,5 +1,17 @@
 [
   {
+    "date": "2026-11-20",
+    "file": "briefs/2026-11-20.html",
+    "title": {
+      "en": "Blockchain Brief, 20 Nov 2026",
+      "ja": "ブロックチェーン・ブリーフ 2026年11月20日"
+    },
+    "summary": {
+      "en": "Ethereum teams lean toward keeping Glamsterdam's gas rules, flagged funds pass through Sky's stablecoin module, Chainstack and Luxor disclose breaches, and MoonPay applies for a US trust bank charter.",
+      "ja": "イーサリアムのチームは Glamsterdam のガスルール維持に傾き、Sky のステーブルコインのモジュールに問題資金が流れ、Chainstack と Luxor が侵害を公表し、MoonPay が米国の信託銀行免許を申請しました。"
+    }
+  },
+  {
     "date": "2026-11-19",
     "file": "briefs/2026-11-19.html",
     "title": {

@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Blockchain Brief, 20 Nov 2026</title>
+<meta name="description" content="Glamsterdam gas rules leaning toward staying, flagged funds in Sky's Peg Stability Module, Chainstack and Luxor breaches, MoonPay's trust bank application and Thailand's stablecoin limit.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-title-en="Blockchain Brief, 20 Nov 2026" data-title-ja="ブロックチェーン・ブリーフ 2026年11月20日">
+<div class="bar"><div class="bar-in">
+  <a class="home" href="../">Blockchain Brief</a>
+  <div class="controls">
+    <div class="seg" role="group" aria-label="Language"><button type="button" data-set-lang="en" aria-pressed="true">EN</button><button type="button" data-set-lang="ja" aria-pressed="false">日本語</button></div>
+  </div>
+</div></div>
+
+<main class="wrap">
+
+<!-- Read-aloud panel (shared; labels follow the language toggle) -->
+<section class="audio" id="audio" aria-label="Read aloud" data-noread>
+  <div class="audio-row">
+    <button type="button" class="btn primary" data-a="play">▶ Listen</button>
+    <button type="button" class="btn" data-a="stop" disabled>■ Stop</button>
+    <select class="btn" data-a="scope" aria-label="What to read"><option value="all">Whole brief</option><option value="dev">Dev only</option><option value="nondev">Non-dev only</option></select>
+  </div>
+  <div class="audio-row">
+    <label class="status"><span data-a="speedlbl">Speed</span>
+      <select class="btn" data-a="rate"><option value="0.8">0.8×</option><option value="0.9">0.9×</option><option value="1" selected>1×</option><option value="1.15">1.15×</option><option value="1.3">1.3×</option><option value="1.5">1.5×</option></select></label>
+    <label class="status"><span data-a="voicelbl">Voice</span>
+      <select class="btn" data-a="voice"></select></label>
+  </div>
+  <p class="status" data-a="status" aria-live="polite"></p>
+</section>
+
+<!-- ===================== ENGLISH ===================== -->
+<article data-lang="en" class="wrap" style="padding:0">
+  <header class="brief">
+    <span class="mono meta">Daily brief · 20 Nov 2026 · about 6 min read</span>
+    <h1>Blockchain Brief, 20 Nov 2026</h1>
+    <p class="lede">Ethereum's client teams reportedly lean toward keeping Glamsterdam's gas rules, but nothing is decided and the testnet date is still open. Researchers trace hundreds of millions in flagged funds through Sky's stablecoin swap module, and two infrastructure firms describe breaches that started with weak, internet-facing tools. Outside code, MoonPay applies for a US national trust bank charter, the CFTC chair sketches a path for onchain exchanges, and Thailand proposes daily stablecoin limits.</p>
+    <p class="note">Claims I could not confirm from a primary or second independent source are marked Unverified.</p>
+    <nav class="jump" data-noread aria-label="Sections"><a class="dev" href="#dev-en">Dev ↓</a><a class="nondev" href="#nondev-en">Non-dev ↓</a></nav>
+  </header>
+
+  <section class="track dev" id="dev-en">
+    <div class="track-head"><h2>Dev</h2><p>Protocol changes, contract risks, security details and tooling.</p></div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>Follow-up · Ethereum · 19 Nov</span>
+      <h3>Glamsterdam: a lean toward keeping the gas rules, no decision</h3>
+      <p>After Thursday's discussion, The Defiant reports that Ethereum execution teams "lean toward keeping" Glamsterdam's gas rules, the repricings that audits this week found could break thousands of contracts. Activation on the Hoodi testnet remains unscheduled and there is no mainnet date. Ansgar Dietrichs estimated that if a decision waits until January and the rules are then revised, mainnet could slip to April or May 2027. That is one researcher's scenario, not a schedule (<a href="https://thedefiant.io/news/blockchains/ethereum-execution-teams-lean-toward-keeping-glamsterdam-gas-rules">The Defiant</a>).</p>
+      <p class="unverified"><b>Unverified</b>I could read only the article's summary, which doesn't name the EIPs or the teams. Some reports describe Glamsterdam as moving into 2027, but I found no decision saying so.</p>
+    </div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>Stablecoins · Sky · 19 Nov</span>
+      <h3>Flagged funds in Sky's Peg Stability Module, and a $2.7B single point of freeze</h3>
+      <p>Inca Digital traced $518 million of transactions through Sky's Peg Stability Module (PSM), the contract that swaps USDC for USDS one to one, across 422 wallets linked to hacks, phishing, sanctioned entities and addresses already blacklisted by Circle or Tether. About $101.9 million is tied to North Korea, and about 95% arrived through aggregators such as 1inch, ParaSwap and MetaMask Swaps rather than directly. The structural point for developers: the PSM holds about $2.7 billion in USDC in one Ethereum address, so a Circle blacklisting would freeze all of it. Bluechip's Amey Dandawate calls that unlikely but possible. Sky Frontier Foundation says most flagged transactions date from 2021 to mid-2024, are under 0.06% of PSM volume and did not use Sky's own front ends (<a href="https://www.coindesk.com/business/2026/11/19/north-korean-hackers-used-sky-s-stablecoin-system-putting-billions-at-freeze-risk">CoinDesk</a>).</p>
+    </div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>Security · Infrastructure</span>
+      <h3>Chainstack and Luxor breaches start at exposed tooling</h3>
+      <p>Node provider Chainstack says an attacker entered its development environment on 26 October and production three days later, through an internet-facing Grafana instance that still used default admin credentials, and was locked out on 31 October. Customer names, emails and password hashes were exposed, and customers are asked to reset passwords and rotate node credentials. Mining pool Luxor says an attack through its Commander software redirected about 13 EH/s of hashrate from more than a dozen accounts for under two hours, and that affected customers will be compensated. Both firms say the attackers used AI tooling (<a href="https://www.bankinfosecurity.com/cryptohack-roundup-chainstack-luxors-ai-breaches-a-33445">BankInfoSecurity</a>).</p>
+      <p class="unverified"><b>Unverified</b>I read both companies' statements only as summarised in one roundup.</p>
+    </div>
+
+    <div class="item">
+      <h3>What to do this week</h3>
+      <ul class="points">
+        <li>If you use Chainstack, reset your password and rotate node endpoints and API keys.</li>
+        <li>Scan for internet-facing dashboards (Grafana, Kibana, admin panels) and remove default credentials.</li>
+        <li>If your protocol holds or routes through a large USDC balance in one contract, document what a blacklist would freeze and how users would exit.</li>
+        <li>If Glamsterdam's gas changes affect you, comment on the open threads before January, when a decision may come.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="track nondev" id="nondev-en">
+    <div class="track-head"><h2>Non-dev</h2><p>Market, business and regulation, and what the incidents mean in plain language.</p></div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>Regulation · United States</span>
+      <h3>MoonPay applies to become a national trust bank</h3>
+      <p>MoonPay has applied to the OCC for MoonPay National Trust Bank, a trust bank that would not take deposits or carry FDIC insurance. The application is dated 17 November, and the OCC received it the next day. MoonPay wants to offer custody, issue and redeem stablecoins and manage their reserves, and convert currencies as an agent. It is filing ahead of the GENIUS Act rules taking effect on 18 January 2027, joining Circle, Ripple, Paxos and Coinbase, which already have OCC approvals (<a href="https://theblock.co/news/business/2026-11-20-moonpay-applies-occ-national-bank-charter-444198">The Block</a>, <a href="https://occ.gov/topics/charters-and-licensing/digital-assets-licensing-applications/moonpay-national-trust-bank-combined-cv-pa.pdf">OCC filing</a>).</p>
+    </div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>Regulation · Derivatives</span>
+      <h3>CFTC chair: onchain exchanges can reach US users by registering</h3>
+      <p>Speaking at a crypto policy forum, CFTC Chair Selig said platforms like Hyperliquid can serve US retail customers if they register as an exchange or partner with one, pointing to Backpack's licences this week. He said the CFTC will work with the Justice Department to defend federally registered prediction markets against state challenges. Separately, Senator Bernie Moreno said regulators' rulemaking could deliver about 80% of a market-structure framework, while Representative French Hill said rules can't replace a law (<a href="https://theblock.co/newsletters/the-daily/2026-11-20-cftc-chair-hyperliquid-ripple-clo-elizabeth-warren-crypto-policy-more-news-444143">The Block</a>).</p>
+    </div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>Regulation · Thailand</span>
+      <h3>Thailand proposes a daily stablecoin limit</h3>
+      <p>Thailand's SEC has proposed capping stablecoin deposits and withdrawals at 5 million baht (about $148,000) per customer, per operator, per day, with transfers allowed only to the customer's own wallets. Comments close on 26 November (<a href="https://www.bankinfosecurity.com/cryptohack-roundup-chainstack-luxors-ai-breaches-a-33445">BankInfoSecurity</a>).</p>
+      <p class="unverified"><b>Unverified</b>I haven't seen the Thai SEC's consultation paper itself.</p>
+    </div>
+
+    <div class="item">
+      <h3>As a user</h3>
+      <ul class="points">
+        <li>Chainstack customers should change their password now.</li>
+        <li>Buy hardware wallets only from the maker's own store. Ledger has widened its tampered-device investigation to Germany and the UAE and says no confirmed cases involve devices bought from its website.</li>
+        <li>The Sky report doesn't mean USDS holders have lost anything. It describes a risk that depends on a decision by Circle.</li>
+      </ul>
+      <p>Coming up: the Stellar "Bell" vote (23 November), Thailand's comment deadline (26 November) and Binance's freezing-order hearing (1 December). The Binance hack wallet moved about 137,600 ETH (around $248 million) on 19 November.</p>
+    </div>
+  </section>
+
+  <section class="sources">
+    <h2>Sources</h2>
+    <p>Reporting as of 20 November 2026. The OCC filing and the Chainstack and Luxor statements were read through coverage.</p>
+    <ul>
+      <li><a href="https://occ.gov/topics/charters-and-licensing/digital-assets-licensing-applications/moonpay-national-trust-bank-combined-cv-pa.pdf">OCC: MoonPay National Trust Bank application</a> <span class="kind">primary</span></li>
+      <li><a href="https://thedefiant.io/news/blockchains/ethereum-execution-teams-lean-toward-keeping-glamsterdam-gas-rules">The Defiant: execution teams lean toward keeping Glamsterdam gas rules</a> <span class="kind">secondary</span></li>
+      <li><a href="https://thedefiant.io/news/security/ethereum-faces-glamsterdam-gas-rule-decision-thursday">The Defiant: Glamsterdam gas-rule decision Thursday</a> <span class="kind">secondary</span></li>
+      <li><a href="https://www.coindesk.com/business/2026/11/19/north-korean-hackers-used-sky-s-stablecoin-system-putting-billions-at-freeze-risk">CoinDesk: North Korean hackers used Sky's stablecoin system</a> <span class="kind">secondary</span></li>
+      <li><a href="https://www.bankinfosecurity.com/cryptohack-roundup-chainstack-luxors-ai-breaches-a-33445">BankInfoSecurity: Chainstack and Luxor breaches</a> <span class="kind">secondary</span></li>
+      <li><a href="https://theblock.co/news/business/2026-11-20-moonpay-applies-occ-national-bank-charter-444198">The Block: MoonPay applies for OCC charter</a> <span class="kind">secondary</span></li>
+      <li><a href="https://thedefiant.io/news/hacks/binance-hack-wallet-moves-another-248-million-in-eth">The Defiant: Binance hack wallet moves $248M</a> <span class="kind">secondary</span></li>
+      <li><a href="https://theblock.co/newsletters/the-daily/2026-11-20-cftc-chair-hyperliquid-ripple-clo-elizabeth-warren-crypto-policy-more-news-444143">The Block, The Daily, 20 Nov</a> <span class="kind">newsletter</span></li>
+    </ul>
+  </section>
+</article>
+
+<!-- ===================== 日本語 ===================== -->
+<article data-lang="ja" class="wrap" style="padding:0" hidden>
+  <header class="brief">
+    <span class="mono meta">デイリーブリーフ · 2026年11月20日 · 約6分</span>
+    <h1>ブロックチェーン・ブリーフ 2026年11月20日</h1>
+    <p class="lede">報道によると、イーサリアムのクライアントチームは Glamsterdam のガスルールを維持する方向に傾いていますが、何も決まっておらず、テストネットの日程も未定です。Sky のステーブルコイン交換モジュールでは、問題のある資金が数億ドル規模で流れていたことが追跡され、インフラ企業2社はインターネットに公開された脆弱なツールから侵入された経緯を明らかにしました。コード以外では、MoonPay が米国の国法信託銀行の免許を申請し、CFTC 委員長がオンチェーン取引所の道筋を示し、タイがステーブルコインの1日あたり上限を提案しています。</p>
+    <p class="note">一次情報または独立した2つ目の情報源で確認できなかった内容には「未確認」と表示しています。</p>
+    <nav class="jump" data-noread aria-label="セクション"><a class="dev" href="#dev-ja">Dev ↓</a><a class="nondev" href="#nondev-ja">Non-dev ↓</a></nav>
+  </header>
+
+  <section class="track dev" id="dev-ja">
+    <div class="track-head"><h2>Dev</h2><p>プロトコル変更、コントラクトのリスク、セキュリティの詳細、開発ツール。</p></div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>続報 · Ethereum · 11月19日</span>
+      <h3>Glamsterdam：ガスルール維持に傾くも、決定はなし</h3>
+      <p>木曜の議論を受けて、The Defiant はイーサリアムの実行レイヤーのチームが Glamsterdam のガスルールを「維持する方向に傾いている」と報じました。今週の監査で数千のコントラクトを壊しうるとされた価格改定です。Hoodi テストネットでの有効化は未定のままで、メインネットの日程もありません。Ansgar Dietrichs は、判断を1月まで待ってからルールを見直す場合、メインネットは2027年4〜5月にずれ込む可能性があると見積もりました。これは1人の研究者が示したシナリオで、スケジュールではありません（<a href="https://thedefiant.io/news/blockchains/ethereum-execution-teams-lean-toward-keeping-glamsterdam-gas-rules">The Defiant</a>）。</p>
+      <p class="unverified"><b>未確認</b>読めたのは記事の要約だけで、EIP 番号やチーム名は書かれていませんでした。Glamsterdam が2027年にずれ込むと伝える報道もありますが、そうした決定は確認できていません。</p>
+    </div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>ステーブルコイン · Sky · 11月19日</span>
+      <h3>Sky の Peg Stability Module に流れた問題資金と、27億ドルが一度に凍結されうる構造</h3>
+      <p>Inca Digital は、USDC と USDS を1対1で交換するコントラクトである Sky の Peg Stability Module（PSM）を通った5億1,800万ドルの取引を追跡しました。対象はハッキング、フィッシング、制裁対象、Circle や Tether がすでにブラックリストに載せたアドレスに関係する422のウォレットです。約1億190万ドルが北朝鮮に関係し、約95%は直接ではなく 1inch、ParaSwap、MetaMask Swaps などのアグリゲーター経由でした。開発者にとっての構造的な論点は、PSM が約27億ドルの USDC を1つのイーサリアムアドレスで保有していることです。Circle がこのアドレスをブラックリストに載せれば、全額が凍結されます。Bluechip の Amey Dandawate は、可能性は低いがありうるとしています。Sky Frontier Foundation は、問題とされた取引の大半は2021年から2024年半ばのもので、PSM の取引量の0.06%未満にすぎず、Sky 自身のフロントエンドは使われていないと説明しています（<a href="https://www.coindesk.com/business/2026/11/19/north-korean-hackers-used-sky-s-stablecoin-system-putting-billions-at-freeze-risk">CoinDesk</a>）。</p>
+    </div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>セキュリティ · インフラ</span>
+      <h3>Chainstack と Luxor の侵害、入口は公開されたツール</h3>
+      <p>ノードプロバイダーの Chainstack によると、攻撃者は10月26日に開発環境へ、その3日後に本番環境へ侵入しました。入口は管理者の初期パスワードのまま公開されていた Grafana で、10月31日に締め出されました。顧客の氏名、メールアドレス、パスワードのハッシュが流出し、顧客にはパスワードの再設定とノードの認証情報の更新が求められています。マイニングプールの Luxor は、Commander ソフトウェアを通じた攻撃で、10を超えるアカウントから約 13 EH/s のハッシュレートが2時間足らず別の宛先に向けられたとし、影響を受けた顧客には補償するとしています。両社とも、攻撃者が AI ツールを使ったと述べています（<a href="https://www.bankinfosecurity.com/cryptohack-roundup-chainstack-luxors-ai-breaches-a-33445">BankInfoSecurity</a>）。</p>
+      <p class="unverified"><b>未確認</b>両社の声明は、1本のまとめ記事の要約でしか読めていません。</p>
+    </div>
+
+    <div class="item">
+      <h3>今週やること</h3>
+      <ul class="points">
+        <li>Chainstack を使っているなら、パスワードを再設定し、ノードのエンドポイントと API キーを更新する。</li>
+        <li>インターネットに公開されたダッシュボード（Grafana、Kibana、管理画面）を洗い出し、初期の認証情報をなくす。</li>
+        <li>プロトコルが1つのコントラクトで大量の USDC を保有・経由しているなら、ブラックリスト化で何が凍結され、利用者がどう退出できるかを文書にしておく。</li>
+        <li>Glamsterdam のガス変更が影響するなら、判断が出るかもしれない1月より前に、公開の議論にコメントする。</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="track nondev" id="nondev-ja">
+    <div class="track-head"><h2>Non-dev</h2><p>市場・ビジネス・規制と、事件が何を意味するかのやさしい解説。</p></div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>規制 · 米国</span>
+      <h3>MoonPay、国法信託銀行の免許を申請</h3>
+      <p>MoonPay は OCC に MoonPay National Trust Bank の設立を申請しました。預金を受け入れず、FDIC の預金保険もない信託銀行です。申請書の日付は11月17日で、OCC は翌日に受理しました。カストディ、ステーブルコインの発行・償還と準備資産の管理、代理人としての通貨交換を予定しています。GENIUS Act の規則が2027年1月18日に施行されるのを前にした申請で、すでに OCC の承認を得ている Circle、Ripple、Paxos、Coinbase に続きます（<a href="https://theblock.co/news/business/2026-11-20-moonpay-applies-occ-national-bank-charter-444198">The Block</a>、<a href="https://occ.gov/topics/charters-and-licensing/digital-assets-licensing-applications/moonpay-national-trust-bank-combined-cv-pa.pdf">OCC の申請書</a>）。</p>
+    </div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>規制 · デリバティブ</span>
+      <h3>CFTC 委員長：オンチェーン取引所も登録すれば米国の利用者に提供可能</h3>
+      <p>CFTC の Selig 委員長は暗号資産政策のフォーラムで、Hyperliquid のようなプラットフォームも、取引所として登録するか登録済みの取引所と提携すれば米国の個人顧客にサービスを提供できると述べ、今週の Backpack のライセンス取得を例に挙げました。また、連邦に登録された予測市場を州の異議から守るため、司法省と協力するとしました。別の場では、Bernie Moreno 上院議員が規制当局のルール作りで市場構造の枠組みの約8割は実現できると述べた一方、French Hill 下院議員はルールで法律の代わりはできないとしています（<a href="https://theblock.co/newsletters/the-daily/2026-11-20-cftc-chair-hyperliquid-ripple-clo-elizabeth-warren-crypto-policy-more-news-444143">The Block</a>）。</p>
+    </div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>規制 · タイ</span>
+      <h3>タイ、ステーブルコインに1日あたりの上限を提案</h3>
+      <p>タイの SEC は、ステーブルコインの入出金を顧客1人・事業者1社・1日あたり500万バーツ（約14万8,000ドル）までとし、送金先を本人のウォレットに限る案を示しました。意見募集は11月26日までです（<a href="https://www.bankinfosecurity.com/cryptohack-roundup-chainstack-luxors-ai-breaches-a-33445">BankInfoSecurity</a>）。</p>
+      <p class="unverified"><b>未確認</b>タイ SEC の意見募集文書そのものは確認できていません。</p>
+    </div>
+
+    <div class="item">
+      <h3>利用者として</h3>
+      <ul class="points">
+        <li>Chainstack の利用者は、今すぐパスワードを変更してください。</li>
+        <li>ハードウェアウォレットはメーカーの公式ストアでだけ購入してください。Ledger は改ざん端末の調査をドイツと UAE に広げており、公式サイトで購入した端末での確認例はないとしています。</li>
+        <li>Sky の報告は、USDS の保有者が何かを失ったという意味ではありません。Circle の判断次第で生じうるリスクを指摘したものです。</li>
+      </ul>
+      <p>今後の予定：Stellar「Bell」の投票（11月23日）、タイの意見募集の締め切り（11月26日）、Binance の凍結命令の審理（12月1日）。Binance のハッキングに関係するウォレットは11月19日に約13万7,600 ETH（約2億4,800万ドル）を移動させました。</p>
+    </div>
+  </section>
+
+  <section class="sources">
+    <h2>出典</h2>
+    <p>2026年11月20日時点の報道に基づきます。OCC の申請書と Chainstack、Luxor の声明は報道を通じて読みました。</p>
+    <ul>
+      <li><a href="https://occ.gov/topics/charters-and-licensing/digital-assets-licensing-applications/moonpay-national-trust-bank-combined-cv-pa.pdf">OCC：MoonPay National Trust Bank の申請書</a> <span class="kind">一次情報</span></li>
+      <li><a href="https://thedefiant.io/news/blockchains/ethereum-execution-teams-lean-toward-keeping-glamsterdam-gas-rules">The Defiant：実行レイヤーのチームは Glamsterdam のガスルール維持に傾く</a> <span class="kind">二次情報</span></li>
+      <li><a href="https://thedefiant.io/news/security/ethereum-faces-glamsterdam-gas-rule-decision-thursday">The Defiant：木曜に Glamsterdam のガスルールを議論</a> <span class="kind">二次情報</span></li>
+      <li><a href="https://www.coindesk.com/business/2026/11/19/north-korean-hackers-used-sky-s-stablecoin-system-putting-billions-at-freeze-risk">CoinDesk：北朝鮮のハッカーが Sky のステーブルコインの仕組みを利用</a> <span class="kind">二次情報</span></li>
+      <li><a href="https://www.bankinfosecurity.com/cryptohack-roundup-chainstack-luxors-ai-breaches-a-33445">BankInfoSecurity：Chainstack と Luxor の侵害</a> <span class="kind">二次情報</span></li>
+      <li><a href="https://theblock.co/news/business/2026-11-20-moonpay-applies-occ-national-bank-charter-444198">The Block：MoonPay が OCC の免許を申請</a> <span class="kind">二次情報</span></li>
+      <li><a href="https://thedefiant.io/news/hacks/binance-hack-wallet-moves-another-248-million-in-eth">The Defiant：Binance のハッキングに関係するウォレットが2億4,800万ドルを移動</a> <span class="kind">二次情報</span></li>
+      <li><a href="https://theblock.co/newsletters/the-daily/2026-11-20-cftc-chair-hyperliquid-ripple-clo-elizabeth-warren-crypto-policy-more-news-444143">The Block, The Daily（11月20日）</a> <span class="kind">ニュースレター</span></li>
+    </ul>
+  </section>
+</article>
+
+
+
+<section class="comments" id="comments" data-noread>
+  <h2><span data-lang="en">Reader feedback</span><span data-lang="ja" hidden>読者のコメント</span></h2>
+  <p class="note"><span data-lang="en">Comments use GitHub sign-in, so every commenter is a real GitHub account. Be kind and stay on topic.</span><span data-lang="ja" hidden>コメントには GitHub へのログインが必要です。思いやりを持って、話題に沿って書き込んでください。</span></p>
+  <div class="giscus"></div>
+</section>
+
+<nav class="pager" data-noread>
+  <a href="../"><span data-lang="en">← All briefs</span><span data-lang="ja" hidden>← バックナンバー</span></a>
+  <span></span>
+</nav>
+</main>
+<script src="../assets/brief.js"></script>
+</body>
+</html>
