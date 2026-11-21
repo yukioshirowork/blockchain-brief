@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Blockchain Brief, 21 Nov 2026</title>
+<meta name="description" content="The FBI's ARTEX alert, Coinbase trading inside ChatGPT and OpenAI's ChatGPT Wallet, Governor Waller on tokenized payments, senators on a state stablecoin safe harbor, and Payward buying Tribe Capital.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-title-en="Blockchain Brief, 21 Nov 2026" data-title-ja="ブロックチェーン・ブリーフ 2026年11月21日">
+<div class="bar"><div class="bar-in">
+  <a class="home" href="../">Blockchain Brief</a>
+  <div class="controls">
+    <div class="seg" role="group" aria-label="Language"><button type="button" data-set-lang="en" aria-pressed="true">EN</button><button type="button" data-set-lang="ja" aria-pressed="false">日本語</button></div>
+  </div>
+</div></div>
+
+<main class="wrap">
+
+<!-- Read-aloud panel (shared; labels follow the language toggle) -->
+<section class="audio" id="audio" aria-label="Read aloud" data-noread>
+  <div class="audio-row">
+    <button type="button" class="btn primary" data-a="play">▶ Listen</button>
+    <button type="button" class="btn" data-a="stop" disabled>■ Stop</button>
+    <select class="btn" data-a="scope" aria-label="What to read"><option value="all">Whole brief</option><option value="dev">Dev only</option><option value="nondev">Non-dev only</option></select>
+  </div>
+  <div class="audio-row">
+    <label class="status"><span data-a="speedlbl">Speed</span>
+      <select class="btn" data-a="rate"><option value="0.8">0.8×</option><option value="0.9">0.9×</option><option value="1" selected>1×</option><option value="1.15">1.15×</option><option value="1.3">1.3×</option><option value="1.5">1.5×</option></select></label>
+    <label class="status"><span data-a="voicelbl">Voice</span>
+      <select class="btn" data-a="voice"></select></label>
+  </div>
+  <p class="status" data-a="status" aria-live="polite"></p>
+</section>
+
+<!-- ===================== ENGLISH ===================== -->
+<article data-lang="en" class="wrap" style="padding:0">
+  <header class="brief">
+    <span class="mono meta">Daily brief · 21 Nov 2026 · about 6 min read</span>
+    <h1>Blockchain Brief, 21 Nov 2026</h1>
+    <p class="lede">The FBI warns about ARTEX, an AI agent platform attackers use to automate break-ins, a week after a crypto node provider blamed an AI framework of that name for its breach. Coinbase puts trading inside ChatGPT behind confirmation cards, as OpenAI starts its own card-based wallet. On policy, Fed Governor Waller sets out what tokenized payments still need, six senators ask Treasury for a stablecoin safe harbor for state issuers, and Kraken's parent agrees to buy an asset manager.</p>
+    <p class="note">Claims I could not confirm from a primary or second independent source are marked Unverified.</p>
+    <nav class="jump" data-noread aria-label="Sections"><a class="dev" href="#dev-en">Dev ↓</a><a class="nondev" href="#nondev-en">Non-dev ↓</a></nav>
+  </header>
+
+  <section class="track dev" id="dev-en">
+    <div class="track-head"><h2>Dev</h2><p>Protocol changes, contract risks, security details and tooling.</p></div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>Security · FBI · 13 Nov</span>
+      <h3>FBI FLASH: ARTEX automates intrusions with off-the-shelf LLMs</h3>
+      <p>An FBI FLASH alert describes ARTEX, an open-source agent platform written in Go that turns plain-language goals into commands. It has no model of its own and calls outside providers, including Anthropic, OpenAI and DeepSeek. The FBI says attackers have used it to go from reconnaissance to data theft, in some cases reaching privileged access in under three hours. Cases include South Korean financial firms, where data on about 67,000 people was exposed, and a ConnectWise Cloud Backup compromise followed by sign-in attempts against more than 2,250 downstream tenants. The original repository was pulled on 8 October, but forks and a paid version remain, and researchers counted more than 1,600 exposed consoles in early November. Indicators include unexpected outbound calls to LLM APIs from servers, web shells, abuse of the Kudu/SCM admin API and new Entra app credentials (<a href="https://www.ic3.gov/CSA/2026/261113.pdf">FBI IC3</a>).</p>
+      <p class="unverified"><b>Unverified</b>The alert doesn't mention crypto. Chainstack said its attacker used an AI agent framework called "Artex", but neither source says it is the same tool.</p>
+    </div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>Wallets · AI agents</span>
+      <h3>Agents that trade and pay, with a human approving each step</h3>
+      <p>Coinbase has a ChatGPT plugin that can trade crypto, eligible US stocks and dated futures for US users. Read-only questions such as balances run directly, but every new order, edit, cancellation or USD-to-USDC swap opens a Coinbase confirmation card, and nothing executes until the user approves it there. Coinbase's optional Agent Controls, enforced on its servers, can cap trade size and 24-hour volume and stop an agent after a set loss (<a href="https://finance.yahoo.com/markets/crypto/articles/coinbase-launches-trading-plugin-chatgpt-185257768.html">Bankless via Yahoo Finance</a>). OpenAI's new ChatGPT Wallet takes the same approach for shopping, with cards only and no crypto. Each purchase is approved with Face ID or a fingerprint, the card network issues a payment token so the agent never sees the card number, and spending limits are planned but not dated (<a href="https://openai.com/index/introducing-chatgpt-wallet/">OpenAI</a>).</p>
+      <p class="unverified"><b>Unverified</b>Bankless notes that OpenAI's plugin rules list investment trades as prohibited, and neither company has explained how the plugin fits. I read the Coinbase details through one article.</p>
+    </div>
+
+    <div class="item">
+      <h3>What to do this week</h3>
+      <ul class="points">
+        <li>Alert on servers that call LLM APIs they have no reason to call, and check the FBI's indicator list.</li>
+        <li>Lock down cloud admin interfaces such as Kudu/SCM, and review new Entra or OAuth app credentials.</li>
+        <li>If you build agent features, copy the pattern: read-only by default, an out-of-band confirmation for every action that moves money, and limits enforced on the server, not in the prompt.</li>
+        <li>Keep logs from 1 October onward before cleaning up anything you find.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="track nondev" id="nondev-en">
+    <div class="track-head"><h2>Non-dev</h2><p>Market, business and regulation, and what the incidents mean in plain language.</p></div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>Policy · Federal Reserve · 17 Nov</span>
+      <h3>Waller: tokenized payments are early, and trust has to be earned</h3>
+      <p>Fed Governor Christopher Waller told a payments conference that tokenization is sharpening competition between newcomers and banks, and that he expects several models to coexist, calling it "still in the early innings". Stablecoins, tokenized deposits and tokenized money market funds each carry different trade-offs, and firms will likely use more than one. The open questions he listed are who pays for fraud, lost keys and mistaken transfers, what happens to assets on a chain that fails, and how custody and insolvency law apply. He said instant settlement is useful but netting still saves money, and that central bank money must stay at the foundation (<a href="https://www.federalreserve.gov/newsevents/speech/waller20261117a.htm">Federal Reserve</a>).</p>
+    </div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>Regulation · Stablecoins · 17 Nov</span>
+      <h3>Six senators ask Treasury for a safe harbor for state stablecoin issuers</h3>
+      <p>Senators Lummis, Gillibrand, Alsobrooks, Cramer, Ricketts and Warner wrote to Treasury Secretary Scott Bessent about Treasury's proposed GENIUS Act rule. They want issuers chartered by states that have a framework in place before 18 January 2028 to get the same safe harbor that pending federal applicants already get, so issuers can choose a state or federal charter without disruption (<a href="https://www.lummis.senate.gov/wp-content/uploads/State-GENIUS-Safe-Harbor-Letter-Final1.pdf">Senators' letter</a>).</p>
+    </div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>Business · Kraken</span>
+      <h3>Kraken's parent agrees to buy Tribe Capital</h3>
+      <p>Payward, which owns Kraken, signed a deal on 18 November to buy Tribe Capital, a venture investor managing $2.7 billion, for undisclosed terms. Tribe will join Payward's asset management arm to build private-market and technology investment products tied to Kraken's custody, trading and tokenization. The deal is expected to close in the first quarter of 2027 (<a href="https://www.payward.com/press-release/payward-to-acquire-tribe-capital">Payward</a>).</p>
+    </div>
+
+    <div class="item">
+      <h3>As a user</h3>
+      <ul class="points">
+        <li>If you connect an AI assistant to a trading account, turn on spending and loss limits first, and read every confirmation card before you approve it.</li>
+        <li>An AI tool that says it bought or traded something without asking you is a red flag. The legitimate ones ask each time.</li>
+        <li>Today's policy news changes nothing for your accounts yet.</li>
+      </ul>
+      <p>Coming up: the Stellar "Bell" vote (23 November), the Monad lockup end (24 November), Thailand's stablecoin comment deadline (26 November) and Binance's freezing-order hearing (1 December).</p>
+    </div>
+  </section>
+
+  <section class="sources">
+    <h2>Sources</h2>
+    <p>Reporting as of 21 November 2026. Coinbase's own announcement was read through coverage.</p>
+    <ul>
+      <li><a href="https://www.ic3.gov/CSA/2026/261113.pdf">FBI IC3: FLASH alert on ARTEX</a> <span class="kind">primary</span></li>
+      <li><a href="https://openai.com/index/introducing-chatgpt-wallet/">OpenAI: Introducing ChatGPT Wallet</a> <span class="kind">primary</span></li>
+      <li><a href="https://www.federalreserve.gov/newsevents/speech/waller20261117a.htm">Federal Reserve: Governor Waller speech</a> <span class="kind">primary</span></li>
+      <li><a href="https://www.lummis.senate.gov/wp-content/uploads/State-GENIUS-Safe-Harbor-Letter-Final1.pdf">Senators' letter on a state GENIUS safe harbor</a> <span class="kind">primary</span></li>
+      <li><a href="https://www.payward.com/press-release/payward-to-acquire-tribe-capital">Payward: acquiring Tribe Capital</a> <span class="kind">primary</span></li>
+      <li><a href="https://finance.yahoo.com/markets/crypto/articles/coinbase-launches-trading-plugin-chatgpt-185257768.html">Bankless via Yahoo Finance: Coinbase trading plugin for ChatGPT</a> <span class="kind">secondary</span></li>
+      <li><a href="https://bitdigest.substack.com/p/saturday-november-21-2026">BitDigest, 21 Nov</a> <span class="kind">newsletter</span></li>
+    </ul>
+  </section>
+</article>
+
+<!-- ===================== 日本語 ===================== -->
+<article data-lang="ja" class="wrap" style="padding:0" hidden>
+  <header class="brief">
+    <span class="mono meta">デイリーブリーフ · 2026年11月21日 · 約6分</span>
+    <h1>ブロックチェーン・ブリーフ 2026年11月21日</h1>
+    <p class="lede">FBI は、攻撃者が侵入を自動化するのに使う AI エージェント基盤 ARTEX について警告しました。その1週間後には、暗号資産のノードプロバイダーが同じ名前の AI フレームワークによる侵害を公表しています。Coinbase は確認カードを挟む形で ChatGPT の中での取引を可能にし、OpenAI はカード決済の独自ウォレットを始めました。政策面では、FRB の Waller 理事がトークン化された決済にまだ必要なものを示し、上院議員6人が州の発行体へのステーブルコインのセーフハーバーを財務省に求め、Kraken の親会社が資産運用会社の買収で合意しました。</p>
+    <p class="note">一次情報または独立した2つ目の情報源で確認できなかった内容には「未確認」と表示しています。</p>
+    <nav class="jump" data-noread aria-label="セクション"><a class="dev" href="#dev-ja">Dev ↓</a><a class="nondev" href="#nondev-ja">Non-dev ↓</a></nav>
+  </header>
+
+  <section class="track dev" id="dev-ja">
+    <div class="track-head"><h2>Dev</h2><p>プロトコル変更、コントラクトのリスク、セキュリティの詳細、開発ツール。</p></div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>セキュリティ · FBI · 11月13日</span>
+      <h3>FBI FLASH：市販の LLM で侵入を自動化する ARTEX</h3>
+      <p>FBI の FLASH アラートは、自然言語の目標をコマンドに変換する、Go 製のオープンソースのエージェント基盤 ARTEX を取り上げています。独自のモデルは持たず、Anthropic、OpenAI、DeepSeek などの外部プロバイダーを呼び出します。FBI によると、攻撃者は偵察からデータ窃取までをこれで進め、3時間足らずで特権アクセスに達した例もあります。韓国の金融機関で約6万7,000人分のデータが流出した事例や、ConnectWise Cloud Backup が侵害され、その先の2,250超のテナントにサインインが試みられた事例が挙げられています。元のリポジトリは10月8日に削除されましたが、フォークや有料版は残っており、11月初めには1,600を超えるコンソールが公開状態で見つかりました。兆候としては、サーバーから LLM の API への想定外の通信、Web シェル、Kudu/SCM 管理 API の悪用、新しい Entra アプリの認証情報などが挙げられています（<a href="https://www.ic3.gov/CSA/2026/261113.pdf">FBI IC3</a>）。</p>
+      <p class="unverified"><b>未確認</b>アラートは暗号資産に触れていません。Chainstack は攻撃者が「Artex」という AI エージェントのフレームワークを使ったとしていますが、同じツールだとはどちらも述べていません。</p>
+    </div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>ウォレット · AI エージェント</span>
+      <h3>取引も支払いもするエージェント、ただし一歩ごとに人が承認</h3>
+      <p>Coinbase の ChatGPT プラグインは、米国の利用者向けに暗号資産、対象の米国株、期限付き先物を取引できます。残高のような読み取りだけの質問はそのまま答えますが、新規注文、変更、取り消し、USD から USDC への交換はすべて Coinbase の確認カードを開き、利用者がそこで承認するまで何も実行されません。Coinbase のサーバー側で適用される任意の Agent Controls では、取引の規模や24時間の取引量に上限を設け、一定の損失でエージェントを止められます（<a href="https://finance.yahoo.com/markets/crypto/articles/coinbase-launches-trading-plugin-chatgpt-185257768.html">Bankless（Yahoo Finance 経由）</a>）。OpenAI の新しい ChatGPT Wallet も買い物で同じ考え方を取っており、使えるのはカードだけで暗号資産は対象外です。購入ごとに Face ID か指紋で承認し、カードネットワークが決済トークンを発行するため、エージェントはカード番号を見ません。支出上限の設定は予定されていますが、時期は未定です（<a href="https://openai.com/index/introducing-chatgpt-wallet/">OpenAI</a>）。</p>
+      <p class="unverified"><b>未確認</b>Bankless は、OpenAI のプラグイン規約が投資取引を禁止事項に挙げていると指摘しており、両社ともこのプラグインとの整合性を説明していません。Coinbase の詳細は1本の記事を通じて読みました。</p>
+    </div>
+
+    <div class="item">
+      <h3>今週やること</h3>
+      <ul class="points">
+        <li>呼ぶ理由のない LLM の API を呼び出すサーバーを検知し、FBI の兆候リストと照らし合わせる。</li>
+        <li>Kudu/SCM などクラウドの管理インターフェースを締め、新しい Entra や OAuth アプリの認証情報を見直す。</li>
+        <li>エージェント機能を作るなら同じ型にする：既定は読み取りのみ、お金が動く操作はすべて別経路で確認、上限はプロンプトではなくサーバーで強制。</li>
+        <li>見つけたものを片付ける前に、10月1日以降のログを保全する。</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="track nondev" id="nondev-ja">
+    <div class="track-head"><h2>Non-dev</h2><p>市場・ビジネス・規制と、事件が何を意味するかのやさしい解説。</p></div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>政策 · FRB · 11月17日</span>
+      <h3>Waller 理事：トークン化された決済はまだ序盤、信頼は勝ち取るもの</h3>
+      <p>FRB の Christopher Waller 理事は決済業界の会議で、トークン化は新規参入者と銀行の競争を激しくしており、複数のモデルが共存すると見ていると述べ、「まだ序盤」だと表現しました。ステーブルコイン、トークン化預金、トークン化された MMF にはそれぞれ異なるトレードオフがあり、企業は複数を併用するだろうとしています。未解決の課題として挙げたのは、詐欺や鍵の紛失、誤送金の損失を誰が負うのか、チェーンが機能しなくなったときに資産はどうなるのか、カストディや倒産の法律がどう適用されるのか、です。即時決済は便利だがネッティングは今もコストを節約できること、中央銀行マネーが土台であり続けるべきことも述べました（<a href="https://www.federalreserve.gov/newsevents/speech/waller20261117a.htm">FRB</a>）。</p>
+    </div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>規制 · ステーブルコイン · 11月17日</span>
+      <h3>上院議員6人、州のステーブルコイン発行体へのセーフハーバーを財務省に要請</h3>
+      <p>Lummis、Gillibrand、Alsobrooks、Cramer、Ricketts、Warner の各上院議員は、財務省が提案した GENIUS Act の規則について Scott Bessent 財務長官に書簡を送りました。2028年1月18日より前に制度を整えた州で認可された発行体にも、連邦の免許を申請中の事業者がすでに得ているのと同じセーフハーバーを与え、発行体が混乱なく州か連邦の認可を選べるようにすべきだとしています（<a href="https://www.lummis.senate.gov/wp-content/uploads/State-GENIUS-Safe-Harbor-Letter-Final1.pdf">上院議員の書簡</a>）。</p>
+    </div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>ビジネス · Kraken</span>
+      <h3>Kraken の親会社、Tribe Capital の買収で合意</h3>
+      <p>Kraken を所有する Payward は11月18日、27億ドルを運用するベンチャー投資会社 Tribe Capital を買収する契約を結びました。条件は開示されていません。Tribe は Payward の資産運用部門に入り、Kraken のカストディ、取引、トークン化と結びついた未公開市場やテクノロジー分野の投資商品を作ります。完了は2027年1〜3月期の見込みです（<a href="https://www.payward.com/press-release/payward-to-acquire-tribe-capital">Payward</a>）。</p>
+    </div>
+
+    <div class="item">
+      <h3>利用者として</h3>
+      <ul class="points">
+        <li>AI アシスタントを取引口座につなぐなら、先に支出と損失の上限を設定し、確認カードは承認する前に毎回読んでください。</li>
+        <li>確認なしに何かを買った・取引したと言う AI ツールは要注意です。まっとうなものは毎回確認します。</li>
+        <li>今日の政策ニュースで、あなたの口座がすぐに変わることはありません。</li>
+      </ul>
+      <p>今後の予定：Stellar「Bell」の投票（11月23日）、Monad のロックアップ終了（11月24日）、タイのステーブルコイン案の意見募集締め切り（11月26日）、Binance の凍結命令の審理（12月1日）。</p>
+    </div>
+  </section>
+
+  <section class="sources">
+    <h2>出典</h2>
+    <p>2026年11月21日時点の報道に基づきます。Coinbase 自身の発表は報道を通じて読みました。</p>
+    <ul>
+      <li><a href="https://www.ic3.gov/CSA/2026/261113.pdf">FBI IC3：ARTEX に関する FLASH アラート</a> <span class="kind">一次情報</span></li>
+      <li><a href="https://openai.com/index/introducing-chatgpt-wallet/">OpenAI：ChatGPT Wallet の紹介</a> <span class="kind">一次情報</span></li>
+      <li><a href="https://www.federalreserve.gov/newsevents/speech/waller20261117a.htm">FRB：Waller 理事の講演</a> <span class="kind">一次情報</span></li>
+      <li><a href="https://www.lummis.senate.gov/wp-content/uploads/State-GENIUS-Safe-Harbor-Letter-Final1.pdf">州向け GENIUS セーフハーバーに関する上院議員の書簡</a> <span class="kind">一次情報</span></li>
+      <li><a href="https://www.payward.com/press-release/payward-to-acquire-tribe-capital">Payward：Tribe Capital の買収</a> <span class="kind">一次情報</span></li>
+      <li><a href="https://finance.yahoo.com/markets/crypto/articles/coinbase-launches-trading-plugin-chatgpt-185257768.html">Bankless（Yahoo Finance 経由）：Coinbase の ChatGPT 取引プラグイン</a> <span class="kind">二次情報</span></li>
+      <li><a href="https://bitdigest.substack.com/p/saturday-november-21-2026">BitDigest（11月21日）</a> <span class="kind">ニュースレター</span></li>
+    </ul>
+  </section>
+</article>
+
+
+
+<section class="comments" id="comments" data-noread>
+  <h2><span data-lang="en">Reader feedback</span><span data-lang="ja" hidden>読者のコメント</span></h2>
+  <p class="note"><span data-lang="en">Comments use GitHub sign-in, so every commenter is a real GitHub account. Be kind and stay on topic.</span><span data-lang="ja" hidden>コメントには GitHub へのログインが必要です。思いやりを持って、話題に沿って書き込んでください。</span></p>
+  <div class="giscus"></div>
+</section>
+
+<nav class="pager" data-noread>
+  <a href="../"><span data-lang="en">← All briefs</span><span data-lang="ja" hidden>← バックナンバー</span></a>
+  <span></span>
+</nav>
+</main>
+<script src="../assets/brief.js"></script>
+</body>
+</html>

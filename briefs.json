@@ -1,5 +1,17 @@
 [
   {
+    "date": "2026-11-21",
+    "file": "briefs/2026-11-21.html",
+    "title": {
+      "en": "Blockchain Brief, 21 Nov 2026",
+      "ja": "ブロックチェーン・ブリーフ 2026年11月21日"
+    },
+    "summary": {
+      "en": "The FBI warns about the ARTEX AI intrusion platform, Coinbase and OpenAI put trading and payments inside ChatGPT behind per-action approval, Waller weighs tokenized payments, and senators seek a state stablecoin safe harbor.",
+      "ja": "FBI が AI 侵入基盤 ARTEX を警告し、Coinbase と OpenAI は操作ごとの承認を挟んで ChatGPT に取引と決済を組み込み、Waller 理事がトークン化された決済を論じ、上院議員が州のステーブルコイン発行体へのセーフハーバーを求めました。"
+    }
+  },
+  {
     "date": "2026-11-20",
     "file": "briefs/2026-11-20.html",
     "title": {
