@@ -1,5 +1,17 @@
 [
   {
+    "date": "2026-11-22",
+    "file": "briefs/2026-11-22.html",
+    "title": {
+      "en": "Blockchain Brief, 22 Nov 2026",
+      "ja": "ブロックチェーン・ブリーフ 2026年11月22日"
+    },
+    "summary": {
+      "en": "Chainflip loses about $4.86M to a valid threshold signature, the CYBER bridge is exploited, Stellar votes on Bell, and Sky says USDS held its peg through $2B of redemptions.",
+      "ja": "Chainflip が正当なしきい値署名で約486万ドルを失い、CYBER のブリッジが悪用され、Stellar が Bell を投票にかけ、Sky は20億ドルの償還でも USDS がペッグを保ったとしています。"
+    }
+  },
+  {
     "date": "2026-11-21",
     "file": "briefs/2026-11-21.html",
     "title": {

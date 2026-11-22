@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Blockchain Brief, 22 Nov 2026</title>
+<meta name="description" content="Chainflip's vault drained with a valid threshold signature, the CYBER bridge exploit, Stellar's Bell vote, Sky's $2B redemptions and Hong Kong's crypto licensing bill.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-title-en="Blockchain Brief, 22 Nov 2026" data-title-ja="ブロックチェーン・ブリーフ 2026年11月22日">
+<div class="bar"><div class="bar-in">
+  <a class="home" href="../">Blockchain Brief</a>
+  <div class="controls">
+    <div class="seg" role="group" aria-label="Language"><button type="button" data-set-lang="en" aria-pressed="true">EN</button><button type="button" data-set-lang="ja" aria-pressed="false">日本語</button></div>
+  </div>
+</div></div>
+
+<main class="wrap">
+
+<!-- Read-aloud panel (shared; labels follow the language toggle) -->
+<section class="audio" id="audio" aria-label="Read aloud" data-noread>
+  <div class="audio-row">
+    <button type="button" class="btn primary" data-a="play">▶ Listen</button>
+    <button type="button" class="btn" data-a="stop" disabled>■ Stop</button>
+    <select class="btn" data-a="scope" aria-label="What to read"><option value="all">Whole brief</option><option value="dev">Dev only</option><option value="nondev">Non-dev only</option></select>
+  </div>
+  <div class="audio-row">
+    <label class="status"><span data-a="speedlbl">Speed</span>
+      <select class="btn" data-a="rate"><option value="0.8">0.8×</option><option value="0.9">0.9×</option><option value="1" selected>1×</option><option value="1.15">1.15×</option><option value="1.3">1.3×</option><option value="1.5">1.5×</option></select></label>
+    <label class="status"><span data-a="voicelbl">Voice</span>
+      <select class="btn" data-a="voice"></select></label>
+  </div>
+  <p class="status" data-a="status" aria-live="polite"></p>
+</section>
+
+<!-- ===================== ENGLISH ===================== -->
+<article data-lang="en" class="wrap" style="padding:0">
+  <header class="brief">
+    <span class="mono meta">Daily brief · 22 Nov 2026 · about 6 min read</span>
+    <h1>Blockchain Brief, 22 Nov 2026</h1>
+    <p class="lede">Two cross-chain systems failed on the same day. Chainflip lost about $4.86 million from its Ethereum vault through what looks like a valid signature from its own signing key, and CYBER's bridge saw tokens minted on Solana and drained from its Ethereum side, so Korea's largest exchanges paused transfers. Stellar validators vote on the Bell upgrade tomorrow. Sky says USDS held its peg through $2 billion of redemptions, and Hong Kong moves to license crypto custodians and advisers.</p>
+    <p class="note">Claims I could not confirm from a primary or second independent source are marked Unverified.</p>
+    <nav class="jump" data-noread aria-label="Sections"><a class="dev" href="#dev-en">Dev ↓</a><a class="nondev" href="#nondev-en">Non-dev ↓</a></nav>
+  </header>
+
+  <section class="track dev" id="dev-en">
+    <div class="track-head"><h2>Dev</h2><p>Protocol changes, contract risks, security details and tooling.</p></div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>Security · Chainflip · 21 Nov</span>
+      <h3>Chainflip vault drained with a valid threshold signature</h3>
+      <p>At about 07:10 UTC on 21 November, a freshly funded wallet called <code>Vault.transferBatch</code> on Chainflip's Ethereum vault with a valid Schnorr signature from the vault's threshold-signature aggregate key, and took about $4.86 million. The Block lists the haul as 520.2 ETH, 3.25 million USDC and 758,000 USDT. Security firms say the contract worked as designed. The problem is how the attacker got a signature the validator set should only produce together. Bitquery notes that the key rotated about 1 hour 45 minutes later and that the drain transaction's nonce broke the usual sequence, but says the timing proves nothing on its own. The funds were swapped to ETH within minutes and sent to Tornado Cash, and AMLBot says they moved too fast for Circle or Tether to freeze the stablecoins. Chainflip is in full safe mode, with deposits, withdrawals and swaps disabled, and has acknowledged "a potential exploit" without saying how it happened (<a href="https://www.theblock.co/news/defi/2026-11-21-chainflips-flip-drops-34-after-attacker-drains-4-86-million-from-vault-with-suspected-key-compromise-444804">The Block</a>, <a href="https://coinpedia.org/news/chainflip-hit-by-4-86m-exploit-as-ethereum-vault-drained/">Coinpedia</a>).</p>
+      <p class="unverified"><b>Unverified</b>That the signing key itself was compromised. Chainflip hasn't confirmed it, and the two reports disagree on the exact asset breakdown.</p>
+    </div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>Security · Bridges · 21 Nov</span>
+      <h3>CYBER bridge: unexpected mint on Solana, then the Ethereum lockbox emptied</h3>
+      <p>Cyber, formerly CyberConnect, reported "unexpected minting of CYBER on Solana" followed by a transfer out of its bridge's Ethereum lockbox. It told users to stop using the bridge, not to deposit to exchanges, and not to connect wallets or sign anything. A 0xCERT advisory citing on-chain data puts it at about 5.21 million CYBER minted, a similar amount leaving the lockbox about two minutes later, and most of it sold for about 575 ETH. Upbit and Bithumb suspended CYBER deposits and withdrawals early on 22 November, Korea time (<a href="https://crypto.news/upbit-bithumb-halt-cyber-transfers-bridge/">crypto.news</a>).</p>
+      <p class="unverified"><b>Unverified</b>The amounts come from one security advisory, quoted in one article. Cyber hasn't confirmed a loss or a cause.</p>
+    </div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>Stellar · Upgrade · 23 Nov</span>
+      <h3>Stellar Protocol 30 "Bell" goes to a mainnet vote</h3>
+      <p>Validators vote at 17:00 UTC on 23 November. Bell bundles three changes: CAP-84 adds muxed contract addresses starting with "W", so one contract can hold balances for many customers under 64-bit IDs; CAP-87 lets Soroban contracts verify ML-DSA post-quantum signatures, while network transaction signatures stay Ed25519; and CAP-88 records ledger close times in milliseconds. Stellar's guidance is to upgrade to the latest SDK before the vote and to update XDR definitions if you decode ledger data yourself. The page says dates may change (<a href="https://stellar.org/protocol-upgrades">Stellar</a>).</p>
+    </div>
+
+    <div class="item">
+      <h3>What to do this week</h3>
+      <ul class="points">
+        <li>If you run threshold signing, alert on any vault call whose signature arrives outside your normal ceremony or nonce order, and rehearse emergency key rotation.</li>
+        <li>For bridges, monitor mint-versus-lockbox balances on every chain and pause automatically when they diverge.</li>
+        <li>Stellar integrators: update your SDK and XDR, and handle "W" addresses before the vote.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="track nondev" id="nondev-en">
+    <div class="track-head"><h2>Non-dev</h2><p>Market, business and regulation, and what the incidents mean in plain language.</p></div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>Follow-up · Sky · 19 Nov</span>
+      <h3>Sky says USDS held its peg through $2 billion of redemptions</h3>
+      <p>After this week's report on flagged funds passing through its stablecoin swap module, Sky says holders swapped more than $2 billion of USDS back to USDC on Thursday and the coin kept its dollar value. It disputes the report's illicit-finance claims (<a href="https://cointelegraph.com/news/sky-protocol-sees-2b-in-stablecoin-withdrawals-disputes-illicit-fund-claims">Cointelegraph</a>).</p>
+      <p class="unverified"><b>Unverified</b>I read this only through a newsletter summary of the article.</p>
+    </div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>Regulation · Hong Kong, EU</span>
+      <h3>Hong Kong widens crypto licensing; Lagarde warns on fragmentation</h3>
+      <p>A Hong Kong bill would require crypto custodians and advisers to be licensed or registered with the Securities and Futures Commission, with a first reading on 2 December (<a href="https://www.coindesk.com/policy/2026/11/20/hong-kong-moves-to-extend-crypto-licensing-rules-to-brokers-advisers-and-custodians">CoinDesk</a>). In Europe, ECB President Christine Lagarde warned that the market for tokenized assets, about €23 billion in March, could split along national lines without common rules (<a href="https://www.coindesk.com/policy/2026/11/20/ecb-s-largarde-warns-europe-could-lose-control-of-growing-tokenized-asset-market">CoinDesk</a>).</p>
+      <p class="unverified"><b>Unverified</b>Both came from newsletter summaries. I haven't read the bill or the speech.</p>
+    </div>
+
+    <div class="item">
+      <h3>As a user</h3>
+      <ul class="points">
+        <li>If you were mid-swap on Chainflip, wait for its official update. Don't respond to anyone offering to "recover" your funds.</li>
+        <li>CYBER holders shouldn't bridge, deposit to an exchange or sign anything until Cyber gives the all-clear.</li>
+        <li>Most XLM holders need do nothing for Bell. Wallets and exchanges handle it.</li>
+      </ul>
+      <p>Coming up: the Stellar Bell vote (23 November, 17:00 UTC), the Monad lockup end (24 November), Thailand's stablecoin comment deadline (26 November), Binance's freezing-order hearing (1 December) and Hong Kong's first reading (2 December).</p>
+    </div>
+  </section>
+
+  <section class="sources">
+    <h2>Sources</h2>
+    <p>Reporting as of 22 November 2026. Chainflip's, Cyber's and the exchanges' statements were read through coverage.</p>
+    <ul>
+      <li><a href="https://stellar.org/protocol-upgrades">Stellar: protocol upgrades</a> <span class="kind">primary</span></li>
+      <li><a href="https://www.theblock.co/news/defi/2026-11-21-chainflips-flip-drops-34-after-attacker-drains-4-86-million-from-vault-with-suspected-key-compromise-444804">The Block: Chainflip vault drained</a> <span class="kind">secondary</span></li>
+      <li><a href="https://coinpedia.org/news/chainflip-hit-by-4-86m-exploit-as-ethereum-vault-drained/">Coinpedia: Chainflip exploit</a> <span class="kind">secondary</span></li>
+      <li><a href="https://crypto.news/upbit-bithumb-halt-cyber-transfers-bridge/">crypto.news: Upbit and Bithumb halt CYBER transfers</a> <span class="kind">secondary</span></li>
+      <li><a href="https://cointelegraph.com/news/sky-protocol-sees-2b-in-stablecoin-withdrawals-disputes-illicit-fund-claims">Cointelegraph: Sky sees $2B in withdrawals</a> <span class="kind">secondary</span></li>
+      <li><a href="https://www.coindesk.com/policy/2026/11/20/hong-kong-moves-to-extend-crypto-licensing-rules-to-brokers-advisers-and-custodians">CoinDesk: Hong Kong licensing bill</a> <span class="kind">secondary</span></li>
+      <li><a href="https://www.coindesk.com/policy/2026/11/20/ecb-s-largarde-warns-europe-could-lose-control-of-growing-tokenized-asset-market">CoinDesk: Lagarde on tokenized markets</a> <span class="kind">secondary</span></li>
+      <li><a href="https://thecryptodesk.substack.com/p/the-crypto-desk-saturday-21-november">The Crypto Desk, 21 Nov</a> <span class="kind">newsletter</span></li>
+    </ul>
+  </section>
+</article>
+
+<!-- ===================== 日本語 ===================== -->
+<article data-lang="ja" class="wrap" style="padding:0" hidden>
+  <header class="brief">
+    <span class="mono meta">デイリーブリーフ · 2026年11月22日 · 約6分</span>
+    <h1>ブロックチェーン・ブリーフ 2026年11月22日</h1>
+    <p class="lede">同じ日に、クロスチェーンの仕組みが2つ破られました。Chainflip は自らの署名鍵による正当な署名と見られる手口で、イーサリアムのボールトから約486万ドルを失いました。CYBER のブリッジでは Solana 上でトークンが発行され、イーサリアム側から資金が抜かれたため、韓国の大手取引所が送金を停止しました。Stellar のバリデーターは明日 Bell アップグレードを投票にかけます。Sky は20億ドルの償還の間も USDS がペッグを保ったとし、香港は暗号資産のカストディアンとアドバイザーを免許制にする方向です。</p>
+    <p class="note">一次情報または独立した2つ目の情報源で確認できなかった内容には「未確認」と表示しています。</p>
+    <nav class="jump" data-noread aria-label="セクション"><a class="dev" href="#dev-ja">Dev ↓</a><a class="nondev" href="#nondev-ja">Non-dev ↓</a></nav>
+  </header>
+
+  <section class="track dev" id="dev-ja">
+    <div class="track-head"><h2>Dev</h2><p>プロトコル変更、コントラクトのリスク、セキュリティの詳細、開発ツール。</p></div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>セキュリティ · Chainflip · 11月21日</span>
+      <h3>Chainflip のボールト、正当なしきい値署名で資金流出</h3>
+      <p>11月21日 07:10 UTC ごろ、資金を入れたばかりのウォレットが、ボールトのしきい値署名の集約鍵による正当な Schnorr 署名を使って Chainflip のイーサリアムのボールトの <code>Vault.transferBatch</code> を呼び出し、約486万ドルを持ち出しました。The Block によると内訳は 520.2 ETH、325万 USDC、75万8,000 USDT です。セキュリティ企業は、コントラクトは設計どおりに動いたとしています。問題は、バリデーター群が共同でしか作れないはずの署名を攻撃者がどう手に入れたかです。Bitquery は、約1時間45分後に鍵がローテーションされたこと、流出取引の nonce が通常の順番から外れていたことを指摘していますが、タイミングだけでは何も証明できないとしています。資金は数分で ETH に交換されて Tornado Cash に送られ、AMLBot によると Circle や Tether がステーブルコインを凍結できないほどの速さでした。Chainflip は入金・出金・スワップを止める完全なセーフモードに入り、「潜在的なエクスプロイト」を認めましたが、原因は明らかにしていません（<a href="https://www.theblock.co/news/defi/2026-11-21-chainflips-flip-drops-34-after-attacker-drains-4-86-million-from-vault-with-suspected-key-compromise-444804">The Block</a>、<a href="https://coinpedia.org/news/chainflip-hit-by-4-86m-exploit-as-ethereum-vault-drained/">Coinpedia</a>）。</p>
+      <p class="unverified"><b>未確認</b>署名鍵そのものが侵害されたかどうか。Chainflip は確認しておらず、2つの報道は資産の内訳でも食い違っています。</p>
+    </div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>セキュリティ · ブリッジ · 11月21日</span>
+      <h3>CYBER のブリッジ：Solana で想定外の発行、続いてイーサリアムのロックボックスが空に</h3>
+      <p>旧 CyberConnect の Cyber は、「Solana 上での CYBER の想定外の発行」と、それに続くブリッジのイーサリアム側ロックボックスからの送金を報告しました。利用者にはブリッジの利用をやめ、取引所に入金せず、ウォレットの接続や署名もしないよう呼びかけています。オンチェーンデータを引用した 0xCERT の勧告によると、約521万 CYBER が発行され、約2分後に同程度の量がロックボックスから流出し、大半は約 575 ETH で売却されました。Upbit と Bithumb は韓国時間22日未明に CYBER の入出金を停止しました（<a href="https://crypto.news/upbit-bithumb-halt-cyber-transfers-bridge/">crypto.news</a>）。</p>
+      <p class="unverified"><b>未確認</b>数量は1本の記事が引用した1つのセキュリティ勧告によるものです。Cyber は損失も原因も確認していません。</p>
+    </div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>Stellar · アップグレード · 11月23日</span>
+      <h3>Stellar Protocol 30「Bell」がメインネットの投票へ</h3>
+      <p>バリデーターは11月23日 17:00 UTC に投票します。Bell には3つの変更が含まれます。CAP-84 は「W」で始まる多重化コントラクトアドレスを導入し、1つのコントラクトが64ビットの ID で多数の顧客の残高を持てるようにします。CAP-87 は Soroban コントラクトで ML-DSA の耐量子署名を検証できるようにするもので、ネットワークのトランザクション署名は Ed25519 のままです。CAP-88 は台帳のクローズ時刻をミリ秒単位で記録します。Stellar は投票前に最新の SDK へ更新し、台帳データを自分でデコードしている場合は XDR の定義を更新するよう案内しています。日程は変わる可能性があるとしています（<a href="https://stellar.org/protocol-upgrades">Stellar</a>）。</p>
+    </div>
+
+    <div class="item">
+      <h3>今週やること</h3>
+      <ul class="points">
+        <li>しきい値署名を運用しているなら、通常の署名手順や nonce の順番から外れた署名でのボールト呼び出しを検知し、緊急の鍵ローテーションを訓練しておく。</li>
+        <li>ブリッジでは各チェーンの発行量とロックボックス残高を監視し、ずれたら自動で停止する。</li>
+        <li>Stellar の連携事業者は、投票前に SDK と XDR を更新し、「W」アドレスに対応する。</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="track nondev" id="nondev-ja">
+    <div class="track-head"><h2>Non-dev</h2><p>市場・ビジネス・規制と、事件が何を意味するかのやさしい解説。</p></div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>続報 · Sky · 11月19日</span>
+      <h3>Sky、20億ドルの償還でも USDS はペッグを維持と説明</h3>
+      <p>ステーブルコインの交換モジュールを問題資金が通っていたという今週の報告の後、Sky によると、木曜には20億ドルを超える USDS が USDC に戻されましたが、USDS はドルとの価値を保ちました。Sky は報告の不正資金に関する主張に反論しています（<a href="https://cointelegraph.com/news/sky-protocol-sees-2b-in-stablecoin-withdrawals-disputes-illicit-fund-claims">Cointelegraph</a>）。</p>
+      <p class="unverified"><b>未確認</b>記事はニュースレターの要約でしか読めていません。</p>
+    </div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>規制 · 香港、EU</span>
+      <h3>香港が暗号資産の免許対象を拡大、Lagarde 総裁は分断を警告</h3>
+      <p>香港の法案は、暗号資産のカストディアンとアドバイザーに証券先物委員会（SFC）での免許取得か登録を求めるもので、12月2日に第一読会が予定されています（<a href="https://www.coindesk.com/policy/2026/11/20/hong-kong-moves-to-extend-crypto-licensing-rules-to-brokers-advisers-and-custodians">CoinDesk</a>）。欧州では ECB の Christine Lagarde 総裁が、3月時点で約230億ユーロのトークン化資産の市場が、共通ルールがなければ国ごとに分断されかねないと警告しました（<a href="https://www.coindesk.com/policy/2026/11/20/ecb-s-largarde-warns-europe-could-lose-control-of-growing-tokenized-asset-market">CoinDesk</a>）。</p>
+      <p class="unverified"><b>未確認</b>どちらもニュースレターの要約によるもので、法案や講演そのものは読んでいません。</p>
+    </div>
+
+    <div class="item">
+      <h3>利用者として</h3>
+      <ul class="points">
+        <li>Chainflip でスワップの途中だった人は公式の発表を待ってください。資金を「取り戻す」と持ちかける相手には応じないでください。</li>
+        <li>CYBER の保有者は、Cyber が安全を宣言するまでブリッジ、取引所への入金、署名をしないでください。</li>
+        <li>ほとんどの XLM 保有者は Bell に向けて何もする必要はありません。ウォレットや取引所が対応します。</li>
+      </ul>
+      <p>今後の予定：Stellar Bell の投票（11月23日 17:00 UTC）、Monad のロックアップ終了（11月24日）、タイのステーブルコイン案の意見募集締め切り（11月26日）、Binance の凍結命令の審理（12月1日）、香港の法案の第一読会（12月2日）。</p>
+    </div>
+  </section>
+
+  <section class="sources">
+    <h2>出典</h2>
+    <p>2026年11月22日時点の報道に基づきます。Chainflip、Cyber、取引所の発表は報道を通じて読みました。</p>
+    <ul>
+      <li><a href="https://stellar.org/protocol-upgrades">Stellar：プロトコルアップグレード</a> <span class="kind">一次情報</span></li>
+      <li><a href="https://www.theblock.co/news/defi/2026-11-21-chainflips-flip-drops-34-after-attacker-drains-4-86-million-from-vault-with-suspected-key-compromise-444804">The Block：Chainflip のボールトから流出</a> <span class="kind">二次情報</span></li>
+      <li><a href="https://coinpedia.org/news/chainflip-hit-by-4-86m-exploit-as-ethereum-vault-drained/">Coinpedia：Chainflip のエクスプロイト</a> <span class="kind">二次情報</span></li>
+      <li><a href="https://crypto.news/upbit-bithumb-halt-cyber-transfers-bridge/">crypto.news：Upbit と Bithumb が CYBER の送金を停止</a> <span class="kind">二次情報</span></li>
+      <li><a href="https://cointelegraph.com/news/sky-protocol-sees-2b-in-stablecoin-withdrawals-disputes-illicit-fund-claims">Cointelegraph：Sky で20億ドルの引き出し</a> <span class="kind">二次情報</span></li>
+      <li><a href="https://www.coindesk.com/policy/2026/11/20/hong-kong-moves-to-extend-crypto-licensing-rules-to-brokers-advisers-and-custodians">CoinDesk：香港の免許法案</a> <span class="kind">二次情報</span></li>
+      <li><a href="https://www.coindesk.com/policy/2026/11/20/ecb-s-largarde-warns-europe-could-lose-control-of-growing-tokenized-asset-market">CoinDesk：Lagarde 総裁とトークン化市場</a> <span class="kind">二次情報</span></li>
+      <li><a href="https://thecryptodesk.substack.com/p/the-crypto-desk-saturday-21-november">The Crypto Desk（11月21日）</a> <span class="kind">ニュースレター</span></li>
+    </ul>
+  </section>
+</article>
+
+
+
+<section class="comments" id="comments" data-noread>
+  <h2><span data-lang="en">Reader feedback</span><span data-lang="ja" hidden>読者のコメント</span></h2>
+  <p class="note"><span data-lang="en">Comments use GitHub sign-in, so every commenter is a real GitHub account. Be kind and stay on topic.</span><span data-lang="ja" hidden>コメントには GitHub へのログインが必要です。思いやりを持って、話題に沿って書き込んでください。</span></p>
+  <div class="giscus"></div>
+</section>
+
+<nav class="pager" data-noread>
+  <a href="../"><span data-lang="en">← All briefs</span><span data-lang="ja" hidden>← バックナンバー</span></a>
+  <span></span>
+</nav>
+</main>
+<script src="../assets/brief.js"></script>
+</body>
+</html>
