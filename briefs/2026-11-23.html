@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Blockchain Brief, 23 Nov 2026</title>
+<meta name="description" content="Chainflip's losses reach about $12M with a bounty deadline today, Fusionist's ACE bridge is drained after a minter compromise, South Korea's crypto law, the SEC's fake-platform case and new UK rules.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-title-en="Blockchain Brief, 23 Nov 2026" data-title-ja="ブロックチェーン・ブリーフ 2026年11月23日">
+<div class="bar"><div class="bar-in">
+  <a class="home" href="../">Blockchain Brief</a>
+  <div class="controls">
+    <div class="seg" role="group" aria-label="Language"><button type="button" data-set-lang="en" aria-pressed="true">EN</button><button type="button" data-set-lang="ja" aria-pressed="false">日本語</button></div>
+  </div>
+</div></div>
+
+<main class="wrap">
+
+<!-- Read-aloud panel (shared; labels follow the language toggle) -->
+<section class="audio" id="audio" aria-label="Read aloud" data-noread>
+  <div class="audio-row">
+    <button type="button" class="btn primary" data-a="play">▶ Listen</button>
+    <button type="button" class="btn" data-a="stop" disabled>■ Stop</button>
+    <select class="btn" data-a="scope" aria-label="What to read"><option value="all">Whole brief</option><option value="dev">Dev only</option><option value="nondev">Non-dev only</option></select>
+  </div>
+  <div class="audio-row">
+    <label class="status"><span data-a="speedlbl">Speed</span>
+      <select class="btn" data-a="rate"><option value="0.8">0.8×</option><option value="0.9">0.9×</option><option value="1" selected>1×</option><option value="1.15">1.15×</option><option value="1.3">1.3×</option><option value="1.5">1.5×</option></select></label>
+    <label class="status"><span data-a="voicelbl">Voice</span>
+      <select class="btn" data-a="voice"></select></label>
+  </div>
+  <p class="status" data-a="status" aria-live="polite"></p>
+</section>
+
+<!-- ===================== ENGLISH ===================== -->
+<article data-lang="en" class="wrap" style="padding:0">
+  <header class="brief">
+    <span class="mono meta">Daily brief · 23 Nov 2026 · about 6 min read</span>
+    <h1>Blockchain Brief, 23 Nov 2026</h1>
+    <p class="lede">Chainflip's losses roughly doubled to about $12 million after it disclosed a second drain from its Bitcoin vault, and it has given the attacker until this evening to return 90%. A privileged minter on Fusionist's ACE bridge printed tokens out of nothing, and traders then emptied the bridge. South Korea unveils its main crypto law tomorrow, the SEC charges eight entities over fake trading sites, and new UK crypto rules are in force.</p>
+    <p class="note">Claims I could not confirm from a primary or second independent source are marked Unverified.</p>
+    <nav class="jump" data-noread aria-label="Sections"><a class="dev" href="#dev-en">Dev ↓</a><a class="nondev" href="#nondev-en">Non-dev ↓</a></nav>
+  </header>
+
+  <section class="track dev" id="dev-en">
+    <div class="track-head"><h2>Dev</h2><p>Protocol changes, contract risks, security details and tooling.</p></div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>Follow-up · Chainflip · 22 Nov</span>
+      <h3>Chainflip: a second vault drained, losses near $12 million</h3>
+      <p>In a message to the attacker on its site and onchain, Chainflip disclosed that 122.86 BTC (about $7.1 million) also left its Bitcoin vault on 21 November, about half an hour before the Ethereum vault was drained. That brings losses to about $12 million. Chainflip says it has "identified the mechanism of key exposure" and fixed the vulnerability, and that it knows the server the attacker used to register a validator account, but it hasn't said how the key was exposed. Its vault keys are shared across up to 150 validators, and 100 must take part to sign, so a valid signature from that group suggests a problem in the key process rather than in the contract. The attacker is asked to return 110.58 BTC and 2,618.1 ETH by 18:38 UTC today, keeping 10% (about $1.2 million) as a bounty. If not, Chainflip says it will go to law enforcement. Founder Simon Harman says a report and compensation plan are due today (<a href="https://www.theblock.co/news/defi/2026-11-22-chainflips-losses-climb-to-12-million-after-protocol-discloses-122-9-btc-theft-offers-hacker-bounty-444829">The Block</a>, <a href="https://crypto.news/chainflip-12m-hack-attacker-10-percent-bounty/">crypto.news</a>, <a href="https://chainflip.io/return">Chainflip</a>).</p>
+    </div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>Security · Bridges · 22 Nov</span>
+      <h3>Fusionist's ACE bridge: one minter key, then a free-for-all</h3>
+      <p>An attacker used privileged access to the bridge's minter on BNB Chain to create unbacked ACE, first 3.5 million and then 10 quadrillion, and sold it for about $2 million in USDT. The price fell to about $0.0001. Traders then bought the near-worthless BNB Chain ACE and redeemed it through the bridge for real ACE on the other side: 24 addresses withdrew 53.7 million ACE, about $3.7 million, and effectively emptied it. Fusionist told users to stop transferring, trading and bridging ACE on BNB Chain. Gate is rolling back ACE trades from part of the day and has put ACE perpetuals into liquidation-only mode (<a href="https://en.bloomingbit.io/feed/news/125032">Bloomingbit</a>).</p>
+      <p class="unverified"><b>Unverified</b>I read one account of this. The Block also covered it, but I haven't read its report.</p>
+    </div>
+
+    <div class="item">
+      <h3>What to do this week</h3>
+      <ul class="points">
+        <li>Put bridge mint rights behind a multisig or timelock, and cap how much can be minted per block and per day.</li>
+        <li>Make redemption check the total minted against the locked balance, so a bad mint can't be redeemed for real tokens.</li>
+        <li>If you run threshold signing, audit how new validators join and what they can see during a signing ceremony.</li>
+        <li>Read Chainflip's report when it lands for the specific key-exposure path.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="track nondev" id="nondev-en">
+    <div class="track-head"><h2>Non-dev</h2><p>Market, business and regulation, and what the incidents mean in plain language.</p></div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>Regulation · South Korea · 24 Nov</span>
+      <h3>South Korea to unveil its Digital Asset Basic Act</h3>
+      <p>The Financial Services Commission's virtual asset committee meets at 15:00 Korea time on 24 November to discuss the Digital Asset Basic Act before releasing its main provisions, according to Yonhap. Lawmakers are expected to introduce it afterwards. Points still under debate include licences for exchanges, custodians and brokers; reserve, capital and redemption rules for stablecoins; and the Bank of Korea's push for banks to hold a majority of any won stablecoin issuer, which fintech firms oppose (<a href="https://crypto.news/south-korea-crypto-law-draft-november-24-stablecoins/">crypto.news</a>).</p>
+      <p class="unverified"><b>Unverified</b>The likely contents come from press reports ahead of the release, not from the bill.</p>
+    </div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>Regulation · US, UK</span>
+      <h3>SEC charges eight over fake trading sites; UK rules take effect</h3>
+      <p>The SEC charged eight entities with taking more than $37 million from US investors through fake crypto trading platforms between August 2024 and May 2026. These are allegations. In the UK, the Cryptoassets (Miscellaneous Amendments) Regulations 2026 were made on 18 November, with most provisions in force from 19 November and some changes to financial promotion rules from 25 October 2027 (<a href="https://news.bitcoin.com/regulation-and-legal/this-week-in-crypto-law-november-22-2026/">Bitcoin.com</a>, <a href="https://www.sec.gov/newsroom/press-releases/2026-115-sec-eight-entities-used-fake-crypto-asset-trading-platforms-steal-more-37-million-us-investors">SEC</a>, <a href="https://www.legislation.gov.uk/uksi/2026/1219/pdfs/uksi_20261219_en.pdf">UK legislation</a>).</p>
+    </div>
+
+    <div class="item">
+      <h3>As a user</h3>
+      <ul class="points">
+        <li>Chainflip users: wait for today's report on compensation, and ignore anyone in your messages offering a refund.</li>
+        <li>If you hold ACE, don't bridge or trade it on BNB Chain until Fusionist says it's safe.</li>
+        <li>A trading site that shows big gains but makes withdrawing hard is the pattern in the SEC case. Check that a platform is registered before depositing.</li>
+      </ul>
+      <p>Coming up: the Stellar Bell vote (today, 17:00 UTC), Chainflip's bounty deadline (today, 18:38 UTC), South Korea's bill and the Monad lockup end (24 November), Thailand's stablecoin comment deadline (26 November), Binance's hearing (1 December) and Hong Kong's first reading (2 December).</p>
+    </div>
+  </section>
+
+  <section class="sources">
+    <h2>Sources</h2>
+    <p>Reporting as of 23 November 2026. The SEC release and the UK regulations were read through coverage.</p>
+    <ul>
+      <li><a href="https://chainflip.io/return">Chainflip: message to the attacker</a> <span class="kind">primary</span></li>
+      <li><a href="https://www.sec.gov/newsroom/press-releases/2026-115-sec-eight-entities-used-fake-crypto-asset-trading-platforms-steal-more-37-million-us-investors">SEC: eight entities charged over fake crypto platforms</a> <span class="kind">primary</span></li>
+      <li><a href="https://www.legislation.gov.uk/uksi/2026/1219/pdfs/uksi_20261219_en.pdf">UK: Cryptoassets (Miscellaneous Amendments) Regulations 2026</a> <span class="kind">primary</span></li>
+      <li><a href="https://www.theblock.co/news/defi/2026-11-22-chainflips-losses-climb-to-12-million-after-protocol-discloses-122-9-btc-theft-offers-hacker-bounty-444829">The Block: Chainflip losses climb to $12M</a> <span class="kind">secondary</span></li>
+      <li><a href="https://crypto.news/chainflip-12m-hack-attacker-10-percent-bounty/">crypto.news: Chainflip offers a bounty</a> <span class="kind">secondary</span></li>
+      <li><a href="https://en.bloomingbit.io/feed/news/125032">Bloomingbit: Fusionist bridge hack</a> <span class="kind">secondary</span></li>
+      <li><a href="https://crypto.news/south-korea-crypto-law-draft-november-24-stablecoins/">crypto.news: South Korea's crypto law draft</a> <span class="kind">secondary</span></li>
+      <li><a href="https://news.bitcoin.com/regulation-and-legal/this-week-in-crypto-law-november-22-2026/">Bitcoin.com: This Week in Crypto Law</a> <span class="kind">newsletter</span></li>
+    </ul>
+  </section>
+</article>
+
+<!-- ===================== 日本語 ===================== -->
+<article data-lang="ja" class="wrap" style="padding:0" hidden>
+  <header class="brief">
+    <span class="mono meta">デイリーブリーフ · 2026年11月23日 · 約6分</span>
+    <h1>ブロックチェーン・ブリーフ 2026年11月23日</h1>
+    <p class="lede">Chainflip はビットコインのボールトからも資金が流出していたと公表し、損失は約1,200万ドルとほぼ倍になりました。攻撃者には今日の夕方までに9割を返すよう求めています。Fusionist の ACE ブリッジでは、特権を持つミンターが裏付けのないトークンを発行し、その後トレーダーがブリッジを空にしました。韓国は明日主要な暗号資産法の概要を公表し、SEC は偽の取引サイトをめぐって8つの事業体を提訴し、英国では新しい暗号資産の規則が施行されています。</p>
+    <p class="note">一次情報または独立した2つ目の情報源で確認できなかった内容には「未確認」と表示しています。</p>
+    <nav class="jump" data-noread aria-label="セクション"><a class="dev" href="#dev-ja">Dev ↓</a><a class="nondev" href="#nondev-ja">Non-dev ↓</a></nav>
+  </header>
+
+  <section class="track dev" id="dev-ja">
+    <div class="track-head"><h2>Dev</h2><p>プロトコル変更、コントラクトのリスク、セキュリティの詳細、開発ツール。</p></div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>続報 · Chainflip · 11月22日</span>
+      <h3>Chainflip：2つ目のボールトも流出、損失は約1,200万ドル</h3>
+      <p>Chainflip はサイト上とオンチェーンで攻撃者に向けたメッセージを出し、11月21日、イーサリアムのボールトが抜かれる約30分前に、ビットコインのボールトからも 122.86 BTC（約710万ドル）が流出していたと明らかにしました。損失は約1,200万ドルになります。Chainflip は「鍵が漏れた仕組みを特定した」として脆弱性を修正し、攻撃者がバリデーターのアカウント登録に使ったサーバーも把握しているとしていますが、鍵がどう漏れたかは説明していません。ボールトの鍵は最大150のバリデーターで分け持たれ、署名には100が参加する必要があります。そのため、このグループの正当な署名が使われたことは、コントラクトではなく鍵の運用に問題があったことを示唆しています。攻撃者には今日 18:38 UTC までに 110.58 BTC と 2,618.1 ETH を返すよう求め、10%（約120万ドル）は報奨金として認めるとしています。応じなければ法執行機関に委ねるとしています。創業者の Simon Harman は、報告書と補償案を今日出すとしています（<a href="https://www.theblock.co/news/defi/2026-11-22-chainflips-losses-climb-to-12-million-after-protocol-discloses-122-9-btc-theft-offers-hacker-bounty-444829">The Block</a>、<a href="https://crypto.news/chainflip-12m-hack-attacker-10-percent-bounty/">crypto.news</a>、<a href="https://chainflip.io/return">Chainflip</a>）。</p>
+    </div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>セキュリティ · ブリッジ · 11月22日</span>
+      <h3>Fusionist の ACE ブリッジ：ミンター鍵1つから始まった奪い合い</h3>
+      <p>攻撃者はブリッジの BNB Chain 上のミンターへの特権アクセスを使って裏付けのない ACE を発行し（最初に350万、次に1京）、約200万ドル分の USDT に換えました。価格は約0.0001ドルまで下落しました。するとトレーダーたちがほぼ無価値になった BNB Chain の ACE を買い、ブリッジを通じて反対側の本物の ACE に交換しました。24のアドレスが5,370万 ACE、約370万ドル分を引き出し、ブリッジは事実上空になりました。Fusionist は BNB Chain 上の ACE の送金、取引、ブリッジを止めるよう呼びかけています。Gate はその日の一部の ACE の取引を巻き戻し、ACE の無期限先物を決済のみのモードにしました（<a href="https://en.bloomingbit.io/feed/news/125032">Bloomingbit</a>）。</p>
+      <p class="unverified"><b>未確認</b>読めたのは1本の記事だけです。The Block も報じていますが、その記事は読んでいません。</p>
+    </div>
+
+    <div class="item">
+      <h3>今週やること</h3>
+      <ul class="points">
+        <li>ブリッジの発行権限はマルチシグかタイムロックの後ろに置き、ブロックごと・1日ごとの発行量に上限を設ける。</li>
+        <li>償還時に発行総量とロック残高を照合し、不正な発行分が本物のトークンに換えられないようにする。</li>
+        <li>しきい値署名を運用しているなら、新しいバリデーターの参加手順と、署名の過程で何が見えるかを監査する。</li>
+        <li>Chainflip の報告書が出たら、鍵が漏れた具体的な経路を確認する。</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="track nondev" id="nondev-ja">
+    <div class="track-head"><h2>Non-dev</h2><p>市場・ビジネス・規制と、事件が何を意味するかのやさしい解説。</p></div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>規制 · 韓国 · 11月24日</span>
+      <h3>韓国、デジタル資産基本法の概要を公表へ</h3>
+      <p>聯合ニュースによると、金融委員会の仮想資産委員会が韓国時間11月24日15時に会合を開き、デジタル資産基本法を議論したうえで主な内容を公表します。その後、議員が法案を提出する見通しです。まだ議論が続いている点として、取引所・カストディ事業者・ブローカーの免許制度、ステーブルコインの準備資産・資本・償還のルール、ウォン建てステーブルコインの発行体の過半数を銀行が持つべきだとする韓国銀行の主張（フィンテック企業は反対）などがあります（<a href="https://crypto.news/south-korea-crypto-law-draft-november-24-stablecoins/">crypto.news</a>）。</p>
+      <p class="unverified"><b>未確認</b>想定される内容は公表前の報道によるもので、法案そのものではありません。</p>
+    </div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>規制 · 米国、英国</span>
+      <h3>SEC が偽の取引サイトで8者を提訴、英国では新規則が施行</h3>
+      <p>SEC は、2024年8月から2026年5月にかけて偽の暗号資産取引プラットフォームを通じて米国の投資家から3,700万ドル超を奪ったとして、8つの事業体を提訴しました。これは申し立ての段階です。英国では Cryptoassets (Miscellaneous Amendments) Regulations 2026 が11月18日に制定され、大半の規定は11月19日から施行、金融プロモーション規則の一部の変更は2027年10月25日から適用されます（<a href="https://news.bitcoin.com/regulation-and-legal/this-week-in-crypto-law-november-22-2026/">Bitcoin.com</a>、<a href="https://www.sec.gov/newsroom/press-releases/2026-115-sec-eight-entities-used-fake-crypto-asset-trading-platforms-steal-more-37-million-us-investors">SEC</a>、<a href="https://www.legislation.gov.uk/uksi/2026/1219/pdfs/uksi_20261219_en.pdf">英国の法令</a>）。</p>
+    </div>
+
+    <div class="item">
+      <h3>利用者として</h3>
+      <ul class="points">
+        <li>Chainflip の利用者は、今日の補償に関する報告を待ち、返金を持ちかけるメッセージは無視してください。</li>
+        <li>ACE を持っているなら、Fusionist が安全を宣言するまで BNB Chain 上でブリッジや取引をしないでください。</li>
+        <li>大きな利益を表示するのに出金が難しい取引サイトは、SEC の事案と同じパターンです。入金する前に登録業者かどうかを確認してください。</li>
+      </ul>
+      <p>今後の予定：Stellar Bell の投票（今日 17:00 UTC）、Chainflip の報奨金の期限（今日 18:38 UTC）、韓国の法案と Monad のロックアップ終了（11月24日）、タイのステーブルコイン案の意見募集締め切り（11月26日）、Binance の審理（12月1日）、香港の法案の第一読会（12月2日）。</p>
+    </div>
+  </section>
+
+  <section class="sources">
+    <h2>出典</h2>
+    <p>2026年11月23日時点の報道に基づきます。SEC の発表と英国の規則は報道を通じて読みました。</p>
+    <ul>
+      <li><a href="https://chainflip.io/return">Chainflip：攻撃者へのメッセージ</a> <span class="kind">一次情報</span></li>
+      <li><a href="https://www.sec.gov/newsroom/press-releases/2026-115-sec-eight-entities-used-fake-crypto-asset-trading-platforms-steal-more-37-million-us-investors">SEC：偽の暗号資産プラットフォームで8者を提訴</a> <span class="kind">一次情報</span></li>
+      <li><a href="https://www.legislation.gov.uk/uksi/2026/1219/pdfs/uksi_20261219_en.pdf">英国：Cryptoassets (Miscellaneous Amendments) Regulations 2026</a> <span class="kind">一次情報</span></li>
+      <li><a href="https://www.theblock.co/news/defi/2026-11-22-chainflips-losses-climb-to-12-million-after-protocol-discloses-122-9-btc-theft-offers-hacker-bounty-444829">The Block：Chainflip の損失が1,200万ドルに</a> <span class="kind">二次情報</span></li>
+      <li><a href="https://crypto.news/chainflip-12m-hack-attacker-10-percent-bounty/">crypto.news：Chainflip が報奨金を提示</a> <span class="kind">二次情報</span></li>
+      <li><a href="https://en.bloomingbit.io/feed/news/125032">Bloomingbit：Fusionist のブリッジへの攻撃</a> <span class="kind">二次情報</span></li>
+      <li><a href="https://crypto.news/south-korea-crypto-law-draft-november-24-stablecoins/">crypto.news：韓国の暗号資産法案</a> <span class="kind">二次情報</span></li>
+      <li><a href="https://news.bitcoin.com/regulation-and-legal/this-week-in-crypto-law-november-22-2026/">Bitcoin.com：This Week in Crypto Law</a> <span class="kind">ニュースレター</span></li>
+    </ul>
+  </section>
+</article>
+
+
+
+<section class="comments" id="comments" data-noread>
+  <h2><span data-lang="en">Reader feedback</span><span data-lang="ja" hidden>読者のコメント</span></h2>
+  <p class="note"><span data-lang="en">Comments use GitHub sign-in, so every commenter is a real GitHub account. Be kind and stay on topic.</span><span data-lang="ja" hidden>コメントには GitHub へのログインが必要です。思いやりを持って、話題に沿って書き込んでください。</span></p>
+  <div class="giscus"></div>
+</section>
+
+<nav class="pager" data-noread>
+  <a href="../"><span data-lang="en">← All briefs</span><span data-lang="ja" hidden>← バックナンバー</span></a>
+  <span></span>
+</nav>
+</main>
+<script src="../assets/brief.js"></script>
+</body>
+</html>

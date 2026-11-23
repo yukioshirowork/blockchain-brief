@@ -1,5 +1,17 @@
 [
   {
+    "date": "2026-11-23",
+    "file": "briefs/2026-11-23.html",
+    "title": {
+      "en": "Blockchain Brief, 23 Nov 2026",
+      "ja": "ブロックチェーン・ブリーフ 2026年11月23日"
+    },
+    "summary": {
+      "en": "Chainflip's losses climb to about $12M with a bounty deadline today, Fusionist's ACE bridge is emptied after a minter compromise, and South Korea prepares to unveil its Digital Asset Basic Act.",
+      "ja": "Chainflip の損失は約1,200万ドルに膨らみ報奨金の期限は今日、Fusionist の ACE ブリッジはミンターの悪用で空になり、韓国はデジタル資産基本法の公表を控えています。"
+    }
+  },
+  {
     "date": "2026-11-22",
     "file": "briefs/2026-11-22.html",
     "title": {
