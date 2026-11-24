@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Blockchain Brief, 24 Nov 2026</title>
+<meta name="description" content="South Korea's draft Digital Asset Basic Act, a Kava Lend postmortem, the Stellar Bell vote and Chainflip's passed bounty deadline.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-title-en="Blockchain Brief, 24 Nov 2026" data-title-ja="ブロックチェーン・ブリーフ 2026年11月24日">
+<div class="bar"><div class="bar-in">
+  <a class="home" href="../">Blockchain Brief</a>
+  <div class="controls">
+    <div class="seg" role="group" aria-label="Language"><button type="button" data-set-lang="en" aria-pressed="true">EN</button><button type="button" data-set-lang="ja" aria-pressed="false">日本語</button></div>
+  </div>
+</div></div>
+
+<main class="wrap">
+
+<!-- Read-aloud panel (shared; labels follow the language toggle) -->
+<section class="audio" id="audio" aria-label="Read aloud" data-noread>
+  <div class="audio-row">
+    <button type="button" class="btn primary" data-a="play">▶ Listen</button>
+    <button type="button" class="btn" data-a="stop" disabled>■ Stop</button>
+    <select class="btn" data-a="scope" aria-label="What to read"><option value="all">Whole brief</option><option value="dev">Dev only</option><option value="nondev">Non-dev only</option></select>
+  </div>
+  <div class="audio-row">
+    <label class="status"><span data-a="speedlbl">Speed</span>
+      <select class="btn" data-a="rate"><option value="0.8">0.8×</option><option value="0.9">0.9×</option><option value="1" selected>1×</option><option value="1.15">1.15×</option><option value="1.3">1.3×</option><option value="1.5">1.5×</option></select></label>
+    <label class="status"><span data-a="voicelbl">Voice</span>
+      <select class="btn" data-a="voice"></select></label>
+  </div>
+  <p class="status" data-a="status" aria-live="polite"></p>
+</section>
+
+<!-- ===================== ENGLISH ===================== -->
+<article data-lang="en" class="wrap" style="padding:0">
+  <header class="brief">
+    <span class="mono meta">Daily brief · 24 Nov 2026 · about 6 min read</span>
+    <h1>Blockchain Brief, 24 Nov 2026</h1>
+    <p class="lede">South Korea's financial regulator released its draft Digital Asset Basic Act, with no-fault hack compensation, a 20% cap on exchange owners, bank-led won stablecoins and a return of domestic token sales. A detailed postmortem shows how Kava Lend was drained through a forgotten BUSD market and a divide-by-almost-zero. Stellar's Bell vote and Chainflip's bounty deadline have both passed, with no public outcome yet.</p>
+    <p class="note">Claims I could not confirm from a primary or second independent source are marked Unverified.</p>
+    <nav class="jump" data-noread aria-label="Sections"><a class="dev" href="#dev-en">Dev ↓</a><a class="nondev" href="#nondev-en">Non-dev ↓</a></nav>
+  </header>
+
+  <section class="track dev" id="dev-en">
+    <div class="track-head"><h2>Dev</h2><p>Protocol changes, contract risks, security details and tooling.</p></div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>Postmortem · Kava · 14 Nov</span>
+      <h3>Kava Lend: a dead market, a zero check and 127 liquidations</h3>
+      <p>Kava Lend's BUSD market stayed open years after Paxos stopped minting BUSD. Interest is passed to depositors through an index that divides each block's interest by the market's net supply, and the code only guarded against exactly zero. On 14 November the attacker repaid all 37 open BUSD loans, then deposited and borrowed until net supply was 2 base units, keeping one small loan open so interest still accrued. One block's interest divided by 2 lifted deposit values about 8,380-fold, and within three minutes the index went from 2.76 to 671,187. No BUSD was minted; the recorded claims were inflated to about 1.25 billion BUSD. The attacker moved those inflated claims to a helper wallet as collateral, had it borrow KAVA, then liquidated the helper with auction lots of 0–2 base units, which still closed the debt because the seizure routine returned without error at zero value. Repeated 127 times, this took 55.2 million KAVA, about $3.76 million at pre-attack prices, and left 519 KAVA in the pool. Kava says the hole is blocked and plans to disable lending permanently, but hasn't said whether lenders will be made whole (<a href="https://rekt.news/kava-lend-rekt">rekt</a>, <a href="https://www.theblock.co/news/defi/2026-11-14-kava-lend-loses-roughly-3-8-million-to-hack-sending-kava-token-down-nearly-40-440350">The Block</a>).</p>
+      <p class="unverified"><b>Unverified</b>The step-by-step figures come from rekt's write-up of ScaleBit's and Bitquery's analysis. I haven't read those analyses or Kava's own report.</p>
+    </div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>Follow-up · Stellar · 23 Nov</span>
+      <h3>Stellar Bell: vote day passed, result not yet posted</h3>
+      <p>Stellar's upgrades page still lists the Protocol 30 mainnet vote for 23 November at 17:00 UTC and shows no outcome or activation. The upgrade guide says updating is not optional for SDK users. It lists Stellar Core, Horizon, RPC and Galexie v30.0.0, JS SDK v17.3.0 (needed to send to "W" addresses; v16.4.0 can only decode them) and Go SDK v0.8.0. Exchanges need to support withdrawals to W addresses, and anyone reading raw XDR must update their definitions (<a href="https://stellar.org/protocol-upgrades">Stellar</a>, <a href="https://stellar.org/blog/developers/bell-protocol-30-upgrade-guide">Stellar upgrade guide</a>).</p>
+    </div>
+
+    <div class="item">
+      <h3>What to do this week</h3>
+      <ul class="points">
+        <li>Find markets in your lending protocol that nobody uses any more, and close or cap them. Dormant markets are where accounting assumptions break.</li>
+        <li>Guard divisions against tiny denominators, not only zero: set a minimum supply, or skip accrual below a threshold.</li>
+        <li>Make liquidation fail when the seized value rounds to zero.</li>
+        <li>Stellar integrators: move to the v30 stack and JS SDK v17.3.0 now, whatever the vote timing.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="track nondev" id="nondev-en">
+    <div class="track-head"><h2>Non-dev</h2><p>Market, business and regulation, and what the incidents mean in plain language.</p></div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>Regulation · South Korea · 24 Nov</span>
+      <h3>South Korea publishes its draft Digital Asset Basic Act</h3>
+      <p>The Financial Services Commission released the draft today. It still has to go through the National Assembly. The main points:</p>
+      <ul class="points">
+        <li><b>Hacks:</b> after a hack or system failure, firms would compensate users without users having to prove fault, and breaching IT security duties could bring fines of up to 10% of revenue.</li>
+        <li><b>Exchange ownership:</b> a major shareholder could generally hold up to 20%, or 34% with approval, with three years to comply.</li>
+        <li><b>Won stablecoins:</b> issuers need a licence, at least 5 billion won of capital, full reserves held at banks or similar institutions, and may not pay interest. At first only consortia in which banks hold a majority can issue, though a fintech or tech firm may be the largest single shareholder.</li>
+        <li><b>Token sales:</b> domestic offerings would be allowed again after a nine-year ban, but only after a white paper is filed, accepted and disclosed.</li>
+      </ul>
+      <p>(<a href="https://panews.io/articles/01a20d56-47b4-7047-9c0c-23d71a12d711">PANews</a>, <a href="https://shattered.io/south-korea-digital-asset-basic-act-draft-domestic-icos-won-stablecoins-nov-24/">Shattered</a>)</p>
+      <p class="unverified"><b>Unverified</b>I haven't read the FSC's own release. The no-fault liability point appears in only one of the two reports.</p>
+    </div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>Follow-up · Chainflip · 23 Nov</span>
+      <h3>Chainflip's bounty deadline passes in silence</h3>
+      <p>The deadline for the attacker to return 90% of about $12 million passed at 18:38 UTC on 23 November. Chainflip's message page is unchanged and its site still says services are temporarily unavailable. There's no public word yet on whether any funds came back, and the incident report and compensation plan promised for Monday hadn't appeared when this brief was written (<a href="https://chainflip.io/return">Chainflip</a>).</p>
+    </div>
+
+    <div class="item">
+      <h3>As a user</h3>
+      <ul class="points">
+        <li>If you use a Korean exchange, nothing changes yet. The draft must pass parliament first.</li>
+        <li>Kava Lend depositors should follow Kava's official channels for any compensation news. Lending is being shut down.</li>
+        <li>If you hold XLM on an exchange, you don't need to do anything for Bell.</li>
+      </ul>
+      <p>Coming up: the Monad lockup end (today), Thailand's stablecoin comment deadline (26 November), Binance's freezing-order hearing (1 December), Hong Kong's first reading (2 December) and Upbit's KAVA review (14–18 December).</p>
+    </div>
+  </section>
+
+  <section class="sources">
+    <h2>Sources</h2>
+    <p>Reporting as of 24 November 2026. The FSC's release and the Kava analyses were read through coverage.</p>
+    <ul>
+      <li><a href="https://stellar.org/protocol-upgrades">Stellar: protocol upgrades</a> <span class="kind">primary</span></li>
+      <li><a href="https://stellar.org/blog/developers/bell-protocol-30-upgrade-guide">Stellar: Bell Protocol 30 upgrade guide</a> <span class="kind">primary</span></li>
+      <li><a href="https://chainflip.io/return">Chainflip: message to the attacker</a> <span class="kind">primary</span></li>
+      <li><a href="https://rekt.news/kava-lend-rekt">rekt: Kava Lend</a> <span class="kind">secondary</span></li>
+      <li><a href="https://www.theblock.co/news/defi/2026-11-14-kava-lend-loses-roughly-3-8-million-to-hack-sending-kava-token-down-nearly-40-440350">The Block: Kava Lend loses about $3.8M</a> <span class="kind">secondary</span></li>
+      <li><a href="https://panews.io/articles/01a20d56-47b4-7047-9c0c-23d71a12d711">PANews: South Korea's draft Digital Asset Act</a> <span class="kind">secondary</span></li>
+      <li><a href="https://shattered.io/south-korea-digital-asset-basic-act-draft-domestic-icos-won-stablecoins-nov-24/">Shattered: Korea's draft lifts the ICO ban</a> <span class="kind">secondary</span></li>
+    </ul>
+  </section>
+</article>
+
+<!-- ===================== 日本語 ===================== -->
+<article data-lang="ja" class="wrap" style="padding:0" hidden>
+  <header class="brief">
+    <span class="mono meta">デイリーブリーフ · 2026年11月24日 · 約6分</span>
+    <h1>ブロックチェーン・ブリーフ 2026年11月24日</h1>
+    <p class="lede">韓国の金融当局がデジタル資産基本法の草案を公表しました。過失を問わないハッキング被害の補償、取引所の大株主への20%上限、銀行主導のウォン建てステーブルコイン、国内でのトークン販売の再開が盛り込まれています。詳しい事後分析からは、Kava Lend が放置された BUSD 市場と「ほぼゼロでの割り算」で資金を抜かれた経緯が分かりました。Stellar の Bell の投票日と Chainflip の報奨金の期限はどちらも過ぎましたが、結果はまだ公表されていません。</p>
+    <p class="note">一次情報または独立した2つ目の情報源で確認できなかった内容には「未確認」と表示しています。</p>
+    <nav class="jump" data-noread aria-label="セクション"><a class="dev" href="#dev-ja">Dev ↓</a><a class="nondev" href="#nondev-ja">Non-dev ↓</a></nav>
+  </header>
+
+  <section class="track dev" id="dev-ja">
+    <div class="track-head"><h2>Dev</h2><p>プロトコル変更、コントラクトのリスク、セキュリティの詳細、開発ツール。</p></div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>事後分析 · Kava · 11月14日</span>
+      <h3>Kava Lend：使われていない市場、ゼロだけのチェック、127回の清算</h3>
+      <p>Kava Lend の BUSD 市場は、Paxos が BUSD の発行を止めてから何年も開いたままでした。利息は、各ブロックの利息を市場の純供給量で割るインデックスを通じて預け手に配られ、コードは純供給量がちょうどゼロの場合しか防いでいませんでした。11月14日、攻撃者は残っていた37件の BUSD の借り入れをすべて返済し、預け入れと借り入れを繰り返して純供給量を2ベース単位まで減らし、利息が発生し続けるよう小さな借り入れを1件だけ残しました。1ブロック分の利息を2で割った結果、預金の価値は約8,380倍に膨らみ、3分以内にインデックスは2.76から671,187になりました。BUSD は発行されておらず、記録上の請求額が約12.5億 BUSD に膨らんだだけです。攻撃者はこの膨らんだ請求を担保として補助ウォレットに移し、そこで KAVA を借りさせてから補助ウォレットを清算しました。押収処理は担保価値がゼロでもエラーなく終わるため、0〜2ベース単位のオークションでも債務が解消されました。これを127回繰り返して5,520万 KAVA（攻撃前の価格で約376万ドル）を奪い、プールには519 KAVA しか残りませんでした。Kava は穴をふさいだとし、貸し出し機能を恒久的に止める予定ですが、貸し手が全額補償されるかどうかは明らかにしていません（<a href="https://rekt.news/kava-lend-rekt">rekt</a>、<a href="https://www.theblock.co/news/defi/2026-11-14-kava-lend-loses-roughly-3-8-million-to-hack-sending-kava-token-down-nearly-40-440350">The Block</a>）。</p>
+      <p class="unverified"><b>未確認</b>手順ごとの数字は、ScaleBit と Bitquery の分析をまとめた rekt の記事によるものです。それらの分析や Kava 自身の報告は読んでいません。</p>
+    </div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>続報 · Stellar · 11月23日</span>
+      <h3>Stellar Bell：投票日は過ぎたが、結果はまだ掲載されず</h3>
+      <p>Stellar のアップグレードのページは、Protocol 30 のメインネット投票を11月23日 17:00 UTC と記載したままで、結果や有効化の情報はありません。アップグレードガイドは、SDK の利用者にとって更新は任意ではないとしています。必要なバージョンは Stellar Core、Horizon、RPC、Galexie が v30.0.0、JS SDK が v17.3.0（「W」アドレスへの送金に必要で、v16.4.0 はデコードのみ）、Go SDK が v0.8.0 です。取引所は W アドレスへの出金に対応する必要があり、生の XDR を読んでいる場合は定義を更新しなければなりません（<a href="https://stellar.org/protocol-upgrades">Stellar</a>、<a href="https://stellar.org/blog/developers/bell-protocol-30-upgrade-guide">Stellar のアップグレードガイド</a>）。</p>
+    </div>
+
+    <div class="item">
+      <h3>今週やること</h3>
+      <ul class="points">
+        <li>レンディングプロトコルで誰も使っていない市場を洗い出し、閉じるか上限を設ける。会計上の前提が崩れるのは放置された市場です。</li>
+        <li>割り算はゼロだけでなく極端に小さい分母も防ぐ。最低供給量を設けるか、しきい値を下回ったら利息の計上を飛ばす。</li>
+        <li>押収額が丸めでゼロになる清算は失敗させる。</li>
+        <li>Stellar の連携事業者は、投票の時期にかかわらず、今のうちに v30 系と JS SDK v17.3.0 に移行する。</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="track nondev" id="nondev-ja">
+    <div class="track-head"><h2>Non-dev</h2><p>市場・ビジネス・規制と、事件が何を意味するかのやさしい解説。</p></div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>規制 · 韓国 · 11月24日</span>
+      <h3>韓国、デジタル資産基本法の草案を公表</h3>
+      <p>金融委員会が今日草案を公表しました。まだ国会での審議が必要です。主な内容は次のとおりです。</p>
+      <ul class="points">
+        <li><b>ハッキング：</b>ハッキングやシステム障害があった場合、利用者が過失を証明しなくても事業者が補償し、IT セキュリティの義務に違反した場合は売上の最大10%の課徴金が科されうる。</li>
+        <li><b>取引所の所有：</b>大株主の持ち分は原則20%まで、承認を得れば34%まで。対応期間は3年。</li>
+        <li><b>ウォン建てステーブルコイン：</b>発行体には免許、50億ウォン以上の資本、銀行などに置く全額の準備資産が必要で、利息は払えない。当初は銀行が過半数を持つコンソーシアムだけが発行でき、フィンテックやテック企業が最大の単独株主になることは認められる。</li>
+        <li><b>トークン販売：</b>国内での販売が9年ぶりに解禁されるが、ホワイトペーパーを提出して受理・開示された後に限る。</li>
+      </ul>
+      <p>（<a href="https://panews.io/articles/01a20d56-47b4-7047-9c0c-23d71a12d711">PANews</a>、<a href="https://shattered.io/south-korea-digital-asset-basic-act-draft-domestic-icos-won-stablecoins-nov-24/">Shattered</a>）</p>
+      <p class="unverified"><b>未確認</b>金融委員会自身の発表は読んでいません。過失を問わない補償の点は、2つの報道のうち1つにしか書かれていません。</p>
+    </div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>続報 · Chainflip · 11月23日</span>
+      <h3>Chainflip の報奨金の期限、動きのないまま経過</h3>
+      <p>約1,200万ドルの9割を返すよう攻撃者に求めた期限は、11月23日 18:38 UTC に過ぎました。Chainflip のメッセージのページは変わっておらず、サイトには今もサービス一時停止の表示が出ています。資金が戻ったかどうかはまだ公表されておらず、月曜に出すとしていた事故報告と補償案も、このブリーフの執筆時点では出ていませんでした（<a href="https://chainflip.io/return">Chainflip</a>）。</p>
+    </div>
+
+    <div class="item">
+      <h3>利用者として</h3>
+      <ul class="points">
+        <li>韓国の取引所を使っていても、今すぐ変わることはありません。草案はまず国会を通る必要があります。</li>
+        <li>Kava Lend に預けている人は、補償の情報を Kava の公式チャネルで確認してください。貸し出し機能は終了に向かっています。</li>
+        <li>取引所で XLM を持っているなら、Bell に向けて何もする必要はありません。</li>
+      </ul>
+      <p>今後の予定：Monad のロックアップ終了（今日）、タイのステーブルコイン案の意見募集締め切り（11月26日）、Binance の凍結命令の審理（12月1日）、香港の法案の第一読会（12月2日）、Upbit による KAVA の審査（12月14〜18日）。</p>
+    </div>
+  </section>
+
+  <section class="sources">
+    <h2>出典</h2>
+    <p>2026年11月24日時点の報道に基づきます。金融委員会の発表と Kava の分析は報道を通じて読みました。</p>
+    <ul>
+      <li><a href="https://stellar.org/protocol-upgrades">Stellar：プロトコルアップグレード</a> <span class="kind">一次情報</span></li>
+      <li><a href="https://stellar.org/blog/developers/bell-protocol-30-upgrade-guide">Stellar：Bell Protocol 30 アップグレードガイド</a> <span class="kind">一次情報</span></li>
+      <li><a href="https://chainflip.io/return">Chainflip：攻撃者へのメッセージ</a> <span class="kind">一次情報</span></li>
+      <li><a href="https://rekt.news/kava-lend-rekt">rekt：Kava Lend</a> <span class="kind">二次情報</span></li>
+      <li><a href="https://www.theblock.co/news/defi/2026-11-14-kava-lend-loses-roughly-3-8-million-to-hack-sending-kava-token-down-nearly-40-440350">The Block：Kava Lend が約380万ドルを失う</a> <span class="kind">二次情報</span></li>
+      <li><a href="https://panews.io/articles/01a20d56-47b4-7047-9c0c-23d71a12d711">PANews：韓国のデジタル資産法草案</a> <span class="kind">二次情報</span></li>
+      <li><a href="https://shattered.io/south-korea-digital-asset-basic-act-draft-domestic-icos-won-stablecoins-nov-24/">Shattered：韓国の草案が ICO 禁止を解除</a> <span class="kind">二次情報</span></li>
+    </ul>
+  </section>
+</article>
+
+
+
+<section class="comments" id="comments" data-noread>
+  <h2><span data-lang="en">Reader feedback</span><span data-lang="ja" hidden>読者のコメント</span></h2>
+  <p class="note"><span data-lang="en">Comments use GitHub sign-in, so every commenter is a real GitHub account. Be kind and stay on topic.</span><span data-lang="ja" hidden>コメントには GitHub へのログインが必要です。思いやりを持って、話題に沿って書き込んでください。</span></p>
+  <div class="giscus"></div>
+</section>
+
+<nav class="pager" data-noread>
+  <a href="../"><span data-lang="en">← All briefs</span><span data-lang="ja" hidden>← バックナンバー</span></a>
+  <span></span>
+</nav>
+</main>
+<script src="../assets/brief.js"></script>
+</body>
+</html>

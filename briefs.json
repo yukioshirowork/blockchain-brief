@@ -1,5 +1,17 @@
 [
   {
+    "date": "2026-11-24",
+    "file": "briefs/2026-11-24.html",
+    "title": {
+      "en": "Blockchain Brief, 24 Nov 2026",
+      "ja": "ブロックチェーン・ブリーフ 2026年11月24日"
+    },
+    "summary": {
+      "en": "South Korea publishes its draft Digital Asset Basic Act, a postmortem explains the Kava Lend drain, and Stellar's Bell vote and Chainflip's bounty deadline pass with no public outcome yet.",
+      "ja": "韓国がデジタル資産基本法の草案を公表し、事後分析が Kava Lend の流出を解き明かし、Stellar の Bell の投票と Chainflip の報奨金の期限は結果が公表されないまま過ぎました。"
+    }
+  },
+  {
     "date": "2026-11-23",
     "file": "briefs/2026-11-23.html",
     "title": {
