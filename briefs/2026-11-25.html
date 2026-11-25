@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Blockchain Brief, 25 Nov 2026</title>
+<meta name="description" content="Chainflip's incident report on a networking-library bug and leaked key shares, Coldcard's seed flaw postmortem, the DOJ's $1.17B USDC forfeiture filing and Sky's stUSDS crunch.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-title-en="Blockchain Brief, 25 Nov 2026" data-title-ja="ブロックチェーン・ブリーフ 2026年11月25日">
+<div class="bar"><div class="bar-in">
+  <a class="home" href="../">Blockchain Brief</a>
+  <div class="controls">
+    <div class="seg" role="group" aria-label="Language"><button type="button" data-set-lang="en" aria-pressed="true">EN</button><button type="button" data-set-lang="ja" aria-pressed="false">日本語</button></div>
+  </div>
+</div></div>
+
+<main class="wrap">
+
+<!-- Read-aloud panel (shared; labels follow the language toggle) -->
+<section class="audio" id="audio" aria-label="Read aloud" data-noread>
+  <div class="audio-row">
+    <button type="button" class="btn primary" data-a="play">▶ Listen</button>
+    <button type="button" class="btn" data-a="stop" disabled>■ Stop</button>
+    <select class="btn" data-a="scope" aria-label="What to read"><option value="all">Whole brief</option><option value="dev">Dev only</option><option value="nondev">Non-dev only</option></select>
+  </div>
+  <div class="audio-row">
+    <label class="status"><span data-a="speedlbl">Speed</span>
+      <select class="btn" data-a="rate"><option value="0.8">0.8×</option><option value="0.9">0.9×</option><option value="1" selected>1×</option><option value="1.15">1.15×</option><option value="1.3">1.3×</option><option value="1.5">1.5×</option></select></label>
+    <label class="status"><span data-a="voicelbl">Voice</span>
+      <select class="btn" data-a="voice"></select></label>
+  </div>
+  <p class="status" data-a="status" aria-live="polite"></p>
+</section>
+
+<!-- ===================== ENGLISH ===================== -->
+<article data-lang="en" class="wrap" style="padding:0">
+  <header class="brief">
+    <span class="mono meta">Daily brief · 25 Nov 2026 · about 6 min read</span>
+    <h1>Blockchain Brief, 25 Nov 2026</h1>
+    <p class="lede">Chainflip's first incident report traces its $12.6 million loss to a memory-safety bug in a networking library that let a newly registered validator read other validators' key shares, and it says an alert that could have stopped it was dismissed as test noise. Coinkite publishes a postmortem on a Coldcard seed flaw that shipped for five years. US prosecutors file to take ownership of $1.17 billion in frozen USDC from the Binance hack, and Sky faces a withdrawal crunch in one of its savings pools.</p>
+    <p class="note">Claims I could not confirm from a primary or second independent source are marked Unverified.</p>
+    <nav class="jump" data-noread aria-label="Sections"><a class="dev" href="#dev-en">Dev ↓</a><a class="nondev" href="#nondev-en">Non-dev ↓</a></nav>
+  </header>
+
+  <section class="track dev" id="dev-en">
+    <div class="track-head"><h2>Dev</h2><p>Protocol changes, contract risks, security details and tooling.</p></div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>Follow-up · Chainflip · 23 Nov</span>
+      <h3>Chainflip's report: a validator registration, a library bug, and key shares</h3>
+      <p>According to Chainflip's first incident report, as described by two outlets, the attacker registered a validator on 20 November with the 20,500 FLIP minimum stake. It never joined the active set, but registration alone let it open peer-to-peer connections to existing validators. A memory-safety flaw in a third-party networking library used by the validator software then let it run code on validator machines and read stored key shares. With enough shares it could sign vault transactions without the network. Chainflip says this was neither a FROST cryptography flaw nor a contract bug. An automated Bitcoin-vault alert fired at 06:49 UTC, eight minutes after the first theft, but was dismissed because the monitor was still in testing and had a record of false alarms. A team member raised the alarm at 07:41. The key was rotated at 08:21, yet another 10.48 BTC was taken at 11:24, which brings the total to about 133.34 BTC and about $12.6 million. All active validators were confirmed patched on 23 November (<a href="https://blockonomi.com/chainflip-hack-alert-fired-within-minutes-but-went-ignored-as-attacker-took-12-6m">Blockonomi</a>, <a href="https://thecurrencyanalytics.com/altcoins/chainflip-initiates-partial-refunds-after-12-6-million-theft-310768">The Currency Analytics</a>, <a href="https://chainflip.io/blog/incident-report-vault-exploit-21-november-2026-part-1">Chainflip report</a>).</p>
+      <p class="unverified"><b>Unverified</b>I read Chainflip's report only through these two articles. The library isn't named, and Chainflip says parts of the investigation continue.</p>
+    </div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>Wallets · Coldcard</span>
+      <h3>Coldcard seed flaw shipped for five years</h3>
+      <p>Coinkite has published a postmortem on a seed-related flaw in Coldcard hardware wallets, saying 15 separate reviews missed it. The defect shipped from 29 March 2021 to 30 July 2026 (<a href="https://bitcoinmagazine.com/news/coldcard-postmortem-seed-flaw">Bitcoin Magazine</a>).</p>
+      <p class="unverified"><b>Unverified</b>I saw only a newsletter summary, not the postmortem or which models and firmware are affected.</p>
+    </div>
+
+    <div class="item">
+      <h3>What to do this week</h3>
+      <ul class="points">
+        <li>Treat permissionless peer connections as untrusted input. Fuzz and sandbox the networking stack, and keep key shares out of the process that talks to peers.</li>
+        <li>Monitors in testing still need a human to check every alert on production funds.</li>
+        <li>After rotating a key, confirm the old key can't sign anything anywhere. Chainflip lost more BTC three hours after rotation.</li>
+        <li>If you used a Coldcard during those years, read Coinkite's postmortem and move funds to a new seed if your device is affected.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="track nondev" id="nondev-en">
+    <div class="track-head"><h2>Non-dev</h2><p>Market, business and regulation, and what the incidents mean in plain language.</p></div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>Follow-up · Binance · 23 Nov</span>
+      <h3>US files to take ownership of $1.17 billion from the Binance hack</h3>
+      <p>The Justice Department filed a civil forfeiture complaint in Washington DC on 23 November for about $1.17 billion in USDC held at 36 addresses on 18 blockchains, which it ties to North Korea's Lazarus group. Circle froze the coins in late October. If a court orders forfeiture, Circle would issue replacement USDC to the US government. This is the step after the 12 November restraining order (<a href="https://bitcoinmagazine.com/news/doj-forfeit-usdc-binance-hack">Bitcoin Magazine</a>, <a href="https://www.theblock.co/newsletters/the-daily/2026-11-24-doj-binance-hack-strategy-bitcoin-more-crypto-news-445430">The Block</a>, <a href="https://www.justice.gov/opa/pr/united-states-files-action-recover-more-1-billion-cryptocurrency-assets-stolen-north-korean">DOJ</a>).</p>
+      <p class="unverified"><b>Unverified</b>A report says the complaint describes Lazarus using EIP-7702 to take control of 32 Binance hot-wallet addresses. I haven't read the complaint.</p>
+    </div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>Follow-up · Sky</span>
+      <h3>Sky's stUSDS pool hits a withdrawal crunch</h3>
+      <p>Sky's roughly $159 million stUSDS pool reached 99.99% utilization, with deposit rates above 50% a year, so savers struggled to withdraw. Cofounder Rune Christensen said "This is on me" and may sell SKY to institutions to repay about 77 million USDS he borrowed. A governance proposal would cut rates, pause new borrowing and use reserves to buy stUSDS. Three major Korean exchanges have flagged SKY and USDS and suspended deposits (<a href="https://www.theblock.co/newsletters/the-daily/2026-11-24-doj-binance-hack-strategy-bitcoin-more-crypto-news-445430">The Block</a>).</p>
+      <p class="unverified"><b>Unverified</b>From one newsletter summary.</p>
+    </div>
+
+    <div class="item">
+      <h3>As a user</h3>
+      <ul class="points">
+        <li>Chainflip is returning only liquidity providers' uncommitted balances for now. There's no plan yet for the stolen funds.</li>
+        <li>A savings product paying 50% a year is usually a sign of stress, not a bargain.</li>
+        <li>Coldcard owners should check whether their device and firmware are affected before assuming their seed is safe.</li>
+      </ul>
+      <p>Coming up: Thailand's stablecoin comment deadline (26 November), Binance's freezing-order hearing and Moscow Exchange's VAT on USDT trades (1 December), Hong Kong's first reading (2 December) and Upbit's KAVA review (14–18 December).</p>
+    </div>
+  </section>
+
+  <section class="sources">
+    <h2>Sources</h2>
+    <p>Reporting as of 25 November 2026. Chainflip's report, the DOJ complaint and Coinkite's postmortem were read through coverage.</p>
+    <ul>
+      <li><a href="https://chainflip.io/blog/incident-report-vault-exploit-21-november-2026-part-1">Chainflip: incident report, part 1</a> <span class="kind">primary</span></li>
+      <li><a href="https://www.justice.gov/opa/pr/united-states-files-action-recover-more-1-billion-cryptocurrency-assets-stolen-north-korean">DOJ: action to recover more than $1 billion</a> <span class="kind">primary</span></li>
+      <li><a href="https://blockonomi.com/chainflip-hack-alert-fired-within-minutes-but-went-ignored-as-attacker-took-12-6m">Blockonomi: Chainflip alert ignored</a> <span class="kind">secondary</span></li>
+      <li><a href="https://thecurrencyanalytics.com/altcoins/chainflip-initiates-partial-refunds-after-12-6-million-theft-310768">The Currency Analytics: Chainflip partial refunds</a> <span class="kind">secondary</span></li>
+      <li><a href="https://bitcoinmagazine.com/news/doj-forfeit-usdc-binance-hack">Bitcoin Magazine: DOJ moves to forfeit $1.1B USDC</a> <span class="kind">secondary</span></li>
+      <li><a href="https://bitcoinmagazine.com/news/coldcard-postmortem-seed-flaw">Bitcoin Magazine: Coldcard seed flaw postmortem</a> <span class="kind">secondary</span></li>
+      <li><a href="https://www.theblock.co/newsletters/the-daily/2026-11-24-doj-binance-hack-strategy-bitcoin-more-crypto-news-445430">The Block, The Daily, 24 Nov</a> <span class="kind">newsletter</span></li>
+      <li><a href="https://thecryptodesk.substack.com/p/the-crypto-desk-wednesday-25-november">The Crypto Desk, 25 Nov</a> <span class="kind">newsletter</span></li>
+    </ul>
+  </section>
+</article>
+
+<!-- ===================== 日本語 ===================== -->
+<article data-lang="ja" class="wrap" style="padding:0" hidden>
+  <header class="brief">
+    <span class="mono meta">デイリーブリーフ · 2026年11月25日 · 約6分</span>
+    <h1>ブロックチェーン・ブリーフ 2026年11月25日</h1>
+    <p class="lede">Chainflip の最初の事故報告によると、1,260万ドルの損失の原因は通信ライブラリのメモリ安全性のバグで、登録したばかりのバリデーターが他のバリデーターの鍵の断片を読み取れたことでした。止められたかもしれないアラートは、テスト中の誤報として片付けられていたとしています。Coinkite は、5年間出荷されていた Coldcard のシードに関する欠陥の事後分析を公表しました。米検察は Binance のハッキングで凍結された11.7億ドルの USDC の所有権を得るための訴えを起こし、Sky は貯蓄プールの1つで引き出しの詰まりに直面しています。</p>
+    <p class="note">一次情報または独立した2つ目の情報源で確認できなかった内容には「未確認」と表示しています。</p>
+    <nav class="jump" data-noread aria-label="セクション"><a class="dev" href="#dev-ja">Dev ↓</a><a class="nondev" href="#nondev-ja">Non-dev ↓</a></nav>
+  </header>
+
+  <section class="track dev" id="dev-ja">
+    <div class="track-head"><h2>Dev</h2><p>プロトコル変更、コントラクトのリスク、セキュリティの詳細、開発ツール。</p></div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>続報 · Chainflip · 11月23日</span>
+      <h3>Chainflip の報告：バリデーター登録、ライブラリのバグ、鍵の断片</h3>
+      <p>2つのメディアが伝える Chainflip の最初の事故報告によると、攻撃者は11月20日に最低ステーク額の 20,500 FLIP でバリデーターを登録しました。アクティブなセットには入りませんでしたが、登録しただけで既存のバリデーターとピアツーピアで接続できました。そのうえで、バリデーターのソフトウェアが使うサードパーティの通信ライブラリにあったメモリ安全性の欠陥を突いてバリデーターのマシン上でコードを実行し、保存されていた鍵の断片を読み取りました。断片が十分に集まれば、ネットワークの承認なしにボールトの取引に署名できます。Chainflip は、FROST の暗号の欠陥でもコントラクトのバグでもないとしています。最初の盗難から8分後の 06:49 UTC にビットコインのボールトの自動アラートが鳴りましたが、監視の仕組みがまだテスト中で誤報が多かったため無視され、チームのメンバーが警告を上げたのは 07:41 でした。08:21 に鍵をローテーションしたにもかかわらず、11:24 にさらに 10.48 BTC が奪われ、合計は約 133.34 BTC、約1,260万ドルになりました。11月23日には、すべてのアクティブなバリデーターへのパッチ適用が確認されています（<a href="https://blockonomi.com/chainflip-hack-alert-fired-within-minutes-but-went-ignored-as-attacker-took-12-6m">Blockonomi</a>、<a href="https://thecurrencyanalytics.com/altcoins/chainflip-initiates-partial-refunds-after-12-6-million-theft-310768">The Currency Analytics</a>、<a href="https://chainflip.io/blog/incident-report-vault-exploit-21-november-2026-part-1">Chainflip の報告</a>）。</p>
+      <p class="unverified"><b>未確認</b>Chainflip の報告はこの2本の記事を通じてしか読めていません。ライブラリの名前は明かされておらず、Chainflip は調査の一部が続いているとしています。</p>
+    </div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>ウォレット · Coldcard</span>
+      <h3>Coldcard のシードに関する欠陥、5年間出荷</h3>
+      <p>Coinkite は、Coldcard ハードウェアウォレットのシードに関する欠陥の事後分析を公表し、15回のレビューでも見逃されていたとしています。欠陥は2021年3月29日から2026年7月30日まで出荷されていました（<a href="https://bitcoinmagazine.com/news/coldcard-postmortem-seed-flaw">Bitcoin Magazine</a>）。</p>
+      <p class="unverified"><b>未確認</b>読めたのはニュースレターの要約だけで、事後分析そのものや、影響を受ける機種とファームウェアは確認できていません。</p>
+    </div>
+
+    <div class="item">
+      <h3>今週やること</h3>
+      <ul class="points">
+        <li>誰でも張れるピア接続は信頼できない入力として扱う。通信スタックをファジングしてサンドボックスに入れ、鍵の断片はピアと通信するプロセスの外に置く。</li>
+        <li>テスト中の監視でも、本番の資金に関するアラートは毎回人が確認する。</li>
+        <li>鍵をローテーションしたら、古い鍵がどこでも署名できないことを確かめる。Chainflip はローテーションの3時間後にも BTC を失いました。</li>
+        <li>その期間に Coldcard を使っていたなら、Coinkite の事後分析を読み、該当する場合は新しいシードに資金を移す。</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="track nondev" id="nondev-ja">
+    <div class="track-head"><h2>Non-dev</h2><p>市場・ビジネス・規制と、事件が何を意味するかのやさしい解説。</p></div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>続報 · Binance · 11月23日</span>
+      <h3>米国、Binance のハッキングで凍結された11.7億ドルの所有権を求めて提訴</h3>
+      <p>米司法省は11月23日、北朝鮮の Lazarus グループと結びつけた、18のブロックチェーン上の36のアドレスにある約11.7億ドル分の USDC について、ワシントン DC の連邦地裁に民事没収の訴えを起こしました。Circle は10月下旬にこの USDC を凍結しています。裁判所が没収を命じれば、Circle は代わりの USDC を米政府に発行します。11月12日の差し止め命令に続く手続きです（<a href="https://bitcoinmagazine.com/news/doj-forfeit-usdc-binance-hack">Bitcoin Magazine</a>、<a href="https://www.theblock.co/newsletters/the-daily/2026-11-24-doj-binance-hack-strategy-bitcoin-more-crypto-news-445430">The Block</a>、<a href="https://www.justice.gov/opa/pr/united-states-files-action-recover-more-1-billion-cryptocurrency-assets-stolen-north-korean">米司法省</a>）。</p>
+      <p class="unverified"><b>未確認</b>ある報道によると、訴状には Lazarus が EIP-7702 を使って Binance のホットウォレットのアドレス32件を乗っ取った経緯が書かれています。訴状そのものは読んでいません。</p>
+    </div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>続報 · Sky</span>
+      <h3>Sky の stUSDS プールで引き出しが詰まる</h3>
+      <p>Sky の約1億5,900万ドルの stUSDS プールは利用率が99.99%に達し、預金金利が年50%を超え、預けた人が引き出しにくい状態になりました。共同創業者の Rune Christensen は「これは私の責任だ」と述べ、自身が借りた約7,700万 USDS を返すため、SKY を機関投資家に売る可能性があるとしています。ガバナンスの提案では、金利を下げ、新規の借り入れを止め、準備金で stUSDS を買い取ることが検討されています。韓国の大手取引所3社は SKY と USDS に注意を付け、入金を停止しました（<a href="https://www.theblock.co/newsletters/the-daily/2026-11-24-doj-binance-hack-strategy-bitcoin-more-crypto-news-445430">The Block</a>）。</p>
+      <p class="unverified"><b>未確認</b>1本のニュースレターの要約によるものです。</p>
+    </div>
+
+    <div class="item">
+      <h3>利用者として</h3>
+      <ul class="points">
+        <li>Chainflip が今返しているのは、流動性提供者のうちポジションに入っていない残高だけです。盗まれた分の扱いはまだ決まっていません。</li>
+        <li>年50%を払う貯蓄商品は、お得というより逼迫のサインであることがほとんどです。</li>
+        <li>Coldcard の持ち主は、シードが安全だと思い込む前に、自分の機種とファームウェアが該当するか確認してください。</li>
+      </ul>
+      <p>今後の予定：タイのステーブルコイン案の意見募集締め切り（11月26日）、Binance の凍結命令の審理とモスクワ取引所の USDT 取引への付加価値税（12月1日）、香港の法案の第一読会（12月2日）、Upbit による KAVA の審査（12月14〜18日）。</p>
+    </div>
+  </section>
+
+  <section class="sources">
+    <h2>出典</h2>
+    <p>2026年11月25日時点の報道に基づきます。Chainflip の報告、司法省の訴状、Coinkite の事後分析は報道を通じて読みました。</p>
+    <ul>
+      <li><a href="https://chainflip.io/blog/incident-report-vault-exploit-21-november-2026-part-1">Chainflip：事故報告（第1部）</a> <span class="kind">一次情報</span></li>
+      <li><a href="https://www.justice.gov/opa/pr/united-states-files-action-recover-more-1-billion-cryptocurrency-assets-stolen-north-korean">米司法省：10億ドル超の回収を求める訴え</a> <span class="kind">一次情報</span></li>
+      <li><a href="https://blockonomi.com/chainflip-hack-alert-fired-within-minutes-but-went-ignored-as-attacker-took-12-6m">Blockonomi：無視された Chainflip のアラート</a> <span class="kind">二次情報</span></li>
+      <li><a href="https://thecurrencyanalytics.com/altcoins/chainflip-initiates-partial-refunds-after-12-6-million-theft-310768">The Currency Analytics：Chainflip の一部返金</a> <span class="kind">二次情報</span></li>
+      <li><a href="https://bitcoinmagazine.com/news/doj-forfeit-usdc-binance-hack">Bitcoin Magazine：司法省が11億ドルの USDC の没収を求める</a> <span class="kind">二次情報</span></li>
+      <li><a href="https://bitcoinmagazine.com/news/coldcard-postmortem-seed-flaw">Bitcoin Magazine：Coldcard のシードの欠陥の事後分析</a> <span class="kind">二次情報</span></li>
+      <li><a href="https://www.theblock.co/newsletters/the-daily/2026-11-24-doj-binance-hack-strategy-bitcoin-more-crypto-news-445430">The Block, The Daily（11月24日）</a> <span class="kind">ニュースレター</span></li>
+      <li><a href="https://thecryptodesk.substack.com/p/the-crypto-desk-wednesday-25-november">The Crypto Desk（11月25日）</a> <span class="kind">ニュースレター</span></li>
+    </ul>
+  </section>
+</article>
+
+
+
+<section class="comments" id="comments" data-noread>
+  <h2><span data-lang="en">Reader feedback</span><span data-lang="ja" hidden>読者のコメント</span></h2>
+  <p class="note"><span data-lang="en">Comments use GitHub sign-in, so every commenter is a real GitHub account. Be kind and stay on topic.</span><span data-lang="ja" hidden>コメントには GitHub へのログインが必要です。思いやりを持って、話題に沿って書き込んでください。</span></p>
+  <div class="giscus"></div>
+</section>
+
+<nav class="pager" data-noread>
+  <a href="../"><span data-lang="en">← All briefs</span><span data-lang="ja" hidden>← バックナンバー</span></a>
+  <span></span>
+</nav>
+</main>
+<script src="../assets/brief.js"></script>
+</body>
+</html>

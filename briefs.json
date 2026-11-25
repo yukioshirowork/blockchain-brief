@@ -1,5 +1,17 @@
 [
   {
+    "date": "2026-11-25",
+    "file": "briefs/2026-11-25.html",
+    "title": {
+      "en": "Blockchain Brief, 25 Nov 2026",
+      "ja": "ブロックチェーン・ブリーフ 2026年11月25日"
+    },
+    "summary": {
+      "en": "Chainflip traces its $12.6M loss to a networking-library bug that leaked validator key shares, Coinkite details a five-year Coldcard seed flaw, and the DOJ files to forfeit $1.17B in USDC from the Binance hack.",
+      "ja": "Chainflip は1,260万ドルの損失をバリデーターの鍵の断片を漏らした通信ライブラリのバグに帰し、Coinkite は5年間続いた Coldcard のシードの欠陥を説明し、司法省は Binance のハッキングに関わる11.7億ドルの USDC の没収を求めて提訴しました。"
+    }
+  },
+  {
     "date": "2026-11-24",
     "file": "briefs/2026-11-24.html",
     "title": {
