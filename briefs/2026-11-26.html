@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Blockchain Brief, 26 Nov 2026</title>
+<meta name="description" content="Hashrate hijacking of Bitcoin miners on unencrypted Stratum V1, BlackRock's tokenized Hong Kong dollar money fund, and Samsung Card and Kakao Pay joining LayerZero's Zero as validators.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-title-en="Blockchain Brief, 26 Nov 2026" data-title-ja="ブロックチェーン・ブリーフ 2026年11月26日">
+<div class="bar"><div class="bar-in">
+  <a class="home" href="../">Blockchain Brief</a>
+  <div class="controls">
+    <div class="seg" role="group" aria-label="Language"><button type="button" data-set-lang="en" aria-pressed="true">EN</button><button type="button" data-set-lang="ja" aria-pressed="false">日本語</button></div>
+  </div>
+</div></div>
+
+<main class="wrap">
+
+<!-- Read-aloud panel (shared; labels follow the language toggle) -->
+<section class="audio" id="audio" aria-label="Read aloud" data-noread>
+  <div class="audio-row">
+    <button type="button" class="btn primary" data-a="play">▶ Listen</button>
+    <button type="button" class="btn" data-a="stop" disabled>■ Stop</button>
+    <select class="btn" data-a="scope" aria-label="What to read"><option value="all">Whole brief</option><option value="dev">Dev only</option><option value="nondev">Non-dev only</option></select>
+  </div>
+  <div class="audio-row">
+    <label class="status"><span data-a="speedlbl">Speed</span>
+      <select class="btn" data-a="rate"><option value="0.8">0.8×</option><option value="0.9">0.9×</option><option value="1" selected>1×</option><option value="1.15">1.15×</option><option value="1.3">1.3×</option><option value="1.5">1.5×</option></select></label>
+    <label class="status"><span data-a="voicelbl">Voice</span>
+      <select class="btn" data-a="voice"></select></label>
+  </div>
+  <p class="status" data-a="status" aria-live="polite"></p>
+</section>
+
+<!-- ===================== ENGLISH ===================== -->
+<article data-lang="en" class="wrap" style="padding:0">
+  <header class="brief">
+    <span class="mono meta">Daily brief · 26 Nov 2026 · about 5 min read</span>
+    <h1>Blockchain Brief, 26 Nov 2026</h1>
+    <p class="lede">Attackers have been rerouting internet traffic to steal hashrate from Bitcoin miners still using unencrypted Stratum V1, hitting more than 1,000 sites in a single second on 20 November. BlackRock launches a tokenized Hong Kong dollar money market fund on Ethereum, backed by Ant International and Standard Chartered. Samsung Card and Kakao Pay sign on as validators for LayerZero's Zero chain ahead of a planned 30 November mainnet.</p>
+    <p class="note">Claims I could not confirm from a primary or second independent source are marked Unverified.</p>
+    <nav class="jump" data-noread aria-label="Sections"><a class="dev" href="#dev-en">Dev ↓</a><a class="nondev" href="#nondev-en">Non-dev ↓</a></nav>
+  </header>
+
+  <section class="track dev" id="dev-en">
+    <div class="track-head"><h2>Dev</h2><p>Protocol changes, contract risks, security details and tooling.</p></div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>Security · Bitcoin mining · 25 Nov</span>
+      <h3>Hashrate hijacking through unencrypted Stratum V1</h3>
+      <p>Braiins reports that attackers have been rerouting internet traffic so miners connect to an impersonated pool. Stratum V1 has no way for a miner to verify the pool, so dashboards look normal while hashrate and rewards go to the attacker. The attacks came in waves. From 7 to 12 November, 19 episodes in Latin America each hit 120–400 sites. On 20 November, four episodes, mostly in Europe, hit 1,050–1,600 sites each, with more than 1,000 sites dropping in the same second and up to 1.9 EH/s diverted. The attacker announced a 256-address block inside a larger 4,096-address block, and networks that skip RPKI route-origin checks accepted the redirect. Braiins says the attacks are still active and calls them "testing the waters". There's no estimate of stolen rewards, and Braiins says its own pool and payouts weren't affected (<a href="https://www.theblock.co/news/ecosystems/2026-11-25-bitcoin-miners-hit-hashrate-hijacking-attack-exploiting-unencrypted-connections-446723">The Block</a>, <a href="https://www.coingabbar.com/en/bitcoin-mining-hashrate-hijack-braiins-stratum-v1-warning">Coin Gabbar</a>, <a href="https://braiins.com/blog/bitcoin-hashrate-hijacking-unencrypted-stratum-v1">Braiins</a>).</p>
+      <p>Nothing in the reports links this to Luxor's incident last week, which Luxor attributed to its own software.</p>
+    </div>
+
+    <div class="item">
+      <h3>What to do this week</h3>
+      <ul class="points">
+        <li>Miners: switch to Stratum V2, whose pool URL carries the pool's public key. If you can't, use V1 over TLS (<code>stratum+ssl://</code>) on firmware that actually checks certificates, or run an SV2 proxy.</li>
+        <li>Remove every plain <code>stratum+tcp://</code> entry, including backup pools. An attacker only needs one.</li>
+        <li>Watch for full-speed hashing with an empty pool dashboard, repeated connection resets, or share difficulty far above your pool's normal range.</li>
+        <li>Network operators: enforce RPKI route-origin validation. It's what let some networks ignore this redirect.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="track nondev" id="nondev-en">
+    <div class="track-head"><h2>Non-dev</h2><p>Market, business and regulation, and what the incidents mean in plain language.</p></div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>Tokenization · Hong Kong · 24 Nov</span>
+      <h3>BlackRock launches a tokenized Hong Kong dollar money fund</h3>
+      <p>BlackRock's HKD Digital Liquidity Fund, its first tokenized fund in Asia, has launched on Ethereum with Ant International and Standard Chartered as seed investors and about $100 million to start. It holds short-term Hong Kong dollar instruments such as government bills and deposits. BlackRock says the fund may accept subscriptions and redemptions in stablecoins issued by HKMA-licensed firms and in tokenized bank deposits. Standard Chartered is also custodian, trustee and administrator, and Ant can move cash in and out around the clock (<a href="https://www.blackrock.com/hk/en/investment-ideas/hkd-digital-liquidity-fund">BlackRock</a>, <a href="https://www.ledgerinsights.com/blackrock-launches-100m-hkd-tokenized-mmf-with-ant-intl-stanchart-as-investors/">Ledger Insights</a>).</p>
+      <p class="unverified"><b>Unverified</b>Whether the $100 million is in US or Hong Kong dollars, and whether ordinary investors can buy in. The sources differ, and I haven't read the prospectus.</p>
+    </div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>Business · LayerZero · 25 Nov</span>
+      <h3>Samsung Card and Kakao Pay join LayerZero's Zero chain as validators</h3>
+      <p>LayerZero named three new validators for Zero, its own blockchain. Samsung Card is joining through the research firm Four Pillars, which will run the node. Kakao Pay, with about 26 million monthly users, says it will explore won stablecoin opportunities, without a date. ZAN, the node business of Ant Digital Technologies, is the third. Zero's mainnet is planned for 30 November. Pre-launch staking opened on 23 November, and unstaking is expected by 31 March 2027 (<a href="https://www.coininsider.org/news/layerzero-zero-samsung-card-kakao-pay-zan-validators/">Coin Insider</a>).</p>
+      <p class="unverified"><b>Unverified</b>From one article. LayerZero's claim of more than 250,000 transactions a second is the company's own figure.</p>
+    </div>
+
+    <div class="item">
+      <h3>As a user</h3>
+      <ul class="points">
+        <li>If you mine at home or host machines, check your pool settings this week. An attacker can take your earnings without your dashboard showing it.</li>
+        <li>Tokenized money funds are mostly for institutions for now. Check who can buy before you look for a way in.</li>
+        <li>Pre-launch staking usually locks your tokens for months. Read the unstaking date before you stake.</li>
+      </ul>
+      <p>Coming up: Thailand's stablecoin comment deadline (today), LayerZero's Zero mainnet (30 November), Binance's freezing-order hearing and Moscow Exchange's VAT on USDT trades (1 December), Hong Kong's first reading (2 December) and Upbit's KAVA review (14–18 December).</p>
+    </div>
+  </section>
+
+  <section class="sources">
+    <h2>Sources</h2>
+    <p>Reporting as of 26 November 2026. Braiins's report was read through coverage.</p>
+    <ul>
+      <li><a href="https://braiins.com/blog/bitcoin-hashrate-hijacking-unencrypted-stratum-v1">Braiins: hashrate hijacking over unencrypted Stratum V1</a> <span class="kind">primary</span></li>
+      <li><a href="https://www.blackrock.com/hk/en/investment-ideas/hkd-digital-liquidity-fund">BlackRock: HKD Digital Liquidity Fund</a> <span class="kind">primary</span></li>
+      <li><a href="https://www.theblock.co/news/ecosystems/2026-11-25-bitcoin-miners-hit-hashrate-hijacking-attack-exploiting-unencrypted-connections-446723">The Block: Bitcoin miners hit by hashrate hijacking</a> <span class="kind">secondary</span></li>
+      <li><a href="https://www.coingabbar.com/en/bitcoin-mining-hashrate-hijack-braiins-stratum-v1-warning">Coin Gabbar: Braiins Stratum V1 warning</a> <span class="kind">secondary</span></li>
+      <li><a href="https://www.ledgerinsights.com/blackrock-launches-100m-hkd-tokenized-mmf-with-ant-intl-stanchart-as-investors/">Ledger Insights: BlackRock launches HKD tokenized fund</a> <span class="kind">secondary</span></li>
+      <li><a href="https://www.coininsider.org/news/layerzero-zero-samsung-card-kakao-pay-zan-validators/">Coin Insider: LayerZero names Zero validators</a> <span class="kind">secondary</span></li>
+    </ul>
+  </section>
+</article>
+
+<!-- ===================== 日本語 ===================== -->
+<article data-lang="ja" class="wrap" style="padding:0" hidden>
+  <header class="brief">
+    <span class="mono meta">デイリーブリーフ · 2026年11月26日 · 約5分</span>
+    <h1>ブロックチェーン・ブリーフ 2026年11月26日</h1>
+    <p class="lede">攻撃者がインターネットの経路を書き換え、暗号化されていない Stratum V1 を使うビットコインのマイナーからハッシュレートを奪っていました。11月20日には1,000を超える拠点が同じ1秒で影響を受けています。BlackRock は Ant International と Standard Chartered を出資者に迎え、トークン化した香港ドルの MMF を Ethereum 上で立ち上げました。Samsung Card と Kakao Pay は、11月30日に予定されているメインネットを前に LayerZero の Zero チェーンのバリデーターに加わりました。</p>
+    <p class="note">一次情報または独立した2つ目の情報源で確認できなかった内容には「未確認」と表示しています。</p>
+    <nav class="jump" data-noread aria-label="セクション"><a class="dev" href="#dev-ja">Dev ↓</a><a class="nondev" href="#nondev-ja">Non-dev ↓</a></nav>
+  </header>
+
+  <section class="track dev" id="dev-ja">
+    <div class="track-head"><h2>Dev</h2><p>プロトコル変更、コントラクトのリスク、セキュリティの詳細、開発ツール。</p></div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>セキュリティ · ビットコインのマイニング · 11月25日</span>
+      <h3>暗号化されていない Stratum V1 を狙ったハッシュレートの乗っ取り</h3>
+      <p>Braiins によると、攻撃者はインターネットの経路を書き換え、マイナーが偽のプールに接続するように仕向けていました。Stratum V1 にはマイナーがプールを確認する手段がないため、ダッシュボードは正常に見えたまま、ハッシュレートと報酬が攻撃者に流れます。攻撃は波状に行われました。11月7〜12日には中南米で19回、各回120〜400の拠点が狙われました。11月20日には主に欧州で4回、各回1,050〜1,600の拠点が狙われ、1,000を超える拠点が同じ1秒で接続を失い、最大 1.9 EH/s が奪われました。攻撃者は4,096アドレスのブロックの中にある256アドレスのブロックを経路広告し、RPKI による経路の起点検証をしていないネットワークがこの書き換えを受け入れました。Braiins は攻撃がまだ続いているとし、「様子見」の段階だと見ています。奪われた報酬の推計はなく、Braiins 自身のプールと支払いには影響がなかったとしています（<a href="https://www.theblock.co/news/ecosystems/2026-11-25-bitcoin-miners-hit-hashrate-hijacking-attack-exploiting-unencrypted-connections-446723">The Block</a>、<a href="https://www.coingabbar.com/en/bitcoin-mining-hashrate-hijack-braiins-stratum-v1-warning">Coin Gabbar</a>、<a href="https://braiins.com/blog/bitcoin-hashrate-hijacking-unencrypted-stratum-v1">Braiins</a>）。</p>
+      <p>先週の Luxor の件とこの攻撃を結びつける情報はありません。Luxor は自社ソフトウェアが原因だとしています。</p>
+    </div>
+
+    <div class="item">
+      <h3>今週やること</h3>
+      <ul class="points">
+        <li>マイナーは Stratum V2 に切り替える。V2 ではプールの URL にプールの公開鍵が含まれます。難しければ、証明書を実際に検証するファームウェアで V1 over TLS（<code>stratum+ssl://</code>）を使うか、SV2 プロキシを動かす。</li>
+        <li>予備のプールも含め、暗号化されていない <code>stratum+tcp://</code> の設定をすべて消す。攻撃者には1つあれば十分です。</li>
+        <li>全速で採掘しているのにプールのダッシュボードが空、接続のリセットが続く、シェアの難易度がプールの通常範囲を大きく超える、といった兆候に注意する。</li>
+        <li>ネットワーク事業者は RPKI による経路の起点検証を徹底する。一部のネットワークがこの書き換えを受け入れなかったのはそのためです。</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="track nondev" id="nondev-ja">
+    <div class="track-head"><h2>Non-dev</h2><p>市場・ビジネス・規制と、事件が何を意味するかのやさしい解説。</p></div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>トークン化 · 香港 · 11月24日</span>
+      <h3>BlackRock、トークン化した香港ドルの MMF を開始</h3>
+      <p>BlackRock のアジア初のトークン化ファンド「HKD Digital Liquidity Fund」が、Ant International と Standard Chartered を当初の出資者として、約1億ドルで Ethereum 上で始まりました。政府短期証券や預金など、短期の香港ドル建て資産で運用します。BlackRock によると、HKMA の免許を受けた事業者が発行するステーブルコインやトークン化預金での購入・償還を受け付ける場合があります。Standard Chartered はカストディアン、受託者、事務管理者も務め、Ant は24時間いつでも資金を出し入れできます（<a href="https://www.blackrock.com/hk/en/investment-ideas/hkd-digital-liquidity-fund">BlackRock</a>、<a href="https://www.ledgerinsights.com/blackrock-launches-100m-hkd-tokenized-mmf-with-ant-intl-stanchart-as-investors/">Ledger Insights</a>）。</p>
+      <p class="unverified"><b>未確認</b>1億が米ドルか香港ドルか、個人投資家が買えるかどうか。情報源によって異なり、目論見書は読んでいません。</p>
+    </div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>ビジネス · LayerZero · 11月25日</span>
+      <h3>Samsung Card と Kakao Pay、LayerZero の Zero チェーンのバリデーターに</h3>
+      <p>LayerZero は、独自のブロックチェーン Zero の新しいバリデーター3社を発表しました。Samsung Card はリサーチ会社 Four Pillars を通じて参加し、ノードは Four Pillars が運用します。月間利用者約2,600万人の Kakao Pay は、時期は未定ながらウォン建てステーブルコインの機会を探るとしています。3社目は Ant Digital Technologies のノード事業 ZAN です。Zero のメインネットは11月30日の予定で、ローンチ前のステーキングは11月23日に始まり、ステーキングの解除は2027年3月31日までにできる見込みです（<a href="https://www.coininsider.org/news/layerzero-zero-samsung-card-kakao-pay-zan-validators/">Coin Insider</a>）。</p>
+      <p class="unverified"><b>未確認</b>1本の記事によるものです。毎秒25万件超という処理能力は LayerZero 自身の数字です。</p>
+    </div>
+
+    <div class="item">
+      <h3>利用者として</h3>
+      <ul class="points">
+        <li>自宅でマイニングしている人や機械を預けている人は、今週プールの設定を確認してください。ダッシュボードに表れないまま報酬を奪われることがあります。</li>
+        <li>トークン化された MMF は今のところ主に機関向けです。参加の方法を探す前に、誰が買えるのかを確認してください。</li>
+        <li>ローンチ前のステーキングは、たいてい数か月トークンがロックされます。ステーキングする前に解除の時期を確認してください。</li>
+      </ul>
+      <p>今後の予定：タイのステーブルコイン案の意見募集締め切り（今日）、LayerZero の Zero メインネット（11月30日）、Binance の凍結命令の審理とモスクワ取引所の USDT 取引への付加価値税（12月1日）、香港の法案の第一読会（12月2日）、Upbit による KAVA の審査（12月14〜18日）。</p>
+    </div>
+  </section>
+
+  <section class="sources">
+    <h2>出典</h2>
+    <p>2026年11月26日時点の報道に基づきます。Braiins の報告は報道を通じて読みました。</p>
+    <ul>
+      <li><a href="https://braiins.com/blog/bitcoin-hashrate-hijacking-unencrypted-stratum-v1">Braiins：暗号化されていない Stratum V1 を狙ったハッシュレートの乗っ取り</a> <span class="kind">一次情報</span></li>
+      <li><a href="https://www.blackrock.com/hk/en/investment-ideas/hkd-digital-liquidity-fund">BlackRock：HKD Digital Liquidity Fund</a> <span class="kind">一次情報</span></li>
+      <li><a href="https://www.theblock.co/news/ecosystems/2026-11-25-bitcoin-miners-hit-hashrate-hijacking-attack-exploiting-unencrypted-connections-446723">The Block：ビットコインのマイナーがハッシュレート乗っ取りの被害に</a> <span class="kind">二次情報</span></li>
+      <li><a href="https://www.coingabbar.com/en/bitcoin-mining-hashrate-hijack-braiins-stratum-v1-warning">Coin Gabbar：Braiins の Stratum V1 に関する警告</a> <span class="kind">二次情報</span></li>
+      <li><a href="https://www.ledgerinsights.com/blackrock-launches-100m-hkd-tokenized-mmf-with-ant-intl-stanchart-as-investors/">Ledger Insights：BlackRock が香港ドルのトークン化ファンドを開始</a> <span class="kind">二次情報</span></li>
+      <li><a href="https://www.coininsider.org/news/layerzero-zero-samsung-card-kakao-pay-zan-validators/">Coin Insider：LayerZero が Zero のバリデーターを発表</a> <span class="kind">二次情報</span></li>
+    </ul>
+  </section>
+</article>
+
+
+
+<section class="comments" id="comments" data-noread>
+  <h2><span data-lang="en">Reader feedback</span><span data-lang="ja" hidden>読者のコメント</span></h2>
+  <p class="note"><span data-lang="en">Comments use GitHub sign-in, so every commenter is a real GitHub account. Be kind and stay on topic.</span><span data-lang="ja" hidden>コメントには GitHub へのログインが必要です。思いやりを持って、話題に沿って書き込んでください。</span></p>
+  <div class="giscus"></div>
+</section>
+
+<nav class="pager" data-noread>
+  <a href="../"><span data-lang="en">← All briefs</span><span data-lang="ja" hidden>← バックナンバー</span></a>
+  <span></span>
+</nav>
+</main>
+<script src="../assets/brief.js"></script>
+</body>
+</html>

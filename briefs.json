@@ -1,5 +1,17 @@
 [
   {
+    "date": "2026-11-26",
+    "file": "briefs/2026-11-26.html",
+    "title": {
+      "en": "Blockchain Brief, 26 Nov 2026",
+      "ja": "ブロックチェーン・ブリーフ 2026年11月26日"
+    },
+    "summary": {
+      "en": "Attackers hijack hashrate from Bitcoin miners on unencrypted Stratum V1, BlackRock launches a tokenized Hong Kong dollar money fund, and Samsung Card and Kakao Pay join LayerZero's Zero as validators.",
+      "ja": "暗号化されていない Stratum V1 を使うビットコインのマイナーからハッシュレートが乗っ取られ、BlackRock がトークン化した香港ドルの MMF を開始し、Samsung Card と Kakao Pay が LayerZero の Zero のバリデーターに加わりました。"
+    }
+  },
+  {
     "date": "2026-11-25",
     "file": "briefs/2026-11-25.html",
     "title": {
