@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Blockchain Brief, 27 Nov 2026</title>
+<meta name="description" content="Cardano's Dijkstra hard fork targets Q1 2027, a week of private-key leaks including Wagyu and a trader's wallet, Binance lifts its last withdrawal limits, and no word yet on Stellar's Bell upgrade.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-title-en="Blockchain Brief, 27 Nov 2026" data-title-ja="ブロックチェーン・ブリーフ 2026年11月27日">
+<div class="bar"><div class="bar-in">
+  <a class="home" href="../">Blockchain Brief</a>
+  <div class="controls">
+    <div class="seg" role="group" aria-label="Language"><button type="button" data-set-lang="en" aria-pressed="true">EN</button><button type="button" data-set-lang="ja" aria-pressed="false">日本語</button></div>
+  </div>
+</div></div>
+
+<main class="wrap">
+
+<!-- Read-aloud panel (shared; labels follow the language toggle) -->
+<section class="audio" id="audio" aria-label="Read aloud" data-noread>
+  <div class="audio-row">
+    <button type="button" class="btn primary" data-a="play">▶ Listen</button>
+    <button type="button" class="btn" data-a="stop" disabled>■ Stop</button>
+    <select class="btn" data-a="scope" aria-label="What to read"><option value="all">Whole brief</option><option value="dev">Dev only</option><option value="nondev">Non-dev only</option></select>
+  </div>
+  <div class="audio-row">
+    <label class="status"><span data-a="speedlbl">Speed</span>
+      <select class="btn" data-a="rate"><option value="0.8">0.8×</option><option value="0.9">0.9×</option><option value="1" selected>1×</option><option value="1.15">1.15×</option><option value="1.3">1.3×</option><option value="1.5">1.5×</option></select></label>
+    <label class="status"><span data-a="voicelbl">Voice</span>
+      <select class="btn" data-a="voice"></select></label>
+  </div>
+  <p class="status" data-a="status" aria-live="polite"></p>
+</section>
+
+<!-- ===================== ENGLISH ===================== -->
+<article data-lang="en" class="wrap" style="padding:0">
+  <header class="brief">
+    <span class="mono meta">Daily brief · 27 Nov 2026 · about 5 min read</span>
+    <h1>Blockchain Brief, 27 Nov 2026</h1>
+    <p class="lede">Cardano sets a first-quarter 2027 target for its Dijkstra hard fork, which lays the groundwork for the Leios throughput upgrade. A week of smaller incidents shows the same weak point again: leaked private keys, including $13.5 million from Wagyu and $2.57 million from a well-known trader's wallet. Binance says it has lifted the last withdrawal restrictions from its October hack.</p>
+    <p class="note">Claims I could not confirm from a primary or second independent source are marked Unverified.</p>
+    <nav class="jump" data-noread aria-label="Sections"><a class="dev" href="#dev-en">Dev ↓</a><a class="nondev" href="#nondev-en">Non-dev ↓</a></nav>
+  </header>
+
+  <section class="track dev" id="dev-en">
+    <div class="track-head"><h2>Dev</h2><p>Protocol changes, contract risks, security details and tooling.</p></div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>Cardano · Upgrade · 27 Nov</span>
+      <h3>Cardano targets Q1 2027 for the Dijkstra hard fork</h3>
+      <p>Intersect's latest upgrade bulletin puts the Dijkstra mainnet hard fork in the first quarter of 2027, depending on hard-fork-ready node software being available. DijkstraNet is testing Plutus V4, nested transactions, guard scripts, account improvements and BLS key registration. Leios, the throughput upgrade, initially targets three to five times today's capacity, but it won't switch on at the fork: stake pool operators first need to register BLS voting keys, and activation needs a separate parameter change. A Preview testnet upgrade is planned for December, a node 11.3 pre-release is expected within weeks, and a governance action for the CAP-12 constitutional amendment on the new parameters is planned for December. Dijkstra also ends support for cardano-js-sdk (<a href="https://crypto.news/cardano-dijkstra-hard-fork-q1-2027-leios-upgrade/">crypto.news</a>).</p>
+      <p class="unverified"><b>Unverified</b>I read Intersect's bulletin only through this article.</p>
+    </div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>Security · Incidents · 20–25 Nov</span>
+      <h3>A week of key leaks, plus two small contract bugs</h3>
+      <p>SlowMist's incident database lists several losses since last Friday that haven't had much coverage. Wagyu lost about $13.5 million on 20 November, and the trader known as Ansem lost about $2.57 million from a personal Solana wallet on 24 November, with the proceeds bridged to Arbitrum. SlowMist classifies both as private key leaks. Two smaller cases were code bugs: Biswap lost about $51,000 to a liquidity accounting flaw in the <code>burn()</code> function of its V3 pools on BNB Chain, and Aramid's bridge lost about $8,500 to a signature replay bug (<a href="https://hacked.slowmist.io/">SlowMist</a>).</p>
+      <p class="unverified"><b>Unverified</b>The amounts and causes are SlowMist's classifications, which link to posts on X that I haven't read. Neither Wagyu nor Ansem has published a postmortem that I've seen.</p>
+    </div>
+
+    <div class="item">
+      <h3>What to do this week</h3>
+      <ul class="points">
+        <li>Cardano developers: test against DijkstraNet now, and plan your move off cardano-js-sdk before the fork.</li>
+        <li>Stake pool operators: register BLS voting keys once tooling allows. Leios won't activate without enough of them.</li>
+        <li>For AMMs, fuzz <code>burn()</code> and liquidity accounting against rounding and edge-case positions.</li>
+        <li>Make signatures single-use: include a nonce, chain ID and contract address, and record what's been used.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="track nondev" id="nondev-en">
+    <div class="track-head"><h2>Non-dev</h2><p>Market, business and regulation, and what the incidents mean in plain language.</p></div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>Follow-up · Binance · 26 Nov</span>
+      <h3>Binance lifts its last hack-related withdrawal limits</h3>
+      <p>Binance says it finished reopening withdrawals on 26 November and has lifted all restrictions tied to October's hack. Withdrawals came back in phases from 1 November, starting with Bitcoin on 15 networks, with 87 more networks added in the week to 14 November. A few networks are still paused for maintenance that it says is unrelated. Deposits stayed open throughout. Binance says it put more than $6.34 billion from its treasury and insurance funds toward covering affected assets and will rebuild its user protection fund to about $1 billion (<a href="https://en.cryptonomist.ch/2026/11/27/binance-withdrawals-reopening/">The Cryptonomist</a>).</p>
+      <p class="unverified"><b>Unverified</b>From one article paraphrasing Binance. I haven't seen Binance's own announcement.</p>
+    </div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>Follow-up · Stellar</span>
+      <h3>Still no word on Stellar's Bell upgrade</h3>
+      <p>Four days after the scheduled mainnet vote, Stellar's upgrades page still shows only the planned vote dates and doesn't say whether Protocol 30 is live (<a href="https://stellar.org/protocol-upgrades">Stellar</a>).</p>
+    </div>
+
+    <div class="item">
+      <h3>As a user</h3>
+      <ul class="points">
+        <li>Most of this week's losses came from stolen keys, not broken code. Keep large holdings on a hardware wallet, and never type a recovery phrase into a website.</li>
+        <li>If you had funds stuck on Binance, check whether your network is one of the few still paused for maintenance.</li>
+        <li>ADA holders don't need to do anything for Dijkstra. Exchanges and wallets will handle it.</li>
+      </ul>
+      <p>Coming up: LayerZero's Zero mainnet (30 November), Binance's freezing-order hearing and Moscow Exchange's VAT on USDT trades (1 December), Hong Kong's first reading (2 December), Cardano's Preview testnet upgrade (December) and Upbit's KAVA review (14–18 December).</p>
+    </div>
+  </section>
+
+  <section class="sources">
+    <h2>Sources</h2>
+    <p>Reporting as of 27 November 2026. Intersect's bulletin and Binance's statements were read through coverage.</p>
+    <ul>
+      <li><a href="https://stellar.org/protocol-upgrades">Stellar: protocol upgrades</a> <span class="kind">primary</span></li>
+      <li><a href="https://crypto.news/cardano-dijkstra-hard-fork-q1-2027-leios-upgrade/">crypto.news: Cardano targets Q1 2027 for Dijkstra</a> <span class="kind">secondary</span></li>
+      <li><a href="https://en.cryptonomist.ch/2026/11/27/binance-withdrawals-reopening/">The Cryptonomist: Binance reopens withdrawals</a> <span class="kind">secondary</span></li>
+      <li><a href="https://hacked.slowmist.io/">SlowMist: hacked incident database</a> <span class="kind">aggregator</span></li>
+    </ul>
+  </section>
+</article>
+
+<!-- ===================== 日本語 ===================== -->
+<article data-lang="ja" class="wrap" style="padding:0" hidden>
+  <header class="brief">
+    <span class="mono meta">デイリーブリーフ · 2026年11月27日 · 約5分</span>
+    <h1>ブロックチェーン・ブリーフ 2026年11月27日</h1>
+    <p class="lede">Cardano は、処理能力を高める Leios アップグレードの土台となる Dijkstra ハードフォークの目標を2027年1〜3月期に定めました。この1週間の小規模な事件では、またしても秘密鍵の流出が弱点になりました。Wagyu から1,350万ドル、著名トレーダーのウォレットから257万ドルが失われています。Binance は、10月のハッキングに伴う出金制限の最後のものを解除したとしています。</p>
+    <p class="note">一次情報または独立した2つ目の情報源で確認できなかった内容には「未確認」と表示しています。</p>
+    <nav class="jump" data-noread aria-label="セクション"><a class="dev" href="#dev-ja">Dev ↓</a><a class="nondev" href="#nondev-ja">Non-dev ↓</a></nav>
+  </header>
+
+  <section class="track dev" id="dev-ja">
+    <div class="track-head"><h2>Dev</h2><p>プロトコル変更、コントラクトのリスク、セキュリティの詳細、開発ツール。</p></div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>Cardano · アップグレード · 11月27日</span>
+      <h3>Cardano、Dijkstra ハードフォークの目標を2027年1〜3月期に</h3>
+      <p>Intersect の最新のアップグレード速報によると、Dijkstra のメインネットのハードフォークは、ハードフォークに対応したノードソフトウェアがそろうことを前提に、2027年1〜3月期を目標としています。DijkstraNet では Plutus V4、ネストされたトランザクション、ガードスクリプト、アカウントの改善、BLS 鍵の登録を試験中です。処理能力を高める Leios は当初、現在の3〜5倍を目標としていますが、フォークと同時には有効になりません。まずステークプールの運営者が BLS の投票鍵を登録し、そのうえで別のパラメータ変更が必要です。12月に Preview テストネットのアップグレード、数週間以内にノード 11.3 のプレリリースが予定されており、新しいパラメータに関する憲法改正 CAP-12 のガバナンスアクションも12月に予定されています。Dijkstra では cardano-js-sdk のサポートも終了します（<a href="https://crypto.news/cardano-dijkstra-hard-fork-q1-2027-leios-upgrade/">crypto.news</a>）。</p>
+      <p class="unverified"><b>未確認</b>Intersect の速報はこの記事を通じてしか読めていません。</p>
+    </div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>セキュリティ · 事件 · 11月20〜25日</span>
+      <h3>秘密鍵の流出が続いた1週間、小さなコントラクトのバグも2件</h3>
+      <p>SlowMist の事件データベースには、先週金曜以降、あまり報じられていない損失がいくつか載っています。Wagyu は11月20日に約1,350万ドルを失い、Ansem として知られるトレーダーは11月24日に個人の Solana ウォレットから約257万ドルを失い、資金は Arbitrum へブリッジされました。SlowMist はどちらも秘密鍵の流出に分類しています。小さな2件はコードのバグで、Biswap は BNB Chain 上の V3 プールの <code>burn()</code> 関数にあった流動性の会計の欠陥で約5万1,000ドルを、Aramid のブリッジは署名の再利用のバグで約8,500ドルを失いました（<a href="https://hacked.slowmist.io/">SlowMist</a>）。</p>
+      <p class="unverified"><b>未確認</b>金額と原因は SlowMist の分類によるもので、根拠とされる X の投稿は読んでいません。Wagyu も Ansem も、私が確認した限り事後報告を出していません。</p>
+    </div>
+
+    <div class="item">
+      <h3>今週やること</h3>
+      <ul class="points">
+        <li>Cardano の開発者は今のうちに DijkstraNet で試験し、フォーク前に cardano-js-sdk からの移行を計画する。</li>
+        <li>ステークプールの運営者は、ツールが整い次第 BLS の投票鍵を登録する。十分な数がないと Leios は有効になりません。</li>
+        <li>AMM では、<code>burn()</code> と流動性の会計を、丸めや極端なポジションに対してファジングする。</li>
+        <li>署名は一度しか使えないようにする。nonce、チェーン ID、コントラクトのアドレスを含め、使用済みのものを記録する。</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="track nondev" id="nondev-ja">
+    <div class="track-head"><h2>Non-dev</h2><p>市場・ビジネス・規制と、事件が何を意味するかのやさしい解説。</p></div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>続報 · Binance · 11月26日</span>
+      <h3>Binance、ハッキングに伴う最後の出金制限を解除</h3>
+      <p>Binance によると、11月26日に出金の再開を終え、10月のハッキングに関連する制限をすべて解除しました。出金は11月1日からビットコインを先頭に15のネットワークで段階的に再開され、11月14日までの週にさらに87のネットワークが加わりました。いくつかのネットワークはまだメンテナンスで停止中ですが、ハッキングとは関係ないとしています。入金は一貫して受け付けていました。Binance は、自社の資金と保険基金から63.4億ドル超を影響を受けた資産の補填に充て、利用者保護基金を約10億ドルまで積み直すとしています（<a href="https://en.cryptonomist.ch/2026/11/27/binance-withdrawals-reopening/">The Cryptonomist</a>）。</p>
+      <p class="unverified"><b>未確認</b>Binance の説明を言い換えた1本の記事によるもので、Binance 自身の発表は確認していません。</p>
+    </div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>続報 · Stellar</span>
+      <h3>Stellar の Bell アップグレード、まだ発表なし</h3>
+      <p>メインネットの投票予定日から4日たっても、Stellar のアップグレードのページには予定された投票日しか載っておらず、Protocol 30 が稼働したかどうかは書かれていません（<a href="https://stellar.org/protocol-upgrades">Stellar</a>）。</p>
+    </div>
+
+    <div class="item">
+      <h3>利用者として</h3>
+      <ul class="points">
+        <li>今週の損失の多くは、コードの欠陥ではなく鍵の盗難によるものでした。多額の資産はハードウェアウォレットに置き、リカバリーフレーズをウェブサイトに入力しないでください。</li>
+        <li>Binance で資金が動かせなかった人は、自分のネットワークがまだメンテナンスで止まっている数少ないものに入っていないか確認してください。</li>
+        <li>ADA の保有者は Dijkstra に向けて何もする必要はありません。取引所やウォレットが対応します。</li>
+      </ul>
+      <p>今後の予定：LayerZero の Zero メインネット（11月30日）、Binance の凍結命令の審理とモスクワ取引所の USDT 取引への付加価値税（12月1日）、香港の法案の第一読会（12月2日）、Cardano の Preview テストネットのアップグレード（12月）、Upbit による KAVA の審査（12月14〜18日）。</p>
+    </div>
+  </section>
+
+  <section class="sources">
+    <h2>出典</h2>
+    <p>2026年11月27日時点の報道に基づきます。Intersect の速報と Binance の説明は報道を通じて読みました。</p>
+    <ul>
+      <li><a href="https://stellar.org/protocol-upgrades">Stellar：プロトコルアップグレード</a> <span class="kind">一次情報</span></li>
+      <li><a href="https://crypto.news/cardano-dijkstra-hard-fork-q1-2027-leios-upgrade/">crypto.news：Cardano が Dijkstra の目標を2027年1〜3月期に</a> <span class="kind">二次情報</span></li>
+      <li><a href="https://en.cryptonomist.ch/2026/11/27/binance-withdrawals-reopening/">The Cryptonomist：Binance が出金を再開</a> <span class="kind">二次情報</span></li>
+      <li><a href="https://hacked.slowmist.io/">SlowMist：ハッキング事件データベース</a> <span class="kind">まとめサイト</span></li>
+    </ul>
+  </section>
+</article>
+
+
+
+<section class="comments" id="comments" data-noread>
+  <h2><span data-lang="en">Reader feedback</span><span data-lang="ja" hidden>読者のコメント</span></h2>
+  <p class="note"><span data-lang="en">Comments use GitHub sign-in, so every commenter is a real GitHub account. Be kind and stay on topic.</span><span data-lang="ja" hidden>コメントには GitHub へのログインが必要です。思いやりを持って、話題に沿って書き込んでください。</span></p>
+  <div class="giscus"></div>
+</section>
+
+<nav class="pager" data-noread>
+  <a href="../"><span data-lang="en">← All briefs</span><span data-lang="ja" hidden>← バックナンバー</span></a>
+  <span></span>
+</nav>
+</main>
+<script src="../assets/brief.js"></script>
+</body>
+</html>

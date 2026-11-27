@@ -1,5 +1,17 @@
 [
   {
+    "date": "2026-11-27",
+    "file": "briefs/2026-11-27.html",
+    "title": {
+      "en": "Blockchain Brief, 27 Nov 2026",
+      "ja": "ブロックチェーン・ブリーフ 2026年11月27日"
+    },
+    "summary": {
+      "en": "Cardano targets Q1 2027 for its Dijkstra hard fork, a week of private-key leaks hits Wagyu and a well-known trader, and Binance lifts its last hack-related withdrawal limits.",
+      "ja": "Cardano が Dijkstra ハードフォークの目標を2027年1〜3月期に定め、秘密鍵の流出が Wagyu と著名トレーダーを襲い、Binance がハッキングに伴う最後の出金制限を解除しました。"
+    }
+  },
+  {
     "date": "2026-11-26",
     "file": "briefs/2026-11-26.html",
     "title": {
