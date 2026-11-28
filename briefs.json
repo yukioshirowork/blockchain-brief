@@ -1,5 +1,17 @@
 [
   {
+    "date": "2026-11-28",
+    "file": "briefs/2026-11-28.html",
+    "title": {
+      "en": "Blockchain Brief, 28 Nov 2026",
+      "ja": "ブロックチェーン・ブリーフ 2026年11月28日"
+    },
+    "summary": {
+      "en": "Glamsterdam heads to the Hoodi testnet on 15 December with EIP-8037 unchanged, a phished key drains the ATOSHI bridge, and malicious ads target iPhone users' wallet recovery phrases.",
+      "ja": "Glamsterdam は EIP-8037 を変えずに12月15日に Hoodi テストネットへ。フィッシングで漏れた鍵で ATOSHI のブリッジから資金が流出し、悪質な広告が iPhone 利用者のリカバリーフレーズを狙っています。"
+    }
+  },
+  {
     "date": "2026-11-27",
     "file": "briefs/2026-11-27.html",
     "title": {

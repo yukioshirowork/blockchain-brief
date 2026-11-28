@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Blockchain Brief, 28 Nov 2026</title>
+<meta name="description" content="Glamsterdam set for the Hoodi testnet on 15 December with EIP-8037 unchanged, the ATOSHI bridge drained via a phished key, an iPhone malvertising campaign targeting wallet recovery phrases, and the Bank of Japan on stablecoin reserves.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-title-en="Blockchain Brief, 28 Nov 2026" data-title-ja="ブロックチェーン・ブリーフ 2026年11月28日">
+<div class="bar"><div class="bar-in">
+  <a class="home" href="../">Blockchain Brief</a>
+  <div class="controls">
+    <div class="seg" role="group" aria-label="Language"><button type="button" data-set-lang="en" aria-pressed="true">EN</button><button type="button" data-set-lang="ja" aria-pressed="false">日本語</button></div>
+  </div>
+</div></div>
+
+<main class="wrap">
+
+<!-- Read-aloud panel (shared; labels follow the language toggle) -->
+<section class="audio" id="audio" aria-label="Read aloud" data-noread>
+  <div class="audio-row">
+    <button type="button" class="btn primary" data-a="play">▶ Listen</button>
+    <button type="button" class="btn" data-a="stop" disabled>■ Stop</button>
+    <select class="btn" data-a="scope" aria-label="What to read"><option value="all">Whole brief</option><option value="dev">Dev only</option><option value="nondev">Non-dev only</option></select>
+  </div>
+  <div class="audio-row">
+    <label class="status"><span data-a="speedlbl">Speed</span>
+      <select class="btn" data-a="rate"><option value="0.8">0.8×</option><option value="0.9">0.9×</option><option value="1" selected>1×</option><option value="1.15">1.15×</option><option value="1.3">1.3×</option><option value="1.5">1.5×</option></select></label>
+    <label class="status"><span data-a="voicelbl">Voice</span>
+      <select class="btn" data-a="voice"></select></label>
+  </div>
+  <p class="status" data-a="status" aria-live="polite"></p>
+</section>
+
+<!-- ===================== ENGLISH ===================== -->
+<article data-lang="en" class="wrap" style="padding:0">
+  <header class="brief">
+    <span class="mono meta">Daily brief · 28 Nov 2026 · about 5 min read</span>
+    <h1>Blockchain Brief, 28 Nov 2026</h1>
+    <p class="lede">Ethereum's Glamsterdam upgrade has a date on the Hoodi testnet, 15 December, and the gas change that worried contract teams ships unchanged. A bridge lost a fifth of its token supply after a developer clicked a phishing link. A malvertising campaign is stealing wallet recovery phrases from unpatched iPhones, and the Bank of Japan wants tighter reserve rules for stablecoins.</p>
+    <p class="note">Claims I could not confirm from a primary or second independent source are marked Unverified.</p>
+    <nav class="jump" data-noread aria-label="Sections"><a class="dev" href="#dev-en">Dev ↓</a><a class="nondev" href="#nondev-en">Non-dev ↓</a></nav>
+  </header>
+
+  <section class="track dev" id="dev-en">
+    <div class="track-head"><h2>Dev</h2><p>Protocol changes, contract risks, security details and tooling.</p></div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>Follow-up · Ethereum · 26 Nov</span>
+      <h3>Glamsterdam goes to Hoodi on 15 December, with EIP-8037 unchanged</h3>
+      <p>On the 26 November consensus-layer call (ACDC #192), developers scheduled Glamsterdam on the Hoodi testnet for 15 December at 19:12 UTC. No mainnet date has been set. The headline features remain EIP-7732 (enshrined proposer-builder separation) and EIP-7928 (block-level access lists). EIP-8037, which raises the gas cost of creating new state, ships without further changes, settling the debate we covered on 20 November. For builder payload validation, the call adopted a non-consensus-breaking approach that checks block hashes using RLP and rejected an alternative that would have needed a consensus change. Talk has moved on to the next fork, Hegotá: client teams disagree on whether FOCIL (inclusion lists) should be its headline feature, and one researcher asked whether post-quantum work should come first. Its scope will be reviewed on the next call (<a href="https://www.theblock.co/news/ecosystems/2026-11-27-ethereum-devs-schedule-glamsterdam-upgrade-hoodi-447051">The Block</a>, <a href="https://ethereum-magicians.org/t/all-core-devs-consensus-acdc-192-november-26-2026/30388">ACDC #192 agenda</a>).</p>
+      <p>Why it matters for contracts: an Ethereum Foundation-commissioned review by ChainSecurity replayed a year of mainnet traces under the new rules. It reportedly found about 200 issues, 24 of which need a contract upgrade or migration rather than a configuration change. The patterns that break are fixed gas stipends forwarded to external calls where failure is treated as a signal, code that branches on the <code>GAS</code> opcode (which will report execution gas only), and logic that relies on a call running out of gas and reverting, since the separate state-creation gas reservoir can let some of those calls succeed (<a href="https://shattered.io/ethereum-glamsterdam-chainsecurity-200-findings-24-migrations-eip-8037/">Shattered</a>).</p>
+      <p class="unverified"><b>Unverified</b>I haven't read ChainSecurity's report itself, and earlier coverage counted its findings differently.</p>
+    </div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>Security · Bridge · 27 Nov</span>
+      <h3>ATOSHI bridge drained through a phished key and a proxy upgrade</h3>
+      <p>Blockaid flagged a private key compromise at the ATOSHI bridge on 27 November. ATOSHI's preliminary account says a developer opened a malicious Telegram link, which leaked a key for the bridge infrastructure. The attacker used it to upgrade the Ethereum bridge router proxy to an implementation that could only send funds out, moved about 201 million ATOS (roughly 22% of circulating supply) to a new wallet, and sold part of it on KyberSwap for about $60,000. The token fell about 75%. ATOSHI has asked users to stop trading and bridging for now (<a href="https://www.coingabbar.com/en/atoshi-security-incident-bridge-exploit-atos-price-news">CoinGabbar</a>, <a href="https://x.com/atoshiofficial/status/2126402828642242771">ATOSHI</a>).</p>
+      <p class="unverified"><b>Unverified</b>The sale figure is Blockaid's count as reported by CoinGabbar. I haven't read ATOSHI's or Blockaid's posts directly.</p>
+    </div>
+
+    <div class="item">
+      <h3>What to do this week</h3>
+      <ul class="points">
+        <li>If you have contracts on Ethereum, search them for hard-coded gas stipends, <code>gasleft()</code> branches and out-of-gas guards, and test them on Hoodi after 15 December.</li>
+        <li>Put proxy upgrades behind a multisig and a timelock. One leaked key shouldn't be able to swap your implementation.</li>
+        <li>Keep signing keys off machines that open chat links, and use hardware signers for admin roles.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="track nondev" id="nondev-en">
+    <div class="track-head"><h2>Non-dev</h2><p>Market, business and regulation, and what the incidents mean in plain language.</p></div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>Security · Phones · 23 Nov</span>
+      <h3>Malicious ads target iPhones to steal wallet recovery phrases</h3>
+      <p>Researchers at Confiant describe a malvertising operation they call MoldyRoost. It has used about 500 ad domains over six months, targeting people in more than 47 countries. Simply loading the ad's landing page on an out-of-date iPhone can be enough to infect it. The operation picks one of four exploit kits based on the phone's iOS version. These kits look for wallet recovery phrases in apps such as MetaMask, Phantom and Trust Wallet, and also search Notes and saved photos of QR codes. They take passwords, messages and photos too (<a href="https://www.forbes.com/sites/digital-assets/2026/11/23/nation-state-grade-iphone-hack-leaves-crypto-wallets-password-managers-data-messages-and-photos-at-risk/">Forbes</a>).</p>
+      <p class="unverified"><b>Unverified</b>I read this through Forbes, which doesn't say which iOS versions are affected or fixed. I haven't read Confiant's report.</p>
+    </div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>Regulation · Japan · 27 Nov</span>
+      <h3>Bank of Japan wants reserve rules for stablecoins</h3>
+      <p>Speaking at an IMF seminar in Tokyo, Bank of Japan Executive Director Kazushige Kamiyama said stablecoins' reserve assets and operations need close scrutiny. He argued that new forms of money should link well to central bank money, so that a yen is worth a yen whichever form it takes, an idea known as the "singleness of money" (<a href="https://www.theblock.co/news/regulation/2026-11-27-bank-of-japan-official-says-stablecoins-need-reserve-rules-to-preserve-singleness-of-money-447059">The Block</a>, <a href="https://www.boj.or.jp/en/about/press/koen_2026/data/ko261127a.pdf">Bank of Japan</a>).</p>
+    </div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>Business · Custody · 27 Nov</span>
+      <h3>Zodia Custody says an intruder saw client contact details</h3>
+      <p>Zodia Custody, which is backed by Standard Chartered, says someone gained access to client contact details. It found no unauthorised transactions (<a href="https://decrypt.co/384033/standard-chartereds-zodia-custody-says-hackers-accessed-client-contact-details">Decrypt</a>). Separately, as a follow-up to yesterday: Binance has lifted its last hack-related withdrawal suspensions, but some USDC routes are reportedly still paused (<a href="https://thecryptodesk.substack.com/p/the-crypto-desk-friday-27-november">The Crypto Desk</a>).</p>
+      <p class="unverified"><b>Unverified</b>The USDC caveat comes from a newsletter summary of Cointelegraph's report.</p>
+    </div>
+
+    <div class="item">
+      <h3>As a user</h3>
+      <ul class="points">
+        <li>Update your iPhone now, and don't keep recovery phrases in Notes, screenshots or photos.</li>
+        <li>If you're a Zodia client, expect targeted phishing. Confirm any request through a channel you already trust.</li>
+        <li>If you hold ATOS, don't bridge or trade until the team gives the all-clear.</li>
+      </ul>
+      <p>Coming up: LayerZero's Zero mainnet and KuCoin's Monero delisting (30 November), Binance's freezing-order hearing and Cardano's Euler working group (1 December), Hong Kong's first reading (2 December) and Glamsterdam on Hoodi (15 December).</p>
+    </div>
+  </section>
+
+  <section class="sources">
+    <h2>Sources</h2>
+    <p>Reporting as of 28 November 2026. ChainSecurity's report, Confiant's research and the ATOSHI and Blockaid posts were read through coverage.</p>
+    <ul>
+      <li><a href="https://ethereum-magicians.org/t/all-core-devs-consensus-acdc-192-november-26-2026/30388">Ethereum Magicians: ACDC #192 agenda</a> <span class="kind">primary</span></li>
+      <li><a href="https://www.boj.or.jp/en/about/press/koen_2026/data/ko261127a.pdf">Bank of Japan: Kamiyama speech</a> <span class="kind">primary</span></li>
+      <li><a href="https://x.com/atoshiofficial/status/2126402828642242771">ATOSHI: security advisory</a> <span class="kind">primary</span></li>
+      <li><a href="https://www.theblock.co/news/ecosystems/2026-11-27-ethereum-devs-schedule-glamsterdam-upgrade-hoodi-447051">The Block: Glamsterdam scheduled for Hoodi</a> <span class="kind">secondary</span></li>
+      <li><a href="https://www.theblock.co/news/regulation/2026-11-27-bank-of-japan-official-says-stablecoins-need-reserve-rules-to-preserve-singleness-of-money-447059">The Block: Bank of Japan on stablecoin reserves</a> <span class="kind">secondary</span></li>
+      <li><a href="https://shattered.io/ethereum-glamsterdam-chainsecurity-200-findings-24-migrations-eip-8037/">Shattered: ChainSecurity's Glamsterdam review</a> <span class="kind">secondary</span></li>
+      <li><a href="https://www.coingabbar.com/en/atoshi-security-incident-bridge-exploit-atos-price-news">CoinGabbar: ATOSHI bridge exploit</a> <span class="kind">secondary</span></li>
+      <li><a href="https://www.forbes.com/sites/digital-assets/2026/11/23/nation-state-grade-iphone-hack-leaves-crypto-wallets-password-managers-data-messages-and-photos-at-risk/">Forbes: iPhone exploit campaign</a> <span class="kind">secondary</span></li>
+      <li><a href="https://decrypt.co/384033/standard-chartereds-zodia-custody-says-hackers-accessed-client-contact-details">Decrypt: Zodia Custody breach</a> <span class="kind">secondary</span></li>
+      <li><a href="https://thecryptodesk.substack.com/p/the-crypto-desk-friday-27-november">The Crypto Desk, 27 Nov</a> <span class="kind">newsletter</span></li>
+    </ul>
+  </section>
+</article>
+
+<!-- ===================== JAPANESE ===================== -->
+<article data-lang="ja" class="wrap" style="padding:0" hidden>
+  <header class="brief">
+    <span class="mono meta">デイリーブリーフ · 2026年11月28日 · 約5分</span>
+    <h1>ブロックチェーン・ブリーフ 2026年11月28日</h1>
+    <p class="lede">Ethereum の Glamsterdam アップグレードは、Hoodi テストネットでの実施日が12月15日に決まりました。コントラクト開発チームが懸念していたガス変更は、そのままの形で入ります。ある開発者がフィッシングリンクを開いたことで、ブリッジがトークン供給量の約5分の1を失いました。また、更新されていない iPhone からウォレットのリカバリーフレーズを盗む悪質な広告キャンペーンが見つかり、日本銀行はステーブルコインの準備資産に関するルール強化を求めています。</p>
+    <p class="note">一次情報または独立した2つ目の情報源で確認できなかった内容には「未確認」と表示しています。</p>
+    <nav class="jump" data-noread aria-label="セクション"><a class="dev" href="#dev-ja">Dev ↓</a><a class="nondev" href="#nondev-ja">Non-dev ↓</a></nav>
+  </header>
+
+  <section class="track dev" id="dev-ja">
+    <div class="track-head"><h2>Dev</h2><p>プロトコル変更、コントラクトのリスク、セキュリティの詳細、開発ツール。</p></div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>続報 · Ethereum · 11月26日</span>
+      <h3>Glamsterdam は12月15日に Hoodi へ、EIP-8037 は変更なし</h3>
+      <p>11月26日のコンセンサス層の会議（ACDC #192）で、開発者は Glamsterdam を Hoodi テストネットで12月15日 19:12 UTC に実施すると決めました。メインネットの日程はまだ決まっていません。主な機能は引き続き EIP-7732（プロトコルに組み込まれた proposer-builder separation）と EIP-7928（ブロック単位のアクセスリスト）です。新しいステートを作るガス代を引き上げる EIP-8037 は、これ以上変更せずに入ることになり、11月20日に取り上げた議論に決着がつきました。ビルダーのペイロード検証については、RLP でブロックハッシュを確認する、コンセンサスを壊さない方式が採用され、コンセンサス変更が必要な別案は見送られました。話題はすでに次のフォーク Hegotá に移っています。FOCIL（インクルージョンリスト）を目玉にするかどうかでクライアントチームの意見は分かれており、耐量子化の作業を優先すべきではないかという問いも出ました。範囲は次回の会議で検討されます（<a href="https://www.theblock.co/news/ecosystems/2026-11-27-ethereum-devs-schedule-glamsterdam-upgrade-hoodi-447051">The Block</a>、<a href="https://ethereum-magicians.org/t/all-core-devs-consensus-acdc-192-november-26-2026/30388">ACDC #192 の議題</a>）。</p>
+      <p>コントラクトへの影響：Ethereum Foundation の依頼で ChainSecurity が行ったレビューでは、メインネットの1年分のトレースを新しいルールで再実行しました。報道によると問題は約200件見つかり、そのうち24件は設定変更ではなくコントラクトのアップグレードや移行が必要とされています。影響を受けるのは、外部呼び出しに固定のガスを渡して失敗を判定に使うコード、<code>GAS</code> オペコード（今後は実行用のガスだけを返す）で分岐するコード、そして呼び出しがガス切れでリバートすることを前提にしたロジックです。ステート作成用のガスが別枠になるため、以前は失敗していた呼び出しが成功してしまう場合があります（<a href="https://shattered.io/ethereum-glamsterdam-chainsecurity-200-findings-24-migrations-eip-8037/">Shattered</a>）。</p>
+      <p class="unverified"><b>未確認</b>ChainSecurity の報告書そのものは読んでいません。また、以前の報道では件数の数え方が異なっていました。</p>
+    </div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>セキュリティ · ブリッジ · 11月27日</span>
+      <h3>ATOSHI のブリッジ、フィッシングで漏れた鍵とプロキシの差し替えで流出</h3>
+      <p>Blockaid は11月27日、ATOSHI のブリッジで秘密鍵が漏えいしたと警告しました。ATOSHI の暫定的な説明によると、開発者が Telegram の悪質なリンクを開き、ブリッジ基盤の鍵が漏れました。攻撃者はその鍵で Ethereum 側のブリッジルーターのプロキシを、資金を送り出すことしかできない実装に差し替え、約2億100万 ATOS（流通量の約22%）を新しいウォレットに移し、その一部を KyberSwap で約6万ドル分売却しました。トークン価格は約75%下落しています。ATOSHI は当面、取引とブリッジの利用を止めるよう呼びかけています（<a href="https://www.coingabbar.com/en/atoshi-security-incident-bridge-exploit-atos-price-news">CoinGabbar</a>、<a href="https://x.com/atoshiofficial/status/2126402828642242771">ATOSHI</a>）。</p>
+      <p class="unverified"><b>未確認</b>売却額は CoinGabbar が伝えた Blockaid の集計です。ATOSHI と Blockaid の投稿は直接読んでいません。</p>
+    </div>
+
+    <div class="item">
+      <h3>今週やること</h3>
+      <ul class="points">
+        <li>Ethereum 上にコントラクトがあるなら、固定のガス指定、<code>gasleft()</code> による分岐、ガス切れを前提にしたガードを洗い出し、12月15日以降に Hoodi でテストする。</li>
+        <li>プロキシのアップグレードはマルチシグとタイムロックの背後に置く。鍵が1本漏れただけで実装を差し替えられる状態にしない。</li>
+        <li>署名用の鍵はチャットのリンクを開く端末に置かず、管理者権限にはハードウェア署名機を使う。</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="track nondev" id="nondev-ja">
+    <div class="track-head"><h2>Non-dev</h2><p>市場・ビジネス・規制と、事件が何を意味するかのやさしい解説。</p></div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>セキュリティ · スマートフォン · 11月23日</span>
+      <h3>悪質な広告で iPhone を狙い、ウォレットのリカバリーフレーズを盗む</h3>
+      <p>Confiant の研究者が、MoldyRoost と名付けた悪質広告の活動を報告しました。この半年で約500の広告ドメインを使い、47か国以上の人を狙っています。古いバージョンの iPhone では、広告のリンク先ページを開くだけで感染することがあります。iOS のバージョンに合わせて4種類の攻撃キットを使い分け、MetaMask、Phantom、Trust Wallet などのアプリからリカバリーフレーズを探すほか、メモアプリや保存された QR コードの写真も調べます。パスワード、メッセージ、写真も盗まれます（<a href="https://www.forbes.com/sites/digital-assets/2026/11/23/nation-state-grade-iphone-hack-leaves-crypto-wallets-password-managers-data-messages-and-photos-at-risk/">Forbes</a>）。</p>
+      <p class="unverified"><b>未確認</b>Forbes の記事を通じて読んだもので、影響を受ける iOS のバージョンや修正済みのバージョンは書かれていません。Confiant の報告書は読んでいません。</p>
+    </div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>規制 · 日本 · 11月27日</span>
+      <h3>日本銀行、ステーブルコインの準備資産にルールを求める</h3>
+      <p>日本銀行の神山一成理事は東京で開かれた IMF のセミナーで、ステーブルコインの準備資産と運営を厳しく確認する必要があると述べました。新しい形のお金は中央銀行のお金ときちんとつながるべきで、どの形でも1円は1円として交換できる、いわゆる「通貨の単一性」を保つべきだという考えです（<a href="https://www.theblock.co/news/regulation/2026-11-27-bank-of-japan-official-says-stablecoins-need-reserve-rules-to-preserve-singleness-of-money-447059">The Block</a>、<a href="https://www.boj.or.jp/en/about/press/koen_2026/data/ko261127a.pdf">日本銀行</a>）。</p>
+    </div>
+
+    <div class="item">
+      <span class="tag mono" data-noread>ビジネス · カストディ · 11月27日</span>
+      <h3>Zodia Custody、顧客の連絡先が第三者に見られたと発表</h3>
+      <p>Standard Chartered が出資する Zodia Custody は、何者かが顧客の連絡先情報にアクセスしたと発表しました。不正な取引は見つかっていないとしています（<a href="https://decrypt.co/384033/standard-chartereds-zodia-custody-says-hackers-accessed-client-contact-details">Decrypt</a>）。また昨日の続報として、Binance はハッキングに伴う最後の出金停止を解除しましたが、一部の USDC のルートはまだ止まっていると報じられています（<a href="https://thecryptodesk.substack.com/p/the-crypto-desk-friday-27-november">The Crypto Desk</a>）。</p>
+      <p class="unverified"><b>未確認</b>USDC についての但し書きは、Cointelegraph の記事をまとめたニュースレターによるものです。</p>
+    </div>
+
+    <div class="item">
+      <h3>利用者として</h3>
+      <ul class="points">
+        <li>iPhone をすぐに最新版に更新し、リカバリーフレーズをメモ、スクリーンショット、写真に残さない。</li>
+        <li>Zodia の顧客は、狙いを絞ったフィッシングに注意する。依頼は、もともと信頼している連絡手段で確認する。</li>
+        <li>ATOS を持っている人は、チームが安全を宣言するまでブリッジや売買をしない。</li>
+      </ul>
+      <p>今後の予定：LayerZero の Zero メインネットと KuCoin の Monero 上場廃止（11月30日）、Binance の凍結命令の審理と Cardano の Euler ワーキンググループ（12月1日）、香港の法案の第一読会（12月2日）、Glamsterdam の Hoodi での実施（12月15日）。</p>
+    </div>
+  </section>
+
+  <section class="sources">
+    <h2>出典</h2>
+    <p>2026年11月28日時点の報道に基づきます。ChainSecurity の報告書、Confiant の調査、ATOSHI と Blockaid の投稿は報道を通じて読みました。</p>
+    <ul>
+      <li><a href="https://ethereum-magicians.org/t/all-core-devs-consensus-acdc-192-november-26-2026/30388">Ethereum Magicians：ACDC #192 の議題</a> <span class="kind">一次情報</span></li>
+      <li><a href="https://www.boj.or.jp/en/about/press/koen_2026/data/ko261127a.pdf">日本銀行：神山理事の講演</a> <span class="kind">一次情報</span></li>
+      <li><a href="https://x.com/atoshiofficial/status/2126402828642242771">ATOSHI：セキュリティに関する告知</a> <span class="kind">一次情報</span></li>
+      <li><a href="https://www.theblock.co/news/ecosystems/2026-11-27-ethereum-devs-schedule-glamsterdam-upgrade-hoodi-447051">The Block：Glamsterdam の Hoodi 日程</a> <span class="kind">二次情報</span></li>
+      <li><a href="https://www.theblock.co/news/regulation/2026-11-27-bank-of-japan-official-says-stablecoins-need-reserve-rules-to-preserve-singleness-of-money-447059">The Block：日本銀行とステーブルコインの準備資産</a> <span class="kind">二次情報</span></li>
+      <li><a href="https://shattered.io/ethereum-glamsterdam-chainsecurity-200-findings-24-migrations-eip-8037/">Shattered：ChainSecurity による Glamsterdam のレビュー</a> <span class="kind">二次情報</span></li>
+      <li><a href="https://www.coingabbar.com/en/atoshi-security-incident-bridge-exploit-atos-price-news">CoinGabbar：ATOSHI ブリッジへの攻撃</a> <span class="kind">二次情報</span></li>
+      <li><a href="https://www.forbes.com/sites/digital-assets/2026/11/23/nation-state-grade-iphone-hack-leaves-crypto-wallets-password-managers-data-messages-and-photos-at-risk/">Forbes：iPhone を狙う攻撃キャンペーン</a> <span class="kind">二次情報</span></li>
+      <li><a href="https://decrypt.co/384033/standard-chartereds-zodia-custody-says-hackers-accessed-client-contact-details">Decrypt：Zodia Custody の情報流出</a> <span class="kind">二次情報</span></li>
+      <li><a href="https://thecryptodesk.substack.com/p/the-crypto-desk-friday-27-november">The Crypto Desk（11月27日）</a> <span class="kind">ニュースレター</span></li>
+    </ul>
+  </section>
+</article>
+
+
+
+<section class="comments" id="comments" data-noread>
+  <h2><span data-lang="en">Reader feedback</span><span data-lang="ja" hidden>読者のコメント</span></h2>
+  <p class="note"><span data-lang="en">Comments use GitHub sign-in, so every commenter is a real GitHub account. Be kind and stay on topic.</span><span data-lang="ja" hidden>コメントには GitHub へのログインが必要です。思いやりを持って、話題に沿って書き込んでください。</span></p>
+  <div class="giscus"></div>
+</section>
+
+<nav class="pager" data-noread>
+  <a href="../"><span data-lang="en">← All briefs</span><span data-lang="ja" hidden>← バックナンバー</span></a>
+  <span></span>
+</nav>
+</main>
+<script src="../assets/brief.js"></script>
+</body>
+</html>
